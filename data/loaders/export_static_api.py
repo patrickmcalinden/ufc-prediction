@@ -320,6 +320,53 @@ def export_bets(cur, dry_run: bool):
     write_json("bets.json", bets, dry_run)
 
 
+def export_models(cur, dry_run: bool):
+    """Export per-model performance stats (mirrors GET /predictions/models)."""
+    cur.execute("""
+        SELECT model_version,
+               COUNT(prediction_id) AS total_predictions,
+               COUNT(was_correct)   AS graded,
+               COALESCE(SUM(CASE WHEN was_correct = TRUE THEN 1 ELSE 0 END), 0) AS correct,
+               AVG(win_probability) AS avg_confidence
+        FROM predictions
+        GROUP BY model_version
+        ORDER BY model_version
+    """)
+    rows = cur.fetchall()
+
+    models = []
+    for r in rows:
+        graded = r["graded"] or 0
+        correct = int(r["correct"] or 0)
+        accuracy = round((correct / graded * 100), 1) if graded > 0 else 0.0
+        avg_conf = round(float(r["avg_confidence"] or 0) * 100, 1)
+
+        cur.execute("""
+            SELECT
+              COUNT(*) FILTER (WHERE was_correct IS NOT NULL)               AS hc_total,
+              COUNT(*) FILTER (WHERE was_correct IS NOT NULL AND was_correct = TRUE) AS hc_correct
+            FROM predictions
+            WHERE model_version = %s
+              AND win_probability > 0.70
+        """, (r["model_version"],))
+        hc = cur.fetchone()
+        hc_total = hc["hc_total"] or 0
+        hc_correct = hc["hc_correct"] or 0
+        high_conf_acc = round((hc_correct / hc_total * 100), 1) if hc_total > 0 else None
+
+        models.append({
+            "model_version": r["model_version"],
+            "total_predictions": r["total_predictions"],
+            "graded": graded,
+            "correct": correct,
+            "accuracy": accuracy,
+            "avg_confidence": avg_conf,
+            "high_conf_accuracy": high_conf_acc,
+        })
+
+    write_json("models.json", models, dry_run)
+
+
 def export_blog(dry_run: bool):
     """Export blog posts (mirrors GET /blog and GET /blog/:slug)."""
     import frontmatter
@@ -374,22 +421,25 @@ def main():
     cur = conn.cursor()
 
     try:
-        print("\n[1/6] Exporting fighters list...")
+        print("\n[1/7] Exporting fighters list...")
         fighters = export_fighters(cur, dry_run)
 
-        print(f"\n[2/6] Exporting per-fighter details ({len(fighters)} fighters)...")
+        print(f"\n[2/7] Exporting per-fighter details ({len(fighters)} fighters)...")
         export_fighter_details(cur, fighters, dry_run)
 
-        print("\n[3/6] Exporting predictions...")
+        print("\n[3/7] Exporting predictions...")
         export_predictions(cur, dry_run)
 
-        print("\n[4/6] Exporting results...")
+        print("\n[4/7] Exporting results...")
         export_results(cur, dry_run)
 
-        print("\n[5/6] Exporting bets...")
+        print("\n[5/7] Exporting bets...")
         export_bets(cur, dry_run)
 
-        print("\n[6/6] Exporting blog posts...")
+        print("\n[6/7] Exporting model leaderboard...")
+        export_models(cur, dry_run)
+
+        print("\n[7/7] Exporting blog posts...")
         export_blog(dry_run)
 
         print("\n" + "=" * 60)
