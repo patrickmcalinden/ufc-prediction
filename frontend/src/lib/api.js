@@ -74,13 +74,21 @@ export const api = {
 
   // Predictions
   getPredictions: (modelVersion = null) => {
-    if (IS_STATIC) return staticJson("predictions.json");
+    if (IS_STATIC) {
+      return staticJson("predictions.json").then((rows) =>
+        modelVersion ? rows.filter((r) => r.model_version === modelVersion) : rows
+      );
+    }
     const params = modelVersion ? `?model_version=${modelVersion}` : '';
     return get(`/predictions${params}`);
   },
 
   getResults: (modelVersion = null) => {
-    if (IS_STATIC) return staticJson("results.json");
+    if (IS_STATIC) {
+      return staticJson("results.json").then((rows) =>
+        modelVersion ? rows.filter((r) => r.model_version === modelVersion) : rows
+      );
+    }
     const params = modelVersion ? `?model_version=${modelVersion}` : '';
     return get(`/predictions/results${params}`);
   },

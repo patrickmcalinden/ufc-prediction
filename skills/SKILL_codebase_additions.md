@@ -47,6 +47,27 @@ getThing: (id) => {
 If you forget this, the production build will silently try to hit
 `localhost:8000` and fail.
 
+**Filters that the live API applies must be re-applied client-side in
+the static branch.** The static export ships *all* rows for an
+endpoint; if the live route accepts e.g. `?model_version=v2`, the
+static branch must filter the loaded array itself:
+
+```js
+getResults: (modelVersion = null) => {
+  if (IS_STATIC) {
+    return staticJson("results.json").then((rows) =>
+      modelVersion ? rows.filter((r) => r.model_version === modelVersion) : rows
+    );
+  }
+  const params = modelVersion ? `?model_version=${modelVersion}` : '';
+  return get(`/predictions/results${params}`);
+},
+```
+
+If you forget this, toggles and selectors silently do nothing in
+production and you get duplicate rows when the data has multiple
+variants per logical record.
+
 ### 3. Re-export and verify locally
 ```
 bash scripts/update_data.sh        # macOS / Linux / Git Bash
