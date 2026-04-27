@@ -1,0 +1,38 @@
+# Secrets — NEVER commit
+.env
+.env.*
+!.env.example
+*.env
+*.env.local
+.env.local
+secrets/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node / Frontend
+node_modules/
+frontend/dist/
+# NOTE: frontend/public/data/ is NOT ignored — GitHub Pages needs the
+# static JSON files committed to serve the site. Re-export with
+# `python -m data.loaders.export_static_api` before pushing.
+
+# Model artifacts (large binary files)
+model/artifacts/*.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Local Claude Code permissions
+.claude/settings.local.json
+
+# Legacy / unused files
+*.UNUSED.md

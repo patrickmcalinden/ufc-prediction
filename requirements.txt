@@ -1,0 +1,13 @@
+requests
+beautifulsoup4
+psycopg[binary]
+sqlalchemy
+pandas
+xgboost
+scikit-learn
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+
+python-frontmatter

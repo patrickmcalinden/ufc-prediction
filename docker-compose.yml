@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: ufc_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ufc_user
+      POSTGRES_PASSWORD: ufc_password
+      POSTGRES_DB: ufc_predictor
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
