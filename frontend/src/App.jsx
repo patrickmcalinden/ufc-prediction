@@ -16,7 +16,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <div className="min-h-screen flex flex-col font-sans">
 
           <nav className="fixed w-full z-50 glass-panel border-b-white/5 rounded-none bg-ufcslate-900/90 py-4 px-6 flex justify-between items-center shadow-2xl">

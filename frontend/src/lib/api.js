@@ -42,7 +42,7 @@ async function patch(path, body) {
 // ─── Static JSON helper (production / GitHub Pages) ──────────────────
 
 async function staticJson(filename) {
-  const res = await fetch(`/data/${filename}`);
+  const res = await fetch(`${import.meta.env.BASE_URL}data/${filename}`);
   if (!res.ok) throw new Error(`Static data not found: ${filename}`);
   return res.json();
 }
