@@ -174,8 +174,7 @@ def export_predictions(cur, dry_run: bool):
         JOIN fighters fb ON f.fighter_b_id = fb.fighter_id
         LEFT JOIN fighters pw ON p.predicted_winner_id = pw.fighter_id
         LEFT JOIN events e ON f.event_id = e.event_id
-        ORDER BY p.prediction_id DESC
-        LIMIT 150
+        ORDER BY f.fight_date DESC, p.model_version, p.prediction_id DESC
     """)
     rows = cur.fetchall()
 
