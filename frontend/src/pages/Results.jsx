@@ -18,9 +18,24 @@ export default function Results() {
     retry: 1,
   });
 
+  // ── Event groups ─────────────────────────────────────────────────
+  // Only show the last 2 graded events (most recent first).
+  const sortedEvents = useMemo(
+    () => groupAndSortByEvent(results, { chronological: true }).slice(0, 2),
+    [results]
+  );
+
+  // ── Filtered results: only fights from the last 2 events ─────────
+  // All summary stats and charts derive from this scoped set, so historical
+  // events do not pollute the dashboard.
+  const scopedResults = useMemo(
+    () => sortedEvents.flatMap((e) => e.fights),
+    [sortedEvents]
+  );
+
   // ── Derived analytics ─────────────────────────────────────────────
   const analytics = useMemo(() => {
-    if (!results || results.length === 0) {
+    if (!scopedResults || scopedResults.length === 0) {
       return {
         total: 0, correct: 0, wrong: 0, accuracy: '0.0',
         byConfidence: [], calibration: [], distribution: [],
@@ -29,27 +44,27 @@ export default function Results() {
       };
     }
 
-    const total = results.length;
-    const correct = results.filter((r) => r.was_correct === true).length;
-    const wrong = results.filter((r) => r.was_correct === false).length;
+    const total = scopedResults.length;
+    const correct = scopedResults.filter((r) => r.was_correct === true).length;
+    const wrong = scopedResults.filter((r) => r.was_correct === false).length;
     const accuracy = (correct / total * 100).toFixed(1);
 
     // Average confidence
-    const avgConfidence = (results.reduce((s, r) => s + r.win_probability, 0) / total * 100).toFixed(1);
-    const correctPreds = results.filter((r) => r.was_correct === true);
-    const wrongPreds = results.filter((r) => r.was_correct === false);
+    const avgConfidence = (scopedResults.reduce((s, r) => s + r.win_probability, 0) / total * 100).toFixed(1);
+    const correctPreds = scopedResults.filter((r) => r.was_correct === true);
+    const wrongPreds = scopedResults.filter((r) => r.was_correct === false);
     const avgConfidenceCorrect = correctPreds.length > 0
       ? (correctPreds.reduce((s, r) => s + r.win_probability, 0) / correctPreds.length * 100).toFixed(1) : '0.0';
     const avgConfidenceWrong = wrongPreds.length > 0
       ? (wrongPreds.reduce((s, r) => s + r.win_probability, 0) / wrongPreds.length * 100).toFixed(1) : '0.0';
 
     // High confidence accuracy (>70%)
-    const highConf = results.filter((r) => r.win_probability > 0.70);
+    const highConf = scopedResults.filter((r) => r.win_probability > 0.70);
     const highConfidenceAcc = highConf.length > 0
       ? (highConf.filter((r) => r.was_correct).length / highConf.length * 100).toFixed(1) : null;
 
     // Title fight accuracy
-    const titleFights = results.filter((r) => r.is_title_fight);
+    const titleFights = scopedResults.filter((r) => r.is_title_fight);
     const titleFightAcc = titleFights.length > 0
       ? (titleFights.filter((r) => r.was_correct).length / titleFights.length * 100).toFixed(1) : null;
 
@@ -62,7 +77,7 @@ export default function Results() {
       const low = bucketEdges[i];
       const high = bucketEdges[i + 1];
       const label = high === 100 ? `${low}%+` : `${low}-${high}%`;
-      const inBucket = results.filter((r) => {
+      const inBucket = scopedResults.filter((r) => {
         const pct = r.win_probability * 100;
         return pct >= low && pct < high;
       });
@@ -87,7 +102,7 @@ export default function Results() {
 
     // ── Legacy tier buckets for the bar chart ─────────────────────
     const tierBuckets = { Low: { correct: 0, total: 0 }, Medium: { correct: 0, total: 0 }, High: { correct: 0, total: 0 } };
-    results.forEach((r) => {
+    scopedResults.forEach((r) => {
       const pct = r.win_probability * 100;
       const tier = pct < 55 ? 'Low' : pct <= 70 ? 'Medium' : 'High';
       tierBuckets[tier].total++;
@@ -103,14 +118,7 @@ export default function Results() {
       total, correct, wrong, accuracy, byConfidence, calibration, distribution,
       avgConfidence, avgConfidenceCorrect, avgConfidenceWrong, highConfidenceAcc, titleFightAcc,
     };
-  }, [results]);
-
-  // ── Event groups ─────────────────────────────────────────────────
-  // Only show the last 2 graded events (most recent first).
-  const sortedEvents = useMemo(
-    () => groupAndSortByEvent(results, { chronological: true }).slice(0, 2),
-    [results]
-  );
+  }, [scopedResults]);
 
   // ── Collapse state ─────────────────────────────────────────────
   const [collapsedEvents, setCollapsedEvents] = useState(new Set());
