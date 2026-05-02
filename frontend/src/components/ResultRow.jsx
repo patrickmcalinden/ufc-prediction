@@ -146,6 +146,21 @@ export default function ResultRow({ fight }) {
           </div>
         </div>
       </div>
+
+      {/* Footer: IDs */}
+      <div className="flex items-center justify-center gap-3 px-4 py-1.5 border-t border-white/5 bg-black/20">
+        <span className="text-[9px] font-bold uppercase tracking-widest text-gray-600">
+          Fight <span className="text-gray-500">#{fight.fight_id}</span>
+        </span>
+        <span className="text-gray-700">·</span>
+        <span className="text-[9px] font-bold uppercase tracking-widest text-gray-600">
+          {aName.last || aName.first} <span className="text-gray-500">#{fight.fighter_a_id}</span>
+        </span>
+        <span className="text-gray-700">·</span>
+        <span className="text-[9px] font-bold uppercase tracking-widest text-gray-600">
+          {bName.last || bName.first} <span className="text-gray-500">#{fight.fighter_b_id}</span>
+        </span>
+      </div>
     </div>
   );
 }
