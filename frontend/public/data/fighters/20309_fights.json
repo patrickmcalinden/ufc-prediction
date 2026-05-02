@@ -1,1 +1,1 @@
-[{"fight_id": 10152, "fight_date": "2026-05-02", "event_name": "UFC Fight Night: Della Maddalena vs. Prates", "opponent_name": "Marwan Rahiki", "opponent_id": 16788, "result": "NC", "method": null, "round": null, "time": null, "is_title_fight": false, "weight_class": null}]
+[{"fight_id": 10152, "fight_date": "2026-05-02", "event_name": "UFC Fight Night: Della Maddalena vs. Prates", "opponent_name": "Marwan Rahiki", "opponent_id": 16788, "result": "L", "method": "KO/TKO", "round": 1, "time": "2:47", "is_title_fight": false, "weight_class": null}]
