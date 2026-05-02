@@ -106,8 +106,9 @@ export default function Results() {
   }, [results]);
 
   // ── Event groups ─────────────────────────────────────────────────
+  // Only show the last 2 graded events (most recent first).
   const sortedEvents = useMemo(
-    () => groupAndSortByEvent(results, { chronological: true }),
+    () => groupAndSortByEvent(results, { chronological: true }).slice(0, 2),
     [results]
   );
 

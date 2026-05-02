@@ -15,6 +15,21 @@ export default function Predictions() {
     retry: 1,
   });
 
+  // Cross-reference graded results so any event that already has graded fights
+  // is excluded from the upcoming list — this is the authoritative signal for
+  // "event has happened", and is more reliable than per-fight `was_correct`
+  // (which can drift out of sync when predictions.json is re-exported).
+  const { data: gradedResults } = useQuery({
+    queryKey: ['results', selectedModel],
+    queryFn: () => api.getResults(selectedModel),
+    retry: 1,
+  });
+
+  const gradedEventNames = useMemo(() => {
+    if (!gradedResults) return new Set();
+    return new Set(gradedResults.map((r) => r.event_name));
+  }, [gradedResults]);
+
   const [collapsedEvents, setCollapsedEvents] = useState(new Set());
 
   const formatEventDate = (date) => {
@@ -49,8 +64,8 @@ export default function Predictions() {
   }, [predictions]);
 
   const sortedEvents = useMemo(
-    () => groupAndSortByEvent(upcomingPredictions),
-    [upcomingPredictions]
+    () => groupAndSortByEvent(upcomingPredictions).filter((e) => !gradedEventNames.has(e.eventName)),
+    [upcomingPredictions, gradedEventNames]
   );
 
   const allCollapsed = sortedEvents.length > 0 && sortedEvents.every((e) => collapsedEvents.has(e.eventName));
