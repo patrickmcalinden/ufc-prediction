@@ -6,13 +6,49 @@ import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from 'recharts';
 import { api } from '../lib/api';
+import { groupAndSortByEvent } from '../lib/utils';
 
 export default function ModelLeaderboard() {
-  const { data: models, isLoading, isError } = useQuery({
-    queryKey: ['models'],
-    queryFn: api.getModels,
+  const { data: results, isLoading, isError } = useQuery({
+    queryKey: ['results', null],
+    queryFn: () => api.getResults(),
     retry: 1,
   });
+
+  // Scope to the last 2 graded events (matches Results page).
+  const scopedResults = useMemo(() => {
+    const events = groupAndSortByEvent(results, { chronological: true }).slice(0, 2);
+    return events.flatMap((e) => e.fights);
+  }, [results]);
+
+  // Aggregate per-model stats from the scoped fights.
+  const models = useMemo(() => {
+    if (!scopedResults || scopedResults.length === 0) return [];
+    const byModel = new Map();
+    for (const r of scopedResults) {
+      const v = r.model_version;
+      if (!byModel.has(v)) {
+        byModel.set(v, { model_version: v, graded: 0, correct: 0, confSum: 0, hcTotal: 0, hcCorrect: 0 });
+      }
+      const m = byModel.get(v);
+      m.graded += 1;
+      if (r.was_correct === true) m.correct += 1;
+      m.confSum += r.win_probability;
+      if (r.win_probability > 0.70) {
+        m.hcTotal += 1;
+        if (r.was_correct === true) m.hcCorrect += 1;
+      }
+    }
+    return Array.from(byModel.values()).map((m) => ({
+      model_version: m.model_version,
+      total_predictions: m.graded,
+      graded: m.graded,
+      correct: m.correct,
+      accuracy: m.graded > 0 ? Math.round((m.correct / m.graded) * 1000) / 10 : 0,
+      avg_confidence: m.graded > 0 ? Math.round((m.confSum / m.graded) * 1000) / 10 : 0,
+      high_conf_accuracy: m.hcTotal > 0 ? Math.round((m.hcCorrect / m.hcTotal) * 1000) / 10 : null,
+    }));
+  }, [scopedResults]);
 
   const sortedModels = useMemo(() => {
     if (!models) return [];
@@ -67,7 +103,7 @@ export default function ModelLeaderboard() {
           Model Leaderboard
         </h1>
         <p className="text-gray-400 font-medium tracking-wide">
-          Compare prediction model performance across all graded fights.
+          Compare prediction model performance across the last 2 graded events.
         </p>
       </div>
 
