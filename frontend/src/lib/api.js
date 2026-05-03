@@ -122,12 +122,6 @@ export const api = {
     return get(`/blog/${slug}`);
   },
 
-  // Model Performance
-  getModelPerformance: () => {
-    if (IS_STATIC) return staticJson("model_performance.json");
-    return get("/model/performance");
-  },
-
   // Health — always returns ok in static mode
   healthCheck: () => {
     if (IS_STATIC) return Promise.resolve({ status: "static" });

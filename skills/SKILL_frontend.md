@@ -71,7 +71,6 @@ export const api = {
   getBets: () => get("/bets"),
   getBlogPosts: () => get("/blog"),
   getBlogPost: (slug) => get(`/blog/${slug}`),
-  getModelPerformance: () => get("/model/performance"),
 };
 ```
 
