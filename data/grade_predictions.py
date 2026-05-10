@@ -37,7 +37,10 @@ def grade_predictions(db_url=None, dry_run=False):
             cur.execute("SELECT COUNT(*) AS cnt FROM predictions WHERE was_correct IS NOT NULL")
             summary["already_graded"] = cur.fetchone()["cnt"]
 
-            # Fetch ungraded predictions joined with their fight's winner
+            # Fetch ungraded predictions for *deployed* events only.
+            # Predictions for non-deployed events are treated as backtest data
+            # and intentionally left ungraded (they would otherwise inflate
+            # the live model leaderboard).
             cur.execute("""
                 SELECT p.prediction_id,
                        p.predicted_winner_id,
@@ -45,7 +48,9 @@ def grade_predictions(db_url=None, dry_run=False):
                        f.winner_id
                   FROM predictions p
                   JOIN fights f ON f.fight_id = p.fight_id
+                  JOIN events e ON e.event_id = f.event_id
                  WHERE p.was_correct IS NULL
+                   AND e.deployed_at IS NOT NULL
             """)
             rows = cur.fetchall()
 

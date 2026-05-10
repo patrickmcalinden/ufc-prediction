@@ -15,9 +15,11 @@ export default function ModelLeaderboard() {
     retry: 1,
   });
 
-  // Scope to the last 2 graded events (matches Results page).
+  // Aggregate over every deployed event. Backtest events are already
+  // excluded upstream by the export (events.deployed_at IS NOT NULL),
+  // so no client-side limit is needed.
   const scopedResults = useMemo(() => {
-    const events = groupAndSortByEvent(results, { chronological: true }).slice(0, 2);
+    const events = groupAndSortByEvent(results, { chronological: true });
     return events.flatMap((e) => e.fights);
   }, [results]);
 
@@ -103,7 +105,7 @@ export default function ModelLeaderboard() {
           Model Leaderboard
         </h1>
         <p className="text-gray-400 font-medium tracking-wide">
-          Compare prediction model performance across the last 2 graded events.
+          Compare prediction model performance across all deployed events.
         </p>
       </div>
 
