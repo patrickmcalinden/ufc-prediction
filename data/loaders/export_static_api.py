@@ -152,7 +152,13 @@ def export_fighter_details(cur, fighters, dry_run: bool):
 
 
 def export_predictions(cur, dry_run: bool):
-    """Export predictions (mirrors GET /predictions)."""
+    """Export predictions (mirrors GET /predictions).
+
+    Includes predictions for:
+      * deployed past events (where the model was actually used live), and
+      * future events (upcoming predictions that haven't been deployed yet).
+    Excludes backtest predictions for past events that were never deployed.
+    """
     cur.execute("""
         SELECT p.prediction_id, p.fight_id, p.predicted_winner_id,
                p.win_probability, p.model_version, p.was_correct,
@@ -174,6 +180,7 @@ def export_predictions(cur, dry_run: bool):
         JOIN fighters fb ON f.fighter_b_id = fb.fighter_id
         LEFT JOIN fighters pw ON p.predicted_winner_id = pw.fighter_id
         LEFT JOIN events e ON f.event_id = e.event_id
+        WHERE e.deployed_at IS NOT NULL OR e.event_date >= CURRENT_DATE
         ORDER BY f.fight_date DESC, p.model_version, p.prediction_id DESC
     """)
     rows = cur.fetchall()
@@ -320,16 +327,24 @@ def export_bets(cur, dry_run: bool):
 
 
 def export_models(cur, dry_run: bool):
-    """Export per-model performance stats (mirrors GET /predictions/models)."""
+    """Export per-model performance stats (mirrors GET /predictions/models).
+
+    Scoped to predictions for deployed events only — backtest predictions
+    on non-deployed events are excluded so the leaderboard reflects live
+    model performance, not historical model fits.
+    """
     cur.execute("""
-        SELECT model_version,
-               COUNT(prediction_id) AS total_predictions,
-               COUNT(was_correct)   AS graded,
-               COALESCE(SUM(CASE WHEN was_correct = TRUE THEN 1 ELSE 0 END), 0) AS correct,
-               AVG(win_probability) AS avg_confidence
-        FROM predictions
-        GROUP BY model_version
-        ORDER BY model_version
+        SELECT p.model_version,
+               COUNT(p.prediction_id) AS total_predictions,
+               COUNT(p.was_correct)   AS graded,
+               COALESCE(SUM(CASE WHEN p.was_correct = TRUE THEN 1 ELSE 0 END), 0) AS correct,
+               AVG(p.win_probability) AS avg_confidence
+        FROM predictions p
+        JOIN fights f ON f.fight_id = p.fight_id
+        JOIN events e ON e.event_id = f.event_id
+        WHERE e.deployed_at IS NOT NULL
+        GROUP BY p.model_version
+        ORDER BY p.model_version
     """)
     rows = cur.fetchall()
 
@@ -342,11 +357,14 @@ def export_models(cur, dry_run: bool):
 
         cur.execute("""
             SELECT
-              COUNT(*) FILTER (WHERE was_correct IS NOT NULL)               AS hc_total,
-              COUNT(*) FILTER (WHERE was_correct IS NOT NULL AND was_correct = TRUE) AS hc_correct
-            FROM predictions
-            WHERE model_version = %s
-              AND win_probability > 0.70
+              COUNT(*) FILTER (WHERE p.was_correct IS NOT NULL)               AS hc_total,
+              COUNT(*) FILTER (WHERE p.was_correct IS NOT NULL AND p.was_correct = TRUE) AS hc_correct
+            FROM predictions p
+            JOIN fights f ON f.fight_id = p.fight_id
+            JOIN events e ON e.event_id = f.event_id
+            WHERE p.model_version = %s
+              AND p.win_probability > 0.70
+              AND e.deployed_at IS NOT NULL
         """, (r["model_version"],))
         hc = cur.fetchone()
         hc_total = hc["hc_total"] or 0

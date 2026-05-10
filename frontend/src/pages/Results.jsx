@@ -19,15 +19,14 @@ export default function Results() {
   });
 
   // ── Event groups ─────────────────────────────────────────────────
-  // Only show the last 2 graded events (most recent first).
+  // Show every deployed event most-recent-first. Backtest events are
+  // already excluded upstream (export only includes events where
+  // events.deployed_at IS NOT NULL), so no client-side limit is needed.
   const sortedEvents = useMemo(
-    () => groupAndSortByEvent(results, { chronological: true }).slice(0, 2),
+    () => groupAndSortByEvent(results, { chronological: true }),
     [results]
   );
 
-  // ── Filtered results: only fights from the last 2 events ─────────
-  // All summary stats and charts derive from this scoped set, so historical
-  // events do not pollute the dashboard.
   const scopedResults = useMemo(
     () => sortedEvents.flatMap((e) => e.fights),
     [sortedEvents]

@@ -16,10 +16,16 @@ def list_predictions(
     model_version: Optional[str] = Query(None, description="Filter by model version (e.g. v1, v2)"),
     db: Session = Depends(get_db)
 ):
+    from datetime import date
     query = (
         db.query(Prediction)
         .join(Fight)
-        .filter(Fight.is_cancelled == False)
+        .join(Event, Event.event_id == Fight.event_id)
+        .filter(
+            Fight.is_cancelled == False,
+            # Deployed past events + all future events; excludes backtest-only events.
+            (Event.deployed_at.isnot(None)) | (Event.event_date >= date.today()),
+        )
     )
     if model_version:
         query = query.filter(Prediction.model_version == model_version)
@@ -144,7 +150,11 @@ def list_results(
 
 @router.get("/models", response_model=list[ModelPerformanceResponse])
 def list_models(db: Session = Depends(get_db)):
-    """Return performance stats for each model version."""
+    """Return performance stats for each model version.
+
+    Scoped to predictions for deployed events only — backtest predictions
+    are excluded so the leaderboard reflects live model performance.
+    """
     rows = (
         db.query(
             Prediction.model_version,
@@ -153,6 +163,9 @@ def list_models(db: Session = Depends(get_db)):
             func.sum(case((Prediction.was_correct == True, 1), else_=0)).label("correct"),
             func.avg(Prediction.win_probability).label("avg_confidence"),
         )
+        .join(Fight, Fight.fight_id == Prediction.fight_id)
+        .join(Event, Event.event_id == Fight.event_id)
+        .filter(Event.deployed_at.isnot(None))
         .group_by(Prediction.model_version)
         .order_by(Prediction.model_version)
         .all()
@@ -166,13 +179,16 @@ def list_models(db: Session = Depends(get_db)):
         accuracy = round((correct / graded * 100), 1) if graded > 0 else 0.0
         avg_conf = round(float(r.avg_confidence or 0) * 100, 1)
 
-        # High confidence accuracy (>70%)
+        # High confidence accuracy (>70%) — also scoped to deployed events
         high_conf_q = (
             db.query(Prediction)
+            .join(Fight, Fight.fight_id == Prediction.fight_id)
+            .join(Event, Event.event_id == Fight.event_id)
             .filter(
                 Prediction.model_version == r.model_version,
                 Prediction.was_correct.isnot(None),
                 Prediction.win_probability > 0.70,
+                Event.deployed_at.isnot(None),
             )
         )
         high_conf_total = high_conf_q.count()

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, Date, Numeric, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, Date, DateTime, Numeric, Text, ForeignKey
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 from api.db.connection import Base
@@ -29,7 +29,8 @@ class Event(Base):
     name = Column(String(255))
     location = Column(String(255))
     event_date = Column(Date)
-    
+    deployed_at = Column(DateTime(timezone=True))
+
     fights = relationship("Fight", back_populates="event")
 
 class Fight(Base):
