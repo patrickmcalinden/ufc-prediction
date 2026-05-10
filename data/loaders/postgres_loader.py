@@ -130,10 +130,12 @@ class PostgresLoader:
                     %(method)s, %(round)s, %(time)s, %(weight_class)s, %(is_title_fight)s, %(fight_date)s,
                     %(card_order)s, %(is_cancelled)s, NOW()
                 ) ON CONFLICT (espn_fight_id) DO UPDATE SET
-                    winner_id = EXCLUDED.winner_id,
-                    method = EXCLUDED.method,
-                    round = EXCLUDED.round,
-                    time = EXCLUDED.time,
+                    -- Result fields fall back to existing value when the scrape returns NULL
+                    -- (e.g. re-scraping an upcoming event must not wipe a previously-recorded winner).
+                    winner_id = COALESCE(EXCLUDED.winner_id, fights.winner_id),
+                    method = COALESCE(EXCLUDED.method, fights.method),
+                    round = COALESCE(EXCLUDED.round, fights.round),
+                    time = COALESCE(EXCLUDED.time, fights.time),
                     weight_class = EXCLUDED.weight_class,
                     is_title_fight = EXCLUDED.is_title_fight,
                     fight_date = EXCLUDED.fight_date,
