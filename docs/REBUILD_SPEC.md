@@ -2,7 +2,13 @@
 
 A self-contained specification for re-implementing this UFC prediction
 project from scratch, incorporating lessons from the current
-implementation. Companion to [LESSONS.md](LESSONS.md) — read both.
+implementation. Companion to [LESSONS.md](LESSONS.md) and
+[REBUILD_REFERENCE.md](REBUILD_REFERENCE.md) — read all three.
+
+- **This doc (REBUILD_SPEC):** architecture, contracts, invariants.
+- **REBUILD_REFERENCE:** concrete code snippets, hyperparameters,
+  ELO formulas, ESPN JSON paths — the implementation-level details.
+- **LESSONS:** operational pain points to design around.
 
 If you (or an LLM) are tasked with rewriting this system, the goal
 is **one-shot correctness**: implementing every contract here on the

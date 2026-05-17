@@ -4,8 +4,10 @@ How to refresh data on https://patrickmcalinden.github.io/ufc-prediction/.
 
 > **See also:** [docs/LESSONS.md](docs/LESSONS.md) for recurring
 > operational pain points + verification habits.
-> [docs/REBUILD_SPEC.md](docs/REBUILD_SPEC.md) if you're rewriting
-> the system from scratch.
+> If you're rewriting the system from scratch, read
+> [docs/REBUILD_SPEC.md](docs/REBUILD_SPEC.md) (architecture +
+> invariants) and [docs/REBUILD_REFERENCE.md](docs/REBUILD_REFERENCE.md)
+> (concrete code snippets, ELO math, ESPN JSON paths, deps).
 
 ## TL;DR (the loop you'll run after every event)
 
