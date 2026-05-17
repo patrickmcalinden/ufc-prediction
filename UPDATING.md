@@ -2,6 +2,11 @@
 
 How to refresh data on https://patrickmcalinden.github.io/ufc-prediction/.
 
+> **See also:** [docs/LESSONS.md](docs/LESSONS.md) for recurring
+> operational pain points + verification habits.
+> [docs/REBUILD_SPEC.md](docs/REBUILD_SPEC.md) if you're rewriting
+> the system from scratch.
+
 ## TL;DR (the loop you'll run after every event)
 
 ```
