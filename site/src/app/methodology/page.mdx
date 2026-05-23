@@ -1,0 +1,38 @@
+export const metadata = { title: "Methodology · UFC Predictor" };
+
+# Methodology
+
+This page is a high-level description of how predictions on this site
+are produced. Phase 5 will flesh it out — right now it's a placeholder
+to prove MDX is wired up.
+
+## Data
+
+UFC fight history, fighter profiles, and per-fight stats are scraped
+from ESPN. Data lives in Postgres locally; only the exported JSON
+ships with the site.
+
+## Features
+
+For each fight (Fighter A vs Fighter B), the model sees:
+
+- **Elo (standard and modified)** — pre-fight ratings and their differential
+- **Historical striking stats** — accuracy, volume, defense — averaged over each fighter's prior fights only
+- **Grappling** — takedown accuracy and an "aggression" composite (advances + submissions per fight)
+- **Title fight** — binary flag
+
+To remove positional bias the training set is mirrored (each fight
+appears twice: A vs B and B vs A with the label flipped).
+
+## Model
+
+XGBoost classifier. 5-fold time-series cross-validation reports
+honest out-of-sample metrics; the production model is fit on the
+full history.
+
+## Honesty
+
+Performance numbers on this site only count **locked pre-event
+snapshots** — predictions that were recorded *before* the fight
+happened, not retroactive backtests. That's what the "Performance"
+page measures.
