@@ -1,0 +1,42 @@
+[
+  {
+    "event_id": 5,
+    "espn_event_id": "600058517",
+    "name": "UFC Fight Night: Song vs. Figueiredo",
+    "location": "Galaxy Arena, Cotai, Macau",
+    "event_date": "2026-05-30",
+    "deployed_at": "2026-05-23T23:11:47.277879+00:00"
+  },
+  {
+    "event_id": 4,
+    "espn_event_id": "600058948",
+    "name": "UFC Fight Night: Allen vs. Costa",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-05-16",
+    "deployed_at": "2026-05-17T04:33:16.819901+00:00"
+  },
+  {
+    "event_id": 3,
+    "espn_event_id": "600058947",
+    "name": "UFC 328: Chimaev vs. Strickland",
+    "location": "Prudential Center, Newark, NJ",
+    "event_date": "2026-05-09",
+    "deployed_at": "2026-05-10T08:51:21.999696+00:00"
+  },
+  {
+    "event_id": 2,
+    "espn_event_id": "600058807",
+    "name": "UFC Fight Night: Della Maddalena vs. Prates",
+    "location": "RAC Arena (AUS), Perth, WA, Australia",
+    "event_date": "2026-05-02",
+    "deployed_at": "2026-05-10T08:51:21.999696+00:00"
+  },
+  {
+    "event_id": 1,
+    "espn_event_id": "600058746",
+    "name": "UFC Fight Night: Sterling vs. Zalal",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-04-25",
+    "deployed_at": "2026-05-10T08:51:21.999696+00:00"
+  }
+]

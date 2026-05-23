@@ -1,0 +1,545 @@
+{
+  "event": {
+    "event_id": 3,
+    "espn_event_id": "600058947",
+    "name": "UFC 328: Chimaev vs. Strickland",
+    "location": "Prudential Center, Newark, NJ",
+    "event_date": "2026-05-09",
+    "deployed_at": "2026-05-10T08:51:21.999696+00:00"
+  },
+  "fights": [
+    {
+      "fight_id": 24,
+      "card_order": 0,
+      "weight_class": null,
+      "is_title_fight": true,
+      "winner_id": 48,
+      "method": "S Dec",
+      "round": 5,
+      "fighter_a": {
+        "fighter_id": 47,
+        "name": "Khamzat Chimaev",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 15,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1637.18,
+        "current_elo_modified": 1689.67
+      },
+      "fighter_b": {
+        "fighter_id": 48,
+        "name": "Sean Strickland",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 31,
+        "record_losses": 7,
+        "record_draws": 0,
+        "current_elo_standard": 1651.31,
+        "current_elo_modified": 1698.32
+      },
+      "prediction": {
+        "prediction_id": 2413,
+        "predicted_winner_id": 47,
+        "win_probability": 0.6332,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 48,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 25,
+      "card_order": 1,
+      "weight_class": null,
+      "is_title_fight": true,
+      "winner_id": 49,
+      "method": "KO/TKO",
+      "round": 5,
+      "fighter_a": {
+        "fighter_id": 49,
+        "name": "Joshua Van",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 17,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": 1633.29,
+        "current_elo_modified": 1669.23
+      },
+      "fighter_b": {
+        "fighter_id": 50,
+        "name": "Tatsuro Taira",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 18,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": 1588.68,
+        "current_elo_modified": 1604.36
+      },
+      "prediction": {
+        "prediction_id": 2545,
+        "predicted_winner_id": 49,
+        "win_probability": 0.5792,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 49,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 26,
+      "card_order": 2,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 51,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 51,
+        "name": "Alexander Volkov",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 40,
+        "record_losses": 11,
+        "record_draws": 0,
+        "current_elo_standard": 1643.62,
+        "current_elo_modified": 1687.1
+      },
+      "fighter_b": {
+        "fighter_id": 52,
+        "name": "Waldo Cortes Acosta",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 17,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1609.23,
+        "current_elo_modified": 1623.86
+      },
+      "prediction": {
+        "prediction_id": 2414,
+        "predicted_winner_id": 51,
+        "win_probability": 0.8801,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 51,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 27,
+      "card_order": 3,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 53,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 53,
+        "name": "Sean Brady",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 19,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": 1621.76,
+        "current_elo_modified": 1667.99
+      },
+      "fighter_b": {
+        "fighter_id": 54,
+        "name": "Joaquin Buckley",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 21,
+        "record_losses": 8,
+        "record_draws": 0,
+        "current_elo_standard": 1588.91,
+        "current_elo_modified": 1617.17
+      },
+      "prediction": {
+        "prediction_id": 2415,
+        "predicted_winner_id": 53,
+        "win_probability": 0.6589,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 53,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 28,
+      "card_order": 4,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 55,
+      "method": "Sub",
+      "round": 1,
+      "fighter_a": {
+        "fighter_id": 55,
+        "name": "King Green",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 35,
+        "record_losses": 17,
+        "record_draws": 1,
+        "current_elo_standard": 1575.06,
+        "current_elo_modified": 1582.37
+      },
+      "fighter_b": {
+        "fighter_id": 56,
+        "name": "Jeremy Stephens",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 29,
+        "record_losses": 23,
+        "record_draws": 0,
+        "current_elo_standard": 1454.42,
+        "current_elo_modified": 1442.13
+      },
+      "prediction": {
+        "prediction_id": 2416,
+        "predicted_winner_id": 55,
+        "win_probability": 0.7507,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 55,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 30,
+      "card_order": 100,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 59,
+      "method": "KO/TKO",
+      "round": 2,
+      "fighter_a": {
+        "fighter_id": 59,
+        "name": "Ateba Gautier",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 11,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1583.5,
+        "current_elo_modified": 1589.63
+      },
+      "fighter_b": {
+        "fighter_id": 60,
+        "name": "Ozzy Diaz",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 10,
+        "record_losses": 4,
+        "record_draws": 0,
+        "current_elo_standard": 1474.77,
+        "current_elo_modified": 1470.15
+      },
+      "prediction": {
+        "prediction_id": 2418,
+        "predicted_winner_id": 59,
+        "win_probability": 0.6542,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 59,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 31,
+      "card_order": 101,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 62,
+      "method": "Sub",
+      "round": 2,
+      "fighter_a": {
+        "fighter_id": 61,
+        "name": "Joel Álvarez",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 23,
+        "record_losses": 4,
+        "record_draws": 0,
+        "current_elo_standard": 1578.79,
+        "current_elo_modified": 1599.0
+      },
+      "fighter_b": {
+        "fighter_id": 62,
+        "name": "Yaroslav Amosov",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 30,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1541.17,
+        "current_elo_modified": 1563.71
+      },
+      "prediction": {
+        "prediction_id": 2419,
+        "predicted_winner_id": 61,
+        "win_probability": 0.6392,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 62,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 32,
+      "card_order": 102,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 63,
+      "method": "Sub",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 63,
+        "name": "Grant Dawson",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 24,
+        "record_losses": 3,
+        "record_draws": 1,
+        "current_elo_standard": 1642.57,
+        "current_elo_modified": 1669.28
+      },
+      "fighter_b": {
+        "fighter_id": 64,
+        "name": "Mateusz Rębecki",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 20,
+        "record_losses": 5,
+        "record_draws": 0,
+        "current_elo_standard": 1517.33,
+        "current_elo_modified": 1509.84
+      },
+      "prediction": {
+        "prediction_id": 2420,
+        "predicted_winner_id": 63,
+        "win_probability": 0.7246,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 63,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 10209,
+      "card_order": 103,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 1588,
+      "method": "Sub",
+      "round": 1,
+      "fighter_a": {
+        "fighter_id": 1588,
+        "name": "Jim Miller",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 39,
+        "record_losses": 19,
+        "record_draws": 0,
+        "current_elo_standard": 1582.23,
+        "current_elo_modified": 1574.54
+      },
+      "fighter_b": {
+        "fighter_id": 8085,
+        "name": "Jared Gordon",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 21,
+        "record_losses": 9,
+        "record_draws": 0,
+        "current_elo_standard": 1523.14,
+        "current_elo_modified": 1518.29
+      },
+      "prediction": {
+        "prediction_id": 2575,
+        "predicted_winner_id": 8085,
+        "win_probability": 0.6535,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 1588,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 33,
+      "card_order": 200,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 65,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 65,
+        "name": "Roman Kopylov",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 15,
+        "record_losses": 5,
+        "record_draws": 0,
+        "current_elo_standard": 1540.03,
+        "current_elo_modified": 1543.37
+      },
+      "fighter_b": {
+        "fighter_id": 66,
+        "name": "Marco Tulio",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 14,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1525.99,
+        "current_elo_modified": 1522.76
+      },
+      "prediction": {
+        "prediction_id": 2417,
+        "predicted_winner_id": 66,
+        "win_probability": 0.513,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 65,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 9338,
+      "card_order": 201,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 12134,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 12134,
+        "name": "Pat Sabatini",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 22,
+        "record_losses": 5,
+        "record_draws": 0,
+        "current_elo_standard": 1603.14,
+        "current_elo_modified": 1634.67
+      },
+      "fighter_b": {
+        "fighter_id": 13510,
+        "name": "William Gomis",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 15,
+        "record_losses": 4,
+        "record_draws": 0,
+        "current_elo_standard": 1546.81,
+        "current_elo_modified": 1552.87
+      },
+      "prediction": {
+        "prediction_id": 2540,
+        "predicted_winner_id": 12134,
+        "win_probability": 0.6541,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 12134,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 34,
+      "card_order": 202,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 67,
+      "method": "Sub",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 67,
+        "name": "Baisangur Susurkaev",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 12,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": 1559.82,
+        "current_elo_modified": 1567.24
+      },
+      "fighter_b": {
+        "fighter_id": 68,
+        "name": "Djorden Santos",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 11,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1500.62,
+        "current_elo_modified": 1501.75
+      },
+      "prediction": {
+        "prediction_id": 2421,
+        "predicted_winner_id": 67,
+        "win_probability": 0.5891,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 67,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 35,
+      "card_order": 203,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 70,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 69,
+        "name": "Clayton Carpenter",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 8,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1496.04,
+        "current_elo_modified": 1492.27
+      },
+      "fighter_b": {
+        "fighter_id": 70,
+        "name": "Jose Ochoa",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": 1505.3,
+        "current_elo_modified": 1503.87
+      },
+      "prediction": {
+        "prediction_id": 2422,
+        "predicted_winner_id": 69,
+        "win_probability": 0.511,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 70,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    }
+  ]
+}

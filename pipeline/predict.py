@@ -15,7 +15,7 @@ import pandas as pd
 
 from pipeline.db import connect
 from pipeline.features import FEATURES, features_for_fight
-from pipeline.train import ARTIFACT_PATH, load as load_model
+from pipeline.train import ARTIFACT_PATH, current_model_version, load as load_model
 
 log = logging.getLogger(__name__)
 
@@ -61,7 +61,7 @@ def predict_event(event_id: int | None = None, model_version: str | None = None,
     Returns summary dict.
     """
     model = load_model()
-    model_version = model_version or ARTIFACT_PATH.stem  # "xgb_current"
+    model_version = model_version or current_model_version()
 
     with connect() as conn, conn.cursor() as cur:
         event = _resolve_event(cur, event_id)

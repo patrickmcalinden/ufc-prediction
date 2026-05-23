@@ -1,0 +1,545 @@
+{
+  "event": {
+    "event_id": 2,
+    "espn_event_id": "600058807",
+    "name": "UFC Fight Night: Della Maddalena vs. Prates",
+    "location": "RAC Arena (AUS), Perth, WA, Australia",
+    "event_date": "2026-05-02",
+    "deployed_at": "2026-05-10T08:51:21.999696+00:00"
+  },
+  "fights": [
+    {
+      "fight_id": 12,
+      "card_order": 0,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 24,
+      "method": "KO/TKO",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 23,
+        "name": "Jack Della Maddalena",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 18,
+        "record_losses": 4,
+        "record_draws": 0,
+        "current_elo_standard": 1615.67,
+        "current_elo_modified": 1652.13
+      },
+      "fighter_b": {
+        "fighter_id": 24,
+        "name": "Carlos Prates",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 24,
+        "record_losses": 7,
+        "record_draws": 0,
+        "current_elo_standard": 1622.13,
+        "current_elo_modified": 1669.61
+      },
+      "prediction": {
+        "prediction_id": 2407,
+        "predicted_winner_id": 24,
+        "win_probability": 0.7743,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 24,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 13,
+      "card_order": 1,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 26,
+      "method": "KO/TKO",
+      "round": 1,
+      "fighter_a": {
+        "fighter_id": 25,
+        "name": "Beneil Dariush",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 23,
+        "record_losses": 8,
+        "record_draws": 1,
+        "current_elo_standard": 1613.18,
+        "current_elo_modified": 1630.8
+      },
+      "fighter_b": {
+        "fighter_id": 26,
+        "name": "Quillan Salkilld",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 12,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1596.39,
+        "current_elo_modified": 1624.4
+      },
+      "prediction": {
+        "prediction_id": 2544,
+        "predicted_winner_id": 26,
+        "win_probability": 0.655,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 26,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 14,
+      "card_order": 2,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 28,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 27,
+        "name": "Tim Elliott",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 22,
+        "record_losses": 14,
+        "record_draws": 1,
+        "current_elo_standard": 1507.58,
+        "current_elo_modified": 1502.65
+      },
+      "fighter_b": {
+        "fighter_id": 28,
+        "name": "Steve Erceg",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 14,
+        "record_losses": 4,
+        "record_draws": 0,
+        "current_elo_standard": 1538.34,
+        "current_elo_modified": 1538.69
+      },
+      "prediction": {
+        "prediction_id": 2433,
+        "predicted_winner_id": 27,
+        "win_probability": 0.557,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 28,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 10152,
+      "card_order": 3,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 16788,
+      "method": "KO/TKO",
+      "round": 1,
+      "fighter_a": {
+        "fighter_id": 16788,
+        "name": "Marwan Rahiki",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": 1545.16,
+        "current_elo_modified": 1549.45
+      },
+      "fighter_b": {
+        "fighter_id": 20309,
+        "name": "Ollie Schmid",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 4,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1485.4,
+        "current_elo_modified": 1481.91
+      },
+      "prediction": {
+        "prediction_id": 2572,
+        "predicted_winner_id": 16788,
+        "win_probability": 0.7891,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 16788,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 15,
+      "card_order": 4,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 30,
+      "method": "KO/TKO",
+      "round": 2,
+      "fighter_a": {
+        "fighter_id": 29,
+        "name": "Shamil Gaziev",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 14,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1520.02,
+        "current_elo_modified": 1519.93
+      },
+      "fighter_b": {
+        "fighter_id": 30,
+        "name": "Brando Peričić",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1546.86,
+        "current_elo_modified": 1554.01
+      },
+      "prediction": {
+        "prediction_id": 2435,
+        "predicted_winner_id": 30,
+        "win_probability": 0.609,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 30,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 9321,
+      "card_order": 5,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 16749,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 31,
+        "name": "Tai Tuivasa",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 15,
+        "record_losses": 10,
+        "record_draws": 0,
+        "current_elo_standard": 1476.31,
+        "current_elo_modified": 1466.94
+      },
+      "fighter_b": {
+        "fighter_id": 16749,
+        "name": "Louie Sutherland",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 11,
+        "record_losses": 5,
+        "record_draws": 0,
+        "current_elo_standard": 1487.94,
+        "current_elo_modified": 1482.79
+      },
+      "prediction": {
+        "prediction_id": 2573,
+        "predicted_winner_id": 16749,
+        "win_probability": 0.5474,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 16749,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 17,
+      "card_order": 100,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 33,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 33,
+        "name": "Cam Rowston",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 15,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1548.72,
+        "current_elo_modified": 1557.25
+      },
+      "fighter_b": {
+        "fighter_id": 34,
+        "name": "Robert Bryczek",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 18,
+        "record_losses": 7,
+        "record_draws": 0,
+        "current_elo_standard": 1488.37,
+        "current_elo_modified": 1491.34
+      },
+      "prediction": {
+        "prediction_id": 2430,
+        "predicted_winner_id": 33,
+        "win_probability": 0.5737,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 33,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 18,
+      "card_order": 101,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 35,
+      "method": "KO/TKO",
+      "round": 1,
+      "fighter_a": {
+        "fighter_id": 35,
+        "name": "Junior Tafa",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 5,
+        "record_draws": 0,
+        "current_elo_standard": 1476.71,
+        "current_elo_modified": 1473.84
+      },
+      "fighter_b": {
+        "fighter_id": 36,
+        "name": "Kevin Christian",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 4,
+        "record_draws": 0,
+        "current_elo_standard": 1481.53,
+        "current_elo_modified": 1481.83
+      },
+      "prediction": {
+        "prediction_id": 2489,
+        "predicted_winner_id": 36,
+        "win_probability": 0.5548,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 35,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 19,
+      "card_order": 102,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 37,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 37,
+        "name": "Jacob Malkoun",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 10,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1551.95,
+        "current_elo_modified": 1566.76
+      },
+      "fighter_b": {
+        "fighter_id": 38,
+        "name": "Gerald Meerschaert",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 37,
+        "record_losses": 22,
+        "record_draws": 0,
+        "current_elo_standard": 1467.87,
+        "current_elo_modified": 1454.7
+      },
+      "prediction": {
+        "prediction_id": 2431,
+        "predicted_winner_id": 37,
+        "win_probability": 0.7116,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 37,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 20,
+      "card_order": 103,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 39,
+      "method": "U Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 39,
+        "name": "Colby Thicknesse",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1513.47,
+        "current_elo_modified": 1510.56
+      },
+      "fighter_b": {
+        "fighter_id": 40,
+        "name": "Vince Morales",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 16,
+        "record_losses": 11,
+        "record_draws": 0,
+        "current_elo_standard": 1417.49,
+        "current_elo_modified": 1400.44
+      },
+      "prediction": {
+        "prediction_id": 2432,
+        "predicted_winner_id": 39,
+        "win_probability": 0.535,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 39,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 21,
+      "card_order": 104,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 42,
+      "method": "Sub",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 41,
+        "name": "Ben Johnston",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 5,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": 1483.33,
+        "current_elo_modified": 1482.19
+      },
+      "fighter_b": {
+        "fighter_id": 42,
+        "name": "Wes Schultz",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1502.11,
+        "current_elo_modified": 1501.68
+      },
+      "prediction": {
+        "prediction_id": 2574,
+        "predicted_winner_id": 42,
+        "win_probability": 0.7671,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 42,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 22,
+      "card_order": 105,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 43,
+      "method": "S Dec",
+      "round": 3,
+      "fighter_a": {
+        "fighter_id": 43,
+        "name": "Jonathan Micallef",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 10,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1563.08,
+        "current_elo_modified": 1574.47
+      },
+      "fighter_b": {
+        "fighter_id": 44,
+        "name": "Themba Gorimbo",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 14,
+        "record_losses": 7,
+        "record_draws": 0,
+        "current_elo_standard": 1502.43,
+        "current_elo_modified": 1495.03
+      },
+      "prediction": {
+        "prediction_id": 2436,
+        "predicted_winner_id": 44,
+        "win_probability": 0.5897,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": false,
+        "actual_winner_id": 43,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    },
+    {
+      "fight_id": 23,
+      "card_order": 106,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": 46,
+      "method": "Sub",
+      "round": 1,
+      "fighter_a": {
+        "fighter_id": 45,
+        "name": "Dom Mar Fan",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1499.17,
+        "current_elo_modified": 1499.07
+      },
+      "fighter_b": {
+        "fighter_id": 46,
+        "name": "Kody Steele",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 8,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": 1514.72,
+        "current_elo_modified": 1519.75
+      },
+      "prediction": {
+        "prediction_id": 2411,
+        "predicted_winner_id": 46,
+        "win_probability": 0.7812,
+        "model_version": "v2",
+        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "was_correct": true,
+        "actual_winner_id": 46,
+        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+      }
+    }
+  ]
+}

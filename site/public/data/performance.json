@@ -1,0 +1,105 @@
+{
+  "totals": {
+    "graded": 104,
+    "correct": 59,
+    "wrong": 45,
+    "accuracy": 0.5673076923076923
+  },
+  "per_event": [
+    {
+      "event_id": 5,
+      "name": "UFC Fight Night: Song vs. Figueiredo",
+      "event_date": "2026-05-30",
+      "n_picks": 13,
+      "n_correct": 0,
+      "n_wrong": 0,
+      "n_pending": 13
+    },
+    {
+      "event_id": 4,
+      "name": "UFC Fight Night: Allen vs. Costa",
+      "event_date": "2026-05-16",
+      "n_picks": 32,
+      "n_correct": 13,
+      "n_wrong": 13,
+      "n_pending": 6
+    },
+    {
+      "event_id": 3,
+      "name": "UFC 328: Chimaev vs. Strickland",
+      "event_date": "2026-05-09",
+      "n_picks": 27,
+      "n_correct": 15,
+      "n_wrong": 11,
+      "n_pending": 1
+    },
+    {
+      "event_id": 2,
+      "name": "UFC Fight Night: Della Maddalena vs. Prates",
+      "event_date": "2026-05-02",
+      "n_picks": 27,
+      "n_correct": 17,
+      "n_wrong": 9,
+      "n_pending": 1
+    },
+    {
+      "event_id": 1,
+      "name": "UFC Fight Night: Sterling vs. Zalal",
+      "event_date": "2026-04-25",
+      "n_picks": 27,
+      "n_correct": 14,
+      "n_wrong": 12,
+      "n_pending": 1
+    }
+  ],
+  "calibration": [
+    {
+      "bin": 0,
+      "n": 37,
+      "actual_win_rate": 0.40540540540540543,
+      "bucket_center": 0.525
+    },
+    {
+      "bin": 1,
+      "n": 21,
+      "actual_win_rate": 0.5238095238095238,
+      "bucket_center": 0.575
+    },
+    {
+      "bin": 2,
+      "n": 13,
+      "actual_win_rate": 0.46153846153846156,
+      "bucket_center": 0.625
+    },
+    {
+      "bin": 3,
+      "n": 13,
+      "actual_win_rate": 0.6923076923076923,
+      "bucket_center": 0.675
+    },
+    {
+      "bin": 4,
+      "n": 9,
+      "actual_win_rate": 0.7777777777777778,
+      "bucket_center": 0.725
+    },
+    {
+      "bin": 5,
+      "n": 6,
+      "actual_win_rate": 1.0,
+      "bucket_center": 0.775
+    },
+    {
+      "bin": 6,
+      "n": 4,
+      "actual_win_rate": 1.0,
+      "bucket_center": 0.825
+    },
+    {
+      "bin": 7,
+      "n": 1,
+      "actual_win_rate": 1.0,
+      "bucket_center": 0.875
+    }
+  ]
+}
