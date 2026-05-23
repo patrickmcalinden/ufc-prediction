@@ -32,8 +32,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Local Claude Code permissions
+# Local Claude Code permissions / state
 .claude/settings.local.json
+.claude/worktrees/
 
 # Legacy / unused files
 *.UNUSED.md
