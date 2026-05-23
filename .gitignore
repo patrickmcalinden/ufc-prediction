@@ -13,12 +13,13 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Node / Frontend
+# Node / Next.js site
 node_modules/
-frontend/dist/
-# NOTE: frontend/public/data/ is NOT ignored — GitHub Pages needs the
-# static JSON files committed to serve the site. Re-export with
-# `python -m data.loaders.export_static_api` before pushing.
+site/.next/
+site/out/
+# NOTE: site/public/data/ is NOT ignored — GitHub Pages needs the static
+# JSON files committed to serve the site. Re-export by running the
+# pipeline (see REWRITE_PLAN.md).
 
 # Model artifacts (large binary files)
 model/artifacts/*.json
