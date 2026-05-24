@@ -2,176 +2,155 @@
 
 How to refresh data on https://patrickmcalinden.github.io/ufc-prediction/.
 
-> **See also:** [docs/LESSONS.md](docs/LESSONS.md) for recurring
-> operational pain points + verification habits.
-> If you're rewriting the system from scratch, read
-> [docs/REBUILD_SPEC.md](docs/REBUILD_SPEC.md) (architecture +
-> invariants) and [docs/REBUILD_REFERENCE.md](docs/REBUILD_REFERENCE.md)
-> (concrete code snippets, ELO math, ESPN JSON paths, deps).
+Architecture and rationale: [REWRITE_PLAN.md](REWRITE_PLAN.md).
 
-## TL;DR (the loop you'll run after every event)
+## TL;DR
+
+Two loops you actually run.
+
+**Before an event — lock in predictions:**
 
 ```
-docker compose up -d                                # local Postgres
-python -m data.post_event_pipeline                  # ingest results + grade
-.\scripts\update_data.bat                           # export JSON + git add
-git commit -m "UFC <event>: results + grades"
+# Postgres up (however you run it locally)
+python -m pipeline.run --pre-event
+git add site/public/data/
+git commit -m "Lock picks: UFC <event>"
 git push
 ```
 
-GitHub Actions rebuilds and deploys in ~2 min. Watch:
-https://github.com/patrickmcalinden/ufc-prediction/actions
+**After an event — grade results + update Elo:**
+
+```
+python -m pipeline.run --post-event
+git add site/public/data/
+git commit -m "Grade UFC <event>: results"
+git push
+```
+
+Each push triggers `.github/workflows/pages.yml` and the site redeploys in ~2 min.
+Watch: https://github.com/patrickmcalinden/ufc-prediction/actions
 
 ---
 
 ## How the site is wired
 
 ```
-Local Postgres  ──►  data/loaders/export_static_api.py  ──►  frontend/public/data/*.json
-                                                                       │
-                                                                       ▼
-                                                       git push (committed JSON)
-                                                                       │
-                                                                       ▼
-                                                .github/workflows/pages.yml
-                                                  • npm ci  +  npm run build
-                                                  • cp dist/index.html dist/404.html
-                                                  • upload dist/  →  GitHub Pages
-                                                                       │
-                                                                       ▼
-                                          https://patrickmcalinden.github.io/ufc-prediction/
+Local Postgres ──► pipeline/export.py ──► site/public/data/*.json
+                                                 │
+                                                 ▼
+                                       git push (committed JSON)
+                                                 │
+                                                 ▼
+                                  .github/workflows/pages.yml
+                                    • npm ci  +  npm run build
+                                    • output: 'export' → site/out/
+                                    • upload site/out/  →  GitHub Pages
+                                                 │
+                                                 ▼
+                           https://patrickmcalinden.github.io/ufc-prediction/
 ```
 
-**The deployed site has no API access and no secrets.** It only reads the
-JSON files inside `frontend/public/data/`. To change what you see online,
-you change those files (and only those) — the export script is the
-canonical way to write them.
+The deployed site reads only static JSON. No API, no secrets, no runtime
+DB connection. Everything happens at build time on your machine.
 
 ---
 
-## Step-by-step
+## The pipeline
 
-### 1. Start your local stack
+One CLI, two modes, plus utility flags. All from `pipeline/run.py`.
 
-```
-docker compose up -d                                # Postgres on :5432
-uvicorn api.main:app --reload                       # only if you'll touch /bets
-```
-
-Your `.env` (gitignored, never pushed) holds `DATABASE_URL` and
-`BET_API_KEY`. The deployed site never sees either.
-
-### 2. Update the source data
-
-| What changed | Run this |
+| Mode | What it does |
 |---|---|
-| New upcoming card to predict | `python -m model.predict_upcoming` (auto-sets `events.deployed_at` for the new event) |
-| Event just finished | `python -m data.post_event_pipeline` |
-| Already ingested, just need grading | `python -m data.grade_predictions` |
-| Added/settled a bet | hit your **local** API (`POST http://localhost:8000/bets` or `PATCH /bets/{id}/settle`) — uses `BET_API_KEY` |
-| Wrote a blog post | drop a `.md` file under `blog/` with frontmatter (`title`, `date`, `slug`, `summary`) |
+| `python -m pipeline.run --pre-event` | scrape upcoming card → train every registered model → predict next event → export JSON |
+| `python -m pipeline.run --post-event` | scrape results → scrape per-fight stats → grade picks → **update Elo** → refresh `fighters.current_elo_*` → export JSON |
+| `python -m pipeline.run --export-only` | rebuild site JSON without touching the DB |
+| `python -m pipeline.run --elo-rebuild` | full Elo rebuild from scratch (rare; used after bulk data fixes) |
 
-**`events.deployed_at` is the gate** that controls whether an event shows up
-on the Results page, the Models leaderboard, and gets graded. It's set
-automatically by `predict_upcoming` for events still in the future. If
-you ever see a finished event missing from those pages, check:
-`SELECT event_id, name, deployed_at FROM events WHERE event_id = ...;`
-and backfill with `UPDATE events SET deployed_at = NOW() WHERE event_id = ...;`
+Useful flags:
 
-### 3. Export to static JSON
+- `--event-id N` — (pre-event) explicit event_id; default is the next upcoming event
+- `--model NAME` — (pre-event) limit to one model; repeatable. Default = every registered model
+- `--skip-train` — (pre-event) re-predict with the existing artifact, no retrain
+- `--skip-stats` — (post-event) skip the slow per-fighter stats scrape
+- `--force` — (pre-event) replace existing locked snapshots for this event + model
 
-```
-.\scripts\update_data.bat        # PowerShell / cmd
-bash scripts/update_data.sh      # if you ever use Git Bash
-```
+---
 
-Both run `python -m data.loaders.export_static_api` and `git add` the
-results. Output (under `frontend/public/data/`):
+## Models
 
-| File | Source endpoint | Drives |
+Defined in [`pipeline/models.py`](pipeline/models.py). Add a new entry to `MODELS` and the pipeline trains + predicts it automatically; the dashboard adds a tab for it.
+
+Current registry:
+
+| Name | Features | Notes |
 |---|---|---|
-| `predictions.json` | `GET /predictions` | Predictions page |
-| `results.json` | `GET /predictions/results` | Results page |
-| `models.json` | `GET /predictions/models` | Models leaderboard + selector |
-| `bets.json` | `GET /bets` | Bet Tracker page |
-| `fighters.json` + `fighters/<id>.json` + `fighters/<id>_fights.json` | `GET /fighters[/...]` | Fighters list + profiles |
-| `blog.json` + `blog/<slug>.json` | `GET /blog[/...]` | Blog index + posts |
+| `elo_only`  | 6 Elo features + title flag (7 total) | Baseline |
+| `elo_stats` | + historical striking, takedown accuracy, grappling aggression (22 total) | Production |
 
-### 4. Review
+Each trained model writes:
 
 ```
-git diff --stat --cached
+model/artifacts/xgb_<name>.json        # the model
+model/artifacts/xgb_<name>.meta.json   # model_version, CV metrics, features
 ```
 
-Eyeball the line count. A typical post-event refresh touches
-`predictions.json`, `results.json`, `models.json`, plus a handful of
-`fighters/*_fights.json`. If you see thousands of files churning, you
-probably got date stringification differences — usually fine, but
-worth a glance.
+`model_version` stored on each prediction equals the model name. Snapshots are immutable — the unique index `ux_predictions_locked (fight_id, model_version) WHERE is_locked` enforces this.
 
-### 5. Commit + push
+---
+
+## Database
+
+Local Postgres. Connection in `.env` (gitignored):
 
 ```
-git commit -m "UFC 312: results + grades"
-git push
+DATABASE_URL=postgresql://...@localhost:5432/ufc_predictor
 ```
 
-Pushing to `main` triggers `.github/workflows/pages.yml`. Watch the run
-at https://github.com/patrickmcalinden/ufc-prediction/actions.
-On success, https://patrickmcalinden.github.io/ufc-prediction/ updates
-within seconds of the workflow turning green.
+Schema lives in [`sql/migrations/`](sql/migrations/). Apply new ones in order:
+
+```
+psql $DATABASE_URL -f sql/migrations/NNN_*.sql
+```
+
+Key invariants:
+
+- **`events.deployed_at`** is set automatically the first time `--pre-event` writes a locked snapshot for that event. It's the gate that controls whether picks count toward the public dashboard.
+- **`fighters.current_elo_*`** is denormalized for fast joins from `predict.py`. Refreshed by every `--post-event` after Elo is recomputed.
+- **Grade order is fixed**: Ingest → Stats → Grade → Elo. Elo must run after Grade because it reads `fights.winner_id` which Grade reconciles. `pipeline/run.py` enforces this order.
+
+---
+
+## Blog
+
+Drop a markdown file under [`blog/`](blog/) with YAML frontmatter:
+
+```
+---
+slug: my-post
+title: Some title
+date: 2026-05-30
+summary: One-liner shown on the index.
+---
+
+# Post body in markdown.
+```
+
+The site picks it up at `/blog/<slug>/` on the next build. Nothing to run.
+
+---
+
+## What's NOT here
+
+This project intentionally drops the bet tracker, fighter profile pages, and the FastAPI backend that the previous version had. The bets table still exists in Postgres but nothing reads or writes it. If you want any of those back, see the explicit non-goals in [REWRITE_PLAN.md](REWRITE_PLAN.md) §9.
 
 ---
 
 ## After the deploy: verifying
 
-If you want to confirm a specific file went live:
-
 ```
-curl -sI https://patrickmcalinden.github.io/ufc-prediction/data/results.json
+curl -sI https://patrickmcalinden.github.io/ufc-prediction/data/upcoming.json
 ```
 
-Look at `Last-Modified` — should be within the last few minutes.
+`Last-Modified` should be within the last few minutes. If the page looks stale in your browser, hard-refresh (`Ctrl+Shift+R`).
 
-If the page looks stale in your browser: **hard-refresh** (`Ctrl+Shift+R`).
-The CDN serves fresh content, but your browser may hold an older copy.
-
----
-
-## Routes 404 on hard-refresh — expected
-
-`/ufc-prediction/results`, `/ufc-prediction/fighters/123`, etc. return
-HTTP **404 Not Found** on a hard refresh. This is normal: GitHub Pages
-has no `results.html` to serve. Our workflow copies `index.html` to
-`404.html`, so the SPA shell still loads with status 404, and React
-Router picks up the path client-side. The user sees the right page;
-only DevTools shows the 404.
-
-If a route ever loads as a blank GitHub-branded 404 page instead of
-your app, the fallback step in the workflow didn't run — check the
-"Build" job logs for the `cp dist/index.html dist/404.html` step.
-
----
-
-## What never gets updated by this loop
-
-- The deployed site is **read-only**: `createBet` and `settleBet` in
-  [frontend/src/lib/api.js](frontend/src/lib/api.js) throw on the
-  static build. You add/settle bets locally, then re-export.
-- Live odds, live event data: there is none. Everything on the page
-  is a snapshot from your last `update_data` run.
-
----
-
-## When you add a *new* feature (not just data)
-
-Follow [skills/SKILL_codebase_additions.md](skills/SKILL_codebase_additions.md).
-The short version:
-
-1. Add an exporter in `data/loaders/export_static_api.py` that mirrors
-   the API response shape into a new JSON file.
-2. Add a method in [frontend/src/lib/api.js](frontend/src/lib/api.js)
-   with an `if (IS_STATIC) return staticJson(...)` branch first.
-3. `npm run build && npm run preview` from `frontend/` to test the
-   prod path before pushing.
-4. Then run the standard update loop above.
+Static export means all routes are pre-rendered (`.html` files under `site/out/`), so the hard-refresh 404 problem from the old SPA setup is gone.
