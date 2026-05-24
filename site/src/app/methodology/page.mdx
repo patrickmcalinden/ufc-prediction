@@ -1,0 +1,94 @@
+export const metadata = { title: "Methodology · UFC Predictor" };
+
+# Methodology
+
+This site predicts the outcome of upcoming UFC fights using an XGBoost
+classifier trained on every UFC fight since ESPN's records become
+reliable. Every prediction shown was locked in *before* the fight took
+place — the Performance page is the public scoreboard.
+
+## Data
+
+All raw data comes from ESPN's MMA section:
+
+- **Fighter profiles** — name, weight class, record, physical stats, stance
+- **Fights** — both fighters, weight class, title status, winner, method, round
+- **Per-fight stats** — strikes by location and stance (distance / clinch /
+  ground), takedowns, submissions, advances, knockdowns
+
+Data lives in a local Postgres database. Each event is scraped once
+before the card to lock predictions, and again after results are
+available. The scraper handles re-runs idempotently — fight results
+overwrite previous nulls but a recorded winner is never wiped by a
+later scrape.
+
+## Features
+
+For each fight (positionally A vs. B), the model sees 22 features:
+
+**Elo (4 base + 2 diff)** &mdash; pre-fight ratings for both fighters in
+two formulations, plus their differentials:
+
+- *Standard Elo* — classic formulation with K = 32
+- *Modified Elo* — K-factor scales with opponent strength. Wins over
+  elite opponents (≥ 1600) move you more (×1.5); wins over weak
+  opponents (≤ 1400) move you less (×0.75)
+
+**Historical striking (5 per fighter + 5 diffs)** &mdash; averaged over
+each fighter's prior fights only:
+
+- *Accuracy* — significant strikes landed / attempted
+- *Volume* — significant strikes landed per fight
+- *Defense* — significant strikes absorbed per fight
+- *Takedown accuracy* — takedowns landed / attempted
+- *Grappling aggression* — (positional advances + submissions) per fight
+
+**Context (1)**
+
+- *Title fight* — binary flag
+
+To prevent positional bias the training set is mirrored: each fight
+appears twice, once as A vs. B and once as B vs. A with the label
+flipped. The mirrored half is sorted back into chronological order
+before training.
+
+## Model
+
+XGBoost classifier:
+
+- 300 estimators, max depth 6, learning rate 0.02
+- subsample = 0.8, colsample_bytree = 0.8
+- log-loss objective, random seed 42 for reproducibility
+
+5-fold time-series cross-validation reports honest out-of-sample
+metrics; the production model is fit on the full history before
+predicting an upcoming event. Each prediction snapshot records the
+exact model version string so historical picks remain attributable
+even after a retrain.
+
+## What the model can't see
+
+A short list of things known to affect outcomes that aren't in the
+feature set:
+
+- *Camp changes* — switching gyms / coaches mid-camp
+- *Reported injuries or cuts*
+- *Short-notice replacement fights*
+- *Weight cuts that look brutal on fight week*
+- *Style matchups beyond what aggregate stats capture*
+
+In short: the model is a baseline that knows what's quantifiable.
+Expert handicappers reliably beat baselines like this on a small
+fraction of fights where they have private information. The honest
+goal here is to be a solid 55–60% prior, calibrated, with all results
+public.
+
+## Honesty
+
+The Performance page only counts **locked pre-event snapshots** —
+predictions recorded before the fight happened, not retroactive
+backtests. The schema enforces this: locked rows can't be retroactively
+modified, and the unique constraint on `(fight_id, model_version)`
+prevents accidental double-counting after retrains.
+
+Code is on [GitHub](https://github.com/patrickmcalinden/ufc-prediction).
