@@ -318,12 +318,16 @@ def _performance_for_model(cur, model_version: str) -> dict:
 
 
 def export_performance(cur) -> None:
-    versions = _all_locked_model_versions(cur)
-    by_model = {v: _performance_for_model(cur, v) for v in versions}
+    # The performance dashboard reports aggregate stats — it only makes
+    # sense for models that have at least one graded pick. Models with
+    # locked-but-ungraded picks still surface on the home/event pages.
+    all_versions = _all_locked_model_versions(cur)
+    by_model = {v: _performance_for_model(cur, v) for v in all_versions}
+    graded_versions = [v for v in all_versions if by_model[v]["totals"]["graded"] > 0]
     payload = {
-        "models": versions,
-        "default_model": _default_model(versions),
-        "by_model": by_model,
+        "models": graded_versions,
+        "default_model": _default_model(graded_versions),
+        "by_model": {v: by_model[v] for v in graded_versions},
     }
     _write("performance.json", payload)
 

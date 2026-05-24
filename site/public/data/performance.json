@@ -1,107 +1,10 @@
 {
   "models": [
-    "elo_only",
-    "elo_stats",
     "v1",
     "v2"
   ],
   "default_model": "v1",
   "by_model": {
-    "elo_only": {
-      "totals": {
-        "graded": 0,
-        "correct": 0,
-        "wrong": 0,
-        "accuracy": null,
-        "log_loss": null
-      },
-      "per_event": [
-        {
-          "event_id": 5,
-          "name": "UFC Fight Night: Song vs. Figueiredo",
-          "event_date": "2026-05-30",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
-        }
-      ],
-      "calibration": [],
-      "timeseries": [],
-      "meta": {
-        "model_version": "elo_only",
-        "model_artifact": "xgb_elo_only.json",
-        "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-05-23T20:16:51.751109",
-        "cv_accuracy": 0.5518622628250176,
-        "cv_logloss": 0.6917516532426005,
-        "n_samples": 17078,
-        "features": [
-          "elo_std_pre_a",
-          "elo_mod_pre_a",
-          "elo_std_pre_b",
-          "elo_mod_pre_b",
-          "elo_diff_std",
-          "elo_diff_mod",
-          "is_title_fight"
-        ]
-      }
-    },
-    "elo_stats": {
-      "totals": {
-        "graded": 0,
-        "correct": 0,
-        "wrong": 0,
-        "accuracy": null,
-        "log_loss": null
-      },
-      "per_event": [
-        {
-          "event_id": 5,
-          "name": "UFC Fight Night: Song vs. Figueiredo",
-          "event_date": "2026-05-30",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
-        }
-      ],
-      "calibration": [],
-      "timeseries": [],
-      "meta": {
-        "model_version": "elo_stats",
-        "model_artifact": "xgb_elo_stats.json",
-        "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-05-23T20:17:00.929770",
-        "cv_accuracy": 0.608854532677442,
-        "cv_logloss": 0.6544395681934457,
-        "n_samples": 17078,
-        "features": [
-          "elo_std_pre_a",
-          "elo_mod_pre_a",
-          "elo_std_pre_b",
-          "elo_mod_pre_b",
-          "elo_diff_std",
-          "elo_diff_mod",
-          "is_title_fight",
-          "a_str_acc",
-          "a_str_vol",
-          "a_td_acc",
-          "a_grap_agg",
-          "a_str_def",
-          "b_str_acc",
-          "b_str_vol",
-          "b_td_acc",
-          "b_grap_agg",
-          "b_str_def",
-          "diff_str_acc",
-          "diff_str_vol",
-          "diff_td_acc",
-          "diff_grap_agg",
-          "diff_str_def"
-        ]
-      }
-    },
     "v1": {
       "totals": {
         "graded": 52,
