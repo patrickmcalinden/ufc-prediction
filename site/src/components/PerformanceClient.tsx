@@ -58,32 +58,38 @@ export default function PerformanceClient({ payload }: { payload: PerformancePay
       </div>
 
       <h2 className="mt-10 text-xl font-semibold">Per event</h2>
-      <table className="mt-3 w-full text-sm">
-        <thead className="text-left text-neutral-500">
-          <tr className="border-b border-neutral-200 dark:border-neutral-800">
-            <th className="py-2">Date</th>
-            <th>Event</th>
-            <th className="text-right">Picks</th>
-            <th className="text-right">Correct</th>
-            <th className="text-right">Pending</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.per_event.map((e) => (
-            <tr key={e.event_id} className="border-b border-neutral-100 dark:border-neutral-900">
-              <td className="py-2 tabular-nums text-neutral-500">{e.event_date}</td>
-              <td>
-                <Link href={`/events/${e.event_id}/`} className="hover:underline">
-                  {e.name}
-                </Link>
-              </td>
-              <td className="text-right tabular-nums">{e.n_picks}</td>
-              <td className="text-right tabular-nums">{e.n_correct}</td>
-              <td className="text-right tabular-nums text-neutral-500">{e.n_pending}</td>
+      <div className="-mx-4 mt-3 overflow-x-auto sm:mx-0">
+        <table className="w-full min-w-[520px] text-sm">
+          <thead className="text-left text-neutral-500">
+            <tr className="border-b border-neutral-200 dark:border-neutral-800">
+              <th className="py-2 pl-4 pr-3 sm:pl-0">Date</th>
+              <th className="pr-3">Event</th>
+              <th className="px-2 text-right">Picks</th>
+              <th className="px-2 text-right">Correct</th>
+              <th className="pl-2 pr-4 text-right sm:pr-0">Pending</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.per_event.map((e) => (
+              <tr key={e.event_id} className="border-b border-neutral-100 dark:border-neutral-900">
+                <td className="py-2 pl-4 pr-3 tabular-nums whitespace-nowrap text-neutral-500 sm:pl-0">
+                  {e.event_date}
+                </td>
+                <td className="pr-3">
+                  <Link href={`/events/${e.event_id}/`} className="hover:underline">
+                    {e.name}
+                  </Link>
+                </td>
+                <td className="px-2 text-right tabular-nums">{e.n_picks}</td>
+                <td className="px-2 text-right tabular-nums">{e.n_correct}</td>
+                <td className="pl-2 pr-4 text-right tabular-nums text-neutral-500 sm:pr-0">
+                  {e.n_pending}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

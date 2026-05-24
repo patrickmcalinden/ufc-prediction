@@ -18,7 +18,7 @@ export default async function Home() {
         <p className="text-sm uppercase tracking-wider text-neutral-500">
           Next event · {event.event_date}
         </p>
-        <h1 className="mt-1 text-3xl font-semibold tracking-tight">{event.name}</h1>
+        <h1 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">{event.name}</h1>
         {event.location && (
           <p className="mt-1 text-sm text-neutral-500">{event.location}</p>
         )}
