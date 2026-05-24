@@ -135,7 +135,16 @@ def export_performance(cur) -> None:
         SELECT COUNT(*) FILTER (WHERE was_correct IS NOT NULL) AS graded,
                COUNT(*) FILTER (WHERE was_correct = TRUE)      AS correct,
                COUNT(*) FILTER (WHERE was_correct = FALSE)     AS wrong,
-               AVG(CASE WHEN was_correct THEN 1.0 ELSE 0.0 END) FILTER (WHERE was_correct IS NOT NULL) AS accuracy
+               AVG(CASE WHEN was_correct THEN 1.0 ELSE 0.0 END) FILTER (WHERE was_correct IS NOT NULL) AS accuracy,
+               -- Log loss against the *winning side*. win_probability is stored as
+               -- the confidence on the predicted winner (>=0.5). When the pick was
+               -- correct, that's also the prob on the actual winner; when wrong,
+               -- the prob on the actual winner is (1 - win_probability).
+               AVG(
+                 -LN(GREATEST(LEAST(
+                   CASE WHEN was_correct THEN win_probability ELSE 1 - win_probability END,
+                 0.999), 0.001))
+               ) FILTER (WHERE was_correct IS NOT NULL) AS log_loss
           FROM predictions p
           JOIN events e ON e.event_id = p.event_id
          WHERE p.is_locked = TRUE
@@ -188,10 +197,31 @@ def export_performance(cur) -> None:
     )
     calibration = cur.fetchall()
 
+    # Cumulative accuracy over time — derived from per_event with picks ordered
+    # chronologically. Used by the dashboard line chart.
+    timeseries = []
+    running_picks = 0
+    running_correct = 0
+    for e in sorted(per_event, key=lambda r: r["event_date"]):
+        graded_in_event = e["n_correct"] + e["n_wrong"]
+        if graded_in_event == 0:
+            continue
+        running_picks += graded_in_event
+        running_correct += e["n_correct"]
+        timeseries.append({
+            "event_id": e["event_id"],
+            "event_date": e["event_date"],
+            "event_name": e["name"],
+            "n_correct_so_far": running_correct,
+            "n_picks_so_far": running_picks,
+            "accuracy_so_far": running_correct / running_picks,
+        })
+
     payload = {
         "totals": totals,
         "per_event": per_event,
         "calibration": calibration,
+        "timeseries": timeseries,
     }
     _write("performance.json", payload)
 

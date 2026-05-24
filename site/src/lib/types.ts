@@ -61,6 +61,16 @@ export interface PerformanceTotals {
   correct: number;
   wrong: number;
   accuracy: number | null;
+  log_loss: number | null;
+}
+
+export interface AccuracyPoint {
+  event_id: number;
+  event_date: string;
+  event_name: string;
+  n_correct_so_far: number;
+  n_picks_so_far: number;
+  accuracy_so_far: number;
 }
 
 export interface PerEventStats {
@@ -84,4 +94,5 @@ export interface PerformancePayload {
   totals: PerformanceTotals;
   per_event: PerEventStats[];
   calibration: CalibrationBin[];
+  timeseries: AccuracyPoint[];
 }
