@@ -46,15 +46,15 @@ class ModelConfig:
 
 
 MODELS: dict[str, ModelConfig] = {
-    "elo_only": ModelConfig(
-        name="elo_only",
+    "v1": ModelConfig(
+        name="v1",
         description="Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         features=FEATURES_ELO,
         max_depth=4,
         learning_rate=0.05,
     ),
-    "elo_stats": ModelConfig(
-        name="elo_stats",
+    "v2": ModelConfig(
+        name="v2",
         description="Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         features=FEATURES_FULL,
         max_depth=6,

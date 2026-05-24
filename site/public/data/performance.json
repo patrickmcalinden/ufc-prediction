@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 5,
+          "name": "UFC Fight Night: Song vs. Figueiredo",
+          "event_date": "2026-05-30",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
+        {
           "event_id": 4,
           "name": "UFC Fight Night: Allen vs. Costa",
           "event_date": "2026-05-16",
@@ -129,7 +138,24 @@
           "accuracy_so_far": 0.5576923076923077
         }
       ],
-      "meta": null
+      "meta": {
+        "model_version": "v1",
+        "model_artifact": "xgb_v1.json",
+        "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
+        "trained_at": "2026-05-24T00:28:19.788549",
+        "cv_accuracy": 0.5518622628250176,
+        "cv_logloss": 0.6917516532426005,
+        "n_samples": 17078,
+        "features": [
+          "elo_std_pre_a",
+          "elo_mod_pre_a",
+          "elo_std_pre_b",
+          "elo_mod_pre_b",
+          "elo_diff_std",
+          "elo_diff_mod",
+          "is_title_fight"
+        ]
+      }
     },
     "v2": {
       "totals": {
@@ -140,6 +166,15 @@
         "log_loss": 0.6069947651258434
       },
       "per_event": [
+        {
+          "event_id": 5,
+          "name": "UFC Fight Night: Song vs. Figueiredo",
+          "event_date": "2026-05-30",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
         {
           "event_id": 4,
           "name": "UFC Fight Night: Allen vs. Costa",
@@ -261,7 +296,39 @@
           "accuracy_so_far": 0.5769230769230769
         }
       ],
-      "meta": null
+      "meta": {
+        "model_version": "v2",
+        "model_artifact": "xgb_v2.json",
+        "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
+        "trained_at": "2026-05-24T00:28:28.918653",
+        "cv_accuracy": 0.608854532677442,
+        "cv_logloss": 0.6544395681934457,
+        "n_samples": 17078,
+        "features": [
+          "elo_std_pre_a",
+          "elo_mod_pre_a",
+          "elo_std_pre_b",
+          "elo_mod_pre_b",
+          "elo_diff_std",
+          "elo_diff_mod",
+          "is_title_fight",
+          "a_str_acc",
+          "a_str_vol",
+          "a_td_acc",
+          "a_grap_agg",
+          "a_str_def",
+          "b_str_acc",
+          "b_str_vol",
+          "b_td_acc",
+          "b_grap_agg",
+          "b_str_def",
+          "diff_str_acc",
+          "diff_str_vol",
+          "diff_td_acc",
+          "diff_grap_agg",
+          "diff_str_def"
+        ]
+      }
     }
   }
 }
