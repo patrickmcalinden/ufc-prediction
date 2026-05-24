@@ -48,8 +48,9 @@ def _write(filename: str, payload) -> None:
 
 def _all_locked_model_versions(cur) -> list[str]:
     """All distinct model_versions that have ANY locked prediction on a
-    deployed event. The dashboard groups by these — includes historical
-    model_versions like 'v1' / 'v2' from before the registry existed."""
+    deployed event. The performance dashboard groups by these — includes
+    historical model_versions like 'v1' / 'v2' from before the registry
+    existed, so historic comparisons are visible."""
     cur.execute(
         """
         SELECT DISTINCT model_version
@@ -59,6 +60,22 @@ def _all_locked_model_versions(cur) -> list[str]:
            AND e.deployed_at IS NOT NULL
          ORDER BY model_version
         """
+    )
+    return [r["model_version"] for r in cur.fetchall()]
+
+
+def _models_for_event(cur, event_id: int) -> list[str]:
+    """Model versions that have a locked prediction specifically for this
+    event. Used by upcoming.json + per-event snapshots so the model tabs
+    never include models that didn't pick this card."""
+    cur.execute(
+        """
+        SELECT DISTINCT model_version
+          FROM predictions
+         WHERE event_id = %s AND is_locked = TRUE
+         ORDER BY model_version
+        """,
+        (event_id,),
     )
     return [r["model_version"] for r in cur.fetchall()]
 
@@ -161,7 +178,7 @@ def export_upcoming(cur) -> None:
         _write("upcoming.json", {"event": None, "fights": [], "models": [], "default_model": None})
         return
     payload = _event_payload(cur, event)
-    payload["models"] = _all_locked_model_versions(cur)
+    payload["models"] = _models_for_event(cur, event["event_id"])
     payload["default_model"] = _default_model(payload["models"])
     _write("upcoming.json", payload)
 
@@ -335,7 +352,7 @@ def export_snapshot(cur, event_id: int) -> None:
     if not event:
         return
     payload = _event_payload(cur, event)
-    payload["models"] = _all_locked_model_versions(cur)
+    payload["models"] = _models_for_event(cur, event_id)
     payload["default_model"] = _default_model(payload["models"])
     _write(f"snapshots/{event_id}.json", payload)
 

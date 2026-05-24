@@ -829,8 +829,6 @@
     }
   ],
   "models": [
-    "elo_only",
-    "elo_stats",
     "v1",
     "v2"
   ],

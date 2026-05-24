@@ -830,9 +830,7 @@
   ],
   "models": [
     "elo_only",
-    "elo_stats",
-    "v1",
-    "v2"
+    "elo_stats"
   ],
-  "default_model": "v1"
+  "default_model": "elo_only"
 }
