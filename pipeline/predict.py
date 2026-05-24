@@ -1,9 +1,11 @@
-"""Generate locked predictions for an upcoming event and write them to
-`predictions` with is_locked=TRUE. Also stamps events.deployed_at.
+"""Generate locked predictions for an upcoming event, per named model.
 
-Snapshots are sacred: the unique index ux_predictions_locked prevents
-double-inserts for (fight_id, model_version). ON CONFLICT DO NOTHING is
-the safe default; pass force=True to replace.
+For each named model in pipeline.models.MODELS, this writes one snapshot
+row to `predictions` per fight, with `model_version = model.name`. The
+unique index ux_predictions_locked (fight_id, model_version) prevents
+duplicates; ON CONFLICT DO NOTHING is the safe default, --force replaces.
+
+Also stamps events.deployed_at on the first locked snapshot for the event.
 """
 
 from __future__ import annotations
@@ -14,8 +16,9 @@ import logging
 import pandas as pd
 
 from pipeline.db import connect
-from pipeline.features import FEATURES, features_for_fight
-from pipeline.train import ARTIFACT_PATH, current_model_version, load as load_model
+from pipeline.features import features_for_fight
+from pipeline.models import MODELS, get as get_model
+from pipeline.train import _artifact_path, load as load_model
 
 log = logging.getLogger(__name__)
 
@@ -48,28 +51,78 @@ def _resolve_event(cur, event_id: int | None) -> dict | None:
     return cur.fetchone()
 
 
-def predict_event(event_id: int | None = None, model_version: str | None = None, force: bool = False) -> dict:
-    """Generate locked snapshots for one event.
+def _predict_for_model(cur, event: dict, fights: list[dict], feature_rows: list[dict],
+                       model_name: str, force: bool) -> int:
+    cfg = get_model(model_name)
+    model = load_model(model_name)
+
+    X = pd.DataFrame(feature_rows)[cfg.features]
+    probas_a = model.predict_proba(X)[:, 1]
+
+    if force:
+        cur.execute(
+            "DELETE FROM predictions WHERE event_id = %s AND model_version = %s AND is_locked = TRUE",
+            (event["event_id"], model_name),
+        )
+
+    inserted = 0
+    for fight, row, p_a in zip(fights, feature_rows, probas_a):
+        p_a = float(p_a)
+        winner_id = fight["fighter_a_id"] if p_a >= 0.5 else fight["fighter_b_id"]
+        conf = p_a if p_a >= 0.5 else (1.0 - p_a)
+
+        cur.execute(
+            """
+            INSERT INTO predictions (
+                fight_id, event_id, predicted_winner_id, win_probability,
+                model_version, model_artifact, features_snapshot,
+                snapshot_at, is_locked
+            ) VALUES (
+                %s, %s, %s, %s, %s, %s, %s::jsonb, NOW(), TRUE
+            )
+            ON CONFLICT (fight_id, model_version) WHERE is_locked
+                DO NOTHING
+            """,
+            (
+                fight["fight_id"],
+                event["event_id"],
+                winner_id,
+                conf,
+                model_name,
+                _artifact_path(model_name).name,
+                json.dumps({k: row[k] for k in cfg.features}),
+            ),
+        )
+        inserted += cur.rowcount
+
+    return inserted
+
+
+def predict_event(
+    event_id: int | None = None,
+    models: list[str] | None = None,
+    force: bool = False,
+) -> dict:
+    """Generate locked snapshots for one event, across one or more named models.
 
     Args:
         event_id: explicit event_id; if None, picks the next upcoming event.
-        model_version: tag stored on each prediction row. Defaults to the
-            artifact filename when not given.
+        models: list of model names; defaults to every registered model.
         force: replace any existing locked snapshots for this event +
-            model_version.
+            model_version (per model).
 
     Returns summary dict.
     """
-    model = load_model()
-    model_version = model_version or current_model_version()
+    model_names = models or list(MODELS)
 
     with connect() as conn, conn.cursor() as cur:
         event = _resolve_event(cur, event_id)
         if not event:
             log.warning("No upcoming event found to predict")
-            return {"event": None, "predictions": 0}
+            return {"event": None, "by_model": {}}
 
-        log.info("Predicting event %s — %s (%s)", event["event_id"], event["name"], event["event_date"])
+        log.info("Predicting event %s — %s (%s) | models=%s",
+                 event["event_id"], event["name"], event["event_date"], model_names)
 
         cur.execute(
             """
@@ -85,48 +138,23 @@ def predict_event(event_id: int | None = None, model_version: str | None = None,
         fights = cur.fetchall()
         if not fights:
             log.warning("Event %s has no eligible fights", event["event_id"])
-            return {"event": event["event_id"], "predictions": 0}
+            return {"event": event["event_id"], "by_model": {}}
 
-        # Build feature matrix in one go, then batch-predict
-        rows = [features_for_fight(cur, f["fighter_a_id"], f["fighter_b_id"], f["is_title_fight"]) for f in fights]
-        X = pd.DataFrame(rows)[FEATURES]
-        probas_a = model.predict_proba(X)[:, 1]
+        # Build the full feature row once per fight — every model takes a
+        # subset of the same dict, so there's no point repeating the DB work.
+        feature_rows = [
+            features_for_fight(cur, f["fighter_a_id"], f["fighter_b_id"], f["is_title_fight"])
+            for f in fights
+        ]
 
-        if force:
-            cur.execute(
-                "DELETE FROM predictions WHERE event_id = %s AND model_version = %s AND is_locked = TRUE",
-                (event["event_id"], model_version),
-            )
-
-        inserted = 0
-        for fight, row, p_a in zip(fights, rows, probas_a):
-            p_a = float(p_a)
-            winner_id = fight["fighter_a_id"] if p_a >= 0.5 else fight["fighter_b_id"]
-            conf = p_a if p_a >= 0.5 else (1.0 - p_a)
-
-            cur.execute(
-                """
-                INSERT INTO predictions (
-                    fight_id, event_id, predicted_winner_id, win_probability,
-                    model_version, model_artifact, features_snapshot,
-                    snapshot_at, is_locked
-                ) VALUES (
-                    %s, %s, %s, %s, %s, %s, %s::jsonb, NOW(), TRUE
-                )
-                ON CONFLICT (fight_id, model_version) WHERE is_locked
-                    DO NOTHING
-                """,
-                (
-                    fight["fight_id"],
-                    event["event_id"],
-                    winner_id,
-                    conf,
-                    model_version,
-                    ARTIFACT_PATH.name,
-                    json.dumps(row),
-                ),
-            )
-            inserted += cur.rowcount
+        results: dict[str, int] = {}
+        for name in model_names:
+            try:
+                results[name] = _predict_for_model(cur, event, fights, feature_rows, name, force)
+                log.info("[%s] Inserted %d locked prediction(s)", name, results[name])
+            except FileNotFoundError as e:
+                log.warning("[%s] Skipped — %s", name, e)
+                results[name] = 0
 
         # Mark event as deployed — anchor for the grader and dashboard filter
         cur.execute(
@@ -135,10 +163,8 @@ def predict_event(event_id: int | None = None, model_version: str | None = None,
         )
         conn.commit()
 
-    log.info("Inserted %d locked prediction(s) for event %s", inserted, event["event_id"])
     return {
         "event": dict(event),
-        "model_version": model_version,
         "fights": len(fights),
-        "inserted": inserted,
+        "by_model": results,
     }

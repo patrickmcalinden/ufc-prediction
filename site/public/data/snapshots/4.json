@@ -38,15 +38,37 @@
         "current_elo_standard": 1585.91,
         "current_elo_modified": 1609.18
       },
+      "predictions": [
+        {
+          "prediction_id": 2370,
+          "model_version": "v1",
+          "predicted_winner_id": 71,
+          "win_probability": 0.5768,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": true,
+          "actual_winner_id": 71,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2541,
+          "model_version": "v2",
+          "predicted_winner_id": 72,
+          "win_probability": 0.5377,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 71,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2541,
-        "predicted_winner_id": 72,
-        "win_probability": 0.5377,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
-        "was_correct": false,
+        "prediction_id": 2370,
+        "model_version": "v1",
+        "predicted_winner_id": 71,
+        "win_probability": 0.5768,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+        "was_correct": true,
         "actual_winner_id": 71,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -79,15 +101,37 @@
         "current_elo_standard": 1550.23,
         "current_elo_modified": 1558.99
       },
+      "predictions": [
+        {
+          "prediction_id": 2319,
+          "model_version": "v1",
+          "predicted_winner_id": 78,
+          "win_probability": 0.5372,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": false,
+          "actual_winner_id": 77,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2490,
+          "model_version": "v2",
+          "predicted_winner_id": 77,
+          "win_probability": 0.6809,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": true,
+          "actual_winner_id": 77,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2490,
-        "predicted_winner_id": 77,
-        "win_probability": 0.6809,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
-        "was_correct": true,
+        "prediction_id": 2319,
+        "model_version": "v1",
+        "predicted_winner_id": 78,
+        "win_probability": 0.5372,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+        "was_correct": false,
         "actual_winner_id": 77,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -120,15 +164,37 @@
         "current_elo_standard": 1516.0,
         "current_elo_modified": 1518.0
       },
+      "predictions": [
+        {
+          "prediction_id": 2252,
+          "model_version": "v1",
+          "predicted_winner_id": 73,
+          "win_probability": 0.5245,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": false,
+          "actual_winner_id": 74,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2423,
+          "model_version": "v2",
+          "predicted_winner_id": 73,
+          "win_probability": 0.5007,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 74,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2423,
+        "prediction_id": 2252,
+        "model_version": "v1",
         "predicted_winner_id": 73,
-        "win_probability": 0.5007,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "win_probability": 0.5245,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
         "was_correct": false,
         "actual_winner_id": 74,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -161,15 +227,37 @@
         "current_elo_standard": 1485.62,
         "current_elo_modified": 1481.92
       },
+      "predictions": [
+        {
+          "prediction_id": 2576,
+          "model_version": "v1",
+          "predicted_winner_id": 93,
+          "win_probability": 0.6551,
+          "snapshot_at": "2026-05-17T05:27:11.832057+00:00",
+          "was_correct": true,
+          "actual_winner_id": 93,
+          "graded_at": "2026-05-17T05:27:11.832057+00:00"
+        },
+        {
+          "prediction_id": 2579,
+          "model_version": "v2",
+          "predicted_winner_id": 93,
+          "win_probability": 0.8168,
+          "snapshot_at": "2026-05-17T05:27:12.183648+00:00",
+          "was_correct": true,
+          "actual_winner_id": 93,
+          "graded_at": "2026-05-17T05:27:12.183648+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2579,
+        "prediction_id": 2576,
+        "model_version": "v1",
         "predicted_winner_id": 93,
-        "win_probability": 0.8168,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-17T05:27:12.183648+00:00",
+        "win_probability": 0.6551,
+        "snapshot_at": "2026-05-17T05:27:11.832057+00:00",
         "was_correct": true,
         "actual_winner_id": 93,
-        "graded_at": "2026-05-17T05:27:12.183648+00:00"
+        "graded_at": "2026-05-17T05:27:11.832057+00:00"
       }
     },
     {
@@ -202,15 +290,37 @@
         "current_elo_standard": 1501.43,
         "current_elo_modified": 1500.48
       },
+      "predictions": [
+        {
+          "prediction_id": 2254,
+          "model_version": "v1",
+          "predicted_winner_id": 89,
+          "win_probability": 0.5725,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": false,
+          "actual_winner_id": 90,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2425,
+          "model_version": "v2",
+          "predicted_winner_id": 89,
+          "win_probability": 0.7243,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 90,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2425,
+        "prediction_id": 2254,
+        "model_version": "v1",
         "predicted_winner_id": 89,
-        "win_probability": 0.7243,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "win_probability": 0.5725,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
         "was_correct": false,
         "actual_winner_id": 90,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -243,15 +353,37 @@
         "current_elo_standard": 1544.92,
         "current_elo_modified": 1551.55
       },
+      "predictions": [
+        {
+          "prediction_id": 2577,
+          "model_version": "v1",
+          "predicted_winner_id": 11041,
+          "win_probability": 0.7036,
+          "snapshot_at": "2026-05-17T05:27:11.832057+00:00",
+          "was_correct": true,
+          "actual_winner_id": 11041,
+          "graded_at": "2026-05-17T05:27:11.832057+00:00"
+        },
+        {
+          "prediction_id": 2580,
+          "model_version": "v2",
+          "predicted_winner_id": 11041,
+          "win_probability": 0.5639,
+          "snapshot_at": "2026-05-17T05:27:12.183648+00:00",
+          "was_correct": true,
+          "actual_winner_id": 11041,
+          "graded_at": "2026-05-17T05:27:12.183648+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2580,
+        "prediction_id": 2577,
+        "model_version": "v1",
         "predicted_winner_id": 11041,
-        "win_probability": 0.5639,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-17T05:27:12.183648+00:00",
+        "win_probability": 0.7036,
+        "snapshot_at": "2026-05-17T05:27:11.832057+00:00",
         "was_correct": true,
         "actual_winner_id": 11041,
-        "graded_at": "2026-05-17T05:27:12.183648+00:00"
+        "graded_at": "2026-05-17T05:27:11.832057+00:00"
       }
     },
     {
@@ -284,15 +416,37 @@
         "current_elo_standard": 1455.61,
         "current_elo_modified": 1449.33
       },
+      "predictions": [
+        {
+          "prediction_id": 2256,
+          "model_version": "v1",
+          "predicted_winner_id": 91,
+          "win_probability": 0.5174,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": false,
+          "actual_winner_id": 92,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2427,
+          "model_version": "v2",
+          "predicted_winner_id": 92,
+          "win_probability": 0.521,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": true,
+          "actual_winner_id": 92,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2427,
-        "predicted_winner_id": 92,
-        "win_probability": 0.521,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
-        "was_correct": true,
+        "prediction_id": 2256,
+        "model_version": "v1",
+        "predicted_winner_id": 91,
+        "win_probability": 0.5174,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+        "was_correct": false,
         "actual_winner_id": 92,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -325,15 +479,37 @@
         "current_elo_standard": 1484.74,
         "current_elo_modified": 1481.91
       },
+      "predictions": [
+        {
+          "prediction_id": 2578,
+          "model_version": "v1",
+          "predicted_winner_id": 80,
+          "win_probability": 0.6722,
+          "snapshot_at": "2026-05-17T05:27:11.832057+00:00",
+          "was_correct": true,
+          "actual_winner_id": 80,
+          "graded_at": "2026-05-17T05:27:11.832057+00:00"
+        },
+        {
+          "prediction_id": 2581,
+          "model_version": "v2",
+          "predicted_winner_id": 80,
+          "win_probability": 0.6226,
+          "snapshot_at": "2026-05-17T05:27:12.183648+00:00",
+          "was_correct": true,
+          "actual_winner_id": 80,
+          "graded_at": "2026-05-17T05:27:12.183648+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2581,
+        "prediction_id": 2578,
+        "model_version": "v1",
         "predicted_winner_id": 80,
-        "win_probability": 0.6226,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-17T05:27:12.183648+00:00",
+        "win_probability": 0.6722,
+        "snapshot_at": "2026-05-17T05:27:11.832057+00:00",
         "was_correct": true,
         "actual_winner_id": 80,
-        "graded_at": "2026-05-17T05:27:12.183648+00:00"
+        "graded_at": "2026-05-17T05:27:11.832057+00:00"
       }
     },
     {
@@ -366,15 +542,37 @@
         "current_elo_standard": 1574.81,
         "current_elo_modified": 1584.47
       },
+      "predictions": [
+        {
+          "prediction_id": 2235,
+          "model_version": "v1",
+          "predicted_winner_id": 83,
+          "win_probability": 0.5579,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": true,
+          "actual_winner_id": 83,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2406,
+          "model_version": "v2",
+          "predicted_winner_id": 84,
+          "win_probability": 0.5176,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 83,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2406,
-        "predicted_winner_id": 84,
-        "win_probability": 0.5176,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
-        "was_correct": false,
+        "prediction_id": 2235,
+        "model_version": "v1",
+        "predicted_winner_id": 83,
+        "win_probability": 0.5579,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+        "was_correct": true,
         "actual_winner_id": 83,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -407,15 +605,37 @@
         "current_elo_standard": 1536.27,
         "current_elo_modified": 1537.05
       },
+      "predictions": [
+        {
+          "prediction_id": 2239,
+          "model_version": "v1",
+          "predicted_winner_id": 86,
+          "win_probability": 0.7039,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": false,
+          "actual_winner_id": 85,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2410,
+          "model_version": "v2",
+          "predicted_winner_id": 86,
+          "win_probability": 0.6686,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 85,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2410,
+        "prediction_id": 2239,
+        "model_version": "v1",
         "predicted_winner_id": 86,
-        "win_probability": 0.6686,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "win_probability": 0.7039,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
         "was_correct": false,
         "actual_winner_id": 85,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -448,15 +668,37 @@
         "current_elo_standard": 1458.15,
         "current_elo_modified": 1452.15
       },
+      "predictions": [
+        {
+          "prediction_id": 2241,
+          "model_version": "v1",
+          "predicted_winner_id": 95,
+          "win_probability": 0.5621,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": true,
+          "actual_winner_id": 95,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2412,
+          "model_version": "v2",
+          "predicted_winner_id": 95,
+          "win_probability": 0.5848,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": true,
+          "actual_winner_id": 95,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2412,
+        "prediction_id": 2241,
+        "model_version": "v1",
         "predicted_winner_id": 95,
-        "win_probability": 0.5848,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "win_probability": 0.5621,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
         "was_correct": true,
         "actual_winner_id": 95,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -489,15 +731,37 @@
         "current_elo_standard": 1469.82,
         "current_elo_modified": 1466.07
       },
+      "predictions": [
+        {
+          "prediction_id": 2234,
+          "model_version": "v1",
+          "predicted_winner_id": 88,
+          "win_probability": 0.516,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": true,
+          "actual_winner_id": 88,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2405,
+          "model_version": "v2",
+          "predicted_winner_id": 87,
+          "win_probability": 0.5703,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 88,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2405,
-        "predicted_winner_id": 87,
-        "win_probability": 0.5703,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
-        "was_correct": false,
+        "prediction_id": 2234,
+        "model_version": "v1",
+        "predicted_winner_id": 88,
+        "win_probability": 0.516,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+        "was_correct": true,
         "actual_winner_id": 88,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     },
     {
@@ -530,16 +794,45 @@
         "current_elo_standard": 1482.63,
         "current_elo_modified": 1481.26
       },
+      "predictions": [
+        {
+          "prediction_id": 2375,
+          "model_version": "v1",
+          "predicted_winner_id": 81,
+          "win_probability": 0.5372,
+          "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
+          "was_correct": false,
+          "actual_winner_id": 82,
+          "graded_at": "2026-05-02T22:30:39.903446+00:00"
+        },
+        {
+          "prediction_id": 2546,
+          "model_version": "v2",
+          "predicted_winner_id": 81,
+          "win_probability": 0.5096,
+          "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+          "was_correct": false,
+          "actual_winner_id": 82,
+          "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        }
+      ],
       "prediction": {
-        "prediction_id": 2546,
+        "prediction_id": 2375,
+        "model_version": "v1",
         "predicted_winner_id": 81,
-        "win_probability": 0.5096,
-        "model_version": "v2",
-        "snapshot_at": "2026-05-02T22:33:23.965605+00:00",
+        "win_probability": 0.5372,
+        "snapshot_at": "2026-05-02T22:30:39.903446+00:00",
         "was_correct": false,
         "actual_winner_id": 82,
-        "graded_at": "2026-05-02T22:33:23.965605+00:00"
+        "graded_at": "2026-05-02T22:30:39.903446+00:00"
       }
     }
-  ]
+  ],
+  "models": [
+    "elo_only",
+    "elo_stats",
+    "v1",
+    "v2"
+  ],
+  "default_model": "v1"
 }

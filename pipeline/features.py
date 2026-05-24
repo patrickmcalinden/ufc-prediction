@@ -16,15 +16,11 @@ from sqlalchemy import create_engine
 
 from pipeline.db import sqlalchemy_url
 from pipeline.elo import ELO_CONFIG
+from pipeline.models import FEATURES_FULL  # re-exported for back-compat
 
-FEATURES = [
-    "elo_std_pre_a", "elo_mod_pre_a", "elo_std_pre_b", "elo_mod_pre_b",
-    "elo_diff_std", "elo_diff_mod",
-    "is_title_fight",
-    "a_str_acc", "a_str_vol", "a_td_acc", "a_grap_agg", "a_str_def",
-    "b_str_acc", "b_str_vol", "b_td_acc", "b_grap_agg", "b_str_def",
-    "diff_str_acc", "diff_str_vol", "diff_td_acc", "diff_grap_agg", "diff_str_def",
-]
+# Master feature list used by features_for_fight() and build_training_matrix().
+# Per-model feature subsets live in pipeline/models.py.
+FEATURES = FEATURES_FULL
 
 # Historical aggregates: for each fight, sum each stat over all PRIOR fights
 # the given fighter participated in (strict <). Defensive stats sum what

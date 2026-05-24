@@ -1,21 +1,15 @@
 """Single CLI entrypoint for the whole pipeline.
 
-Two modes, both manually triggered:
-
-  python -m pipeline.run --pre-event [--event-id N] [--skip-train]
-      Lock predictions for an upcoming event.
-      1. Ingest the upcoming card (scrape schedule + fights + fighter profiles)
-      2. Train XGBoost on completed-fight history
-      3. Predict the upcoming event → locked snapshots
-      4. Export site JSON
+  python -m pipeline.run --pre-event [--event-id N] [--model NAME] [--skip-train]
+      Lock predictions for an upcoming event. By default trains and
+      predicts every registered model (see pipeline.models.MODELS); pass
+      --model NAME (repeatable) to limit to a subset.
 
   python -m pipeline.run --post-event [--skip-stats]
-      Reconcile a completed event.
-      1. Ingest the most recent past event (scrape results)
-      2. Scrape per-fight stats for active fighters
-      3. Grade ungraded locked predictions
-      4. Update Elo incrementally + refresh fighters.current_elo_*
-      5. Export site JSON
+      Reconcile a completed event: scrape results, grade picks, update Elo.
+
+  python -m pipeline.run --export-only        # rebuild site JSON
+  python -m pipeline.run --elo-rebuild        # full Elo rebuild from scratch
 """
 
 from __future__ import annotations
@@ -25,6 +19,7 @@ import logging
 import sys
 
 from pipeline import elo_update, export, grade, ingest, predict, train
+from pipeline.models import all_names
 
 
 def _log_setup() -> None:
@@ -41,22 +36,19 @@ def _heading(label: str) -> None:
     logging.info("─" * 60)
 
 
-def run_pre_event(event_id: int | None, skip_train: bool, force: bool) -> None:
+def run_pre_event(event_id: int | None, models: list[str], skip_train: bool, force: bool) -> None:
     _heading("1/4  INGEST upcoming events")
     ingest.ingest_events(mode="recent")
 
     if skip_train:
         logging.info("Skipping training (--skip-train)")
-        model_version = None
     else:
-        _heading("2/4  TRAIN model")
-        result = train.train()
-        model_version = result["model_version"]
-        logging.info("train: %s", result)
+        _heading("2/4  TRAIN models: " + ", ".join(models))
+        train.train_all(only=models)
 
     _heading("3/4  PREDICT upcoming event")
-    pred_summary = predict.predict_event(event_id=event_id, model_version=model_version, force=force)
-    logging.info("predict: %s", pred_summary)
+    summary = predict.predict_event(event_id=event_id, models=models, force=force)
+    logging.info("predict: %s", summary)
 
     _heading("4/4  EXPORT site JSON")
     export.export_all()
@@ -94,6 +86,12 @@ def main() -> int:
     mode.add_argument("--elo-rebuild", action="store_true", help="Full Elo rebuild from scratch")
 
     parser.add_argument("--event-id", type=int, help="(--pre-event) explicit event_id; default = next upcoming")
+    parser.add_argument(
+        "--model",
+        action="append",
+        default=None,
+        help="(--pre-event) limit to named model(s). Repeatable. Defaults to all registered models.",
+    )
     parser.add_argument("--skip-train", action="store_true", help="(--pre-event) skip retraining")
     parser.add_argument("--skip-stats", action="store_true", help="(--post-event) skip the slow stats scrape")
     parser.add_argument("--force", action="store_true", help="(--pre-event) replace existing locked snapshots")
@@ -102,7 +100,8 @@ def main() -> int:
     _log_setup()
 
     if args.pre_event:
-        run_pre_event(args.event_id, args.skip_train, args.force)
+        models = args.model or all_names()
+        run_pre_event(args.event_id, models, args.skip_train, args.force)
     elif args.post_event:
         run_post_event(args.skip_stats)
     elif args.export_only:

@@ -1,13 +1,20 @@
-import type { Fight } from "@/lib/types";
+import type { Fight, Prediction } from "@/lib/types";
 
 function record(f: NonNullable<Fight["fighter_a"]>) {
   return `${f.record_wins}-${f.record_losses}${f.record_draws ? `-${f.record_draws}` : ""}`;
 }
 
-export default function FightRow({ fight }: { fight: Fight }) {
+function pickPrediction(fight: Fight, modelVersion: string | null): Prediction | null {
+  if (modelVersion) {
+    return fight.predictions?.find((pp) => pp.model_version === modelVersion) ?? null;
+  }
+  return fight.prediction ?? fight.predictions?.[0] ?? null;
+}
+
+export default function FightRow({ fight, modelVersion = null }: { fight: Fight; modelVersion?: string | null }) {
   const a = fight.fighter_a;
   const b = fight.fighter_b;
-  const p = fight.prediction;
+  const p = pickPrediction(fight, modelVersion);
   if (!a || !b) return null;
 
   const winnerId = p?.predicted_winner_id ?? null;

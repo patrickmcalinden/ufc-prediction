@@ -1,10 +1,12 @@
 """Write the JSON files the static site reads.
 
 Outputs into site/public/data/:
-    upcoming.json     — next event + locked predictions for it
-    performance.json  — aggregates for the dashboard
+    upcoming.json     — next event + locked predictions for it (one row
+                        per (fight, model))
+    performance.json  — { models: [...], by_model: { <name>: {totals, per_event,
+                        calibration, timeseries} } }
     events.json       — list of deployed events (for the drilldown)
-    snapshots/<id>.json — per-event detail with picks + (if graded) results
+    snapshots/<id>.json — per-event detail with picks grouped by model
 """
 
 from __future__ import annotations
@@ -16,6 +18,8 @@ from decimal import Decimal
 from pathlib import Path
 
 from pipeline.db import connect
+from pipeline.models import all_names
+from pipeline.train import load_meta
 
 log = logging.getLogger(__name__)
 
@@ -39,37 +43,70 @@ def _write(filename: str, payload) -> None:
     log.info("wrote %s (%d bytes)", path.relative_to(OUT_DIR.parent.parent), path.stat().st_size)
 
 
-# ─────────────────────────────────── upcoming.json
+# ─────────────────────────────────── helpers
 
 
-def _fight_payload(cur, fight: dict) -> dict:
-    """Common shape used in upcoming + snapshot detail."""
+def _all_locked_model_versions(cur) -> list[str]:
+    """All distinct model_versions that have ANY locked prediction on a
+    deployed event. The dashboard groups by these — includes historical
+    model_versions like 'v1' / 'v2' from before the registry existed."""
+    cur.execute(
+        """
+        SELECT DISTINCT model_version
+          FROM predictions p
+          JOIN events e ON e.event_id = p.event_id
+         WHERE p.is_locked = TRUE
+           AND e.deployed_at IS NOT NULL
+         ORDER BY model_version
+        """
+    )
+    return [r["model_version"] for r in cur.fetchall()]
+
+
+def _fights_for_event(cur, event_id: int) -> list[dict]:
+    cur.execute(
+        """
+        SELECT fight_id, fighter_a_id, fighter_b_id, winner_id,
+               method, round, time, weight_class, is_title_fight, card_order
+          FROM fights
+         WHERE event_id = %s AND is_cancelled = FALSE
+         ORDER BY card_order ASC NULLS LAST, fight_id ASC
+        """,
+        (event_id,),
+    )
+    return cur.fetchall()
+
+
+def _predictions_for_fight(cur, fight_id: int) -> list[dict]:
+    cur.execute(
+        """
+        SELECT prediction_id, model_version, predicted_winner_id, win_probability,
+               snapshot_at, was_correct, actual_winner_id, graded_at
+          FROM predictions
+         WHERE fight_id = %s AND is_locked = TRUE
+         ORDER BY model_version
+        """,
+        (fight_id,),
+    )
+    return cur.fetchall()
+
+
+def _fighter_lookup(cur, ids: set[int]) -> dict[int, dict]:
+    if not ids:
+        return {}
     cur.execute(
         """
         SELECT fighter_id, name, nickname, weight_class,
                record_wins, record_losses, record_draws,
                current_elo_standard, current_elo_modified
-          FROM fighters WHERE fighter_id IN (%s, %s)
+          FROM fighters WHERE fighter_id = ANY(%s)
         """,
-        (fight["fighter_a_id"], fight["fighter_b_id"]),
+        (list(ids),),
     )
-    fighters = {f["fighter_id"]: f for f in cur.fetchall()}
-    a = fighters.get(fight["fighter_a_id"])
-    b = fighters.get(fight["fighter_b_id"])
+    return {f["fighter_id"]: f for f in cur.fetchall()}
 
-    cur.execute(
-        """
-        SELECT prediction_id, predicted_winner_id, win_probability,
-               model_version, snapshot_at, was_correct, actual_winner_id, graded_at
-          FROM predictions
-         WHERE fight_id = %s AND is_locked = TRUE
-         ORDER BY snapshot_at DESC
-         LIMIT 1
-        """,
-        (fight["fight_id"],),
-    )
-    pred = cur.fetchone()
 
+def _build_fight_payload(fight: dict, fighters: dict[int, dict], preds: list[dict]) -> dict:
     return {
         "fight_id": fight["fight_id"],
         "card_order": fight.get("card_order"),
@@ -78,10 +115,28 @@ def _fight_payload(cur, fight: dict) -> dict:
         "winner_id": fight.get("winner_id"),
         "method": fight.get("method"),
         "round": fight.get("round"),
-        "fighter_a": a,
-        "fighter_b": b,
-        "prediction": pred,
+        "fighter_a": fighters.get(fight["fighter_a_id"]),
+        "fighter_b": fighters.get(fight["fighter_b_id"]),
+        # All locked predictions across models — the site picks one to render
+        # via the dashboard model selector. The "primary" prediction (for the
+        # default model) is also exposed for back-compat.
+        "predictions": preds,
+        "prediction": preds[0] if preds else None,
     }
+
+
+def _event_payload(cur, event: dict) -> dict:
+    fights = _fights_for_event(cur, event["event_id"])
+    fighter_ids = {f["fighter_a_id"] for f in fights} | {f["fighter_b_id"] for f in fights}
+    fighters = _fighter_lookup(cur, fighter_ids)
+    fight_payloads = []
+    for f in fights:
+        preds = _predictions_for_fight(cur, f["fight_id"])
+        fight_payloads.append(_build_fight_payload(f, fighters, preds))
+    return {"event": event, "fights": fight_payloads}
+
+
+# ─────────────────────────────────── upcoming.json
 
 
 def export_upcoming(cur) -> None:
@@ -103,43 +158,62 @@ def export_upcoming(cur) -> None:
     event = cur.fetchone()
     if not event:
         log.info("No upcoming event with locked predictions — writing empty upcoming.json")
-        _write("upcoming.json", {"event": None, "fights": []})
+        _write("upcoming.json", {"event": None, "fights": [], "models": [], "default_model": None})
         return
-
-    cur.execute(
-        """
-        SELECT fight_id, fighter_a_id, fighter_b_id, winner_id,
-               method, round, time, weight_class, is_title_fight, card_order
-          FROM fights
-         WHERE event_id = %s AND is_cancelled = FALSE
-         ORDER BY card_order ASC NULLS LAST, fight_id ASC
-        """,
-        (event["event_id"],),
-    )
-    fights = cur.fetchall()
-    payload = {
-        "event": event,
-        "fights": [_fight_payload(cur, f) for f in fights],
-    }
+    payload = _event_payload(cur, event)
+    payload["models"] = _all_locked_model_versions(cur)
+    payload["default_model"] = _default_model(payload["models"])
     _write("upcoming.json", payload)
+
+
+def _default_model(versions: list[str]) -> str | None:
+    """Pick which model the dashboard shows by default.
+
+    Prefer a currently-registered model that has at least one graded pick.
+    Fall back to any registered model, then to any version with graded
+    picks, then to whatever exists. This means the user sees real numbers
+    by default even when a fresh model has been added but hasn't run yet.
+    """
+    if not versions:
+        return None
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT model_version, COUNT(*) FILTER (WHERE was_correct IS NOT NULL) AS graded
+              FROM predictions p JOIN events e ON e.event_id = p.event_id
+             WHERE p.is_locked AND e.deployed_at IS NOT NULL
+             GROUP BY model_version
+            """
+        )
+        graded_counts = {r["model_version"]: r["graded"] for r in cur.fetchall()}
+
+    registered = all_names()
+    # 1. Registered model with graded data
+    for n in registered:
+        if n in versions and graded_counts.get(n, 0) > 0:
+            return n
+    # 2. Any version with graded data — prefer the most-graded
+    graded_versions = [v for v in versions if graded_counts.get(v, 0) > 0]
+    if graded_versions:
+        return max(graded_versions, key=lambda v: graded_counts[v])
+    # 3. Registered model (even if no graded data yet)
+    for n in registered:
+        if n in versions:
+            return n
+    # 4. Fallback
+    return versions[-1]
 
 
 # ─────────────────────────────────── performance.json
 
 
-def export_performance(cur) -> None:
-    """Aggregate stats for the dashboard. Only counts locked picks on
-    deployed events that have been graded."""
+def _performance_for_model(cur, model_version: str) -> dict:
     cur.execute(
         """
         SELECT COUNT(*) FILTER (WHERE was_correct IS NOT NULL) AS graded,
                COUNT(*) FILTER (WHERE was_correct = TRUE)      AS correct,
                COUNT(*) FILTER (WHERE was_correct = FALSE)     AS wrong,
                AVG(CASE WHEN was_correct THEN 1.0 ELSE 0.0 END) FILTER (WHERE was_correct IS NOT NULL) AS accuracy,
-               -- Log loss against the *winning side*. win_probability is stored as
-               -- the confidence on the predicted winner (>=0.5). When the pick was
-               -- correct, that's also the prob on the actual winner; when wrong,
-               -- the prob on the actual winner is (1 - win_probability).
                AVG(
                  -LN(GREATEST(LEAST(
                    CASE WHEN was_correct THEN win_probability ELSE 1 - win_probability END,
@@ -148,12 +222,13 @@ def export_performance(cur) -> None:
           FROM predictions p
           JOIN events e ON e.event_id = p.event_id
          WHERE p.is_locked = TRUE
+           AND p.model_version = %s
            AND e.deployed_at IS NOT NULL
-        """
+        """,
+        (model_version,),
     )
     totals = cur.fetchone()
 
-    # Per-event breakdown for the drilldown table
     cur.execute(
         """
         SELECT e.event_id, e.name, e.event_date,
@@ -164,16 +239,15 @@ def export_performance(cur) -> None:
           FROM events e
           JOIN predictions p ON p.event_id = e.event_id
          WHERE p.is_locked = TRUE
+           AND p.model_version = %s
            AND e.deployed_at IS NOT NULL
          GROUP BY e.event_id, e.name, e.event_date
          ORDER BY e.event_date DESC
-        """
+        """,
+        (model_version,),
     )
     per_event = cur.fetchall()
 
-    # Calibration: bucket predicted probabilities into 10 bins, compare
-    # to actual win rate. Probabilities are stored as winner-side confidence
-    # (>= 0.5), so all rows live in [0.5, 1.0].
     cur.execute(
         """
         WITH binned AS (
@@ -184,6 +258,7 @@ def export_performance(cur) -> None:
               JOIN events e ON e.event_id = p.event_id
              WHERE p.is_locked = TRUE
                AND p.was_correct IS NOT NULL
+               AND p.model_version = %s
                AND e.deployed_at IS NOT NULL
         )
         SELECT bin,
@@ -193,12 +268,11 @@ def export_performance(cur) -> None:
           FROM binned
          GROUP BY bin
          ORDER BY bin
-        """
+        """,
+        (model_version,),
     )
     calibration = cur.fetchall()
 
-    # Cumulative accuracy over time — derived from per_event with picks ordered
-    # chronologically. Used by the dashboard line chart.
     timeseries = []
     running_picks = 0
     running_correct = 0
@@ -217,11 +291,22 @@ def export_performance(cur) -> None:
             "accuracy_so_far": running_correct / running_picks,
         })
 
-    payload = {
+    return {
         "totals": totals,
         "per_event": per_event,
         "calibration": calibration,
         "timeseries": timeseries,
+        "meta": load_meta(model_version),  # None for historical model_versions
+    }
+
+
+def export_performance(cur) -> None:
+    versions = _all_locked_model_versions(cur)
+    by_model = {v: _performance_for_model(cur, v) for v in versions}
+    payload = {
+        "models": versions,
+        "default_model": _default_model(versions),
+        "by_model": by_model,
     }
     _write("performance.json", payload)
 
@@ -249,21 +334,9 @@ def export_snapshot(cur, event_id: int) -> None:
     event = cur.fetchone()
     if not event:
         return
-    cur.execute(
-        """
-        SELECT fight_id, fighter_a_id, fighter_b_id, winner_id,
-               method, round, time, weight_class, is_title_fight, card_order
-          FROM fights
-         WHERE event_id = %s AND is_cancelled = FALSE
-         ORDER BY card_order ASC NULLS LAST, fight_id ASC
-        """,
-        (event_id,),
-    )
-    fights = cur.fetchall()
-    payload = {
-        "event": event,
-        "fights": [_fight_payload(cur, f) for f in fights],
-    }
+    payload = _event_payload(cur, event)
+    payload["models"] = _all_locked_model_versions(cur)
+    payload["default_model"] = _default_model(payload["models"])
     _write(f"snapshots/{event_id}.json", payload)
 
 
@@ -276,7 +349,6 @@ def export_all() -> None:
         export_upcoming(cur)
         export_performance(cur)
         export_events_index(cur)
-        # Write per-event snapshots for all deployed events
         cur.execute("SELECT event_id FROM events WHERE deployed_at IS NOT NULL")
         for row in cur.fetchall():
             export_snapshot(cur, row["event_id"])

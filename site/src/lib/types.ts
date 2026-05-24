@@ -34,7 +34,8 @@ export interface Fight {
   round: number | null;
   fighter_a: Fighter | null;
   fighter_b: Fighter | null;
-  prediction: Prediction | null;
+  predictions: Prediction[];
+  prediction: Prediction | null; // back-compat: first locked pick
 }
 
 export interface Event {
@@ -49,11 +50,15 @@ export interface Event {
 export interface UpcomingPayload {
   event: Event | null;
   fights: Fight[];
+  models: string[];
+  default_model: string | null;
 }
 
 export interface EventSnapshot {
   event: Event;
   fights: Fight[];
+  models: string[];
+  default_model: string | null;
 }
 
 export interface PerformanceTotals {
@@ -90,9 +95,27 @@ export interface CalibrationBin {
   bucket_center: number;
 }
 
-export interface PerformancePayload {
+export interface ModelMeta {
+  model_version: string;
+  model_artifact: string;
+  description: string;
+  trained_at: string;
+  cv_accuracy: number;
+  cv_logloss: number;
+  n_samples: number;
+  features: string[];
+}
+
+export interface ModelPerformance {
   totals: PerformanceTotals;
   per_event: PerEventStats[];
   calibration: CalibrationBin[];
   timeseries: AccuracyPoint[];
+  meta: ModelMeta | null;
+}
+
+export interface PerformancePayload {
+  models: string[];
+  default_model: string | null;
+  by_model: Record<string, ModelPerformance>;
 }

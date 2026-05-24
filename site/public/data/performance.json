@@ -1,140 +1,364 @@
 {
-  "totals": {
-    "graded": 104,
-    "correct": 59,
-    "wrong": 45,
-    "accuracy": 0.5673076923076923,
-    "log_loss": 0.6329513790225682
-  },
-  "per_event": [
-    {
-      "event_id": 5,
-      "name": "UFC Fight Night: Song vs. Figueiredo",
-      "event_date": "2026-05-30",
-      "n_picks": 13,
-      "n_correct": 0,
-      "n_wrong": 0,
-      "n_pending": 13
-    },
-    {
-      "event_id": 4,
-      "name": "UFC Fight Night: Allen vs. Costa",
-      "event_date": "2026-05-16",
-      "n_picks": 32,
-      "n_correct": 13,
-      "n_wrong": 13,
-      "n_pending": 6
-    },
-    {
-      "event_id": 3,
-      "name": "UFC 328: Chimaev vs. Strickland",
-      "event_date": "2026-05-09",
-      "n_picks": 27,
-      "n_correct": 15,
-      "n_wrong": 11,
-      "n_pending": 1
-    },
-    {
-      "event_id": 2,
-      "name": "UFC Fight Night: Della Maddalena vs. Prates",
-      "event_date": "2026-05-02",
-      "n_picks": 27,
-      "n_correct": 17,
-      "n_wrong": 9,
-      "n_pending": 1
-    },
-    {
-      "event_id": 1,
-      "name": "UFC Fight Night: Sterling vs. Zalal",
-      "event_date": "2026-04-25",
-      "n_picks": 27,
-      "n_correct": 14,
-      "n_wrong": 12,
-      "n_pending": 1
-    }
+  "models": [
+    "elo_only",
+    "elo_stats",
+    "v1",
+    "v2"
   ],
-  "calibration": [
-    {
-      "bin": 0,
-      "n": 37,
-      "actual_win_rate": 0.40540540540540543,
-      "bucket_center": 0.525
+  "default_model": "v1",
+  "by_model": {
+    "elo_only": {
+      "totals": {
+        "graded": 0,
+        "correct": 0,
+        "wrong": 0,
+        "accuracy": null,
+        "log_loss": null
+      },
+      "per_event": [
+        {
+          "event_id": 5,
+          "name": "UFC Fight Night: Song vs. Figueiredo",
+          "event_date": "2026-05-30",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        }
+      ],
+      "calibration": [],
+      "timeseries": [],
+      "meta": {
+        "model_version": "elo_only",
+        "model_artifact": "xgb_elo_only.json",
+        "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
+        "trained_at": "2026-05-23T20:16:51.751109",
+        "cv_accuracy": 0.5518622628250176,
+        "cv_logloss": 0.6917516532426005,
+        "n_samples": 17078,
+        "features": [
+          "elo_std_pre_a",
+          "elo_mod_pre_a",
+          "elo_std_pre_b",
+          "elo_mod_pre_b",
+          "elo_diff_std",
+          "elo_diff_mod",
+          "is_title_fight"
+        ]
+      }
     },
-    {
-      "bin": 1,
-      "n": 21,
-      "actual_win_rate": 0.5238095238095238,
-      "bucket_center": 0.575
+    "elo_stats": {
+      "totals": {
+        "graded": 0,
+        "correct": 0,
+        "wrong": 0,
+        "accuracy": null,
+        "log_loss": null
+      },
+      "per_event": [
+        {
+          "event_id": 5,
+          "name": "UFC Fight Night: Song vs. Figueiredo",
+          "event_date": "2026-05-30",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        }
+      ],
+      "calibration": [],
+      "timeseries": [],
+      "meta": {
+        "model_version": "elo_stats",
+        "model_artifact": "xgb_elo_stats.json",
+        "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
+        "trained_at": "2026-05-23T20:17:00.929770",
+        "cv_accuracy": 0.608854532677442,
+        "cv_logloss": 0.6544395681934457,
+        "n_samples": 17078,
+        "features": [
+          "elo_std_pre_a",
+          "elo_mod_pre_a",
+          "elo_std_pre_b",
+          "elo_mod_pre_b",
+          "elo_diff_std",
+          "elo_diff_mod",
+          "is_title_fight",
+          "a_str_acc",
+          "a_str_vol",
+          "a_td_acc",
+          "a_grap_agg",
+          "a_str_def",
+          "b_str_acc",
+          "b_str_vol",
+          "b_td_acc",
+          "b_grap_agg",
+          "b_str_def",
+          "diff_str_acc",
+          "diff_str_vol",
+          "diff_td_acc",
+          "diff_grap_agg",
+          "diff_str_def"
+        ]
+      }
     },
-    {
-      "bin": 2,
-      "n": 13,
-      "actual_win_rate": 0.46153846153846156,
-      "bucket_center": 0.625
+    "v1": {
+      "totals": {
+        "graded": 52,
+        "correct": 29,
+        "wrong": 23,
+        "accuracy": 0.5576923076923077,
+        "log_loss": 0.6589079929192928
+      },
+      "per_event": [
+        {
+          "event_id": 4,
+          "name": "UFC Fight Night: Allen vs. Costa",
+          "event_date": "2026-05-16",
+          "n_picks": 16,
+          "n_correct": 7,
+          "n_wrong": 6,
+          "n_pending": 3
+        },
+        {
+          "event_id": 3,
+          "name": "UFC 328: Chimaev vs. Strickland",
+          "event_date": "2026-05-09",
+          "n_picks": 14,
+          "n_correct": 7,
+          "n_wrong": 6,
+          "n_pending": 1
+        },
+        {
+          "event_id": 2,
+          "name": "UFC Fight Night: Della Maddalena vs. Prates",
+          "event_date": "2026-05-02",
+          "n_picks": 14,
+          "n_correct": 7,
+          "n_wrong": 6,
+          "n_pending": 1
+        },
+        {
+          "event_id": 1,
+          "name": "UFC Fight Night: Sterling vs. Zalal",
+          "event_date": "2026-04-25",
+          "n_picks": 14,
+          "n_correct": 8,
+          "n_wrong": 5,
+          "n_pending": 1
+        }
+      ],
+      "calibration": [
+        {
+          "bin": 0,
+          "n": 23,
+          "actual_win_rate": 0.43478260869565216,
+          "bucket_center": 0.525
+        },
+        {
+          "bin": 1,
+          "n": 11,
+          "actual_win_rate": 0.5454545454545454,
+          "bucket_center": 0.575
+        },
+        {
+          "bin": 2,
+          "n": 7,
+          "actual_win_rate": 0.5714285714285714,
+          "bucket_center": 0.625
+        },
+        {
+          "bin": 3,
+          "n": 5,
+          "actual_win_rate": 0.8,
+          "bucket_center": 0.675
+        },
+        {
+          "bin": 4,
+          "n": 4,
+          "actual_win_rate": 0.75,
+          "bucket_center": 0.725
+        },
+        {
+          "bin": 5,
+          "n": 1,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.775
+        },
+        {
+          "bin": 6,
+          "n": 1,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.825
+        }
+      ],
+      "timeseries": [
+        {
+          "event_id": 1,
+          "event_date": "2026-04-25",
+          "event_name": "UFC Fight Night: Sterling vs. Zalal",
+          "n_correct_so_far": 8,
+          "n_picks_so_far": 13,
+          "accuracy_so_far": 0.6153846153846154
+        },
+        {
+          "event_id": 2,
+          "event_date": "2026-05-02",
+          "event_name": "UFC Fight Night: Della Maddalena vs. Prates",
+          "n_correct_so_far": 15,
+          "n_picks_so_far": 26,
+          "accuracy_so_far": 0.5769230769230769
+        },
+        {
+          "event_id": 3,
+          "event_date": "2026-05-09",
+          "event_name": "UFC 328: Chimaev vs. Strickland",
+          "n_correct_so_far": 22,
+          "n_picks_so_far": 39,
+          "accuracy_so_far": 0.5641025641025641
+        },
+        {
+          "event_id": 4,
+          "event_date": "2026-05-16",
+          "event_name": "UFC Fight Night: Allen vs. Costa",
+          "n_correct_so_far": 29,
+          "n_picks_so_far": 52,
+          "accuracy_so_far": 0.5576923076923077
+        }
+      ],
+      "meta": null
     },
-    {
-      "bin": 3,
-      "n": 13,
-      "actual_win_rate": 0.6923076923076923,
-      "bucket_center": 0.675
-    },
-    {
-      "bin": 4,
-      "n": 9,
-      "actual_win_rate": 0.7777777777777778,
-      "bucket_center": 0.725
-    },
-    {
-      "bin": 5,
-      "n": 6,
-      "actual_win_rate": 1.0,
-      "bucket_center": 0.775
-    },
-    {
-      "bin": 6,
-      "n": 4,
-      "actual_win_rate": 1.0,
-      "bucket_center": 0.825
-    },
-    {
-      "bin": 7,
-      "n": 1,
-      "actual_win_rate": 1.0,
-      "bucket_center": 0.875
+    "v2": {
+      "totals": {
+        "graded": 52,
+        "correct": 30,
+        "wrong": 22,
+        "accuracy": 0.5769230769230769,
+        "log_loss": 0.6069947651258434
+      },
+      "per_event": [
+        {
+          "event_id": 4,
+          "name": "UFC Fight Night: Allen vs. Costa",
+          "event_date": "2026-05-16",
+          "n_picks": 16,
+          "n_correct": 6,
+          "n_wrong": 7,
+          "n_pending": 3
+        },
+        {
+          "event_id": 3,
+          "name": "UFC 328: Chimaev vs. Strickland",
+          "event_date": "2026-05-09",
+          "n_picks": 13,
+          "n_correct": 8,
+          "n_wrong": 5,
+          "n_pending": 0
+        },
+        {
+          "event_id": 2,
+          "name": "UFC Fight Night: Della Maddalena vs. Prates",
+          "event_date": "2026-05-02",
+          "n_picks": 13,
+          "n_correct": 10,
+          "n_wrong": 3,
+          "n_pending": 0
+        },
+        {
+          "event_id": 1,
+          "name": "UFC Fight Night: Sterling vs. Zalal",
+          "event_date": "2026-04-25",
+          "n_picks": 13,
+          "n_correct": 6,
+          "n_wrong": 7,
+          "n_pending": 0
+        }
+      ],
+      "calibration": [
+        {
+          "bin": 0,
+          "n": 14,
+          "actual_win_rate": 0.35714285714285715,
+          "bucket_center": 0.525
+        },
+        {
+          "bin": 1,
+          "n": 10,
+          "actual_win_rate": 0.5,
+          "bucket_center": 0.575
+        },
+        {
+          "bin": 2,
+          "n": 6,
+          "actual_win_rate": 0.3333333333333333,
+          "bucket_center": 0.625
+        },
+        {
+          "bin": 3,
+          "n": 8,
+          "actual_win_rate": 0.625,
+          "bucket_center": 0.675
+        },
+        {
+          "bin": 4,
+          "n": 5,
+          "actual_win_rate": 0.8,
+          "bucket_center": 0.725
+        },
+        {
+          "bin": 5,
+          "n": 5,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.775
+        },
+        {
+          "bin": 6,
+          "n": 3,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.825
+        },
+        {
+          "bin": 7,
+          "n": 1,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.875
+        }
+      ],
+      "timeseries": [
+        {
+          "event_id": 1,
+          "event_date": "2026-04-25",
+          "event_name": "UFC Fight Night: Sterling vs. Zalal",
+          "n_correct_so_far": 6,
+          "n_picks_so_far": 13,
+          "accuracy_so_far": 0.46153846153846156
+        },
+        {
+          "event_id": 2,
+          "event_date": "2026-05-02",
+          "event_name": "UFC Fight Night: Della Maddalena vs. Prates",
+          "n_correct_so_far": 16,
+          "n_picks_so_far": 26,
+          "accuracy_so_far": 0.6153846153846154
+        },
+        {
+          "event_id": 3,
+          "event_date": "2026-05-09",
+          "event_name": "UFC 328: Chimaev vs. Strickland",
+          "n_correct_so_far": 24,
+          "n_picks_so_far": 39,
+          "accuracy_so_far": 0.6153846153846154
+        },
+        {
+          "event_id": 4,
+          "event_date": "2026-05-16",
+          "event_name": "UFC Fight Night: Allen vs. Costa",
+          "n_correct_so_far": 30,
+          "n_picks_so_far": 52,
+          "accuracy_so_far": 0.5769230769230769
+        }
+      ],
+      "meta": null
     }
-  ],
-  "timeseries": [
-    {
-      "event_id": 1,
-      "event_date": "2026-04-25",
-      "event_name": "UFC Fight Night: Sterling vs. Zalal",
-      "n_correct_so_far": 14,
-      "n_picks_so_far": 26,
-      "accuracy_so_far": 0.5384615384615384
-    },
-    {
-      "event_id": 2,
-      "event_date": "2026-05-02",
-      "event_name": "UFC Fight Night: Della Maddalena vs. Prates",
-      "n_correct_so_far": 31,
-      "n_picks_so_far": 52,
-      "accuracy_so_far": 0.5961538461538461
-    },
-    {
-      "event_id": 3,
-      "event_date": "2026-05-09",
-      "event_name": "UFC 328: Chimaev vs. Strickland",
-      "n_correct_so_far": 46,
-      "n_picks_so_far": 78,
-      "accuracy_so_far": 0.5897435897435898
-    },
-    {
-      "event_id": 4,
-      "event_date": "2026-05-16",
-      "event_name": "UFC Fight Night: Allen vs. Costa",
-      "n_correct_so_far": 59,
-      "n_picks_so_far": 104,
-      "accuracy_so_far": 0.5673076923076923
-    }
-  ]
+  }
 }
