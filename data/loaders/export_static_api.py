@@ -180,7 +180,8 @@ def export_predictions(cur, dry_run: bool):
         JOIN fighters fb ON f.fighter_b_id = fb.fighter_id
         LEFT JOIN fighters pw ON p.predicted_winner_id = pw.fighter_id
         LEFT JOIN events e ON f.event_id = e.event_id
-        WHERE e.deployed_at IS NOT NULL OR e.event_date >= CURRENT_DATE
+        WHERE f.is_cancelled = FALSE
+          AND (e.deployed_at IS NOT NULL OR e.event_date >= CURRENT_DATE)
         ORDER BY f.fight_date DESC, p.model_version, p.prediction_id DESC
     """)
     rows = cur.fetchall()
@@ -255,6 +256,7 @@ def export_results(cur, dry_run: bool):
         LEFT JOIN fighters aw ON f.winner_id = aw.fighter_id
         LEFT JOIN events e ON f.event_id = e.event_id
         WHERE p.was_correct IS NOT NULL
+          AND f.is_cancelled = FALSE
         ORDER BY p.prediction_id DESC
         LIMIT 500
     """)

@@ -2,6 +2,13 @@
 
 How to refresh data on https://patrickmcalinden.github.io/ufc-prediction/.
 
+> **See also:** [docs/LESSONS.md](docs/LESSONS.md) for recurring
+> operational pain points + verification habits.
+> If you're rewriting the system from scratch, read
+> [docs/REBUILD_SPEC.md](docs/REBUILD_SPEC.md) (architecture +
+> invariants) and [docs/REBUILD_REFERENCE.md](docs/REBUILD_REFERENCE.md)
+> (concrete code snippets, ELO math, ESPN JSON paths, deps).
+
 ## TL;DR (the loop you'll run after every event)
 
 ```
@@ -58,11 +65,18 @@ Your `.env` (gitignored, never pushed) holds `DATABASE_URL` and
 
 | What changed | Run this |
 |---|---|
-| New upcoming card to predict | `python -m model.predict_upcoming` |
+| New upcoming card to predict | `python -m model.predict_upcoming` (auto-sets `events.deployed_at` for the new event) |
 | Event just finished | `python -m data.post_event_pipeline` |
 | Already ingested, just need grading | `python -m data.grade_predictions` |
 | Added/settled a bet | hit your **local** API (`POST http://localhost:8000/bets` or `PATCH /bets/{id}/settle`) — uses `BET_API_KEY` |
 | Wrote a blog post | drop a `.md` file under `blog/` with frontmatter (`title`, `date`, `slug`, `summary`) |
+
+**`events.deployed_at` is the gate** that controls whether an event shows up
+on the Results page, the Models leaderboard, and gets graded. It's set
+automatically by `predict_upcoming` for events still in the future. If
+you ever see a finished event missing from those pages, check:
+`SELECT event_id, name, deployed_at FROM events WHERE event_id = ...;`
+and backfill with `UPDATE events SET deployed_at = NOW() WHERE event_id = ...;`
 
 ### 3. Export to static JSON
 

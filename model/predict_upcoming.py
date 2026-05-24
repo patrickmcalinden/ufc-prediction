@@ -73,11 +73,12 @@ def run_predictions(model_version="v1"):
     
     # Find all upcoming and recent fights (last 60 days) to backfill leaderboard data
     cur.execute("""
-        SELECT f.fight_id, f.fighter_a_id, f.fighter_b_id, f.is_title_fight
+        SELECT f.fight_id, f.fighter_a_id, f.fighter_b_id, f.is_title_fight,
+               f.event_id, e.event_date
         FROM fights f
         JOIN events e ON f.event_id = e.event_id
         WHERE e.event_date >= CURRENT_DATE - INTERVAL '60 days'
-          AND f.fighter_a_id IS NOT NULL 
+          AND f.fighter_a_id IS NOT NULL
           AND f.fighter_b_id IS NOT NULL
           AND f.is_cancelled = FALSE
     """)
@@ -166,7 +167,19 @@ def run_predictions(model_version="v1"):
             INSERT INTO predictions (fight_id, predicted_winner_id, win_probability, model_version)
             VALUES (%s, %s, %s, %s)
         """, (fight['fight_id'], predicted_winner_id, normalized_prob, model_version))
-        
+
+    # Mark each event we generated predictions for as "deployed" if today is on or before
+    # the event date. This is the gate that lets grade_predictions, the model leaderboard,
+    # and the results page see the event as live (vs. backtest).
+    event_ids_to_deploy = {f['event_id'] for f in metadata if f['event_date'] >= pd.Timestamp.now().date()}
+    if event_ids_to_deploy:
+        cur.execute(
+            "UPDATE events SET deployed_at = NOW() WHERE event_id = ANY(%s) AND deployed_at IS NULL",
+            (list(event_ids_to_deploy),),
+        )
+        if cur.rowcount:
+            print(f"Marked {cur.rowcount} event(s) as deployed.")
+
     conn.commit()
     print(f"XGBoost predictions perfectly deployed and structured into PostgreSQL ({len(upcoming_fights)} matches).")
     
