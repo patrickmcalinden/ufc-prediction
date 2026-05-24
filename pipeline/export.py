@@ -197,8 +197,12 @@ def _default_model(versions: list[str]) -> str | None:
         cur.execute(
             """
             SELECT model_version, COUNT(*) FILTER (WHERE was_correct IS NOT NULL) AS graded
-              FROM predictions p JOIN events e ON e.event_id = p.event_id
-             WHERE p.is_locked AND e.deployed_at IS NOT NULL
+              FROM predictions p
+              JOIN fights f ON f.fight_id = p.fight_id
+              JOIN events e ON e.event_id = p.event_id
+             WHERE p.is_locked
+               AND e.deployed_at IS NOT NULL
+               AND f.is_cancelled = FALSE
              GROUP BY model_version
             """
         )
@@ -225,6 +229,10 @@ def _default_model(versions: list[str]) -> str | None:
 
 
 def _performance_for_model(cur, model_version: str) -> dict:
+    # Every query joins through fights with NOT is_cancelled so picks on
+    # fights that were pulled from the card never count as picks at all.
+    # Otherwise those rows stay was_correct=NULL forever and inflate the
+    # "pending" count for events that already happened.
     cur.execute(
         """
         SELECT COUNT(*) FILTER (WHERE was_correct IS NOT NULL) AS graded,
@@ -237,10 +245,12 @@ def _performance_for_model(cur, model_version: str) -> dict:
                  0.999), 0.001))
                ) FILTER (WHERE was_correct IS NOT NULL) AS log_loss
           FROM predictions p
+          JOIN fights f ON f.fight_id = p.fight_id
           JOIN events e ON e.event_id = p.event_id
          WHERE p.is_locked = TRUE
            AND p.model_version = %s
            AND e.deployed_at IS NOT NULL
+           AND f.is_cancelled = FALSE
         """,
         (model_version,),
     )
@@ -255,9 +265,11 @@ def _performance_for_model(cur, model_version: str) -> dict:
                COUNT(*) FILTER (WHERE p.was_correct IS NULL) AS n_pending
           FROM events e
           JOIN predictions p ON p.event_id = e.event_id
+          JOIN fights f ON f.fight_id = p.fight_id
          WHERE p.is_locked = TRUE
            AND p.model_version = %s
            AND e.deployed_at IS NOT NULL
+           AND f.is_cancelled = FALSE
          GROUP BY e.event_id, e.name, e.event_date
          ORDER BY e.event_date DESC
         """,
@@ -272,11 +284,13 @@ def _performance_for_model(cur, model_version: str) -> dict:
                 LEAST(FLOOR((win_probability - 0.5) * 20)::int, 9) AS bin,
                 was_correct::int AS correct_int
               FROM predictions p
+              JOIN fights f ON f.fight_id = p.fight_id
               JOIN events e ON e.event_id = p.event_id
              WHERE p.is_locked = TRUE
                AND p.was_correct IS NOT NULL
                AND p.model_version = %s
                AND e.deployed_at IS NOT NULL
+               AND f.is_cancelled = FALSE
         )
         SELECT bin,
                COUNT(*)                    AS n,
