@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 6,
+    "espn_event_id": "600058949",
+    "name": "UFC Fight Night: Muhammad vs. Bonfim",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-06-06",
+    "deployed_at": "2026-06-02T04:29:29.054436+00:00"
+  },
+  {
     "event_id": 5,
     "espn_event_id": "600058517",
     "name": "UFC Fight Night: Song vs. Figueiredo",
