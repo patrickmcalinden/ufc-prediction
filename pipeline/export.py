@@ -25,6 +25,17 @@ log = logging.getLogger(__name__)
 
 OUT_DIR = Path(__file__).resolve().parent.parent / "site" / "public" / "data"
 
+# Picks on these fights never count toward the dashboard:
+#   * cancelled fights (pulled from the card)
+#   * fights that resolved without a winner — No Contest, Draws
+# A fight is "void" if it falls into either bucket. The clauses below are
+# spliced into every performance/snapshot query so void fights drop out of
+# both the graded pool AND the n_pending count.
+_VOID_FIGHT_SQL = (
+    "f.is_cancelled = FALSE "
+    "AND (f.winner_id IS NOT NULL OR f.method IS NULL)"
+)
+
 
 class _Encoder(json.JSONEncoder):
     def default(self, obj):
@@ -81,6 +92,9 @@ def _models_for_event(cur, event_id: int) -> list[str]:
 
 
 def _fights_for_event(cur, event_id: int) -> list[dict]:
+    # Snapshot pages still render NC/Draw fights so the user can SEE the
+    # outcome; only is_cancelled is hidden. The accuracy filters below are
+    # the ones that drop NC/Draw from totals + n_pending.
     cur.execute(
         """
         SELECT fight_id, fighter_a_id, fighter_b_id, winner_id,
@@ -202,7 +216,7 @@ def _default_model(versions: list[str]) -> str | None:
               JOIN events e ON e.event_id = p.event_id
              WHERE p.is_locked
                AND e.deployed_at IS NOT NULL
-               AND f.is_cancelled = FALSE
+               AND """ + _VOID_FIGHT_SQL + """
              GROUP BY model_version
             """
         )
@@ -229,10 +243,11 @@ def _default_model(versions: list[str]) -> str | None:
 
 
 def _performance_for_model(cur, model_version: str) -> dict:
-    # Every query joins through fights with NOT is_cancelled so picks on
-    # fights that were pulled from the card never count as picks at all.
-    # Otherwise those rows stay was_correct=NULL forever and inflate the
-    # "pending" count for events that already happened.
+    # Every query joins through fights with the _VOID_FIGHT_SQL guard so
+    # picks on fights that were pulled from the card or resolved with no
+    # winner (NC, Draw) never count as picks at all. Otherwise those rows
+    # stay was_correct=NULL forever and inflate the "pending" count for
+    # events that already happened.
     cur.execute(
         """
         SELECT COUNT(*) FILTER (WHERE was_correct IS NOT NULL) AS graded,
@@ -250,7 +265,7 @@ def _performance_for_model(cur, model_version: str) -> dict:
          WHERE p.is_locked = TRUE
            AND p.model_version = %s
            AND e.deployed_at IS NOT NULL
-           AND f.is_cancelled = FALSE
+           AND """ + _VOID_FIGHT_SQL + """
         """,
         (model_version,),
     )
@@ -269,7 +284,7 @@ def _performance_for_model(cur, model_version: str) -> dict:
          WHERE p.is_locked = TRUE
            AND p.model_version = %s
            AND e.deployed_at IS NOT NULL
-           AND f.is_cancelled = FALSE
+           AND """ + _VOID_FIGHT_SQL + """
          GROUP BY e.event_id, e.name, e.event_date
          ORDER BY e.event_date DESC
         """,
@@ -290,7 +305,7 @@ def _performance_for_model(cur, model_version: str) -> dict:
                AND p.was_correct IS NOT NULL
                AND p.model_version = %s
                AND e.deployed_at IS NOT NULL
-               AND f.is_cancelled = FALSE
+               AND """ + _VOID_FIGHT_SQL + """
         )
         SELECT bin,
                COUNT(*)                    AS n,

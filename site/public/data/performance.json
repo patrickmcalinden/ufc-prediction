@@ -18,10 +18,10 @@
           "event_id": 5,
           "name": "UFC Fight Night: Song vs. Figueiredo",
           "event_date": "2026-05-30",
-          "n_picks": 10,
+          "n_picks": 9,
           "n_correct": 8,
           "n_wrong": 1,
-          "n_pending": 1
+          "n_pending": 0
         },
         {
           "event_id": 4,
@@ -178,10 +178,10 @@
           "event_id": 5,
           "name": "UFC Fight Night: Song vs. Figueiredo",
           "event_date": "2026-05-30",
-          "n_picks": 10,
+          "n_picks": 9,
           "n_correct": 3,
           "n_wrong": 6,
-          "n_pending": 1
+          "n_pending": 0
         },
         {
           "event_id": 4,

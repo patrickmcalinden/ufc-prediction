@@ -55,25 +55,28 @@ def run_pre_event(event_id: int | None, models: list[str], skip_train: bool, for
 
 
 def run_post_event(skip_stats: bool) -> None:
-    _heading("1/5  INGEST results (reconcile)")
+    _heading("1/6  INGEST results (reconcile)")
     ingest.ingest_events(mode="reconcile")
+
+    _heading("2/6  INGEST upcoming events (look for next card)")
+    ingest.ingest_events(mode="recent")
 
     if skip_stats:
         logging.info("Skipping stats (--skip-stats)")
     else:
-        _heading("2/5  INGEST per-fight stats")
+        _heading("3/6  INGEST per-fight stats")
         stats_summary = ingest.ingest_stats(active_only=True)
         logging.info("stats: %s", stats_summary)
 
-    _heading("3/5  GRADE locked predictions")
+    _heading("4/6  GRADE locked predictions")
     grade_summary = grade.grade_predictions()
     logging.info("grade: %s", grade_summary)
 
-    _heading("4/5  UPDATE Elo + refresh fighters.current_elo_*")
+    _heading("5/6  UPDATE Elo + refresh fighters.current_elo_*")
     elo_summary = elo_update.update_elo()
     logging.info("elo: %s", elo_summary)
 
-    _heading("5/5  EXPORT site JSON")
+    _heading("6/6  EXPORT site JSON")
     export.export_all()
 
 
