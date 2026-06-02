@@ -332,7 +332,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": null
+          "graded_at": "2026-06-02T04:20:10.954306+00:00"
         },
         {
           "prediction_id": 2681,
@@ -342,7 +342,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": null
+          "graded_at": "2026-06-02T04:20:10.954306+00:00"
         }
       ],
       "prediction": {
@@ -353,7 +353,7 @@
         "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": null
+        "graded_at": "2026-06-02T04:20:10.954306+00:00"
       }
     },
     {

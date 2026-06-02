@@ -62,7 +62,7 @@ One CLI, two modes, plus utility flags. All from `pipeline/run.py`.
 | Mode | What it does |
 |---|---|
 | `python -m pipeline.run --pre-event` | scrape upcoming card → train every registered model → predict next event → export JSON |
-| `python -m pipeline.run --post-event` | scrape results → scrape per-fight stats → grade picks → **update Elo** → refresh `fighters.current_elo_*` → export JSON |
+| `python -m pipeline.run --post-event` | scrape results → scrape upcoming events (next card metadata) → scrape per-fight stats → grade picks (incl. voiding NC/Draw) → **update Elo** → refresh `fighters.current_elo_*` → export JSON |
 | `python -m pipeline.run --export-only` | rebuild site JSON without touching the DB |
 | `python -m pipeline.run --elo-rebuild` | full Elo rebuild from scratch (rare; used after bulk data fixes) |
 
