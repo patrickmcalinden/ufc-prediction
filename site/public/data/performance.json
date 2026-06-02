@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 6,
+          "name": "UFC Fight Night: Muhammad vs. Bonfim",
+          "event_date": "2026-06-06",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
+        {
           "event_id": 5,
           "name": "UFC Fight Night: Song vs. Figueiredo",
           "event_date": "2026-05-30",
@@ -150,10 +159,10 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-05-24T00:28:19.788549",
-        "cv_accuracy": 0.5518622628250176,
-        "cv_logloss": 0.6917516532426005,
-        "n_samples": 17078,
+        "trained_at": "2026-06-02T00:29:19.006551",
+        "cv_accuracy": 0.5525114155251142,
+        "cv_logloss": 0.6919216315793941,
+        "n_samples": 17086,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -174,6 +183,15 @@
         "log_loss": 0.6395680149664493
       },
       "per_event": [
+        {
+          "event_id": 6,
+          "name": "UFC Fight Night: Muhammad vs. Bonfim",
+          "event_date": "2026-06-06",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 5,
           "name": "UFC Fight Night: Song vs. Figueiredo",
@@ -316,10 +334,10 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-05-24T00:28:28.918653",
-        "cv_accuracy": 0.608854532677442,
-        "cv_logloss": 0.6544395681934457,
-        "n_samples": 17078,
+        "trained_at": "2026-06-02T00:29:29.037187",
+        "cv_accuracy": 0.6090621707060063,
+        "cv_logloss": 0.6538549220566736,
+        "n_samples": 17086,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
