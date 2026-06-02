@@ -7,21 +7,21 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 52,
-        "correct": 29,
-        "wrong": 23,
-        "accuracy": 0.5576923076923077,
-        "log_loss": 0.6589079929192928
+        "graded": 61,
+        "correct": 37,
+        "wrong": 24,
+        "accuracy": 0.6065573770491803,
+        "log_loss": 0.6531633953009665
       },
       "per_event": [
         {
           "event_id": 5,
           "name": "UFC Fight Night: Song vs. Figueiredo",
           "event_date": "2026-05-30",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_picks": 10,
+          "n_correct": 8,
+          "n_wrong": 1,
+          "n_pending": 1
         },
         {
           "event_id": 4,
@@ -63,14 +63,14 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 23,
-          "actual_win_rate": 0.43478260869565216,
+          "n": 28,
+          "actual_win_rate": 0.5357142857142857,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 11,
-          "actual_win_rate": 0.5454545454545454,
+          "n": 14,
+          "actual_win_rate": 0.5714285714285714,
           "bucket_center": 0.575
         },
         {
@@ -81,8 +81,8 @@
         },
         {
           "bin": 3,
-          "n": 5,
-          "actual_win_rate": 0.8,
+          "n": 6,
+          "actual_win_rate": 0.8333333333333334,
           "bucket_center": 0.675
         },
         {
@@ -136,6 +136,14 @@
           "n_correct_so_far": 29,
           "n_picks_so_far": 52,
           "accuracy_so_far": 0.5576923076923077
+        },
+        {
+          "event_id": 5,
+          "event_date": "2026-05-30",
+          "event_name": "UFC Fight Night: Song vs. Figueiredo",
+          "n_correct_so_far": 37,
+          "n_picks_so_far": 61,
+          "accuracy_so_far": 0.6065573770491803
         }
       ],
       "meta": {
@@ -159,21 +167,21 @@
     },
     "v2": {
       "totals": {
-        "graded": 52,
-        "correct": 30,
-        "wrong": 22,
-        "accuracy": 0.5769230769230769,
-        "log_loss": 0.6069947651258434
+        "graded": 61,
+        "correct": 33,
+        "wrong": 28,
+        "accuracy": 0.5409836065573771,
+        "log_loss": 0.6395680149664493
       },
       "per_event": [
         {
           "event_id": 5,
           "name": "UFC Fight Night: Song vs. Figueiredo",
           "event_date": "2026-05-30",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_picks": 10,
+          "n_correct": 3,
+          "n_wrong": 6,
+          "n_pending": 1
         },
         {
           "event_id": 4,
@@ -215,20 +223,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 14,
-          "actual_win_rate": 0.35714285714285715,
+          "n": 18,
+          "actual_win_rate": 0.3333333333333333,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 10,
-          "actual_win_rate": 0.5,
+          "n": 11,
+          "actual_win_rate": 0.45454545454545453,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 6,
-          "actual_win_rate": 0.3333333333333333,
+          "n": 8,
+          "actual_win_rate": 0.375,
           "bucket_center": 0.625
         },
         {
@@ -251,14 +259,14 @@
         },
         {
           "bin": 6,
-          "n": 3,
+          "n": 4,
           "actual_win_rate": 1.0,
           "bucket_center": 0.825
         },
         {
           "bin": 7,
-          "n": 1,
-          "actual_win_rate": 1.0,
+          "n": 2,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.875
         }
       ],
@@ -294,6 +302,14 @@
           "n_correct_so_far": 30,
           "n_picks_so_far": 52,
           "accuracy_so_far": 0.5769230769230769
+        },
+        {
+          "event_id": 5,
+          "event_date": "2026-05-30",
+          "event_name": "UFC Fight Night: Song vs. Figueiredo",
+          "n_correct_so_far": 33,
+          "n_picks_so_far": 61,
+          "accuracy_so_far": 0.5409836065573771
         }
       ],
       "meta": {
