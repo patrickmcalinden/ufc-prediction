@@ -62,7 +62,7 @@ One CLI, two modes, plus utility flags. All from `pipeline/run.py`.
 | Mode | What it does |
 |---|---|
 | `python -m pipeline.run --pre-event` | scrape upcoming card → train every registered model → predict next event → export JSON |
-| `python -m pipeline.run --post-event` | scrape results → scrape upcoming events (next card metadata) → scrape per-fight stats → grade picks (incl. voiding NC/Draw) → **update Elo** → refresh `fighters.current_elo_*` → export JSON |
+| `python -m pipeline.run --post-event` | scrape results → scrape upcoming events (next card metadata) → scrape per-fight stats → **update Elo** + refresh `fighters.current_elo_*` → **backfill** locked picks for any late-add fight on a deployed event → grade picks (incl. voiding NC/Draw) → export JSON |
 | `python -m pipeline.run --export-only` | rebuild site JSON without touching the DB |
 | `python -m pipeline.run --elo-rebuild` | full Elo rebuild from scratch (rare; used after bulk data fixes) |
 
@@ -116,7 +116,7 @@ Key invariants:
 
 - **`events.deployed_at`** is set automatically the first time `--pre-event` writes a locked snapshot for that event. It's the gate that controls whether picks count toward the public dashboard.
 - **`fighters.current_elo_*`** is denormalized for fast joins from `predict.py`. Refreshed by every `--post-event` after Elo is recomputed.
-- **Grade order is fixed**: Ingest → Stats → Grade → Elo. Elo must run after Grade because it reads `fights.winner_id` which Grade reconciles. `pipeline/run.py` enforces this order.
+- **Post-event step order**: Ingest → Stats → Elo → Backfill → Grade. Elo runs before Backfill so the backfill can read `elo_ratings.elo_*_pre` for the just-completed fights. Grade runs last so any prediction the Backfill just inserted gets graded in the same run. `pipeline/run.py` enforces this order.
 
 ---
 
