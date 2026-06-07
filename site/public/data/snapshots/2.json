@@ -463,10 +463,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 7,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1476.71,
-        "current_elo_modified": 1473.84
+        "current_elo_standard": 1463.79,
+        "current_elo_modified": 1457.34
       },
       "fighter_b": {
         "fighter_id": 36,

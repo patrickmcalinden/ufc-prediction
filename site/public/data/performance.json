@@ -7,11 +7,11 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 61,
-        "correct": 37,
-        "wrong": 24,
-        "accuracy": 0.6065573770491803,
-        "log_loss": 0.6531633953009665
+        "graded": 73,
+        "correct": 46,
+        "wrong": 27,
+        "accuracy": 0.6301369863013698,
+        "log_loss": 0.6459340616503925
       },
       "per_event": [
         {
@@ -19,9 +19,9 @@
           "name": "UFC Fight Night: Muhammad vs. Bonfim",
           "event_date": "2026-06-06",
           "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_correct": 9,
+          "n_wrong": 3,
+          "n_pending": 0
         },
         {
           "event_id": 5,
@@ -72,26 +72,26 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 28,
-          "actual_win_rate": 0.5357142857142857,
+          "n": 31,
+          "actual_win_rate": 0.5161290322580645,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 14,
-          "actual_win_rate": 0.5714285714285714,
+          "n": 21,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 7,
-          "actual_win_rate": 0.5714285714285714,
+          "n": 8,
+          "actual_win_rate": 0.625,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 6,
-          "actual_win_rate": 0.8333333333333334,
+          "n": 7,
+          "actual_win_rate": 0.8571428571428571,
           "bucket_center": 0.675
         },
         {
@@ -153,13 +153,21 @@
           "n_correct_so_far": 37,
           "n_picks_so_far": 61,
           "accuracy_so_far": 0.6065573770491803
+        },
+        {
+          "event_id": 6,
+          "event_date": "2026-06-06",
+          "event_name": "UFC Fight Night: Muhammad vs. Bonfim",
+          "n_correct_so_far": 46,
+          "n_picks_so_far": 73,
+          "accuracy_so_far": 0.6301369863013698
         }
       ],
       "meta": {
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-06-02T00:29:19.006551",
+        "trained_at": "2026-06-02T00:42:28.587694",
         "cv_accuracy": 0.5525114155251142,
         "cv_logloss": 0.6919216315793941,
         "n_samples": 17086,
@@ -176,11 +184,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 61,
-        "correct": 33,
-        "wrong": 28,
-        "accuracy": 0.5409836065573771,
-        "log_loss": 0.6395680149664493
+        "graded": 73,
+        "correct": 42,
+        "wrong": 31,
+        "accuracy": 0.5753424657534246,
+        "log_loss": 0.6394581298256028
       },
       "per_event": [
         {
@@ -188,9 +196,9 @@
           "name": "UFC Fight Night: Muhammad vs. Bonfim",
           "event_date": "2026-06-06",
           "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_correct": 9,
+          "n_wrong": 3,
+          "n_pending": 0
         },
         {
           "event_id": 5,
@@ -241,32 +249,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 18,
-          "actual_win_rate": 0.3333333333333333,
+          "n": 22,
+          "actual_win_rate": 0.36363636363636365,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 11,
-          "actual_win_rate": 0.45454545454545453,
+          "n": 13,
+          "actual_win_rate": 0.5384615384615384,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 8,
-          "actual_win_rate": 0.375,
+          "n": 10,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 8,
-          "actual_win_rate": 0.625,
+          "n": 9,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 5,
-          "actual_win_rate": 0.8,
+          "n": 7,
+          "actual_win_rate": 0.8571428571428571,
           "bucket_center": 0.725
         },
         {
@@ -277,8 +285,8 @@
         },
         {
           "bin": 6,
-          "n": 4,
-          "actual_win_rate": 1.0,
+          "n": 5,
+          "actual_win_rate": 0.8,
           "bucket_center": 0.825
         },
         {
@@ -328,13 +336,21 @@
           "n_correct_so_far": 33,
           "n_picks_so_far": 61,
           "accuracy_so_far": 0.5409836065573771
+        },
+        {
+          "event_id": 6,
+          "event_date": "2026-06-06",
+          "event_name": "UFC Fight Night: Muhammad vs. Bonfim",
+          "n_correct_so_far": 42,
+          "n_picks_so_far": 73,
+          "accuracy_so_far": 0.5753424657534246
         }
       ],
       "meta": {
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-06-02T00:29:29.037187",
+        "trained_at": "2026-06-02T00:42:39.644058",
         "cv_accuracy": 0.6090621707060063,
         "cv_logloss": 0.6538549220566736,
         "n_samples": 17086,
