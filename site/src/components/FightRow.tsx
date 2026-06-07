@@ -4,6 +4,14 @@ function record(f: NonNullable<Fight["fighter_a"]>) {
   return `${f.record_wins}-${f.record_losses}${f.record_draws ? `-${f.record_draws}` : ""}`;
 }
 
+function voidedLabelFor(method: string | null): string {
+  if (!method) return "voided";
+  const m = method.toLowerCase();
+  if (m.includes("no contest") || m.includes("nc")) return "no contest";
+  if (m.includes("draw")) return "draw";
+  return "voided";
+}
+
 function pickPrediction(fight: Fight, modelVersion: string | null): Prediction | null {
   if (modelVersion) {
     return fight.predictions?.find((pp) => pp.model_version === modelVersion) ?? null;
@@ -28,6 +36,11 @@ export default function FightRow({ fight, modelVersion = null }: { fight: Fight;
   const aWon = fight.winner_id === a.fighter_id;
   const bWon = fight.winner_id === b.fighter_id;
   const decided = aWon || bWon;
+  // A fight with no winner_id but a recorded method = Draw / No Contest.
+  // Picks for these are graded as voided; the dashboard label should say so
+  // explicitly instead of looking like a still-locked-pending fight.
+  const voided = !decided && fight.winner_id == null && fight.method != null;
+  const voidLabel = voided ? voidedLabelFor(fight.method) : null;
   const correct = p && decided && winnerId === fight.winner_id;
   const wrong = p && decided && winnerId !== fight.winner_id;
 
@@ -41,12 +54,18 @@ export default function FightRow({ fight, modelVersion = null }: { fight: Fight;
               title
             </span>
           )}
+          {voidLabel && (
+            <span className="rounded bg-neutral-200 px-1.5 py-0.5 text-xs font-medium uppercase tracking-wider text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
+              {voidLabel}
+            </span>
+          )}
         </div>
         {p && (
           <div className="text-xs text-neutral-500">
             {correct && <span className="text-emerald-600 dark:text-emerald-400">✓ correct</span>}
             {wrong && <span className="text-rose-600 dark:text-rose-400">✗ wrong</span>}
-            {!decided && <span>locked {p.snapshot_at?.slice(0, 10)}</span>}
+            {voided && <span className="text-neutral-500">voided</span>}
+            {!decided && !voided && <span>locked {p.snapshot_at?.slice(0, 10)}</span>}
           </div>
         )}
       </div>

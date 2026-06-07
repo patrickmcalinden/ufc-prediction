@@ -159,31 +159,62 @@ def _latest_elo(cur, fighter_id: int) -> tuple[float, float]:
     return ELO_CONFIG["starting_rating"], ELO_CONFIG["starting_rating"]
 
 
-def _historical_stats(cur, fighter_id: int) -> dict:
-    cur.execute(
-        """
-        SELECT
-            COALESCE(SUM(sig_strikes_landed), 0)    AS sig_str_landed,
-            COALESCE(SUM(sig_strikes_attempted), 0) AS sig_str_att,
-            COALESCE(SUM(takedowns_landed), 0)      AS td_landed,
-            COALESCE(SUM(takedowns_attempted), 0)   AS td_att,
-            COALESCE(SUM(advances + submissions), 0) AS grap_agg,
-            COUNT(DISTINCT fight_id)                AS hist_fights
-          FROM fighter_stats WHERE fighter_id = %s
-        """,
-        (fighter_id,),
-    )
+def _historical_stats(cur, fighter_id: int, before_date=None) -> dict:
+    if before_date is None:
+        cur.execute(
+            """
+            SELECT
+                COALESCE(SUM(sig_strikes_landed), 0)    AS sig_str_landed,
+                COALESCE(SUM(sig_strikes_attempted), 0) AS sig_str_att,
+                COALESCE(SUM(takedowns_landed), 0)      AS td_landed,
+                COALESCE(SUM(takedowns_attempted), 0)   AS td_att,
+                COALESCE(SUM(advances + submissions), 0) AS grap_agg,
+                COUNT(DISTINCT fight_id)                AS hist_fights
+              FROM fighter_stats WHERE fighter_id = %s
+            """,
+            (fighter_id,),
+        )
+    else:
+        cur.execute(
+            """
+            SELECT
+                COALESCE(SUM(fs.sig_strikes_landed), 0)    AS sig_str_landed,
+                COALESCE(SUM(fs.sig_strikes_attempted), 0) AS sig_str_att,
+                COALESCE(SUM(fs.takedowns_landed), 0)      AS td_landed,
+                COALESCE(SUM(fs.takedowns_attempted), 0)   AS td_att,
+                COALESCE(SUM(fs.advances + fs.submissions), 0) AS grap_agg,
+                COUNT(DISTINCT fs.fight_id)                AS hist_fights
+              FROM fighter_stats fs
+              JOIN fights pf ON pf.fight_id = fs.fight_id
+             WHERE fs.fighter_id = %s
+               AND pf.fight_date < %s
+            """,
+            (fighter_id, before_date),
+        )
     off = cur.fetchone()
-    cur.execute(
-        """
-        SELECT COALESCE(SUM(opp_fs.sig_strikes_landed), 0) AS sig_str_absorbed
-          FROM fighter_stats opp_fs
-          JOIN fights pf ON opp_fs.fight_id = pf.fight_id
-         WHERE opp_fs.fighter_id != %s
-           AND (pf.fighter_a_id = %s OR pf.fighter_b_id = %s)
-        """,
-        (fighter_id, fighter_id, fighter_id),
-    )
+    if before_date is None:
+        cur.execute(
+            """
+            SELECT COALESCE(SUM(opp_fs.sig_strikes_landed), 0) AS sig_str_absorbed
+              FROM fighter_stats opp_fs
+              JOIN fights pf ON opp_fs.fight_id = pf.fight_id
+             WHERE opp_fs.fighter_id != %s
+               AND (pf.fighter_a_id = %s OR pf.fighter_b_id = %s)
+            """,
+            (fighter_id, fighter_id, fighter_id),
+        )
+    else:
+        cur.execute(
+            """
+            SELECT COALESCE(SUM(opp_fs.sig_strikes_landed), 0) AS sig_str_absorbed
+              FROM fighter_stats opp_fs
+              JOIN fights pf ON opp_fs.fight_id = pf.fight_id
+             WHERE opp_fs.fighter_id != %s
+               AND (pf.fighter_a_id = %s OR pf.fighter_b_id = %s)
+               AND pf.fight_date < %s
+            """,
+            (fighter_id, fighter_id, fighter_id, before_date),
+        )
     dfn = cur.fetchone()
 
     fights = max(int(off["hist_fights"]), 1)
@@ -196,12 +227,55 @@ def _historical_stats(cur, fighter_id: int) -> dict:
     }
 
 
-def features_for_fight(cur, fighter_a_id: int, fighter_b_id: int, is_title_fight: bool) -> dict:
-    """Build one feature row using current Elo + historical stats. Used by predict.py."""
-    a_std, a_mod = _latest_elo(cur, fighter_a_id)
-    b_std, b_mod = _latest_elo(cur, fighter_b_id)
-    sa = _historical_stats(cur, fighter_a_id)
-    sb = _historical_stats(cur, fighter_b_id)
+def _pre_fight_elo(cur, fight_id: int, fighter_id: int) -> tuple[float, float] | None:
+    cur.execute(
+        "SELECT elo_standard_pre AS s, elo_modified_pre AS m "
+        "  FROM elo_ratings WHERE fight_id = %s AND fighter_id = %s",
+        (fight_id, fighter_id),
+    )
+    row = cur.fetchone()
+    if row and row["s"] is not None and row["m"] is not None:
+        return float(row["s"]), float(row["m"])
+    return None
+
+
+def features_for_existing_fight(cur, fight_id: int) -> dict:
+    """Pre-fight features for an existing row in `fights`.
+
+    Used to backfill predictions for fights that landed on a card after the
+    pre-event lock-in. For fights that already have an `elo_ratings` row,
+    uses the stored `elo_*_pre` and date-filtered historical stats so the
+    backfilled prediction is honest about what was knowable before the bell.
+    For not-yet-fought rows (no elo_ratings yet) falls back to current Elo /
+    all-time stats — same shape as `features_for_fight`.
+    """
+    cur.execute(
+        "SELECT fighter_a_id, fighter_b_id, is_title_fight, fight_date "
+        "  FROM fights WHERE fight_id = %s",
+        (fight_id,),
+    )
+    f = cur.fetchone()
+    if not f:
+        raise ValueError(f"fight_id {fight_id} not found")
+
+    a, b = f["fighter_a_id"], f["fighter_b_id"]
+    pre_a = _pre_fight_elo(cur, fight_id, a)
+    pre_b = _pre_fight_elo(cur, fight_id, b)
+    if pre_a and pre_b:
+        a_std, a_mod = pre_a
+        b_std, b_mod = pre_b
+        sa = _historical_stats(cur, a, before_date=f["fight_date"])
+        sb = _historical_stats(cur, b, before_date=f["fight_date"])
+    else:
+        a_std, a_mod = _latest_elo(cur, a)
+        b_std, b_mod = _latest_elo(cur, b)
+        sa = _historical_stats(cur, a)
+        sb = _historical_stats(cur, b)
+
+    return _build_feature_row(a_std, a_mod, b_std, b_mod, sa, sb, f["is_title_fight"])
+
+
+def _build_feature_row(a_std, a_mod, b_std, b_mod, sa, sb, is_title_fight) -> dict:
     return {
         "elo_std_pre_a": a_std, "elo_mod_pre_a": a_mod,
         "elo_std_pre_b": b_std, "elo_mod_pre_b": b_mod,
@@ -218,3 +292,12 @@ def features_for_fight(cur, fighter_a_id: int, fighter_b_id: int, is_title_fight
         "diff_grap_agg": sa["grap_agg"] - sb["grap_agg"],
         "diff_str_def": sa["str_def"] - sb["str_def"],
     }
+
+
+def features_for_fight(cur, fighter_a_id: int, fighter_b_id: int, is_title_fight: bool) -> dict:
+    """Build one feature row using current Elo + historical stats. Used by predict.py."""
+    a_std, a_mod = _latest_elo(cur, fighter_a_id)
+    b_std, b_mod = _latest_elo(cur, fighter_b_id)
+    sa = _historical_stats(cur, fighter_a_id)
+    sb = _historical_stats(cur, fighter_b_id)
+    return _build_feature_row(a_std, a_mod, b_std, b_mod, sa, sb, is_title_fight)
