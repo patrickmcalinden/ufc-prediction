@@ -299,13 +299,15 @@ INSERT INTO fighter_stats (
 # ───────────────────────────────────────────────────────── orchestration
 
 
-def ingest_events(year: int | None = None, mode: str = "recent") -> None:
+def ingest_events(year: int | None = None, mode: str = "recent") -> list[int]:
     """Scrape the ESPN schedule for `year` and upsert events + fights + fighter profiles.
 
     mode controls which events get touched:
       "all"      — every event for the year
       "recent"   — events in [today-3d, future] (next ~3 events). Default for pre-event runs.
       "reconcile"— the single most-recent past event (last 7d). For post-event runs.
+
+    Returns the internal event_id(s) that were upserted, in the order they were processed.
     """
     year = year or datetime.now().year
     scraper = ESPNScraper()
@@ -328,10 +330,11 @@ def ingest_events(year: int | None = None, mode: str = "recent") -> None:
 
     log.info("Ingesting %d event(s) in %s mode", len(events), mode)
 
+    event_ids: list[int] = []
     with connect() as conn, conn.cursor() as cur:
         for event in events:
             log.info("Event: %s (%s)", event["name"], event["event_date"])
-            upsert_event(cur, event)
+            event_id = upsert_event(cur, event)
 
             fights = scraper.scrape_event_fights(event["url"], event["espn_event_id"])
             log.info("  → %d fights", len(fights))
@@ -350,21 +353,64 @@ def ingest_events(year: int | None = None, mode: str = "recent") -> None:
                 log.info("  → %d fight(s) marked cancelled", cancelled)
 
             conn.commit()
+            if event_id is not None:
+                event_ids.append(event_id)
+
+    return event_ids
 
 
-def ingest_stats(active_only: bool = True) -> dict:
-    """Scrape per-fight stats for fighters and upsert into fighter_stats."""
+def fighter_ids_for_events(event_ids: list[int]) -> list[int]:
+    """Return the distinct fighter_ids who participated in non-cancelled fights
+    across the given events. Used to scope post-event stats scrapes."""
+    if not event_ids:
+        return []
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT DISTINCT fighter_id FROM (
+                SELECT fighter_a_id AS fighter_id FROM fights
+                 WHERE event_id = ANY(%s) AND is_cancelled = FALSE
+                UNION
+                SELECT fighter_b_id AS fighter_id FROM fights
+                 WHERE event_id = ANY(%s) AND is_cancelled = FALSE
+            ) s
+            WHERE fighter_id IS NOT NULL
+            ORDER BY fighter_id
+            """,
+            (list(event_ids), list(event_ids)),
+        )
+        return [r["fighter_id"] for r in cur.fetchall()]
+
+
+def ingest_stats(active_only: bool = True, fighter_ids: list[int] | None = None) -> dict:
+    """Scrape per-fight stats for fighters and upsert into fighter_stats.
+
+    If `fighter_ids` is provided, only those fighters are scraped (overrides
+    `active_only`). Useful for post-event runs that only need to refresh the
+    handful of fighters who just fought.
+    """
     scraper = ESPNScraper()
     with connect() as conn:
         with conn.cursor() as cur:
-            if active_only:
+            if fighter_ids is not None:
+                if not fighter_ids:
+                    log.info("ingest_stats: empty fighter_ids list, nothing to scrape")
+                    return {"scraped": 0, "errors": 0}
+                cur.execute(
+                    "SELECT espn_id, name FROM fighters WHERE fighter_id = ANY(%s) ORDER BY fighter_id",
+                    (list(fighter_ids),),
+                )
+            elif active_only:
                 cur.execute("SELECT espn_id, name FROM fighters WHERE is_active = TRUE ORDER BY fighter_id")
             else:
                 cur.execute("SELECT espn_id, name FROM fighters ORDER BY fighter_id")
             fighters = cur.fetchall()
 
     total = len(fighters)
-    log.info("Scraping stats for %d fighter(s) (active_only=%s)", total, active_only)
+    if fighter_ids is not None:
+        log.info("Scraping stats for %d fighter(s) (event-scoped)", total)
+    else:
+        log.info("Scraping stats for %d fighter(s) (active_only=%s)", total, active_only)
 
     scraped, errors = 0, 0
     for i, f in enumerate(fighters, 1):

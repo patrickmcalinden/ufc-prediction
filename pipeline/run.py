@@ -5,8 +5,10 @@
       predicts every registered model (see pipeline.models.MODELS); pass
       --model NAME (repeatable) to limit to a subset.
 
-  python -m pipeline.run --post-event [--skip-stats]
+  python -m pipeline.run --post-event [--skip-stats] [--full-stats]
       Reconcile a completed event: scrape results, grade picks, update Elo.
+      By default, the stats scrape is scoped to fighters from the reconciled
+      event. Pass --full-stats to scrape the entire active roster instead.
 
   python -m pipeline.run --export-only        # rebuild site JSON
   python -m pipeline.run --elo-rebuild        # full Elo rebuild from scratch
@@ -54,9 +56,9 @@ def run_pre_event(event_id: int | None, models: list[str], skip_train: bool, for
     export.export_all()
 
 
-def run_post_event(skip_stats: bool) -> None:
+def run_post_event(skip_stats: bool, full_stats: bool) -> None:
     _heading("1/6  INGEST results (reconcile)")
-    ingest.ingest_events(mode="reconcile")
+    reconciled_event_ids = ingest.ingest_events(mode="reconcile")
 
     _heading("2/6  INGEST upcoming events (look for next card)")
     ingest.ingest_events(mode="recent")
@@ -65,7 +67,14 @@ def run_post_event(skip_stats: bool) -> None:
         logging.info("Skipping stats (--skip-stats)")
     else:
         _heading("3/6  INGEST per-fight stats")
-        stats_summary = ingest.ingest_stats(active_only=True)
+        if full_stats:
+            stats_summary = ingest.ingest_stats(active_only=True)
+        elif not reconciled_event_ids:
+            logging.info("No events reconciled — skipping stats (use --full-stats to force full scrape)")
+            stats_summary = {"scraped": 0, "errors": 0}
+        else:
+            fighter_ids = ingest.fighter_ids_for_events(reconciled_event_ids)
+            stats_summary = ingest.ingest_stats(fighter_ids=fighter_ids)
         logging.info("stats: %s", stats_summary)
 
     _heading("4/6  GRADE locked predictions")
@@ -96,7 +105,12 @@ def main() -> int:
         help="(--pre-event) limit to named model(s). Repeatable. Defaults to all registered models.",
     )
     parser.add_argument("--skip-train", action="store_true", help="(--pre-event) skip retraining")
-    parser.add_argument("--skip-stats", action="store_true", help="(--post-event) skip the slow stats scrape")
+    parser.add_argument("--skip-stats", action="store_true", help="(--post-event) skip the stats scrape entirely")
+    parser.add_argument(
+        "--full-stats",
+        action="store_true",
+        help="(--post-event) scrape stats for the full active roster instead of just the reconciled event's fighters",
+    )
     parser.add_argument("--force", action="store_true", help="(--pre-event) replace existing locked snapshots")
 
     args = parser.parse_args()
@@ -106,7 +120,7 @@ def main() -> int:
         models = args.model or all_names()
         run_pre_event(args.event_id, models, args.skip_train, args.force)
     elif args.post_event:
-        run_post_event(args.skip_stats)
+        run_post_event(args.skip_stats, args.full_stats)
     elif args.export_only:
         _heading("EXPORT site JSON")
         export.export_all()
