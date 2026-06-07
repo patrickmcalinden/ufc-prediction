@@ -290,8 +290,38 @@
         "current_elo_standard": 1505.16,
         "current_elo_modified": 1499.15
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2735,
+          "model_version": "v1",
+          "predicted_winner_id": 118,
+          "win_probability": 0.5716,
+          "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+          "was_correct": true,
+          "actual_winner_id": 118,
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
+        },
+        {
+          "prediction_id": 2738,
+          "model_version": "v2",
+          "predicted_winner_id": 118,
+          "win_probability": 0.6403,
+          "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+          "was_correct": true,
+          "actual_winner_id": 118,
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2735,
+        "model_version": "v1",
+        "predicted_winner_id": 118,
+        "win_probability": 0.5716,
+        "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+        "was_correct": true,
+        "actual_winner_id": 118,
+        "graded_at": "2026-06-07T05:34:31.571386+00:00"
+      }
     },
     {
       "fight_id": 52,
@@ -332,7 +362,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-06-07T04:08:53.440439+00:00"
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
         },
         {
           "prediction_id": 2681,
@@ -342,7 +372,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-06-07T04:08:53.440439+00:00"
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
         }
       ],
       "prediction": {
@@ -353,7 +383,7 @@
         "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": "2026-06-07T04:08:53.440439+00:00"
+        "graded_at": "2026-06-07T05:34:31.571386+00:00"
       }
     },
     {
@@ -575,8 +605,38 @@
         "current_elo_standard": 1455.32,
         "current_elo_modified": 1449.82
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2736,
+          "model_version": "v1",
+          "predicted_winner_id": 109,
+          "win_probability": 0.63,
+          "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+          "was_correct": true,
+          "actual_winner_id": 109,
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
+        },
+        {
+          "prediction_id": 2739,
+          "model_version": "v2",
+          "predicted_winner_id": 109,
+          "win_probability": 0.5883,
+          "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+          "was_correct": true,
+          "actual_winner_id": 109,
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2736,
+        "model_version": "v1",
+        "predicted_winner_id": 109,
+        "win_probability": 0.63,
+        "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+        "was_correct": true,
+        "actual_winner_id": 109,
+        "graded_at": "2026-06-07T05:34:31.571386+00:00"
+      }
     },
     {
       "fight_id": 58,
@@ -671,8 +731,38 @@
         "current_elo_standard": 1516.0,
         "current_elo_modified": 1518.0
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2734,
+          "model_version": "v1",
+          "predicted_winner_id": 20688,
+          "win_probability": 0.5026,
+          "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+          "was_correct": false,
+          "actual_winner_id": 21327,
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
+        },
+        {
+          "prediction_id": 2737,
+          "model_version": "v2",
+          "predicted_winner_id": 20688,
+          "win_probability": 0.501,
+          "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+          "was_correct": false,
+          "actual_winner_id": 21327,
+          "graded_at": "2026-06-07T05:34:31.571386+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2734,
+        "model_version": "v1",
+        "predicted_winner_id": 20688,
+        "win_probability": 0.5026,
+        "snapshot_at": "2026-06-07T05:34:31.401533+00:00",
+        "was_correct": false,
+        "actual_winner_id": 21327,
+        "graded_at": "2026-06-07T05:34:31.571386+00:00"
+      }
     },
     {
       "fight_id": 53,
