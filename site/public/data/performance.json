@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 7,
+          "name": "UFC Freedom 250: Topuria vs. Gaethje",
+          "event_date": "2026-06-14",
+          "n_picks": 7,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 7
+        },
+        {
           "event_id": 6,
           "name": "UFC Fight Night: Muhammad vs. Bonfim",
           "event_date": "2026-06-06",
@@ -167,10 +176,10 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-06-02T00:42:28.587694",
-        "cv_accuracy": 0.5525114155251142,
-        "cv_logloss": 0.6919216315793941,
-        "n_samples": 17086,
+        "trained_at": "2026-06-07T01:46:19.958827",
+        "cv_accuracy": 0.5535977535977537,
+        "cv_logloss": 0.690709432152371,
+        "n_samples": 17094,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -191,6 +200,15 @@
         "log_loss": 0.6362095971061675
       },
       "per_event": [
+        {
+          "event_id": 7,
+          "name": "UFC Freedom 250: Topuria vs. Gaethje",
+          "event_date": "2026-06-14",
+          "n_picks": 7,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 7
+        },
         {
           "event_id": 6,
           "name": "UFC Fight Night: Muhammad vs. Bonfim",
@@ -350,10 +368,10 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-06-02T00:42:39.644058",
-        "cv_accuracy": 0.6090621707060063,
-        "cv_logloss": 0.6538549220566736,
-        "n_samples": 17086,
+        "trained_at": "2026-06-07T01:46:28.314873",
+        "cv_accuracy": 0.6104598104598105,
+        "cv_logloss": 0.6534864699439368,
+        "n_samples": 17094,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
