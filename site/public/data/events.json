@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 7,
+    "espn_event_id": "600058854",
+    "name": "UFC Freedom 250: Topuria vs. Gaethje",
+    "location": "South Lawn of the White House, Washington, DC",
+    "event_date": "2026-06-14",
+    "deployed_at": "2026-06-07T05:46:28.330913+00:00"
+  },
+  {
     "event_id": 6,
     "espn_event_id": "600058949",
     "name": "UFC Fight Night: Muhammad vs. Bonfim",
