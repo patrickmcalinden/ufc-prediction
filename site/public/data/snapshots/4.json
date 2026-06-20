@@ -24,8 +24,8 @@
         "record_wins": 21,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1606.88,
-        "current_elo_modified": 1621.87
+        "current_elo_standard": 1621.92,
+        "current_elo_modified": 1644.99
       },
       "fighter_b": {
         "fighter_id": 72,
@@ -35,8 +35,8 @@
         "record_wins": 26,
         "record_losses": 8,
         "record_draws": 0,
-        "current_elo_standard": 1585.91,
-        "current_elo_modified": 1609.18
+        "current_elo_standard": 1570.88,
+        "current_elo_modified": 1586.05
       },
       "predictions": [
         {
@@ -87,8 +87,8 @@
         "record_wins": 17,
         "record_losses": 4,
         "record_draws": 1,
-        "current_elo_standard": 1533.47,
-        "current_elo_modified": 1541.36
+        "current_elo_standard": 1550.25,
+        "current_elo_modified": 1563.99
       },
       "fighter_b": {
         "fighter_id": 78,
@@ -98,8 +98,8 @@
         "record_wins": 14,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1550.23,
-        "current_elo_modified": 1558.99
+        "current_elo_standard": 1533.46,
+        "current_elo_modified": 1537.47
       },
       "predictions": [
         {
@@ -150,8 +150,8 @@
         "record_wins": 10,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": 1527.51,
-        "current_elo_modified": 1529.81
+        "current_elo_standard": 1510.98,
+        "current_elo_modified": 1510.08
       },
       "fighter_b": {
         "fighter_id": 74,
@@ -161,8 +161,8 @@
         "record_wins": 16,
         "record_losses": 1,
         "record_draws": 1,
-        "current_elo_standard": 1516.0,
-        "current_elo_modified": 1518.0
+        "current_elo_standard": 1532.53,
+        "current_elo_modified": 1538.46
       },
       "predictions": [
         {
@@ -276,8 +276,8 @@
         "record_wins": 10,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1516.3,
-        "current_elo_modified": 1520.14
+        "current_elo_standard": 1499.62,
+        "current_elo_modified": 1501.09
       },
       "fighter_b": {
         "fighter_id": 90,
@@ -287,8 +287,8 @@
         "record_wins": 13,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1501.43,
-        "current_elo_modified": 1500.48
+        "current_elo_standard": 1518.11,
+        "current_elo_modified": 1520.78
       },
       "predictions": [
         {
@@ -339,7 +339,7 @@
         "record_wins": 14,
         "record_losses": 8,
         "record_draws": 0,
-        "current_elo_standard": 1463.7,
+        "current_elo_standard": 1463.71,
         "current_elo_modified": 1452.82
       },
       "fighter_b": {
@@ -402,8 +402,8 @@
         "record_wins": 11,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1486.4,
-        "current_elo_modified": 1483.19
+        "current_elo_standard": 1468.98,
+        "current_elo_modified": 1466.78
       },
       "fighter_b": {
         "fighter_id": 92,
@@ -413,8 +413,8 @@
         "record_wins": 15,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1455.61,
-        "current_elo_modified": 1449.33
+        "current_elo_standard": 1473.03,
+        "current_elo_modified": 1467.97
       },
       "predictions": [
         {
@@ -528,8 +528,8 @@
         "record_wins": 16,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1555.78,
-        "current_elo_modified": 1562.8
+        "current_elo_standard": 1572.66,
+        "current_elo_modified": 1587.3
       },
       "fighter_b": {
         "fighter_id": 84,
@@ -539,8 +539,8 @@
         "record_wins": 10,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": 1574.81,
-        "current_elo_modified": 1584.47
+        "current_elo_standard": 1557.93,
+        "current_elo_modified": 1561.35
       },
       "predictions": [
         {
@@ -591,8 +591,8 @@
         "record_wins": 12,
         "record_losses": 9,
         "record_draws": 1,
-        "current_elo_standard": 1455.12,
-        "current_elo_modified": 1445.55
+        "current_elo_standard": 1474.79,
+        "current_elo_modified": 1470.98
       },
       "fighter_b": {
         "fighter_id": 86,
@@ -602,8 +602,8 @@
         "record_wins": 13,
         "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1536.27,
-        "current_elo_modified": 1537.05
+        "current_elo_standard": 1516.6,
+        "current_elo_modified": 1518.53
       },
       "predictions": [
         {
@@ -654,8 +654,8 @@
         "record_wins": 12,
         "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1498.09,
-        "current_elo_modified": 1494.81
+        "current_elo_standard": 1512.25,
+        "current_elo_modified": 1508.09
       },
       "fighter_b": {
         "fighter_id": 96,
@@ -665,8 +665,8 @@
         "record_wins": 13,
         "record_losses": 9,
         "record_draws": 0,
-        "current_elo_standard": 1458.15,
-        "current_elo_modified": 1452.15
+        "current_elo_standard": 1443.98,
+        "current_elo_modified": 1436.62
       },
       "predictions": [
         {
@@ -717,8 +717,8 @@
         "record_wins": 17,
         "record_losses": 8,
         "record_draws": 0,
-        "current_elo_standard": 1473.4,
-        "current_elo_modified": 1467.45
+        "current_elo_standard": 1457.23,
+        "current_elo_modified": 1451.42
       },
       "fighter_b": {
         "fighter_id": 88,
@@ -728,8 +728,8 @@
         "record_wins": 11,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1455.32,
-        "current_elo_modified": 1449.82
+        "current_elo_standard": 1470.74,
+        "current_elo_modified": 1465.1
       },
       "predictions": [
         {
@@ -780,8 +780,8 @@
         "record_wins": 7,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1501.24,
-        "current_elo_modified": 1501.31
+        "current_elo_standard": 1484.38,
+        "current_elo_modified": 1483.46
       },
       "fighter_b": {
         "fighter_id": 82,
@@ -791,8 +791,8 @@
         "record_wins": 9,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1482.63,
-        "current_elo_modified": 1481.26
+        "current_elo_standard": 1499.49,
+        "current_elo_modified": 1500.38
       },
       "predictions": [
         {
