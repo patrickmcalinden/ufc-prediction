@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 1039,
+          "name": "UFC Fight Night: Kape vs. Horiguchi",
+          "event_date": "2026-06-20",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
+        {
           "event_id": 7,
           "name": "UFC Freedom 250: Topuria vs. Gaethje",
           "event_date": "2026-06-14",
@@ -184,10 +193,10 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-06-07T01:46:19.958827",
-        "cv_accuracy": 0.5535977535977537,
-        "cv_logloss": 0.690709432152371,
-        "n_samples": 17094,
+        "trained_at": "2026-06-20T15:20:46.946782",
+        "cv_accuracy": 0.5523776223776224,
+        "cv_logloss": 0.6910745270806713,
+        "n_samples": 17160,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -208,6 +217,15 @@
         "log_loss": 0.624168244475026
       },
       "per_event": [
+        {
+          "event_id": 1039,
+          "name": "UFC Fight Night: Kape vs. Horiguchi",
+          "event_date": "2026-06-20",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 7,
           "name": "UFC Freedom 250: Topuria vs. Gaethje",
@@ -384,10 +402,10 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-06-07T01:46:28.314873",
-        "cv_accuracy": 0.6104598104598105,
-        "cv_logloss": 0.6534864699439368,
-        "n_samples": 17094,
+        "trained_at": "2026-06-20T15:20:55.907534",
+        "cv_accuracy": 0.6074825174825176,
+        "cv_logloss": 0.6540414321686727,
+        "n_samples": 17160,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
