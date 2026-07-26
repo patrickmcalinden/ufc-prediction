@@ -273,11 +273,11 @@
         "name": "King Green",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 35,
+        "record_wins": 36,
         "record_losses": 17,
         "record_draws": 1,
-        "current_elo_standard": 1575.06,
-        "current_elo_modified": 1582.37
+        "current_elo_standard": 1589.18,
+        "current_elo_modified": 1599.15
       },
       "fighter_b": {
         "fighter_id": 56,
