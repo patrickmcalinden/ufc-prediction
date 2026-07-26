@@ -24,6 +24,9 @@ site/out/
 # Model artifacts (large binary files)
 model/artifacts/*.json
 
+# Scheduled-run logs (pipeline/weekly.py --log-dir)
+logs/
+
 # OS junk
 .DS_Store
 Thumbs.db

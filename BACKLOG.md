@@ -180,7 +180,7 @@ for the original rationale.
 | **Fighter profile pages** | Out of scope for the portfolio version. Data is in Postgres + scraped JSON. | New `/fighters/[id]/` route, export per-fighter snapshot JSON. Medium. |
 | **Bet tracker / ROI UI** | User bets off-site; the app is for prediction/analysis. | Re-introduce `bets` table writes, new `/bets/` route. Medium-large (needs auth or local-only edit flow). |
 | **Value-bet UI (odds + Kelly)** | "No — just show model probabilities" — user preference. | Scrape books, compute edge, render side-by-side with `win_probability`. Medium. |
-| **Hosted Postgres** | Local-only chosen so user keeps psql/DataGrip in their daily loop. | Swap `DATABASE_URL` to Neon/Supabase; pipeline still runs locally OR in CI. Small DB change, larger workflow change if CI runs the pipeline. |
+| **Hosted Postgres** | Local-only chosen so user keeps psql/DataGrip in their daily loop. Now also the one thing pinning the weekly automation to this machine — the Task Scheduler jobs in [UPDATING.md](UPDATING.md#automation) need the PC awake Friday/Sunday 21:00. | Swap `DATABASE_URL` to Neon/Supabase; pipeline still runs locally OR in CI. Small DB change, larger workflow change if CI runs the pipeline — CI would also need `model/artifacts/*.json` committed (currently gitignored) or rebuilt each run, plus a `DATABASE_URL` secret. |
 | **Live in-event updates** | Static-site model assumes nothing changes between pushes. | Out of architecture; would need a runtime API. Large. |
 | **Custom domain** | `username.github.io/ufc-prediction` is fine for now. | Standard Pages custom domain + CNAME. Tiny. |
 
