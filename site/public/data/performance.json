@@ -7,21 +7,30 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 83,
-        "correct": 52,
-        "wrong": 31,
-        "accuracy": 0.6265060240963856,
-        "log_loss": 0.6445511997230674
+        "graded": 95,
+        "correct": 60,
+        "wrong": 35,
+        "accuracy": 0.631578947368421,
+        "log_loss": 0.6545447033380303
       },
       "per_event": [
         {
-          "event_id": 1039,
-          "name": "UFC Fight Night: Kape vs. Horiguchi",
-          "event_date": "2026-06-20",
+          "event_id": 1062,
+          "name": "UFC Fight Night: Medić vs. Rodriguez",
+          "event_date": "2026-08-01",
           "n_picks": 12,
           "n_correct": 0,
           "n_wrong": 0,
           "n_pending": 12
+        },
+        {
+          "event_id": 1039,
+          "name": "UFC Fight Night: Kape vs. Horiguchi 2",
+          "event_date": "2026-06-20",
+          "n_picks": 12,
+          "n_correct": 8,
+          "n_wrong": 4,
+          "n_pending": 0
         },
         {
           "event_id": 7,
@@ -90,32 +99,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 35,
-          "actual_win_rate": 0.4857142857142857,
+          "n": 40,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 24,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 26,
+          "actual_win_rate": 0.6923076923076923,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 11,
-          "actual_win_rate": 0.7272727272727273,
+          "n": 12,
+          "actual_win_rate": 0.75,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 7,
-          "actual_win_rate": 0.8571428571428571,
+          "n": 8,
+          "actual_win_rate": 0.875,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 4,
-          "actual_win_rate": 0.75,
+          "n": 6,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.725
         },
         {
@@ -126,8 +135,8 @@
         },
         {
           "bin": 6,
-          "n": 1,
-          "actual_win_rate": 1.0,
+          "n": 2,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.825
         }
       ],
@@ -187,16 +196,24 @@
           "n_correct_so_far": 52,
           "n_picks_so_far": 83,
           "accuracy_so_far": 0.6265060240963856
+        },
+        {
+          "event_id": 1039,
+          "event_date": "2026-06-20",
+          "event_name": "UFC Fight Night: Kape vs. Horiguchi 2",
+          "n_correct_so_far": 60,
+          "n_picks_so_far": 95,
+          "accuracy_so_far": 0.631578947368421
         }
       ],
       "meta": {
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-06-20T15:20:46.946782",
-        "cv_accuracy": 0.5523776223776224,
-        "cv_logloss": 0.6910745270806713,
-        "n_samples": 17160,
+        "trained_at": "2026-07-26T05:47:59.554794",
+        "cv_accuracy": 0.5561957653592502,
+        "cv_logloss": 0.6901542849793348,
+        "n_samples": 17286,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -210,21 +227,30 @@
     },
     "v2": {
       "totals": {
-        "graded": 83,
-        "correct": 51,
-        "wrong": 32,
-        "accuracy": 0.6144578313253012,
-        "log_loss": 0.624168244475026
+        "graded": 95,
+        "correct": 58,
+        "wrong": 37,
+        "accuracy": 0.6105263157894737,
+        "log_loss": 0.6473562081482925
       },
       "per_event": [
         {
-          "event_id": 1039,
-          "name": "UFC Fight Night: Kape vs. Horiguchi",
-          "event_date": "2026-06-20",
+          "event_id": 1062,
+          "name": "UFC Fight Night: Medić vs. Rodriguez",
+          "event_date": "2026-08-01",
           "n_picks": 12,
           "n_correct": 0,
           "n_wrong": 0,
           "n_pending": 12
+        },
+        {
+          "event_id": 1039,
+          "name": "UFC Fight Night: Kape vs. Horiguchi 2",
+          "event_date": "2026-06-20",
+          "n_picks": 12,
+          "n_correct": 7,
+          "n_wrong": 5,
+          "n_pending": 0
         },
         {
           "event_id": 7,
@@ -293,20 +319,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 25,
-          "actual_win_rate": 0.4,
+          "n": 29,
+          "actual_win_rate": 0.41379310344827586,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 15,
-          "actual_win_rate": 0.6,
+          "n": 18,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 13,
-          "actual_win_rate": 0.6153846153846154,
+          "n": 15,
+          "actual_win_rate": 0.6,
           "bucket_center": 0.625
         },
         {
@@ -323,14 +349,14 @@
         },
         {
           "bin": 5,
-          "n": 5,
+          "n": 6,
           "actual_win_rate": 1.0,
           "bucket_center": 0.775
         },
         {
           "bin": 6,
-          "n": 5,
-          "actual_win_rate": 0.8,
+          "n": 7,
+          "actual_win_rate": 0.5714285714285714,
           "bucket_center": 0.825
         },
         {
@@ -396,16 +422,24 @@
           "n_correct_so_far": 51,
           "n_picks_so_far": 83,
           "accuracy_so_far": 0.6144578313253012
+        },
+        {
+          "event_id": 1039,
+          "event_date": "2026-06-20",
+          "event_name": "UFC Fight Night: Kape vs. Horiguchi 2",
+          "n_correct_so_far": 58,
+          "n_picks_so_far": 95,
+          "accuracy_so_far": 0.6105263157894737
         }
       ],
       "meta": {
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-06-20T15:20:55.907534",
-        "cv_accuracy": 0.6074825174825176,
-        "cv_logloss": 0.6540414321686727,
-        "n_samples": 17160,
+        "trained_at": "2026-07-26T05:48:10.970391",
+        "cv_accuracy": 0.6088858035404373,
+        "cv_logloss": 0.6537751802779845,
+        "n_samples": 17286,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",

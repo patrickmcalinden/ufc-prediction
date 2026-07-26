@@ -347,11 +347,11 @@
         "name": "Alessandro Costa",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 16,
+        "record_wins": 17,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1530.45,
-        "current_elo_modified": 1528.81
+        "current_elo_standard": 1544.37,
+        "current_elo_modified": 1543.37
       },
       "predictions": [
         {

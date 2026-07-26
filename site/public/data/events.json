@@ -1,8 +1,16 @@
 [
   {
+    "event_id": 1062,
+    "espn_event_id": "600059339",
+    "name": "UFC Fight Night: Medić vs. Rodriguez",
+    "location": "Belgrade Arena, Belgrade, Serbia",
+    "event_date": "2026-08-01",
+    "deployed_at": "2026-07-26T09:48:11.010221+00:00"
+  },
+  {
     "event_id": 1039,
     "espn_event_id": "600059467",
-    "name": "UFC Fight Night: Kape vs. Horiguchi",
+    "name": "UFC Fight Night: Kape vs. Horiguchi 2",
     "location": "Meta APEX, Las Vegas, NV",
     "event_date": "2026-06-20",
     "deployed_at": "2026-06-20T19:20:55.922980+00:00"
