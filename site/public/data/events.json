@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1063,
+    "espn_event_id": "600060621",
+    "name": "UFC Fight Night: Gamrot vs Salkilld",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-08-08",
+    "deployed_at": "2026-08-01T01:01:47.627937+00:00"
+  },
+  {
     "event_id": 1062,
     "espn_event_id": "600059339",
     "name": "UFC Fight Night: Medić vs. Rodriguez",

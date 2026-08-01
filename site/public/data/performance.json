@@ -15,13 +15,22 @@
       },
       "per_event": [
         {
+          "event_id": 1063,
+          "name": "UFC Fight Night: Gamrot vs Salkilld",
+          "event_date": "2026-08-08",
+          "n_picks": 9,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 9
+        },
+        {
           "event_id": 1062,
           "name": "UFC Fight Night: Medić vs. Rodriguez",
           "event_date": "2026-08-01",
-          "n_picks": 12,
+          "n_picks": 10,
           "n_correct": 0,
           "n_wrong": 0,
-          "n_pending": 12
+          "n_pending": 10
         },
         {
           "event_id": 1039,
@@ -210,7 +219,7 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-07-26T05:47:59.554794",
+        "trained_at": "2026-07-31T21:01:40.188635",
         "cv_accuracy": 0.5561957653592502,
         "cv_logloss": 0.6901542849793348,
         "n_samples": 17286,
@@ -235,13 +244,22 @@
       },
       "per_event": [
         {
+          "event_id": 1063,
+          "name": "UFC Fight Night: Gamrot vs Salkilld",
+          "event_date": "2026-08-08",
+          "n_picks": 9,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 9
+        },
+        {
           "event_id": 1062,
           "name": "UFC Fight Night: Medić vs. Rodriguez",
           "event_date": "2026-08-01",
-          "n_picks": 12,
+          "n_picks": 10,
           "n_correct": 0,
           "n_wrong": 0,
-          "n_pending": 12
+          "n_pending": 10
         },
         {
           "event_id": 1039,
@@ -436,7 +454,7 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-07-26T05:48:10.970391",
+        "trained_at": "2026-07-31T21:01:47.612040",
         "cv_accuracy": 0.6088858035404373,
         "cv_logloss": 0.6537751802779845,
         "n_samples": 17286,
