@@ -324,6 +324,39 @@
       }
     },
     {
+      "fight_id": 11124,
+      "card_order": 5,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22252,
+        "name": "Milos Janicic",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 19,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22253,
+        "name": "Noah Gugnon",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [],
+      "prediction": null
+    },
+    {
       "fight_id": 11082,
       "card_order": 100,
       "weight_class": null,
@@ -450,7 +483,7 @@
       }
     },
     {
-      "fight_id": 11084,
+      "fight_id": 11127,
       "card_order": 102,
       "weight_class": null,
       "is_title_fight": false,
@@ -458,6 +491,17 @@
       "method": null,
       "round": null,
       "fighter_a": {
+        "fighter_id": 22258,
+        "name": "Borislav Nikolic",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 16,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
         "fighter_id": 16823,
         "name": "Mark Vologdin",
         "nickname": null,
@@ -468,49 +512,8 @@
         "current_elo_standard": 1484.0,
         "current_elo_modified": 1482.0
       },
-      "fighter_b": {
-        "fighter_id": 15792,
-        "name": "Josias Musasa",
-        "nickname": null,
-        "weight_class": null,
-        "record_wins": 8,
-        "record_losses": 2,
-        "record_draws": 0,
-        "current_elo_standard": 1481.92,
-        "current_elo_modified": 1481.57
-      },
-      "predictions": [
-        {
-          "prediction_id": 2785,
-          "model_version": "v1",
-          "predicted_winner_id": 15792,
-          "win_probability": 0.5772,
-          "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
-        },
-        {
-          "prediction_id": 2797,
-          "model_version": "v2",
-          "predicted_winner_id": 16823,
-          "win_probability": 0.5675,
-          "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
-        }
-      ],
-      "prediction": {
-        "prediction_id": 2785,
-        "model_version": "v1",
-        "predicted_winner_id": 15792,
-        "win_probability": 0.5772,
-        "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
-      }
+      "predictions": [],
+      "prediction": null
     },
     {
       "fight_id": 11085,
@@ -702,7 +705,7 @@
       }
     },
     {
-      "fight_id": 11088,
+      "fight_id": 11131,
       "card_order": 106,
       "weight_class": null,
       "is_title_fight": false,
@@ -721,48 +724,51 @@
         "current_elo_modified": 1518.0
       },
       "fighter_b": {
-        "fighter_id": 16699,
-        "name": "Max Gimenis",
+        "fighter_id": 10429,
+        "name": "Alexander Poppeck",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 6,
-        "record_losses": 2,
+        "record_wins": 21,
+        "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1484.74,
-        "current_elo_modified": 1481.91
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
       },
-      "predictions": [
-        {
-          "prediction_id": 2789,
-          "model_version": "v1",
-          "predicted_winner_id": 16793,
-          "win_probability": 0.6152,
-          "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
-        },
-        {
-          "prediction_id": 2801,
-          "model_version": "v2",
-          "predicted_winner_id": 16699,
-          "win_probability": 0.6301,
-          "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
-        }
-      ],
-      "prediction": {
-        "prediction_id": 2789,
-        "model_version": "v1",
-        "predicted_winner_id": 16793,
-        "win_probability": 0.6152,
-        "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
-      }
+      "predictions": [],
+      "prediction": null
+    },
+    {
+      "fight_id": 11132,
+      "card_order": 107,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22268,
+        "name": "Marina Spasić",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 14564,
+        "name": "Stephanie Luciano",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 2,
+        "record_draws": 1,
+        "current_elo_standard": 1515.16,
+        "current_elo_modified": 1516.84
+      },
+      "predictions": [],
+      "prediction": null
     }
   ],
   "models": [
