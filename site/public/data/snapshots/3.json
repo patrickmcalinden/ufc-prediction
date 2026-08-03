@@ -473,11 +473,11 @@
         "name": "Mateusz Rębecki",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 20,
+        "record_wins": 21,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1517.33,
-        "current_elo_modified": 1509.84
+        "current_elo_standard": 1530.0,
+        "current_elo_modified": 1520.83
       },
       "predictions": [
         {

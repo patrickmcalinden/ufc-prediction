@@ -13,19 +13,19 @@
       "card_order": 0,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 11556,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 11556,
         "name": "Uroš Medić",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 13,
+        "record_wins": 14,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1576.07,
-        "current_elo_modified": 1596.56
+        "current_elo_standard": 1593.32,
+        "current_elo_modified": 1622.92
       },
       "fighter_b": {
         "fighter_id": 10396,
@@ -33,10 +33,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 20,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1603.3,
-        "current_elo_modified": 1630.84
+        "current_elo_standard": 1586.05,
+        "current_elo_modified": 1604.71
       },
       "predictions": [
         {
@@ -45,9 +45,9 @@
           "predicted_winner_id": 10396,
           "win_probability": 0.5687,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 11556,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2790,
@@ -55,9 +55,9 @@
           "predicted_winner_id": 10396,
           "win_probability": 0.7328,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 11556,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -66,9 +66,9 @@
         "predicted_winner_id": 10396,
         "win_probability": 0.5687,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 11556,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -76,30 +76,30 @@
       "card_order": 1,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 15452,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 57,
         "name": "Jan Blachowicz",
         "nickname": null,
         "weight_class": null,
         "record_wins": 29,
-        "record_losses": 11,
+        "record_losses": 12,
         "record_draws": 2,
-        "current_elo_standard": 1582.57,
-        "current_elo_modified": 1612.54
+        "current_elo_standard": 1566.71,
+        "current_elo_modified": 1587.64
       },
       "fighter_b": {
         "fighter_id": 15452,
         "name": "Navajo Stirling",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 10,
+        "record_wins": 11,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": 1585.68,
-        "current_elo_modified": 1595.02
+        "current_elo_standard": 1601.53,
+        "current_elo_modified": 1620.23
       },
       "predictions": [
         {
@@ -108,9 +108,9 @@
           "predicted_winner_id": 57,
           "win_probability": 0.5627,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 15452,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2791,
@@ -118,9 +118,9 @@
           "predicted_winner_id": 15452,
           "win_probability": 0.7696,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 15452,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -129,9 +129,9 @@
         "predicted_winner_id": 57,
         "win_probability": 0.5627,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 15452,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -139,19 +139,19 @@
       "card_order": 2,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 8215,
+      "method": "U Dec",
+      "round": 3,
       "fighter_a": {
         "fighter_id": 8215,
         "name": "Aleksandar Rakic",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 14,
+        "record_wins": 15,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1523.17,
-        "current_elo_modified": 1526.41
+        "current_elo_standard": 1540.79,
+        "current_elo_modified": 1551.22
       },
       "fighter_b": {
         "fighter_id": 7303,
@@ -159,10 +159,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 27,
-        "record_losses": 11,
+        "record_losses": 12,
         "record_draws": 0,
-        "current_elo_standard": 1558.42,
-        "current_elo_modified": 1568.84
+        "current_elo_standard": 1540.81,
+        "current_elo_modified": 1546.87
       },
       "predictions": [
         {
@@ -171,9 +171,9 @@
           "predicted_winner_id": 7303,
           "win_probability": 0.551,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 8215,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2792,
@@ -181,9 +181,9 @@
           "predicted_winner_id": 7303,
           "win_probability": 0.8046,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 8215,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -192,9 +192,9 @@
         "predicted_winner_id": 7303,
         "win_probability": 0.551,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 8215,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -202,30 +202,30 @@
       "card_order": 3,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 15844,
+      "method": "Sub",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 10276,
         "name": "Duško Todorović",
         "nickname": null,
         "weight_class": null,
         "record_wins": 13,
-        "record_losses": 6,
+        "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1480.49,
-        "current_elo_modified": 1466.77
+        "current_elo_standard": 1464.26,
+        "current_elo_modified": 1450.73
       },
       "fighter_b": {
         "fighter_id": 15844,
         "name": "Robert Valentin",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 12,
+        "record_wins": 13,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1475.46,
-        "current_elo_modified": 1469.56
+        "current_elo_standard": 1491.69,
+        "current_elo_modified": 1485.44
       },
       "predictions": [
         {
@@ -234,9 +234,9 @@
           "predicted_winner_id": 15844,
           "win_probability": 0.563,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 15844,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2793,
@@ -244,9 +244,9 @@
           "predicted_winner_id": 15844,
           "win_probability": 0.5894,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 15844,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -255,9 +255,9 @@
         "predicted_winner_id": 15844,
         "win_probability": 0.563,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 15844,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -265,30 +265,30 @@
       "card_order": 4,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 12489,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 22166,
         "name": "Vlasto Čepo",
         "nickname": null,
         "weight_class": null,
         "record_wins": 14,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1482.14,
+        "current_elo_modified": 1482.78
       },
       "fighter_b": {
         "fighter_id": 12489,
         "name": "Gilbert Urbina",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 7,
+        "record_wins": 8,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1459.32,
-        "current_elo_modified": 1452.81
+        "current_elo_standard": 1477.18,
+        "current_elo_modified": 1473.24
       },
       "predictions": [
         {
@@ -297,9 +297,9 @@
           "predicted_winner_id": 12489,
           "win_probability": 0.5038,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 12489,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2794,
@@ -307,9 +307,9 @@
           "predicted_winner_id": 12489,
           "win_probability": 0.6979,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 12489,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -318,9 +318,9 @@
         "predicted_winner_id": 12489,
         "win_probability": 0.5038,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 12489,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -328,63 +328,93 @@
       "card_order": 5,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 22253,
+      "method": "Sub",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 22252,
         "name": "Milos Janicic",
         "nickname": null,
         "weight_class": null,
         "record_wins": 19,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
       },
       "fighter_b": {
         "fighter_id": 22253,
         "name": "Noah Gugnon",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 9,
+        "record_wins": 10,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1516.0,
+        "current_elo_modified": 1518.0
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2820,
+          "model_version": "v1",
+          "predicted_winner_id": 22253,
+          "win_probability": 0.501,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 22253,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        },
+        {
+          "prediction_id": 2824,
+          "model_version": "v2",
+          "predicted_winner_id": 22253,
+          "win_probability": 0.5006,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 22253,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2820,
+        "model_version": "v1",
+        "predicted_winner_id": 22253,
+        "win_probability": 0.501,
+        "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+        "was_correct": true,
+        "actual_winner_id": 22253,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
+      }
     },
     {
       "fight_id": 11082,
       "card_order": 100,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 17216,
+      "method": "KO/TKO",
+      "round": 2,
       "fighter_a": {
         "fighter_id": 11337,
         "name": "Ludovit Klein",
         "nickname": null,
         "weight_class": null,
         "record_wins": 24,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 1,
-        "current_elo_standard": 1576.88,
-        "current_elo_modified": 1588.88
+        "current_elo_standard": 1557.59,
+        "current_elo_modified": 1566.14
       },
       "fighter_b": {
         "fighter_id": 17216,
         "name": "Tofiq Musayev",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 23,
+        "record_wins": 24,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1504.32,
-        "current_elo_modified": 1509.32
+        "current_elo_standard": 1523.61,
+        "current_elo_modified": 1537.91
       },
       "predictions": [
         {
@@ -393,9 +423,9 @@
           "predicted_winner_id": 11337,
           "win_probability": 0.6281,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 17216,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2795,
@@ -403,9 +433,9 @@
           "predicted_winner_id": 11337,
           "win_probability": 0.6758,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 17216,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -414,9 +444,9 @@
         "predicted_winner_id": 11337,
         "win_probability": 0.6281,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 17216,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -424,30 +454,30 @@
       "card_order": 101,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 16790,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 14697,
         "name": "Oban Elliott",
         "nickname": null,
         "weight_class": null,
         "record_wins": 12,
-        "record_losses": 4,
+        "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1525.18,
-        "current_elo_modified": 1523.15
+        "current_elo_standard": 1508.75,
+        "current_elo_modified": 1503.79
       },
       "fighter_b": {
         "fighter_id": 16790,
         "name": "Michael Oliveira",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 9,
+        "record_wins": 10,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": 1516.0,
-        "current_elo_modified": 1518.0
+        "current_elo_standard": 1532.42,
+        "current_elo_modified": 1537.68
       },
       "predictions": [
         {
@@ -456,9 +486,9 @@
           "predicted_winner_id": 16790,
           "win_probability": 0.5371,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 16790,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2796,
@@ -466,9 +496,9 @@
           "predicted_winner_id": 16790,
           "win_probability": 0.5046,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 16790,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -477,9 +507,9 @@
         "predicted_winner_id": 16790,
         "win_probability": 0.5371,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 16790,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -487,19 +517,19 @@
       "card_order": 102,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 22258,
+      "method": "U Dec",
+      "round": 3,
       "fighter_a": {
         "fighter_id": 22258,
         "name": "Borislav Nikolic",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 16,
+        "record_wins": 17,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1515.26,
+        "current_elo_modified": 1516.04
       },
       "fighter_b": {
         "fighter_id": 16823,
@@ -507,43 +537,73 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 12,
-        "record_losses": 4,
+        "record_losses": 5,
         "record_draws": 2,
-        "current_elo_standard": 1484.0,
-        "current_elo_modified": 1482.0
+        "current_elo_standard": 1468.74,
+        "current_elo_modified": 1464.93
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2821,
+          "model_version": "v1",
+          "predicted_winner_id": 22258,
+          "win_probability": 0.52,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 22258,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        },
+        {
+          "prediction_id": 2825,
+          "model_version": "v2",
+          "predicted_winner_id": 16823,
+          "win_probability": 0.7853,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": false,
+          "actual_winner_id": 22258,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2821,
+        "model_version": "v1",
+        "predicted_winner_id": 22258,
+        "win_probability": 0.52,
+        "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+        "was_correct": true,
+        "actual_winner_id": 22258,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
+      }
     },
     {
       "fight_id": 11085,
       "card_order": 103,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 14769,
+      "method": "Sub",
+      "round": 2,
       "fighter_a": {
         "fighter_id": 11430,
         "name": "Dennis Buzukja",
         "nickname": null,
         "weight_class": null,
         "record_wins": 12,
-        "record_losses": 6,
+        "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1457.93,
-        "current_elo_modified": 1452.32
+        "current_elo_standard": 1443.16,
+        "current_elo_modified": 1436.85
       },
       "fighter_b": {
         "fighter_id": 14769,
         "name": "Bogdan Grad",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 15,
+        "record_wins": 16,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1484.69,
-        "current_elo_modified": 1479.83
+        "current_elo_standard": 1499.46,
+        "current_elo_modified": 1493.78
       },
       "predictions": [
         {
@@ -552,9 +612,9 @@
           "predicted_winner_id": 11430,
           "win_probability": 0.6207,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 14769,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2798,
@@ -562,9 +622,9 @@
           "predicted_winner_id": 11430,
           "win_probability": 0.5057,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 14769,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -573,9 +633,9 @@
         "predicted_winner_id": 11430,
         "win_probability": 0.6207,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 14769,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -583,19 +643,19 @@
       "card_order": 104,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 64,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 64,
         "name": "Mateusz Rębecki",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 20,
+        "record_wins": 21,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1517.33,
-        "current_elo_modified": 1509.84
+        "current_elo_standard": 1530.0,
+        "current_elo_modified": 1520.83
       },
       "fighter_b": {
         "fighter_id": 10226,
@@ -603,10 +663,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 18,
-        "record_losses": 10,
+        "record_losses": 11,
         "record_draws": 0,
-        "current_elo_standard": 1443.77,
-        "current_elo_modified": 1433.63
+        "current_elo_standard": 1431.11,
+        "current_elo_modified": 1419.05
       },
       "predictions": [
         {
@@ -615,9 +675,9 @@
           "predicted_winner_id": 64,
           "win_probability": 0.5852,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 64,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2799,
@@ -625,9 +685,9 @@
           "predicted_winner_id": 64,
           "win_probability": 0.7068,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 64,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -636,9 +696,9 @@
         "predicted_winner_id": 64,
         "win_probability": 0.5852,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 64,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -646,19 +706,19 @@
       "card_order": 105,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 22178,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 22178,
         "name": "Nina Milošević",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 8,
+        "record_wins": 9,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1514.53,
+        "current_elo_modified": 1514.22
       },
       "fighter_b": {
         "fighter_id": 13576,
@@ -666,10 +726,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 7,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1468.08,
-        "current_elo_modified": 1464.15
+        "current_elo_standard": 1453.55,
+        "current_elo_modified": 1448.0
       },
       "predictions": [
         {
@@ -678,9 +738,9 @@
           "predicted_winner_id": 22178,
           "win_probability": 0.5339,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 22178,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         },
         {
           "prediction_id": 2800,
@@ -688,9 +748,9 @@
           "predicted_winner_id": 13576,
           "win_probability": 0.7458,
           "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 22178,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
         }
       ],
       "prediction": {
@@ -699,9 +759,9 @@
         "predicted_winner_id": 22178,
         "win_probability": 0.5339,
         "snapshot_at": "2026-07-26T09:48:11.010221+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 22178,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
       }
     },
     {
@@ -709,19 +769,19 @@
       "card_order": 106,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 16793,
+      "method": "KO/TKO",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 16793,
         "name": "Jovan Leka",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 13,
+        "record_wins": 14,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": 1516.0,
-        "current_elo_modified": 1518.0
+        "current_elo_standard": 1530.53,
+        "current_elo_modified": 1533.17
       },
       "fighter_b": {
         "fighter_id": 10429,
@@ -729,46 +789,106 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 21,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1484.0,
-        "current_elo_modified": 1482.0
+        "current_elo_standard": 1469.47,
+        "current_elo_modified": 1464.89
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2822,
+          "model_version": "v1",
+          "predicted_winner_id": 16793,
+          "win_probability": 0.6416,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 16793,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        },
+        {
+          "prediction_id": 2826,
+          "model_version": "v2",
+          "predicted_winner_id": 16793,
+          "win_probability": 0.7627,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 16793,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2822,
+        "model_version": "v1",
+        "predicted_winner_id": 16793,
+        "win_probability": 0.6416,
+        "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+        "was_correct": true,
+        "actual_winner_id": 16793,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
+      }
     },
     {
       "fight_id": 11132,
       "card_order": 107,
       "weight_class": null,
       "is_title_fight": false,
-      "winner_id": null,
-      "method": null,
-      "round": null,
+      "winner_id": 14564,
+      "method": "Sub",
+      "round": 1,
       "fighter_a": {
         "fighter_id": 22268,
         "name": "Marina Spasić",
         "nickname": null,
         "weight_class": null,
         "record_wins": 7,
-        "record_losses": 1,
+        "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1484.7,
+        "current_elo_modified": 1481.91
       },
       "fighter_b": {
         "fighter_id": 14564,
         "name": "Stephanie Luciano",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 7,
+        "record_wins": 8,
         "record_losses": 2,
         "record_draws": 1,
-        "current_elo_standard": 1515.16,
-        "current_elo_modified": 1516.84
+        "current_elo_standard": 1530.46,
+        "current_elo_modified": 1533.97
       },
-      "predictions": [],
-      "prediction": null
+      "predictions": [
+        {
+          "prediction_id": 2823,
+          "model_version": "v1",
+          "predicted_winner_id": 14564,
+          "win_probability": 0.6694,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 14564,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        },
+        {
+          "prediction_id": 2827,
+          "model_version": "v2",
+          "predicted_winner_id": 14564,
+          "win_probability": 0.829,
+          "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+          "was_correct": true,
+          "actual_winner_id": 14564,
+          "graded_at": "2026-08-03T01:03:10.864408+00:00"
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2823,
+        "model_version": "v1",
+        "predicted_winner_id": 14564,
+        "win_probability": 0.6694,
+        "snapshot_at": "2026-08-03T01:03:10.668632+00:00",
+        "was_correct": true,
+        "actual_winner_id": 14564,
+        "graded_at": "2026-08-03T01:03:10.864408+00:00"
+      }
     }
   ],
   "models": [
