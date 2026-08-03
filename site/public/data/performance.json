@@ -7,11 +7,11 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 95,
-        "correct": 60,
-        "wrong": 35,
-        "accuracy": 0.631578947368421,
-        "log_loss": 0.6545447033380303
+        "graded": 109,
+        "correct": 69,
+        "wrong": 40,
+        "accuracy": 0.6330275229357798,
+        "log_loss": 0.6591223371725725
       },
       "per_event": [
         {
@@ -27,10 +27,10 @@
           "event_id": 1062,
           "name": "UFC Fight Night: Medić vs. Rodriguez",
           "event_date": "2026-08-01",
-          "n_picks": 10,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 10
+          "n_picks": 14,
+          "n_correct": 9,
+          "n_wrong": 5,
+          "n_pending": 0
         },
         {
           "event_id": 1039,
@@ -108,26 +108,26 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 40,
-          "actual_win_rate": 0.5,
+          "n": 45,
+          "actual_win_rate": 0.5555555555555556,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 26,
-          "actual_win_rate": 0.6923076923076923,
+          "n": 31,
+          "actual_win_rate": 0.6451612903225806,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 12,
-          "actual_win_rate": 0.75,
+          "n": 15,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 8,
-          "actual_win_rate": 0.875,
+          "n": 9,
+          "actual_win_rate": 0.8888888888888888,
           "bucket_center": 0.675
         },
         {
@@ -213,6 +213,14 @@
           "n_correct_so_far": 60,
           "n_picks_so_far": 95,
           "accuracy_so_far": 0.631578947368421
+        },
+        {
+          "event_id": 1062,
+          "event_date": "2026-08-01",
+          "event_name": "UFC Fight Night: Medić vs. Rodriguez",
+          "n_correct_so_far": 69,
+          "n_picks_so_far": 109,
+          "accuracy_so_far": 0.6330275229357798
         }
       ],
       "meta": {
@@ -236,11 +244,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 95,
-        "correct": 58,
-        "wrong": 37,
-        "accuracy": 0.6105263157894737,
-        "log_loss": 0.6473562081482925
+        "graded": 109,
+        "correct": 66,
+        "wrong": 43,
+        "accuracy": 0.6055045871559633,
+        "log_loss": 0.665339847061267
       },
       "per_event": [
         {
@@ -256,10 +264,10 @@
           "event_id": 1062,
           "name": "UFC Fight Night: Medić vs. Rodriguez",
           "event_date": "2026-08-01",
-          "n_picks": 10,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 10
+          "n_picks": 14,
+          "n_correct": 8,
+          "n_wrong": 6,
+          "n_pending": 0
         },
         {
           "event_id": 1039,
@@ -337,14 +345,14 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 29,
-          "actual_win_rate": 0.41379310344827586,
+          "n": 32,
+          "actual_win_rate": 0.4375,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 18,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 19,
+          "actual_win_rate": 0.6842105263157895,
           "bucket_center": 0.575
         },
         {
@@ -355,26 +363,26 @@
         },
         {
           "bin": 3,
-          "n": 10,
-          "actual_win_rate": 0.7,
+          "n": 12,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 8,
-          "actual_win_rate": 0.875,
+          "n": 11,
+          "actual_win_rate": 0.7272727272727273,
           "bucket_center": 0.725
         },
         {
           "bin": 5,
-          "n": 6,
-          "actual_win_rate": 1.0,
+          "n": 9,
+          "actual_win_rate": 0.8888888888888888,
           "bucket_center": 0.775
         },
         {
           "bin": 6,
-          "n": 7,
-          "actual_win_rate": 0.5714285714285714,
+          "n": 9,
+          "actual_win_rate": 0.5555555555555556,
           "bucket_center": 0.825
         },
         {
@@ -448,6 +456,14 @@
           "n_correct_so_far": 58,
           "n_picks_so_far": 95,
           "accuracy_so_far": 0.6105263157894737
+        },
+        {
+          "event_id": 1062,
+          "event_date": "2026-08-01",
+          "event_name": "UFC Fight Night: Medić vs. Rodriguez",
+          "n_correct_so_far": 66,
+          "n_picks_so_far": 109,
+          "accuracy_so_far": 0.6055045871559633
         }
       ],
       "meta": {
