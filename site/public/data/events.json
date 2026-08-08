@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1068,
+    "espn_event_id": "600060732",
+    "name": "Dana White's Contender Series: Season 10, Week 1",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-08-11",
+    "deployed_at": "2026-08-08T01:02:06.624094+00:00"
+  },
+  {
     "event_id": 1063,
     "espn_event_id": "600060621",
     "name": "UFC Fight Night: Gamrot vs Salkilld",
