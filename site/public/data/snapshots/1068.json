@@ -1,0 +1,332 @@
+{
+  "event": {
+    "event_id": 1068,
+    "espn_event_id": "600060732",
+    "name": "Dana White's Contender Series: Season 10, Week 1",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-08-11",
+    "deployed_at": "2026-08-08T01:02:06.624094+00:00"
+  },
+  "fights": [
+    {
+      "fight_id": 11180,
+      "card_order": 0,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22364,
+        "name": "Anthony Wint",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 6,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22365,
+        "name": "Matt Adams",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 6,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2828,
+          "model_version": "v1",
+          "predicted_winner_id": 22364,
+          "win_probability": 0.5014,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2833,
+          "model_version": "v2",
+          "predicted_winner_id": 22364,
+          "win_probability": 0.5004,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2828,
+        "model_version": "v1",
+        "predicted_winner_id": 22364,
+        "win_probability": 0.5014,
+        "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11181,
+      "card_order": 1,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22366,
+        "name": "Fabrizio Escarrega",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22367,
+        "name": "Abe Alsaghir",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 8,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2829,
+          "model_version": "v1",
+          "predicted_winner_id": 22366,
+          "win_probability": 0.5014,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2834,
+          "model_version": "v2",
+          "predicted_winner_id": 22366,
+          "win_probability": 0.5004,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2829,
+        "model_version": "v1",
+        "predicted_winner_id": 22366,
+        "win_probability": 0.5014,
+        "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11182,
+      "card_order": 2,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22368,
+        "name": "Bilal Hasan",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 8,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22369,
+        "name": "Mridul Saikia",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2830,
+          "model_version": "v1",
+          "predicted_winner_id": 22368,
+          "win_probability": 0.5014,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2835,
+          "model_version": "v2",
+          "predicted_winner_id": 22368,
+          "win_probability": 0.5004,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2830,
+        "model_version": "v1",
+        "predicted_winner_id": 22368,
+        "win_probability": 0.5014,
+        "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11183,
+      "card_order": 3,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22370,
+        "name": "Tom Pagliarulo",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 10,
+        "record_losses": 2,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 16789,
+        "name": "Ananias Mulumba",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 10,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
+      },
+      "predictions": [
+        {
+          "prediction_id": 2831,
+          "model_version": "v1",
+          "predicted_winner_id": 22370,
+          "win_probability": 0.517,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2836,
+          "model_version": "v2",
+          "predicted_winner_id": 16789,
+          "win_probability": 0.5013,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2831,
+        "model_version": "v1",
+        "predicted_winner_id": 22370,
+        "win_probability": 0.517,
+        "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11184,
+      "card_order": 4,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22372,
+        "name": "Jon Kunneman",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 10,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22373,
+        "name": "Joe Kropschot",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 8,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2832,
+          "model_version": "v1",
+          "predicted_winner_id": 22372,
+          "win_probability": 0.5014,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2837,
+          "model_version": "v2",
+          "predicted_winner_id": 22372,
+          "win_probability": 0.5004,
+          "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2832,
+        "model_version": "v1",
+        "predicted_winner_id": 22372,
+        "win_probability": 0.5014,
+        "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    }
+  ],
+  "models": [
+    "v1",
+    "v2"
+  ],
+  "default_model": "v1"
+}
