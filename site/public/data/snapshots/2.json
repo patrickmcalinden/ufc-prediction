@@ -95,11 +95,11 @@
         "name": "Quillan Salkilld",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 12,
+        "record_wins": 13,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": 1596.39,
-        "current_elo_modified": 1624.4
+        "current_elo_standard": 1612.36,
+        "current_elo_modified": 1648.78
       },
       "predictions": [
         {
@@ -348,7 +348,7 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 11,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
         "current_elo_standard": 1487.94,
         "current_elo_modified": 1482.79
