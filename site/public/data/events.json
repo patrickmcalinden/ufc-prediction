@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 9,
+    "espn_event_id": "600059185",
+    "name": "UFC 330: Makhachev vs. Machado Garry",
+    "location": "Xfinity Mobile Arena, Philadelphia, PA",
+    "event_date": "2026-08-15",
+    "deployed_at": "2026-08-15T01:01:45.242575+00:00"
+  },
+  {
     "event_id": 1068,
     "espn_event_id": "600060732",
     "name": "Dana White's Contender Series: Season 10, Week 1",

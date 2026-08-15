@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 9,
+          "name": "UFC 330: Makhachev vs. Machado Garry",
+          "event_date": "2026-08-15",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
+        {
           "event_id": 1068,
           "name": "Dana White's Contender Series: Season 10, Week 1",
           "event_date": "2026-08-11",
@@ -244,10 +253,10 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-08-07T21:01:58.896086",
-        "cv_accuracy": 0.5570883882149047,
-        "cv_logloss": 0.6903622257502425,
-        "n_samples": 17314,
+        "trained_at": "2026-08-14T21:01:37.856377",
+        "cv_accuracy": 0.558601592246452,
+        "cv_logloss": 0.6898806790709435,
+        "n_samples": 17336,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -268,6 +277,15 @@
         "log_loss": 0.6650971797308202
       },
       "per_event": [
+        {
+          "event_id": 9,
+          "name": "UFC 330: Makhachev vs. Machado Garry",
+          "event_date": "2026-08-15",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1068,
           "name": "Dana White's Contender Series: Season 10, Week 1",
@@ -504,10 +522,10 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-08-07T21:02:06.607920",
-        "cv_accuracy": 0.6146273830155978,
-        "cv_logloss": 0.6518811735756793,
-        "n_samples": 17314,
+        "trained_at": "2026-08-14T21:01:45.228613",
+        "cv_accuracy": 0.6092073381793008,
+        "cv_logloss": 0.6525521452377904,
+        "n_samples": 17336,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
