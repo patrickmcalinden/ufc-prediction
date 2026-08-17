@@ -7,11 +7,11 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 121,
-        "correct": 79,
-        "wrong": 42,
-        "accuracy": 0.6528925619834711,
-        "log_loss": 0.648819366672467
+        "graded": 138,
+        "correct": 87,
+        "wrong": 51,
+        "accuracy": 0.6304347826086957,
+        "log_loss": 0.65969790875899
       },
       "per_event": [
         {
@@ -19,18 +19,18 @@
           "name": "UFC 330: Makhachev vs. Machado Garry",
           "event_date": "2026-08-15",
           "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_correct": 5,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1068,
           "name": "Dana White's Contender Series: Season 10, Week 1",
           "event_date": "2026-08-11",
           "n_picks": 5,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 5
+          "n_correct": 3,
+          "n_wrong": 2,
+          "n_pending": 0
         },
         {
           "event_id": 1063,
@@ -126,38 +126,38 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 51,
-          "actual_win_rate": 0.5686274509803921,
+          "n": 59,
+          "actual_win_rate": 0.576271186440678,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 32,
-          "actual_win_rate": 0.65625,
+          "n": 36,
+          "actual_win_rate": 0.5833333333333334,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 17,
-          "actual_win_rate": 0.7058823529411765,
+          "n": 18,
+          "actual_win_rate": 0.7222222222222222,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 10,
-          "actual_win_rate": 0.9,
+          "n": 11,
+          "actual_win_rate": 0.9090909090909091,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 8,
-          "actual_win_rate": 0.75,
+          "n": 9,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.725
         },
         {
           "bin": 5,
-          "n": 1,
-          "actual_win_rate": 1.0,
+          "n": 3,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.775
         },
         {
@@ -247,6 +247,22 @@
           "n_correct_so_far": 79,
           "n_picks_so_far": 121,
           "accuracy_so_far": 0.6528925619834711
+        },
+        {
+          "event_id": 1068,
+          "event_date": "2026-08-11",
+          "event_name": "Dana White's Contender Series: Season 10, Week 1",
+          "n_correct_so_far": 82,
+          "n_picks_so_far": 126,
+          "accuracy_so_far": 0.6507936507936508
+        },
+        {
+          "event_id": 9,
+          "event_date": "2026-08-15",
+          "event_name": "UFC 330: Makhachev vs. Machado Garry",
+          "n_correct_so_far": 87,
+          "n_picks_so_far": 138,
+          "accuracy_so_far": 0.6304347826086957
         }
       ],
       "meta": {
@@ -270,11 +286,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 121,
-        "correct": 73,
-        "wrong": 48,
-        "accuracy": 0.6033057851239669,
-        "log_loss": 0.6650971797308202
+        "graded": 138,
+        "correct": 81,
+        "wrong": 57,
+        "accuracy": 0.5869565217391305,
+        "log_loss": 0.6745520380158877
       },
       "per_event": [
         {
@@ -282,18 +298,18 @@
           "name": "UFC 330: Makhachev vs. Machado Garry",
           "event_date": "2026-08-15",
           "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_correct": 6,
+          "n_wrong": 6,
+          "n_pending": 0
         },
         {
           "event_id": 1068,
           "name": "Dana White's Contender Series: Season 10, Week 1",
           "event_date": "2026-08-11",
           "n_picks": 5,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 5
+          "n_correct": 2,
+          "n_wrong": 3,
+          "n_pending": 0
         },
         {
           "event_id": 1063,
@@ -389,26 +405,26 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 34,
-          "actual_win_rate": 0.47058823529411764,
+          "n": 41,
+          "actual_win_rate": 0.4878048780487805,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 23,
-          "actual_win_rate": 0.6086956521739131,
+          "n": 27,
+          "actual_win_rate": 0.5925925925925926,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 16,
-          "actual_win_rate": 0.625,
+          "n": 18,
+          "actual_win_rate": 0.5555555555555556,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 12,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 13,
+          "actual_win_rate": 0.6153846153846154,
           "bucket_center": 0.675
         },
         {
@@ -419,8 +435,8 @@
         },
         {
           "bin": 5,
-          "n": 11,
-          "actual_win_rate": 0.8181818181818182,
+          "n": 13,
+          "actual_win_rate": 0.7692307692307693,
           "bucket_center": 0.775
         },
         {
@@ -434,6 +450,12 @@
           "n": 3,
           "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.875
+        },
+        {
+          "bin": 8,
+          "n": 1,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.925
         }
       ],
       "timeseries": [
@@ -516,6 +538,22 @@
           "n_correct_so_far": 73,
           "n_picks_so_far": 121,
           "accuracy_so_far": 0.6033057851239669
+        },
+        {
+          "event_id": 1068,
+          "event_date": "2026-08-11",
+          "event_name": "Dana White's Contender Series: Season 10, Week 1",
+          "n_correct_so_far": 75,
+          "n_picks_so_far": 126,
+          "accuracy_so_far": 0.5952380952380952
+        },
+        {
+          "event_id": 9,
+          "event_date": "2026-08-15",
+          "event_name": "UFC 330: Makhachev vs. Machado Garry",
+          "n_correct_so_far": 81,
+          "n_picks_so_far": 138,
+          "accuracy_so_far": 0.5869565217391305
         }
       ],
       "meta": {

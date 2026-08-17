@@ -24,8 +24,8 @@
         "record_wins": 7,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1516.0,
+        "current_elo_modified": 1518.0
       },
       "fighter_b": {
         "fighter_id": 22365,
@@ -35,8 +35,8 @@
         "record_wins": 6,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
       },
       "predictions": [
         {
@@ -45,9 +45,9 @@
           "predicted_winner_id": 22364,
           "win_probability": 0.5014,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 22364,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         },
         {
           "prediction_id": 2833,
@@ -55,9 +55,9 @@
           "predicted_winner_id": 22364,
           "win_probability": 0.5004,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 22364,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         }
       ],
       "prediction": {
@@ -66,9 +66,9 @@
         "predicted_winner_id": 22364,
         "win_probability": 0.5014,
         "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 22364,
+        "graded_at": "2026-08-17T20:53:43.153633+00:00"
       }
     },
     {
@@ -87,8 +87,8 @@
         "record_wins": 9,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
       },
       "fighter_b": {
         "fighter_id": 22367,
@@ -98,8 +98,8 @@
         "record_wins": 9,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1516.0,
+        "current_elo_modified": 1518.0
       },
       "predictions": [
         {
@@ -108,9 +108,9 @@
           "predicted_winner_id": 22366,
           "win_probability": 0.5014,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 22367,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         },
         {
           "prediction_id": 2834,
@@ -118,9 +118,9 @@
           "predicted_winner_id": 22366,
           "win_probability": 0.5004,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 22367,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         }
       ],
       "prediction": {
@@ -129,9 +129,9 @@
         "predicted_winner_id": 22366,
         "win_probability": 0.5014,
         "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 22367,
+        "graded_at": "2026-08-17T20:53:43.153633+00:00"
       }
     },
     {
@@ -150,8 +150,8 @@
         "record_wins": 9,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1516.0,
+        "current_elo_modified": 1518.0
       },
       "fighter_b": {
         "fighter_id": 22369,
@@ -161,8 +161,8 @@
         "record_wins": 9,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
       },
       "predictions": [
         {
@@ -171,9 +171,9 @@
           "predicted_winner_id": 22368,
           "win_probability": 0.5014,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 22368,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         },
         {
           "prediction_id": 2835,
@@ -181,9 +181,9 @@
           "predicted_winner_id": 22368,
           "win_probability": 0.5004,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 22368,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         }
       ],
       "prediction": {
@@ -192,9 +192,9 @@
         "predicted_winner_id": 22368,
         "win_probability": 0.5014,
         "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 22368,
+        "graded_at": "2026-08-17T20:53:43.153633+00:00"
       }
     },
     {
@@ -213,8 +213,8 @@
         "record_wins": 11,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1515.26,
+        "current_elo_modified": 1516.04
       },
       "fighter_b": {
         "fighter_id": 16789,
@@ -224,8 +224,8 @@
         "record_wins": 10,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1484.0,
-        "current_elo_modified": 1482.0
+        "current_elo_standard": 1468.74,
+        "current_elo_modified": 1464.93
       },
       "predictions": [
         {
@@ -234,9 +234,9 @@
           "predicted_winner_id": 22370,
           "win_probability": 0.517,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": true,
+          "actual_winner_id": 22370,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         },
         {
           "prediction_id": 2836,
@@ -244,9 +244,9 @@
           "predicted_winner_id": 16789,
           "win_probability": 0.5013,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 22370,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         }
       ],
       "prediction": {
@@ -255,9 +255,9 @@
         "predicted_winner_id": 22370,
         "win_probability": 0.517,
         "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": true,
+        "actual_winner_id": 22370,
+        "graded_at": "2026-08-17T20:53:43.153633+00:00"
       }
     },
     {
@@ -276,8 +276,8 @@
         "record_wins": 10,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1484.0,
+        "current_elo_modified": 1482.0
       },
       "fighter_b": {
         "fighter_id": 22373,
@@ -287,8 +287,8 @@
         "record_wins": 9,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": null,
-        "current_elo_modified": null
+        "current_elo_standard": 1516.0,
+        "current_elo_modified": 1518.0
       },
       "predictions": [
         {
@@ -297,9 +297,9 @@
           "predicted_winner_id": 22372,
           "win_probability": 0.5014,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 22373,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         },
         {
           "prediction_id": 2837,
@@ -307,9 +307,9 @@
           "predicted_winner_id": 22372,
           "win_probability": 0.5004,
           "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-          "was_correct": null,
-          "actual_winner_id": null,
-          "graded_at": null
+          "was_correct": false,
+          "actual_winner_id": 22373,
+          "graded_at": "2026-08-17T20:53:43.153633+00:00"
         }
       ],
       "prediction": {
@@ -318,9 +318,9 @@
         "predicted_winner_id": 22372,
         "win_probability": 0.5014,
         "snapshot_at": "2026-08-08T01:02:06.624094+00:00",
-        "was_correct": null,
-        "actual_winner_id": null,
-        "graded_at": null
+        "was_correct": false,
+        "actual_winner_id": 22373,
+        "graded_at": "2026-08-17T20:53:43.153633+00:00"
       }
     }
   ],
