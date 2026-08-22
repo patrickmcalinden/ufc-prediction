@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1082,
+    "espn_event_id": "600060493",
+    "name": "UFC Fight Night: Hernandez vs. Rodrigues",
+    "location": "Golden 1 Center, Sacramento, CA",
+    "event_date": "2026-08-22",
+    "deployed_at": "2026-08-22T01:01:49.501545+00:00"
+  },
+  {
     "event_id": 9,
     "espn_event_id": "600059185",
     "name": "UFC 330: Makhachev vs. Machado Garry",

@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 1082,
+          "name": "UFC Fight Night: Hernandez vs. Rodrigues",
+          "event_date": "2026-08-22",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
+        {
           "event_id": 9,
           "name": "UFC 330: Makhachev vs. Machado Garry",
           "event_date": "2026-08-15",
@@ -269,10 +278,10 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-08-14T21:01:37.856377",
-        "cv_accuracy": 0.558601592246452,
-        "cv_logloss": 0.6898806790709435,
-        "n_samples": 17336,
+        "trained_at": "2026-08-21T21:01:41.799773",
+        "cv_accuracy": 0.5570293609671848,
+        "cv_logloss": 0.6906615312481437,
+        "n_samples": 17370,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -293,6 +302,15 @@
         "log_loss": 0.6745520380158877
       },
       "per_event": [
+        {
+          "event_id": 1082,
+          "name": "UFC Fight Night: Hernandez vs. Rodrigues",
+          "event_date": "2026-08-22",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
         {
           "event_id": 9,
           "name": "UFC 330: Makhachev vs. Machado Garry",
@@ -560,10 +578,10 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-08-14T21:01:45.228613",
-        "cv_accuracy": 0.6092073381793008,
-        "cv_logloss": 0.6525521452377904,
-        "n_samples": 17336,
+        "trained_at": "2026-08-21T21:01:49.486179",
+        "cv_accuracy": 0.6110535405872193,
+        "cv_logloss": 0.6523075906692859,
+        "n_samples": 17370,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
