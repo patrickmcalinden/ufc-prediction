@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1096,
+    "espn_event_id": "600061266",
+    "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-09-26",
+    "deployed_at": "2026-09-25T20:14:38.448836+00:00"
+  },
+  {
     "event_id": 1082,
     "espn_event_id": "600060493",
     "name": "UFC Fight Night: Hernandez vs. Rodrigues",
