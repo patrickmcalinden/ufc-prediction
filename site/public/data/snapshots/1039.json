@@ -336,11 +336,11 @@
         "name": "Andre Lima",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": 1551.9,
-        "current_elo_modified": 1559.0
+        "current_elo_standard": 1565.53,
+        "current_elo_modified": 1573.98
       },
       "fighter_b": {
         "fighter_id": 14417,
@@ -348,10 +348,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 11,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1491.16,
-        "current_elo_modified": 1496.53
+        "current_elo_standard": 1476.37,
+        "current_elo_modified": 1478.63
       },
       "predictions": [
         {
@@ -536,11 +536,11 @@
         "name": "Michael Aswell",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1455.69,
-        "current_elo_modified": 1448.25
+        "current_elo_standard": 1473.73,
+        "current_elo_modified": 1468.57
       },
       "predictions": [
         {

@@ -84,11 +84,11 @@
         "name": "Joshua Van",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 17,
+        "record_wins": 18,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": 1633.29,
-        "current_elo_modified": 1669.23
+        "current_elo_standard": 1649.37,
+        "current_elo_modified": 1692.66
       },
       "fighter_b": {
         "fighter_id": 50,
@@ -159,10 +159,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 17,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1609.23,
-        "current_elo_modified": 1623.86
+        "current_elo_standard": 1593.39,
+        "current_elo_modified": 1600.91
       },
       "predictions": [
         {
@@ -348,10 +348,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 10,
-        "record_losses": 4,
+        "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1474.77,
-        "current_elo_modified": 1470.15
+        "current_elo_standard": 1461.93,
+        "current_elo_modified": 1453.87
       },
       "predictions": [
         {
@@ -726,10 +726,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 11,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1500.62,
-        "current_elo_modified": 1501.75
+        "current_elo_standard": 1486.24,
+        "current_elo_modified": 1483.63
       },
       "predictions": [
         {

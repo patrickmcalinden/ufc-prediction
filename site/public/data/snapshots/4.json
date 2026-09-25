@@ -85,10 +85,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 17,
-        "record_losses": 4,
+        "record_losses": 5,
         "record_draws": 1,
-        "current_elo_standard": 1550.25,
-        "current_elo_modified": 1563.99
+        "current_elo_standard": 1531.52,
+        "current_elo_modified": 1542.89
       },
       "fighter_b": {
         "fighter_id": 78,
@@ -210,11 +210,11 @@
         "name": "Modestas Bukauskas",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 20,
+        "record_wins": 21,
         "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1549.63,
-        "current_elo_modified": 1550.31
+        "current_elo_standard": 1564.06,
+        "current_elo_modified": 1567.25
       },
       "fighter_b": {
         "fighter_id": 20647,
@@ -462,11 +462,11 @@
         "name": "Tommy Gantt",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 12,
+        "record_wins": 13,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": 1531.26,
-        "current_elo_modified": 1535.07
+        "current_elo_standard": 1550.44,
+        "current_elo_modified": 1564.35
       },
       "fighter_b": {
         "fighter_id": 20655,

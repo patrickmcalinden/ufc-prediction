@@ -147,11 +147,11 @@
         "name": "Tim Elliott",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 22,
+        "record_wins": 23,
         "record_losses": 14,
         "record_draws": 1,
-        "current_elo_standard": 1507.58,
-        "current_elo_modified": 1502.65
+        "current_elo_standard": 1524.18,
+        "current_elo_modified": 1522.26
       },
       "fighter_b": {
         "fighter_id": 28,
@@ -211,10 +211,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 9,
-        "record_losses": 0,
+        "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": 1545.16,
-        "current_elo_modified": 1549.45
+        "current_elo_standard": 1529.22,
+        "current_elo_modified": 1528.49
       },
       "fighter_b": {
         "fighter_id": 20309,
@@ -273,11 +273,11 @@
         "name": "Shamil Gaziev",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 14,
+        "record_wins": 15,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1520.02,
-        "current_elo_modified": 1519.93
+        "current_elo_standard": 1537.03,
+        "current_elo_modified": 1541.02
       },
       "fighter_b": {
         "fighter_id": 30,
@@ -337,10 +337,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 15,
-        "record_losses": 10,
+        "record_losses": 11,
         "record_draws": 0,
-        "current_elo_standard": 1476.31,
-        "current_elo_modified": 1466.94
+        "current_elo_standard": 1460.66,
+        "current_elo_modified": 1450.77
       },
       "fighter_b": {
         "fighter_id": 16749,
@@ -663,10 +663,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 9,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1502.11,
-        "current_elo_modified": 1501.68
+        "current_elo_standard": 1485.5,
+        "current_elo_modified": 1483.78
       },
       "predictions": [
         {

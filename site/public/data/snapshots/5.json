@@ -21,11 +21,11 @@
         "name": "Song Yadong",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 23,
+        "record_wins": 24,
         "record_losses": 9,
         "record_draws": 1,
-        "current_elo_standard": 1616.97,
-        "current_elo_modified": 1647.94
+        "current_elo_standard": 1633.05,
+        "current_elo_modified": 1672.82
       },
       "fighter_b": {
         "fighter_id": 98,
@@ -95,11 +95,11 @@
         "name": "Alonzo Menifield",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 18,
+        "record_wins": 19,
         "record_losses": 6,
         "record_draws": 1,
-        "current_elo_standard": 1585.29,
-        "current_elo_modified": 1587.74
+        "current_elo_standard": 1600.01,
+        "current_elo_modified": 1607.66
       },
       "predictions": [
         {
@@ -210,11 +210,11 @@
         "name": "Kai Asakura",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 22,
+        "record_wins": 23,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1490.58,
-        "current_elo_modified": 1485.22
+        "current_elo_standard": 1506.47,
+        "current_elo_modified": 1501.47
       },
       "fighter_b": {
         "fighter_id": 114,
@@ -337,21 +337,21 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 26,
-        "record_losses": 10,
+        "record_losses": 11,
         "record_draws": 0,
-        "current_elo_standard": 1546.67,
-        "current_elo_modified": 1542.71
+        "current_elo_standard": 1529.91,
+        "current_elo_modified": 1522.19
       },
       "fighter_b": {
         "fighter_id": 104,
         "name": "Sumudaerji",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 19,
+        "record_wins": 20,
         "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1530.22,
-        "current_elo_modified": 1530.5
+        "current_elo_standard": 1546.98,
+        "current_elo_modified": 1551.79
       },
       "predictions": [
         {
@@ -362,7 +362,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-08-17T20:53:43.153633+00:00"
+          "graded_at": "2026-09-25T20:12:59.601355+00:00"
         },
         {
           "prediction_id": 2681,
@@ -372,7 +372,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-08-17T20:53:43.153633+00:00"
+          "graded_at": "2026-09-25T20:12:59.601355+00:00"
         }
       ],
       "prediction": {
@@ -383,7 +383,7 @@
         "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": "2026-08-17T20:53:43.153633+00:00"
+        "graded_at": "2026-09-25T20:12:59.601355+00:00"
       }
     },
     {
@@ -411,10 +411,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 18,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1531.26,
-        "current_elo_modified": 1535.07
+        "current_elo_standard": 1513.13,
+        "current_elo_modified": 1515.59
       },
       "predictions": [
         {
@@ -463,10 +463,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 35,
-        "record_losses": 10,
+        "record_losses": 11,
         "record_draws": 0,
-        "current_elo_standard": 1468.0,
-        "current_elo_modified": 1465.08
+        "current_elo_standard": 1453.47,
+        "current_elo_modified": 1448.88
       },
       "fighter_b": {
         "fighter_id": 13527,
@@ -526,10 +526,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 26,
-        "record_losses": 13,
+        "record_losses": 14,
         "record_draws": 0,
-        "current_elo_standard": 1488.22,
-        "current_elo_modified": 1477.19
+        "current_elo_standard": 1472.33,
+        "current_elo_modified": 1460.47
       },
       "fighter_b": {
         "fighter_id": 112,
@@ -588,11 +588,11 @@
         "name": "Rei Tsuruya",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": 1517.69,
-        "current_elo_modified": 1516.43
+        "current_elo_standard": 1532.47,
+        "current_elo_modified": 1533.21
       },
       "fighter_b": {
         "fighter_id": 88,
@@ -663,10 +663,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 19,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1483.47,
-        "current_elo_modified": 1482.19
+        "current_elo_standard": 1467.81,
+        "current_elo_modified": 1465.2
       },
       "predictions": [
         {
