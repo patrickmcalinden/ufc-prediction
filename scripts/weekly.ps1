@@ -43,6 +43,10 @@ if (-not (Test-Path $python)) {
 function Ensure-Docker {
     # `docker ps` is the honest readiness check — the Docker Desktop process
     # can be up while the engine is still starting.
+    # PS 5.1 turns a native command's stderr into an ErrorRecord, which under
+    # $ErrorActionPreference='Stop' kills the script on the first failed probe
+    # (before we ever launch Docker Desktop). Relax it for this function only.
+    $ErrorActionPreference = 'Continue'
     for ($i = 0; $i -lt 30; $i++) {
         docker ps --format '{{.Names}}' 2>$null | Out-Null
         if ($LASTEXITCODE -eq 0) { return $true }
@@ -71,7 +75,9 @@ if (-not (Ensure-Docker)) {
 $running = docker ps --filter 'name=ufc_postgres' --format '{{.Names}}'
 if (-not $running) {
     Write-Host 'Starting ufc_postgres container...'
+    $ErrorActionPreference = 'Continue'
     docker start ufc_postgres | Out-Null
+    $ErrorActionPreference = 'Stop'
 }
 
 $modeFlags = switch ($Mode) {
