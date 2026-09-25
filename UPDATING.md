@@ -170,15 +170,30 @@ Current registry:
 
 | Name | Features | Notes |
 |---|---|---|
-| `elo_only`  | 6 Elo features + title flag (7 total) | Baseline |
-| `elo_stats` | + historical striking, takedown accuracy, grappling aggression (22 total) | Production |
+| `v1` | 6 Elo features + title flag (7 total) | Baseline |
+| `v2` | + historical striking, takedown accuracy, grappling aggression (22 total) | `known_leak` — stats coverage leaks survivorship; kept for the live record |
+| `v3` | tuned Elo + fight history from `fights` + age (25 total) | `feature_set="v3"`, built by `pipeline/history.py` |
+
+Registry flags:
+
+- `feature_set` — `"legacy"` (`pipeline/features.py`) or `"v3"` (`pipeline/history.py`).
+- `retired=True` — stop training, locking and backfilling; the dashboard keeps the graded record and shows a "retired" badge.
+- `known_leak=True` — let training continue when the leak check fails. Only for grandfathered models.
+
+Training (`pipeline/train.py`) runs, per model:
+
+1. **Leak check** (`pipeline/evaluate.py`) — for each A/B feature pair, if "only one fighter has a value" predicts the winner beyond 50% ± 10pts, training raises `LeakCheckFailed` (unless `known_leak`).
+2. **Walk-forward backtest** — train on all fights before year Y, test on Y, for 2021 → now. Accuracy, log loss and Brier score land in the sidecar under `evaluation`. Leak-flagged models also get `evaluation.clean_subset`: scores on fights the leak can't help.
+3. Final fit on the full mirrored history.
 
 Each trained model writes:
 
 ```
 model/artifacts/xgb_<name>.json        # the model
-model/artifacts/xgb_<name>.meta.json   # model_version, CV metrics, features
+model/artifacts/xgb_<name>.meta.json   # model_version, evaluation, leak_check, features
 ```
+
+Backfill only fills late-add fights on events a model already locked picks for, so a new model never back-predicts history it was trained on.
 
 `model_version` stored on each prediction equals the model name. Snapshots are immutable — the unique index `ux_predictions_locked (fight_id, model_version) WHERE is_locked` enforces this.
 

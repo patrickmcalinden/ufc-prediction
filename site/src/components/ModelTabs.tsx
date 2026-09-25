@@ -4,10 +4,12 @@ export default function ModelTabs({
   models,
   active,
   onChange,
+  retired = [],
 }: {
   models: string[];
   active: string;
   onChange: (m: string) => void;
+  retired?: string[];
 }) {
   if (models.length <= 1) return null;
   return (
@@ -24,6 +26,7 @@ export default function ModelTabs({
           }`}
         >
           {m}
+          {retired.includes(m) && <span className="ml-1 font-sans text-xs opacity-60">retired</span>}
         </button>
       ))}
     </div>

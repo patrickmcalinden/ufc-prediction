@@ -22,49 +22,68 @@ available. The scraper handles re-runs idempotently — fight results
 overwrite previous nulls but a recorded winner is never wiped by a
 later scrape.
 
-## Features
+## Models
 
-For each fight (positionally A vs. B), the model sees 22 features:
+Three models run side by side. Each gets its own tab on the Performance
+page and its own locked record.
 
-**Elo (4 base + 2 diff)** &mdash; pre-fight ratings for both fighters in
-two formulations, plus their differentials:
+| Model | Inputs | Status |
+|---|---|---|
+| **v1** | Elo ratings + title flag (7 features) | Baseline |
+| **v2** | v1 + historical striking and grappling stats (22 features) | Known data leak (below) |
+| **v3** | Tuned Elo + fight history (25 features) | Current |
 
-- *Standard Elo* — classic formulation with K = 32
-- *Modified Elo* — K-factor scales with opponent strength. Wins over
-  elite opponents (≥ 1600) move you more (×1.5); wins over weak
-  opponents (≤ 1400) move you less (×0.75)
+### v3 features
 
-**Historical striking (5 per fighter + 5 diffs)** &mdash; averaged over
-each fighter's prior fights only:
+Everything v3 sees comes from the full fight schedule (every UFC and
+Contender Series bout ESPN lists) plus fighter dates of birth, computed
+using only fights *before* the one being predicted:
 
-- *Accuracy* — significant strikes landed / attempted
-- *Volume* — significant strikes landed per fight
-- *Defense* — significant strikes absorbed per fight
-- *Takedown accuracy* — takedowns landed / attempted
-- *Grappling aggression* — (positional advances + submissions) per fight
+- *Tuned Elo* — K = 64, a 50% bigger swing for KO/TKO/submission wins,
+  and ratings drift back toward average after a year out of the cage
+- *Experience* — prior fights
+- *Win rate* and *finish rate* (share of wins by KO/TKO/sub)
+- *KO/TKO losses* — a rough proxy for durability
+- *Layoff* — days since the last fight
+- *Streak* and *last-3 form*
+- *Age*
 
-**Context (1)**
+Each appears for fighter A, fighter B and as the A − B difference. If a
+value is unknown for either fighter it's blanked for both, so "missing
+data" can never itself become a signal.
 
-- *Title fight* — binary flag
+### v2's data leak
+
+v2 uses per-fight striking and grappling stats. Those are only scraped
+for fighters who appear on a recent card, so historically, *having* stats
+meant *still being active today* — and fighters who are still active are
+the ones who kept winning. In training fights where only one fighter had
+stats, that fighter won 75.6% of the time. The model learned the
+coverage pattern rather than the fighting, which is why its backtest
+looked great and its live record didn't. v2 keeps running so its record
+stays public, with a warning on its tab.
+
+### Mirroring
 
 To prevent positional bias the training set is mirrored: each fight
 appears twice, once as A vs. B and once as B vs. A with the label
-flipped. The mirrored half is sorted back into chronological order
-before training.
+flipped.
 
-## Model
+## Evaluation
 
-XGBoost classifier:
+Every model is scored with a **walk-forward backtest**: for each year
+from 2021 on, train on every earlier fight and predict that year's
+fights. That's how the model is actually used — trained on the past,
+predicting the next card.
 
-- 300 estimators, max depth 6, learning rate 0.02
-- subsample = 0.8, colsample_bytree = 0.8
-- log-loss objective, random seed 42 for reproducibility
+Before a model is saved, a **leak check** looks at every A/B feature
+pair: among fights where only one fighter has a value, if "has a value"
+alone predicts the winner, training fails. That check is what catches
+v2.
 
-5-fold time-series cross-validation reports honest out-of-sample
-metrics; the production model is fit on the full history before
-predicting an upcoming event. Each prediction snapshot records the
-exact model version string so historical picks remain attributable
-even after a retrain.
+The production model is fit on the full history before predicting an
+upcoming event. Each prediction snapshot records the model version so
+historical picks remain attributable after a retrain.
 
 ## What the model can't see
 

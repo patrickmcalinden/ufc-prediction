@@ -18,7 +18,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from pipeline.db import connect
-from pipeline.models import all_names
+from pipeline.models import all_names, is_retired
 from pipeline.train import load_meta
 
 log = logging.getLogger(__name__)
@@ -343,6 +343,7 @@ def _performance_for_model(cur, model_version: str) -> dict:
         "calibration": calibration,
         "timeseries": timeseries,
         "meta": load_meta(model_version),  # None for historical model_versions
+        "retired": is_retired(model_version),
     }
 
 

@@ -14,12 +14,13 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
+import pandas as pd
 import xgboost as xgb
-from sklearn.metrics import accuracy_score, log_loss
-from sklearn.model_selection import TimeSeriesSplit
 
-from pipeline.features import build_training_matrix
-from pipeline.models import MODELS, ModelConfig, get
+from pipeline import evaluate
+from pipeline.features import build_legacy_frame, legacy_mirror, legacy_presence_view
+from pipeline.history import build_v3_frame, mirror as v3_mirror
+from pipeline.models import ModelConfig, all_names, get
 
 log = logging.getLogger(__name__)
 
@@ -69,36 +70,70 @@ def _build_classifier(cfg: ModelConfig) -> xgb.XGBClassifier:
         learning_rate=cfg.learning_rate,
         subsample=cfg.subsample,
         colsample_bytree=cfg.colsample_bytree,
+        min_child_weight=cfg.min_child_weight,
         eval_metric="logloss",
         random_state=cfg.random_state,
     )
 
 
-def train_one(name: str) -> dict:
+class LeakCheckFailed(RuntimeError):
+    pass
+
+
+def _frames(cfg: ModelConfig, cache: dict) -> tuple[pd.DataFrame, pd.DataFrame, callable]:
+    """(training frame, leak-check view, mirror fn) for a model's feature set.
+
+    Training frame: one row per decided fight, not mirrored.
+    Leak-check view: same rows with "no data" as NaN.
+    """
+    if cfg.feature_set not in cache:
+        if cfg.feature_set == "legacy":
+            df = build_legacy_frame()
+            cache["legacy"] = (df, legacy_presence_view(df), legacy_mirror)
+        elif cfg.feature_set == "v3":
+            df = build_v3_frame()
+            df = df[df["label"].notna()].sort_values("fight_date").reset_index(drop=True)
+            df["label"] = df["label"].astype(int)
+            cache["v3"] = (df, df, v3_mirror)
+        else:
+            raise ValueError(f"Unknown feature_set {cfg.feature_set!r}")
+    return cache[cfg.feature_set]
+
+
+def train_one(name: str, _cache: dict | None = None) -> dict:
     cfg = get(name)
-    log.info("[%s] Training", name)
+    cache = {} if _cache is None else _cache
+    log.info("[%s] Training (feature_set=%s)", name, cfg.feature_set)
 
-    df = build_training_matrix()
-    X = df[cfg.features]
-    y = df["label"]
-    log.info("[%s] Training matrix shape: %s (features=%d)", name, X.shape, len(cfg.features))
+    df, presence, mirror = _frames(cfg, cache)
 
-    tscv = TimeSeriesSplit(n_splits=5)
-    accs, losses = [], []
-    for fold, (tr, va) in enumerate(tscv.split(X), 1):
-        m = _build_classifier(cfg)
-        m.fit(X.iloc[tr], y.iloc[tr])
-        preds = m.predict(X.iloc[va])
-        proba = m.predict_proba(X.iloc[va])[:, 1]
-        accs.append(accuracy_score(y.iloc[va], preds))
-        losses.append(log_loss(y.iloc[va], proba))
-        log.info("[%s]   fold %d: acc=%.3f logloss=%.3f", name, fold, accs[-1], losses[-1])
-    mean_acc = sum(accs) / len(accs)
-    mean_logloss = sum(losses) / len(losses)
-    log.info("[%s] Mean CV acc=%.3f logloss=%.3f", name, mean_acc, mean_logloss)
+    leak = evaluate.leak_check(presence, cfg.features)
+    if not leak["passed"]:
+        msg = f"[{name}] leak check FAILED: {leak['flagged']}"
+        if not cfg.known_leak:
+            raise LeakCheckFailed(msg + " — fix the features or set known_leak on the model")
+        log.warning(msg + " (known_leak — continuing)")
 
+    # For a leaky model, also score it on just the fights where no flagged
+    # feature is one-sided. That's the honest estimate for live use.
+    clean = None
+    if leak["flagged"]:
+        clean = pd.Series(True, index=presence.index)
+        for f in leak["flagged"]:
+            a, b = f"a_{f['feature']}", f"b_{f['feature']}"
+            clean &= ~(presence[a].notna() ^ presence[b].notna())
+
+    log.info("[%s] Walk-forward backtest on %d fights", name, len(df))
+    ev = evaluate.walk_forward(df, cfg.features, lambda: _build_classifier(cfg), mirror, clean_mask=clean)
+    log.info("[%s] Backtest %s: acc=%.3f logloss=%.3f brier=%.3f",
+             name, ev["test_years"], ev["accuracy"], ev["logloss"], ev["brier"])
+    if "clean_subset" in ev:
+        log.info("[%s]   clean subset: acc=%.3f logloss=%.3f n=%d", name,
+                 ev["clean_subset"]["accuracy"], ev["clean_subset"]["logloss"], ev["clean_subset"]["n"])
+
+    full = mirror(df)
     model = _build_classifier(cfg)
-    model.fit(X, y)
+    model.fit(full[cfg.features], full["label"])
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     art_path = _artifact_path(name)
     model.save_model(art_path)
@@ -107,19 +142,21 @@ def train_one(name: str) -> dict:
         "model_version": cfg.name,
         "model_artifact": art_path.name,
         "description": cfg.description,
+        "feature_set": cfg.feature_set,
         "trained_at": datetime.now().isoformat(),
-        "cv_accuracy": mean_acc,
-        "cv_logloss": mean_logloss,
-        "n_samples": int(X.shape[0]),
+        "evaluation": ev,
+        "leak_check": leak,
+        "n_samples": int(full.shape[0]),
         "features": list(cfg.features),
     }
     with open(_meta_path(name), "w", encoding="utf-8") as fh:
         json.dump(meta, fh, indent=2)
-    log.info("[%s] Saved artifact + sidecar (cv_acc=%.3f, cv_logloss=%.3f)", name, mean_acc, mean_logloss)
+    log.info("[%s] Saved artifact + sidecar", name)
     return meta
 
 
 def train_all(only: list[str] | None = None) -> list[dict]:
     """Train every registered model (or a filtered subset). Returns list of metadata dicts."""
-    names = only or list(MODELS)
-    return [train_one(n) for n in names]
+    names = only or all_names()
+    cache: dict = {}
+    return [train_one(n, cache) for n in names]
