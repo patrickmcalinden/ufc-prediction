@@ -29,6 +29,8 @@ to stop that happening again.
 4. **Run it:** `python -m pipeline.experiment experiments/NNN_name.py`
    (from the repo root, with the venv; PYTHONPATH=. if needed). Takes
    ~1 min per candidate. Nothing touches the DB or model/artifacts.
+   It backtests 2021 → `evaluate.HOLDOUT_START` (2024-09-26) only; the
+   fights after that are the **holdout** and are never used here.
 5. **Read the verdict honestly** (see *Judging results*), then log it:
    re-run with `--log`, and add a line under **Notes** in
    `model/EXPERIMENTS.md` saying what was learned — including dead ends.
@@ -54,6 +56,51 @@ to stop that happening again.
 - The **live record outranks any backtest.** After promotion, wait 3–4
   cards before retiring the old model.
 
+## The holdout
+
+Fights on or after `evaluate.HOLDOUT_START` (2024-09-26, ~1,100 fights)
+are hidden from every search run. They're scored with `--final`, which
+trains fold by fold (year 1 on everything before 2024-09-26, year 2 on
+everything before 2025-09-26) and **always** appends to
+`model/HOLDOUT_LOG.md`.
+
+- Run `--final` **once per search**, on the single model the search
+  settled on. Never iterate against it ("tweak, re-check holdout") —
+  that turns the holdout into a second search window and the number
+  stops meaning anything.
+- If a search needs a second final look, say so in the log and in the
+  write-up, and treat the result with less confidence.
+- Don't move `HOLDOUT_START` to "reset" it. A new holdout is only
+  honest once enough *new* fights have happened after the last look.
+
+## Search mode (autonomous loop)
+
+For a multi-experiment search ("find the best model this data allows"):
+
+1. **Write the decision criteria first** in `model/EXPERIMENTS.md` under
+   a dated `## Search:` heading — the base model, the budget, and what
+   counts as "something there" (e.g. beats the base on the holdout with
+   the Δlogloss CI entirely below 0).
+2. **Budget:** ~25–30 experiments. **Stop early** after 5 consecutive
+   experiments with no *better* verdict.
+3. **Order:** work down the ideas backlog by expected value. One idea
+   per experiment file; several candidates inside it are fine.
+4. **Stricter bar than a one-off experiment.** Many attempts means some
+   will look good by chance. During a search, keep an idea only if its
+   verdict is *better* **and** it still holds when combined with the
+   other kept ideas (re-run the combination as its own experiment).
+   Two small gains often overlap.
+5. **Tune last.** Hyperparameters only after features stop improving,
+   with a small grid (depth 2–5, learning rate, trees, min_child_weight),
+   judged the same way.
+6. **Log everything** with `--log`, including dead ends, and a one-line
+   note per experiment.
+7. **Finish with one `--final` run** of the combined model vs the base,
+   then write up the answer — yes or no — with the numbers, the number
+   of experiments tried, and what data would move it further.
+8. If the answer is yes, promote it through *Promoting a model*. The
+   live side-by-side still has the final say.
+
 ## Hard rules
 
 - **Pre-fight only.** Every feature for fight F uses data strictly before
@@ -77,7 +124,7 @@ to stop that happening again.
 | `fighters.date_of_birth` | ~96% | Yes, masked |
 | `fighters.reach_cm`, `height_cm` | ~51–57%, biased to active fighters | Leaks raw; no gain masked (001) |
 | `fighters.stance` | ~97% | Untested |
-| `fighter_stats` (strikes, takedowns, control...) | Only fighters on recent cards (~91% of 2026-active, ~0–5% of pre-2021-retired) | **Leaks** — unusable until backfilled for all fighters |
+| `fighter_stats` (strikes, takedowns, control...) | Backfilled 2026-09-25 for **every fighter with a fight since 2018-01-01**; the weekly grade run adds everyone on each new card | **Only use stats from fights dated 2018-01-01 or later**, for every fighter. Pre-2018 rows exist only for fighters whose careers reached 2018, so they leak survivorship. Still run the leak check |
 | `elo_ratings` | Derived from `fights` | Yes (legacy K=32 Elo; v3 recomputes its own) |
 | `fights.weight_class` | Mostly populated | Untested |
 
@@ -116,9 +163,10 @@ to stop that happening again.
 
 Roughly by expected value. Move items to `model/EXPERIMENTS.md` when tried.
 
-- **Backfill `fighter_stats` for every fighter** (~2,900 profiles, ~85 min
-  scrape). Removes the survivorship bias; then re-test striking /
-  grappling features properly — per minute, not per fight.
+- **Striking / grappling from `fighter_stats` (2018+ only)** — now that
+  every 2018+ fighter is scraped. Per minute of cage time (fight length =
+  `(round - 1) * 300 + time`), not per fight; landed *and* absorbed;
+  knockdowns; control. Fights before 2018 get NaN (masked).
 - **Betting odds** as a feature or benchmark. Biggest known signal, but
   needs a new data source; decide with the user first.
 - **Corner / billing order.** Fighter A wins 57%. Only usable if ESPN's
