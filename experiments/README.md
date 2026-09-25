@@ -11,6 +11,11 @@ python -m pipeline.experiment experiments/002_my_idea.py --log    # run + append
 
 Nothing is written to the database or `model/artifacts/`.
 
+Runs only see fights before `evaluate.HOLDOUT_START` (2024-09-26). The
+fights after that are the holdout: `--final` scores on them and always
+logs to `model/HOLDOUT_LOG.md`. Once per search, on the finished model;
+see the model-lab skill.
+
 ## Template
 
 ```python

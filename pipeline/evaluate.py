@@ -14,6 +14,7 @@ fights, because stats only exist for fighters still active today.
 from __future__ import annotations
 
 import logging
+from datetime import date
 from typing import Callable
 
 import numpy as np
@@ -23,6 +24,11 @@ from sklearn.metrics import accuracy_score, brier_score_loss, log_loss
 log = logging.getLogger(__name__)
 
 FIRST_TEST_YEAR = 2021
+
+# Model search (pipeline.experiment) never sees fights on or after this
+# date. They're scored once, at the end of a search, via --final. The
+# production backtest in train.py is unaffected and still runs to today.
+HOLDOUT_START = date(2024, 9, 26)
 LEAK_MIN_ROWS = 100
 LEAK_MAX_EDGE = 0.10   # flag if present-side win rate is outside 0.5 ± this
 
@@ -71,6 +77,7 @@ def walk_forward(
     mirror: Callable[[pd.DataFrame], pd.DataFrame],
     clean_mask: pd.Series | None = None,
     return_preds: bool = False,
+    end: date | None = None,
 ) -> dict:
     """df: one row per decided fight with `fight_date`, `label`, features.
 
@@ -79,7 +86,11 @@ def walk_forward(
     on fights where the leak can't help them).
     return_preds: include `preds` — a Series of test-set P(A wins) indexed
     like df — for paired comparisons between models.
+    end: drop every fight on or after this date first (the search window
+    stops at HOLDOUT_START). The last fold is then a partial year.
     """
+    if end is not None:
+        df = df[pd.to_datetime(df.fight_date) < pd.Timestamp(end)]
     years = pd.to_datetime(df.fight_date).dt.year
     last_year = int(years.max())
     P, Y, C, I = [], [], [], []
@@ -113,3 +124,35 @@ def walk_forward(
     if return_preds:
         out["preds"] = pd.Series(P, index=I)
     return out
+
+
+def holdout(
+    df: pd.DataFrame,
+    features: list[str],
+    make_model: Callable[[], object],
+    mirror: Callable[[pd.DataFrame], pd.DataFrame],
+    start: date = HOLDOUT_START,
+) -> dict:
+    """Score on the held-out period in one-year folds from `start`: fold k
+    trains on every fight before its own start date, like live use."""
+    dates = pd.to_datetime(df.fight_date)
+    start_ts = pd.Timestamp(start)
+    P, Y, I, folds = [], [], [], {}
+    k = 0
+    while True:
+        lo = start_ts + pd.DateOffset(years=k)
+        hi = start_ts + pd.DateOffset(years=k + 1)
+        test = df[(dates >= lo) & (dates < hi)]
+        if test.empty:
+            break
+        tr = mirror(df[dates < lo])
+        m = make_model()
+        m.fit(tr[features], tr["label"])
+        p = m.predict_proba(test[features])[:, 1]
+        folds[f"{lo.date()}..{(hi - pd.Timedelta(days=1)).date()}"] = _scores(test["label"], p)
+        P.extend(p)
+        Y.extend(test["label"])
+        I.extend(test.index)
+        k += 1
+    return {"method": "holdout", "start": str(start), **_scores(Y, P),
+            "per_fold": folds, "preds": pd.Series(P, index=I)}
