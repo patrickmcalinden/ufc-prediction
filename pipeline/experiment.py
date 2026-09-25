@@ -8,7 +8,9 @@ An experiment is a small Python file (see experiments/README.md):
 
     NAME = "reach_height"
     HYPOTHESIS = "Reach/height advantage adds signal on top of v3."
-    BASE = "v3"                          # registered v3-family model to beat
+    BASE = "v3"                          # registered v3-family model to beat, or
+                                         # {"name", "features", "params"} for an
+                                         # unregistered one (e.g. a search leader)
 
     def add_features(df, engine):        # optional; df = build_v3_frame()
         ...                              # use history.add_pair() for A/B stats
@@ -36,6 +38,7 @@ import dataclasses
 import importlib.util
 import logging
 import math
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -58,6 +61,9 @@ BOOTSTRAP_ROWS = 2000
 
 
 def _load(path: Path):
+    # Let experiment files import shared helpers (experiments/_lab.py).
+    if str(path.resolve().parent) not in sys.path:
+        sys.path.insert(0, str(path.resolve().parent))
     spec = importlib.util.spec_from_file_location(path.stem, path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -94,7 +100,14 @@ def _verdict(leak_ok: bool, ci: tuple[float, float], years_won: int, n_years: in
 
 def run(path: Path, final: bool = False) -> dict:
     mod = _load(path)
-    base_cfg = get_model(getattr(mod, "BASE", "v3"))
+    base = getattr(mod, "BASE", "v3")
+    if isinstance(base, dict):
+        # An unregistered base (e.g. the current leader in a search):
+        # {"name": ..., "features": [...], "params": {...}} on top of v3.
+        base_cfg = dataclasses.replace(get_model(base.get("from", "v3")), name=base["name"],
+                                       features=list(base["features"]), **base.get("params", {}))
+    else:
+        base_cfg = get_model(base)
     if base_cfg.feature_set != "v3":
         raise ValueError("BASE must be a v3-family model (feature_set='v3')")
 
