@@ -113,35 +113,58 @@ def _derive_rates(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def build_training_matrix() -> pd.DataFrame:
-    """Returns the symmetric (mirrored) feature matrix for training."""
+_LEGACY_SWAP_PAIRS = [
+    ("fighter_a_id", "fighter_b_id"),
+    ("elo_std_pre_a", "elo_std_pre_b"),
+    ("elo_mod_pre_a", "elo_mod_pre_b"),
+    ("a_str_acc", "b_str_acc"),
+    ("a_str_vol", "b_str_vol"),
+    ("a_td_acc", "b_td_acc"),
+    ("a_grap_agg", "b_grap_agg"),
+    ("a_str_def", "b_str_def"),
+]
+_LEGACY_DIFFS = ("elo_diff_std", "elo_diff_mod",
+                 "diff_str_acc", "diff_str_vol", "diff_td_acc",
+                 "diff_grap_agg", "diff_str_def")
+_LEGACY_STAT_SIDES = ("str_acc", "str_vol", "td_acc", "grap_agg", "str_def")
+
+
+def build_legacy_frame() -> pd.DataFrame:
+    """One row per decided fight (not mirrored) with the v1/v2 features + label."""
     engine = create_engine(sqlalchemy_url())
     df = pd.read_sql_query(_HISTORICAL_SQL, engine)
     df = _derive_rates(df)
     df = df[df["winner_id"].notnull() & (df["winner_id"] != 0)].copy()
     df["label"] = (df["winner_id"] == df["fighter_a_id"]).astype(int)
+    return df.sort_values("fight_date").reset_index(drop=True)
 
+
+def legacy_mirror(df: pd.DataFrame) -> pd.DataFrame:
+    """Append the A/B-swapped copy of a legacy frame."""
     mirror = df.copy()
-    swap_pairs = [
-        ("fighter_a_id", "fighter_b_id"),
-        ("elo_std_pre_a", "elo_std_pre_b"),
-        ("elo_mod_pre_a", "elo_mod_pre_b"),
-        ("a_str_acc", "b_str_acc"),
-        ("a_str_vol", "b_str_vol"),
-        ("a_td_acc", "b_td_acc"),
-        ("a_grap_agg", "b_grap_agg"),
-        ("a_str_def", "b_str_def"),
-    ]
-    for a, b in swap_pairs:
+    for a, b in _LEGACY_SWAP_PAIRS:
         mirror[a], mirror[b] = df[b], df[a]
-    for col in ("elo_diff_std", "elo_diff_mod",
-                "diff_str_acc", "diff_str_vol", "diff_td_acc",
-                "diff_grap_agg", "diff_str_def"):
+    for col in _LEGACY_DIFFS:
         mirror[col] = -mirror[col]
     mirror["label"] = (mirror["winner_id"] == mirror["fighter_a_id"]).astype(int)
+    return pd.concat([df, mirror], ignore_index=True)
 
-    out = pd.concat([df, mirror], ignore_index=True).sort_values("fight_date").reset_index(drop=True)
+
+def legacy_presence_view(df: pd.DataFrame) -> pd.DataFrame:
+    """Legacy frames encode "no stats history" as 0. For the leak check,
+    turn those back into NaN so coverage is visible."""
+    out = df.copy()
+    for side in ("a", "b"):
+        no_hist = out[f"{side}_hist_fights"] == 0
+        for s in _LEGACY_STAT_SIDES:
+            out.loc[no_hist, f"{side}_{s}"] = np.nan
     return out
+
+
+def build_training_matrix() -> pd.DataFrame:
+    """Returns the symmetric (mirrored) feature matrix for training."""
+    out = legacy_mirror(build_legacy_frame())
+    return out.sort_values("fight_date").reset_index(drop=True)
 
 
 # ─── Prediction-time feature lookup (single fight) ──────────────────────

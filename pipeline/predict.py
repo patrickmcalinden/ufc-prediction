@@ -12,12 +12,14 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 
 import pandas as pd
 
 from pipeline.db import connect
 from pipeline.features import features_for_existing_fight, features_for_fight
-from pipeline.models import MODELS, get as get_model
+from pipeline.history import build_v3_frame
+from pipeline.models import all_names, get as get_model
 from pipeline.train import _artifact_path, load as load_model
 
 log = logging.getLogger(__name__)
@@ -49,6 +51,25 @@ def _resolve_event(cur, event_id: int | None) -> dict | None:
         """
     )
     return cur.fetchone()
+
+
+def _snapshot(row: dict, features: list[str]) -> str:
+    # jsonb rejects NaN; v3 features use NaN for "unknown".
+    return json.dumps({
+        k: (None if isinstance(row[k], float) and math.isnan(row[k]) else row[k])
+        for k in features
+    })
+
+
+def _v3_rows(fight_ids: list[int]) -> dict[int, dict]:
+    """v3 features for the given fights, keyed by fight_id.
+
+    Recomputed from the whole fights table each call (a second or two) —
+    the same code path training uses, so predictions see exactly the
+    features the model was trained on.
+    """
+    frame = build_v3_frame().set_index("fight_id")
+    return {fid: frame.loc[fid].to_dict() for fid in fight_ids if fid in frame.index}
 
 
 def _predict_for_model(cur, event: dict, fights: list[dict], feature_rows: list[dict],
@@ -90,7 +111,7 @@ def _predict_for_model(cur, event: dict, fights: list[dict], feature_rows: list[
                 conf,
                 model_name,
                 _artifact_path(model_name).name,
-                json.dumps({k: row[k] for k in cfg.features}),
+                _snapshot(row, cfg.features),
             ),
         )
         inserted += cur.rowcount
@@ -113,7 +134,7 @@ def predict_event(
 
     Returns summary dict.
     """
-    model_names = models or list(MODELS)
+    model_names = models or all_names()
 
     with connect() as conn, conn.cursor() as cur:
         event = _resolve_event(cur, event_id)
@@ -142,14 +163,21 @@ def predict_event(
 
         # Build the full feature row once per fight — every model takes a
         # subset of the same dict, so there's no point repeating the DB work.
-        feature_rows = [
-            features_for_fight(cur, f["fighter_a_id"], f["fighter_b_id"], f["is_title_fight"])
-            for f in fights
-        ]
+        rows_by_set: dict[str, list[dict]] = {}
+        sets = {get_model(n).feature_set for n in model_names}
+        if "legacy" in sets:
+            rows_by_set["legacy"] = [
+                features_for_fight(cur, f["fighter_a_id"], f["fighter_b_id"], f["is_title_fight"])
+                for f in fights
+            ]
+        if "v3" in sets:
+            v3 = _v3_rows([f["fight_id"] for f in fights])
+            rows_by_set["v3"] = [v3[f["fight_id"]] for f in fights]
 
         results: dict[str, int] = {}
         for name in model_names:
             try:
+                feature_rows = rows_by_set[get_model(name).feature_set]
                 results[name] = _predict_for_model(cur, event, fights, feature_rows, name, force)
                 log.info("[%s] Inserted %d locked prediction(s)", name, results[name])
             except FileNotFoundError as e:
@@ -185,7 +213,7 @@ def predict_missing(models: list[str] | None = None) -> dict:
     record is honest about the information available before the bell, so
     backfilled picks don't poison accuracy stats.
     """
-    model_names = models or list(MODELS)
+    model_names = models or all_names()
     summary: dict[str, int] = {}
 
     with connect() as conn, conn.cursor() as cur:
@@ -207,6 +235,15 @@ def predict_missing(models: list[str] | None = None) -> dict:
                    AND f.is_cancelled = FALSE
                    AND f.fighter_a_id IS NOT NULL
                    AND f.fighter_b_id IS NOT NULL
+                   -- Only events this model actually covered at lock time.
+                   -- A new model must not back-predict history it was
+                   -- trained on; that would flatter its record.
+                   AND EXISTS (
+                         SELECT 1 FROM predictions p2
+                          WHERE p2.event_id = f.event_id
+                            AND p2.model_version = %s
+                            AND p2.is_locked = TRUE
+                       )
                    AND NOT EXISTS (
                          SELECT 1 FROM predictions p
                           WHERE p.fight_id = f.fight_id
@@ -214,7 +251,7 @@ def predict_missing(models: list[str] | None = None) -> dict:
                             AND p.is_locked = TRUE
                        )
                 """,
-                (name,),
+                (name, name),
             )
             missing = cur.fetchall()
             if not missing:
@@ -223,11 +260,16 @@ def predict_missing(models: list[str] | None = None) -> dict:
 
             log.info("[%s] backfilling %d missing locked prediction(s)", name, len(missing))
 
+            v3 = _v3_rows([r["fight_id"] for r in missing]) if cfg.feature_set == "v3" else {}
+
             count = 0
             for row in missing:
                 fight_id = row["fight_id"]
                 event_id = row["event_id"]
-                features = features_for_existing_fight(cur, fight_id)
+                if cfg.feature_set == "v3":
+                    features = v3[fight_id]
+                else:
+                    features = features_for_existing_fight(cur, fight_id)
                 X = pd.DataFrame([features])[cfg.features]
                 p_a = float(model.predict_proba(X)[:, 1][0])
 
@@ -254,7 +296,7 @@ def predict_missing(models: list[str] | None = None) -> dict:
                     (
                         fight_id, event_id, winner_id, conf, name,
                         _artifact_path(name).name,
-                        json.dumps({k: features[k] for k in cfg.features}),
+                        _snapshot(features, cfg.features),
                     ),
                 )
                 count += cur.rowcount

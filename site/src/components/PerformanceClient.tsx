@@ -5,7 +5,7 @@ import { useState } from "react";
 import AccuracyChart from "./AccuracyChart";
 import CalibrationChart from "./CalibrationChart";
 import ModelTabs from "./ModelTabs";
-import type { PerformancePayload } from "@/lib/types";
+import type { ModelMeta, PerformancePayload } from "@/lib/types";
 
 export default function PerformanceClient({ payload }: { payload: PerformancePayload }) {
   const [active, setActive] = useState<string>(payload.default_model ?? payload.models[0] ?? "");
@@ -21,18 +21,21 @@ export default function PerformanceClient({ payload }: { payload: PerformancePay
 
   return (
     <>
-      <ModelTabs models={payload.models} active={active} onChange={setActive} />
+      <ModelTabs
+        models={payload.models}
+        active={active}
+        onChange={setActive}
+        retired={payload.models.filter((m) => payload.by_model[m]?.retired)}
+      />
 
-      {data.meta && (
-        <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
-          <span className="font-medium">{data.meta.model_version}</span> ·{" "}
-          {data.meta.description}{" "}
-          <span className="text-neutral-500">
-            (CV acc {(data.meta.cv_accuracy * 100).toFixed(1)}% · log-loss {data.meta.cv_logloss.toFixed(3)} ·{" "}
-            {data.meta.n_samples.toLocaleString()} samples · {data.meta.features.length} features)
-          </span>
+      {data.retired && (
+        <p className="mb-4 rounded-lg border border-neutral-200 px-3 py-2 text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-400">
+          <span className="font-medium">Retired.</span> This model no longer makes picks. Its locked
+          record below is kept as-is.
         </p>
       )}
+
+      {data.meta && <ModelMetaLine meta={data.meta} />}
 
       <section className="mt-2 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <Stat label="Graded picks" value={t.graded.toString()} />
@@ -90,6 +93,41 @@ export default function PerformanceClient({ payload }: { payload: PerformancePay
           </tbody>
         </table>
       </div>
+    </>
+  );
+}
+
+function pct(x: number) {
+  return `${(x * 100).toFixed(1)}%`;
+}
+
+function ModelMetaLine({ meta }: { meta: ModelMeta }) {
+  const ev = meta.evaluation;
+  const leaky = meta.leak_check && !meta.leak_check.passed;
+  return (
+    <>
+      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+        <span className="font-medium">{meta.model_version}</span> · {meta.description}{" "}
+        {ev && (
+          <span className="text-neutral-500">
+            (backtest {ev.test_years[0]}–{ev.test_years[1]}:{" "}
+            {leaky && ev.clean_subset ? (
+              <>acc {pct(ev.clean_subset.accuracy)} · log-loss {ev.clean_subset.logloss.toFixed(3)} on leak-free fights</>
+            ) : (
+              <>acc {pct(ev.accuracy)} · log-loss {ev.logloss.toFixed(3)}</>
+            )}{" "}
+            · {meta.features.length} features)
+          </span>
+        )}
+      </p>
+      {leaky && ev && (
+        <p className="mb-4 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
+          <span className="font-medium">Data leak.</span> This model&apos;s striking and grappling stats
+          only exist for fighters who are still active today, so in training, &ldquo;has stats&rdquo;
+          quietly meant &ldquo;kept winning&rdquo;. That inflates its backtest to {pct(ev.accuracy)}.
+          {ev.clean_subset && <> On fights where the leak can&apos;t help, it scores {pct(ev.clean_subset.accuracy)}.</>}
+        </p>
+      )}
     </>
   );
 }

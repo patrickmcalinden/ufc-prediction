@@ -295,9 +295,61 @@
         "model_version": "v1",
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
-        "trained_at": "2026-09-25T16:14:29.466202",
-        "cv_accuracy": 0.5503759398496241,
-        "cv_logloss": 0.6918103870832877,
+        "feature_set": "legacy",
+        "trained_at": "2026-09-25T16:49:36.778630",
+        "evaluation": {
+          "method": "walk_forward",
+          "test_years": [
+            2021,
+            2026
+          ],
+          "accuracy": 0.5641105246817758,
+          "logloss": 0.6795754090609806,
+          "brier": 0.24319396913051605,
+          "n": 3221,
+          "per_year": {
+            "2021": {
+              "accuracy": 0.5409836065573771,
+              "logloss": 0.6950802532297871,
+              "brier": 0.25019803643226624,
+              "n": 549
+            },
+            "2022": {
+              "accuracy": 0.546594982078853,
+              "logloss": 0.6754877741229184,
+              "brier": 0.2410702407360077,
+              "n": 558
+            },
+            "2023": {
+              "accuracy": 0.5575539568345323,
+              "logloss": 0.6852859385667381,
+              "brier": 0.24582472443580627,
+              "n": 556
+            },
+            "2024": {
+              "accuracy": 0.5676156583629893,
+              "logloss": 0.6711115494879624,
+              "brier": 0.239312544465065,
+              "n": 562
+            },
+            "2025": {
+              "accuracy": 0.5985790408525755,
+              "logloss": 0.6733406044397299,
+              "brier": 0.240511953830719,
+              "n": 563
+            },
+            "2026": {
+              "accuracy": 0.5750577367205543,
+              "logloss": 0.6769439322096247,
+              "brier": 0.24219723045825958,
+              "n": 433
+            }
+          }
+        },
+        "leak_check": {
+          "passed": true,
+          "flagged": []
+        },
         "n_samples": 17560,
         "features": [
           "elo_std_pre_a",
@@ -308,7 +360,8 @@
           "elo_diff_mod",
           "is_title_fight"
         ]
-      }
+      },
+      "retired": false
     },
     "v2": {
       "totals": {
@@ -612,9 +665,93 @@
         "model_version": "v2",
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
-        "trained_at": "2026-09-25T16:14:38.432706",
-        "cv_accuracy": 0.6088174982911825,
-        "cv_logloss": 0.6506790351292181,
+        "feature_set": "legacy",
+        "trained_at": "2026-09-25T16:49:39.059017",
+        "evaluation": {
+          "method": "walk_forward",
+          "test_years": [
+            2021,
+            2026
+          ],
+          "accuracy": 0.6321018317292766,
+          "logloss": 0.628465265363779,
+          "brier": 0.21939580142498016,
+          "n": 3221,
+          "per_year": {
+            "2021": {
+              "accuracy": 0.6320582877959927,
+              "logloss": 0.6323363409006008,
+              "brier": 0.2215937227010727,
+              "n": 549
+            },
+            "2022": {
+              "accuracy": 0.6505376344086021,
+              "logloss": 0.5990388700613857,
+              "brier": 0.20666851103305817,
+              "n": 558
+            },
+            "2023": {
+              "accuracy": 0.5935251798561151,
+              "logloss": 0.6578977690640243,
+              "brier": 0.23113365471363068,
+              "n": 556
+            },
+            "2024": {
+              "accuracy": 0.6725978647686833,
+              "logloss": 0.601235138337343,
+              "brier": 0.2071567177772522,
+              "n": 562
+            },
+            "2025": {
+              "accuracy": 0.6536412078152753,
+              "logloss": 0.6044457785404657,
+              "brier": 0.20976664125919342,
+              "n": 563
+            },
+            "2026": {
+              "accuracy": 0.5773672055427251,
+              "logloss": 0.6902586568697064,
+              "brier": 0.24634388089179993,
+              "n": 433
+            }
+          },
+          "clean_subset": {
+            "accuracy": 0.5529640427599611,
+            "logloss": 0.6863850633757405,
+            "brier": 0.24618396162986755,
+            "n": 2058
+          }
+        },
+        "leak_check": {
+          "passed": false,
+          "flagged": [
+            {
+              "feature": "str_acc",
+              "n": 2400,
+              "present_side_win_rate": 0.756
+            },
+            {
+              "feature": "str_vol",
+              "n": 2400,
+              "present_side_win_rate": 0.756
+            },
+            {
+              "feature": "td_acc",
+              "n": 2400,
+              "present_side_win_rate": 0.756
+            },
+            {
+              "feature": "grap_agg",
+              "n": 2400,
+              "present_side_win_rate": 0.756
+            },
+            {
+              "feature": "str_def",
+              "n": 2400,
+              "present_side_win_rate": 0.756
+            }
+          ]
+        },
         "n_samples": 17560,
         "features": [
           "elo_std_pre_a",
@@ -640,7 +777,8 @@
           "diff_grap_agg",
           "diff_str_def"
         ]
-      }
+      },
+      "retired": false
     }
   }
 }

@@ -100,10 +100,30 @@ export interface ModelMeta {
   model_artifact: string;
   description: string;
   trained_at: string;
-  cv_accuracy: number;
-  cv_logloss: number;
+  evaluation?: ModelEvaluation;
+  leak_check?: LeakCheck;
   n_samples: number;
   features: string[];
+}
+
+export interface EvalScores {
+  accuracy: number;
+  logloss: number;
+  brier: number;
+  n: number;
+}
+
+/** Walk-forward backtest: train on all prior years, test on each year. */
+export interface ModelEvaluation extends EvalScores {
+  method: string;
+  test_years: [number, number];
+  /** Leak-flagged models only: scores on fights the leak can't help with. */
+  clean_subset?: EvalScores;
+}
+
+export interface LeakCheck {
+  passed: boolean;
+  flagged: { feature: string; n: number; present_side_win_rate: number }[];
 }
 
 export interface ModelPerformance {
@@ -112,6 +132,7 @@ export interface ModelPerformance {
   calibration: CalibrationBin[];
   timeseries: AccuracyPoint[];
   meta: ModelMeta | null;
+  retired: boolean;
 }
 
 export interface PerformancePayload {
