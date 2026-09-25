@@ -164,15 +164,28 @@ def build_v3_frame(engine=None) -> pd.DataFrame:
         out = out.drop(columns="fid")
 
     for s in HISTORY_STATS:
-        a, b = out[f"a_{s}"], out[f"b_{s}"]
-        either_missing = a.isna() | b.isna()
-        out.loc[either_missing, [f"a_{s}", f"b_{s}"]] = np.nan
-        out[f"d_{s}"] = out[f"a_{s}"] - out[f"b_{s}"]
+        add_pair(out, s, out[f"a_{s}"], out[f"b_{s}"])
 
     out["elo3_diff"] = out.fight_id.map(_elo3(F))
     decided = out.winner_id.notna() & out.winner_id.isin(pd.concat([out.fighter_a_id, out.fighter_b_id]))
     out["label"] = np.where(decided, (out.winner_id == out.fighter_a_id).astype(float), np.nan)
     return out
+
+
+def add_pair(df: pd.DataFrame, stat: str, a, b, symmetric: bool = True) -> pd.DataFrame:
+    """Set a_<stat>, b_<stat>, d_<stat> on df (in place; also returned).
+
+    symmetric=True blanks both sides when either is missing, so coverage
+    can't become a signal. Only turn it off to demonstrate a leak.
+    """
+    a = pd.Series(a, index=df.index, dtype=float)
+    b = pd.Series(b, index=df.index, dtype=float)
+    if symmetric:
+        either = a.isna() | b.isna()
+        a, b = a.mask(either), b.mask(either)
+    df[f"a_{stat}"], df[f"b_{stat}"] = a, b
+    df[f"d_{stat}"] = a - b
+    return df
 
 
 def mirror(df: pd.DataFrame) -> pd.DataFrame:

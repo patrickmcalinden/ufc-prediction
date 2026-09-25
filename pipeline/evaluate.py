@@ -70,16 +70,19 @@ def walk_forward(
     make_model: Callable[[], object],
     mirror: Callable[[pd.DataFrame], pd.DataFrame],
     clean_mask: pd.Series | None = None,
+    return_preds: bool = False,
 ) -> dict:
     """df: one row per decided fight with `fight_date`, `label`, features.
 
     clean_mask: optional per-row bool; if given, also report scores on just
     those test rows (used for leak-flagged models, to estimate how they do
     on fights where the leak can't help them).
+    return_preds: include `preds` — a Series of test-set P(A wins) indexed
+    like df — for paired comparisons between models.
     """
     years = pd.to_datetime(df.fight_date).dt.year
     last_year = int(years.max())
-    P, Y, C = [], [], []
+    P, Y, C, I = [], [], [], []
     per_year = {}
     for yr in range(FIRST_TEST_YEAR, last_year + 1):
         train, test = df[years < yr], df[years == yr]
@@ -92,6 +95,7 @@ def walk_forward(
         per_year[yr] = _scores(test["label"], p)
         P.extend(p)
         Y.extend(test["label"])
+        I.extend(test.index)
         if clean_mask is not None:
             C.extend(clean_mask[test.index])
         log.info("  %d: acc=%.3f logloss=%.3f n=%d", yr, per_year[yr]["accuracy"],
@@ -106,4 +110,6 @@ def walk_forward(
     if clean_mask is not None:
         C = np.asarray(C, dtype=bool)
         out["clean_subset"] = _scores(np.asarray(Y)[C], np.asarray(P)[C])
+    if return_preds:
+        out["preds"] = pd.Series(P, index=I)
     return out
