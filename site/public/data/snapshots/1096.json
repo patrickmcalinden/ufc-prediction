@@ -58,6 +58,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2933,
+          "model_version": "v3",
+          "predicted_winner_id": 13206,
+          "win_probability": 0.7363,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -118,6 +128,16 @@
           "predicted_winner_id": 3,
           "win_probability": 0.5069,
           "snapshot_at": "2026-09-25T20:14:38.448836+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2934,
+          "model_version": "v3",
+          "predicted_winner_id": 13525,
+          "win_probability": 0.6128,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
@@ -184,6 +204,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2935,
+          "model_version": "v3",
+          "predicted_winner_id": 22724,
+          "win_probability": 0.6877,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -244,6 +274,16 @@
           "predicted_winner_id": 22779,
           "win_probability": 0.5013,
           "snapshot_at": "2026-09-25T20:14:38.448836+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2936,
+          "model_version": "v3",
+          "predicted_winner_id": 22778,
+          "win_probability": 0.5139,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
@@ -310,6 +350,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2937,
+          "model_version": "v3",
+          "predicted_winner_id": 12277,
+          "win_probability": 0.5691,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -370,6 +420,16 @@
           "predicted_winner_id": 14674,
           "win_probability": 0.7331,
           "snapshot_at": "2026-09-25T20:14:38.448836+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2938,
+          "model_version": "v3",
+          "predicted_winner_id": 12491,
+          "win_probability": 0.5361,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
@@ -436,6 +496,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2939,
+          "model_version": "v3",
+          "predicted_winner_id": 13,
+          "win_probability": 0.5476,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -496,6 +566,16 @@
           "predicted_winner_id": 94,
           "win_probability": 0.9195,
           "snapshot_at": "2026-09-25T20:14:38.448836+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2940,
+          "model_version": "v3",
+          "predicted_winner_id": 94,
+          "win_probability": 0.5469,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
@@ -562,6 +642,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2941,
+          "model_version": "v3",
+          "predicted_winner_id": 14428,
+          "win_probability": 0.5811,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -622,6 +712,16 @@
           "predicted_winner_id": 9,
           "win_probability": 0.6418,
           "snapshot_at": "2026-09-25T20:14:38.448836+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2942,
+          "model_version": "v3",
+          "predicted_winner_id": 9,
+          "win_probability": 0.5839,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
@@ -688,6 +788,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2943,
+          "model_version": "v3",
+          "predicted_winner_id": 8294,
+          "win_probability": 0.5475,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -751,6 +861,16 @@
           "was_correct": null,
           "actual_winner_id": null,
           "graded_at": null
+        },
+        {
+          "prediction_id": 2944,
+          "model_version": "v3",
+          "predicted_winner_id": 13246,
+          "win_probability": 0.6981,
+          "snapshot_at": "2026-09-26T08:16:18.780991+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
         }
       ],
       "prediction": {
@@ -767,7 +887,8 @@
   ],
   "models": [
     "v1",
-    "v2"
+    "v2",
+    "v3"
   ],
   "default_model": "v1"
 }
