@@ -218,11 +218,12 @@ def lock_next_event() -> dict | None:
 
     with connect() as conn, conn.cursor() as cur:
         cur.execute(
-            """
+            f"""
             SELECT event_id, name, event_date
               FROM events
              WHERE event_date >= CURRENT_DATE
                AND deployed_at IS NULL
+               AND {predict.SKIP_EVENT_SQL}
              ORDER BY event_date
              LIMIT 1
             """

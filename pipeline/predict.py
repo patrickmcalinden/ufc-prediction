@@ -24,6 +24,10 @@ from pipeline.train import _artifact_path, load as load_model
 
 log = logging.getLogger(__name__)
 
+# Dana White's Contender Series isn't predicted: never locked, never on the
+# site. Its results are still ingested so Elo sees those fighters' records.
+SKIP_EVENT_SQL = "name NOT ILIKE '%contender series%'"
+
 
 def _resolve_event(cur, event_id: int | None) -> dict | None:
     """If event_id is given, fetch it. Otherwise pick the next upcoming
@@ -36,10 +40,11 @@ def _resolve_event(cur, event_id: int | None) -> dict | None:
         return cur.fetchone()
 
     cur.execute(
-        """
+        f"""
         SELECT e.event_id, e.espn_event_id, e.name, e.event_date
           FROM events e
          WHERE e.event_date >= CURRENT_DATE
+           AND e.{SKIP_EVENT_SQL}
            AND EXISTS (
                  SELECT 1 FROM fights f
                   WHERE f.event_id = e.event_id
