@@ -7,22 +7,13 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 151,
-        "correct": 93,
-        "wrong": 58,
-        "accuracy": 0.6158940397350994,
-        "log_loss": 0.662974836314793
+        "graded": 146,
+        "correct": 90,
+        "wrong": 56,
+        "accuracy": 0.6164383561643836,
+        "log_loss": 0.6621704347723205
       },
       "per_event": [
-        {
-          "event_id": 1097,
-          "name": "Dana White's Contender Series: Season 10, Week 8",
-          "event_date": "2026-09-29",
-          "n_picks": 5,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 5
-        },
         {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
@@ -48,15 +39,6 @@
           "n_picks": 12,
           "n_correct": 5,
           "n_wrong": 7,
-          "n_pending": 0
-        },
-        {
-          "event_id": 1068,
-          "name": "Dana White's Contender Series: Season 10, Week 1",
-          "event_date": "2026-08-11",
-          "n_picks": 5,
-          "n_correct": 3,
-          "n_wrong": 2,
           "n_pending": 0
         },
         {
@@ -153,8 +135,8 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 65,
-          "actual_win_rate": 0.5692307692307692,
+          "n": 60,
+          "actual_win_rate": 0.5666666666666667,
           "bucket_center": 0.525
         },
         {
@@ -276,28 +258,20 @@
           "accuracy_so_far": 0.6528925619834711
         },
         {
-          "event_id": 1068,
-          "event_date": "2026-08-11",
-          "event_name": "Dana White's Contender Series: Season 10, Week 1",
-          "n_correct_so_far": 82,
-          "n_picks_so_far": 126,
-          "accuracy_so_far": 0.6507936507936508
-        },
-        {
           "event_id": 9,
           "event_date": "2026-08-15",
           "event_name": "UFC 330: Makhachev vs. Machado Garry",
-          "n_correct_so_far": 87,
-          "n_picks_so_far": 138,
-          "accuracy_so_far": 0.6304347826086957
+          "n_correct_so_far": 84,
+          "n_picks_so_far": 133,
+          "accuracy_so_far": 0.631578947368421
         },
         {
           "event_id": 1082,
           "event_date": "2026-08-22",
           "event_name": "UFC Fight Night: Hernandez vs. Rodrigues",
-          "n_correct_so_far": 93,
-          "n_picks_so_far": 151,
-          "accuracy_so_far": 0.6158940397350994
+          "n_correct_so_far": 90,
+          "n_picks_so_far": 146,
+          "accuracy_so_far": 0.6164383561643836
         }
       ],
       "meta": {
@@ -374,22 +348,13 @@
     },
     "v2": {
       "totals": {
-        "graded": 151,
-        "correct": 87,
-        "wrong": 64,
-        "accuracy": 0.5761589403973509,
-        "log_loss": 0.6842247290780956
+        "graded": 146,
+        "correct": 85,
+        "wrong": 61,
+        "accuracy": 0.5821917808219178,
+        "log_loss": 0.6839013254939876
       },
       "per_event": [
-        {
-          "event_id": 1097,
-          "name": "Dana White's Contender Series: Season 10, Week 8",
-          "event_date": "2026-09-29",
-          "n_picks": 5,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 5
-        },
         {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
@@ -415,15 +380,6 @@
           "n_picks": 12,
           "n_correct": 6,
           "n_wrong": 6,
-          "n_pending": 0
-        },
-        {
-          "event_id": 1068,
-          "name": "Dana White's Contender Series: Season 10, Week 1",
-          "event_date": "2026-08-11",
-          "n_picks": 5,
-          "n_correct": 2,
-          "n_wrong": 3,
           "n_pending": 0
         },
         {
@@ -520,8 +476,8 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 46,
-          "actual_win_rate": 0.45652173913043476,
+          "n": 41,
+          "actual_win_rate": 0.4634146341463415,
           "bucket_center": 0.525
         },
         {
@@ -655,28 +611,20 @@
           "accuracy_so_far": 0.6033057851239669
         },
         {
-          "event_id": 1068,
-          "event_date": "2026-08-11",
-          "event_name": "Dana White's Contender Series: Season 10, Week 1",
-          "n_correct_so_far": 75,
-          "n_picks_so_far": 126,
-          "accuracy_so_far": 0.5952380952380952
-        },
-        {
           "event_id": 9,
           "event_date": "2026-08-15",
           "event_name": "UFC 330: Makhachev vs. Machado Garry",
-          "n_correct_so_far": 81,
-          "n_picks_so_far": 138,
-          "accuracy_so_far": 0.5869565217391305
+          "n_correct_so_far": 79,
+          "n_picks_so_far": 133,
+          "accuracy_so_far": 0.5939849624060151
         },
         {
           "event_id": 1082,
           "event_date": "2026-08-22",
           "event_name": "UFC Fight Night: Hernandez vs. Rodrigues",
-          "n_correct_so_far": 87,
-          "n_picks_so_far": 151,
-          "accuracy_so_far": 0.5761589403973509
+          "n_correct_so_far": 85,
+          "n_picks_so_far": 146,
+          "accuracy_so_far": 0.5821917808219178
         }
       ],
       "meta": {
