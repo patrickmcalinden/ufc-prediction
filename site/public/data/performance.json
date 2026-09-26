@@ -15,6 +15,15 @@
       },
       "per_event": [
         {
+          "event_id": 1097,
+          "name": "Dana White's Contender Series: Season 10, Week 8",
+          "event_date": "2026-09-29",
+          "n_picks": 5,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 5
+        },
+        {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
           "event_date": "2026-09-26",
@@ -296,7 +305,7 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-09-25T16:49:36.778630",
+        "trained_at": "2026-09-25T21:01:31.621618",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
@@ -372,6 +381,15 @@
         "log_loss": 0.6842247290780956
       },
       "per_event": [
+        {
+          "event_id": 1097,
+          "name": "Dana White's Contender Series: Season 10, Week 8",
+          "event_date": "2026-09-29",
+          "n_picks": 5,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 5
+        },
         {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
@@ -666,60 +684,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-09-25T16:49:39.059017",
+        "trained_at": "2026-09-25T21:01:33.486730",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6321018317292766,
-          "logloss": 0.628465265363779,
-          "brier": 0.21939580142498016,
+          "accuracy": 0.5963986339646072,
+          "logloss": 0.662948609287148,
+          "brier": 0.23517537117004395,
           "n": 3221,
           "per_year": {
             "2021": {
-              "accuracy": 0.6320582877959927,
-              "logloss": 0.6323363409006008,
-              "brier": 0.2215937227010727,
+              "accuracy": 0.6229508196721312,
+              "logloss": 0.6533381408650529,
+              "brier": 0.23037783801555634,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6505376344086021,
-              "logloss": 0.5990388700613857,
-              "brier": 0.20666851103305817,
+              "accuracy": 0.6236559139784946,
+              "logloss": 0.6438758805502625,
+              "brier": 0.22647352516651154,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5935251798561151,
-              "logloss": 0.6578977690640243,
-              "brier": 0.23113365471363068,
+              "accuracy": 0.5737410071942446,
+              "logloss": 0.6833389666350287,
+              "brier": 0.24459362030029297,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6725978647686833,
-              "logloss": 0.601235138337343,
-              "brier": 0.2071567177772522,
+              "accuracy": 0.6138790035587188,
+              "logloss": 0.6529129891768986,
+              "brier": 0.23067520558834076,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6536412078152753,
-              "logloss": 0.6044457785404657,
-              "brier": 0.20976664125919342,
+              "accuracy": 0.5772646536412078,
+              "logloss": 0.6676204165849086,
+              "brier": 0.23709318041801453,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5773672055427251,
-              "logloss": 0.6902586568697064,
-              "brier": 0.24634388089179993,
+              "accuracy": 0.558891454965358,
+              "logloss": 0.6804809005268978,
+              "brier": 0.2437257468700409,
               "n": 433
             }
           },
           "clean_subset": {
-            "accuracy": 0.5529640427599611,
-            "logloss": 0.6863850633757405,
-            "brier": 0.24618396162986755,
-            "n": 2058
+            "accuracy": 0.5675253708040593,
+            "logloss": 0.6772478759099236,
+            "brier": 0.2420521080493927,
+            "n": 2562
           }
         },
         "leak_check": {
@@ -727,28 +745,28 @@
           "flagged": [
             {
               "feature": "str_acc",
-              "n": 2400,
-              "present_side_win_rate": 0.756
+              "n": 2841,
+              "present_side_win_rate": 0.693
             },
             {
               "feature": "str_vol",
-              "n": 2400,
-              "present_side_win_rate": 0.756
+              "n": 2841,
+              "present_side_win_rate": 0.693
             },
             {
               "feature": "td_acc",
-              "n": 2400,
-              "present_side_win_rate": 0.756
+              "n": 2841,
+              "present_side_win_rate": 0.693
             },
             {
               "feature": "grap_agg",
-              "n": 2400,
-              "present_side_win_rate": 0.756
+              "n": 2841,
+              "present_side_win_rate": 0.693
             },
             {
               "feature": "str_def",
-              "n": 2400,
-              "present_side_win_rate": 0.756
+              "n": 2841,
+              "present_side_win_rate": 0.693
             }
           ]
         },

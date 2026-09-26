@@ -1,0 +1,383 @@
+{
+  "event": {
+    "event_id": 1097,
+    "espn_event_id": "600060739",
+    "name": "Dana White's Contender Series: Season 10, Week 8",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-09-29",
+    "deployed_at": "2026-09-26T01:01:37.282690+00:00"
+  },
+  "fights": [
+    {
+      "fight_id": 11396,
+      "card_order": 0,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22796,
+        "name": "Loai Abushaar",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22797,
+        "name": "George Staines",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 0,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2918,
+          "model_version": "v1",
+          "predicted_winner_id": 22796,
+          "win_probability": 0.5022,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2923,
+          "model_version": "v2",
+          "predicted_winner_id": 22796,
+          "win_probability": 0.5009,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2928,
+          "model_version": "v3",
+          "predicted_winner_id": 22797,
+          "win_probability": 0.5567,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2918,
+        "model_version": "v1",
+        "predicted_winner_id": 22796,
+        "win_probability": 0.5022,
+        "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11397,
+      "card_order": 1,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22798,
+        "name": "Adama Diop",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 6,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22799,
+        "name": "Zaurbek Sabanov",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 4,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2919,
+          "model_version": "v1",
+          "predicted_winner_id": 22798,
+          "win_probability": 0.5022,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2924,
+          "model_version": "v2",
+          "predicted_winner_id": 22798,
+          "win_probability": 0.5009,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2929,
+          "model_version": "v3",
+          "predicted_winner_id": 22798,
+          "win_probability": 0.5019,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2919,
+        "model_version": "v1",
+        "predicted_winner_id": 22798,
+        "win_probability": 0.5022,
+        "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11398,
+      "card_order": 2,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22800,
+        "name": "Ian Escuza",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22801,
+        "name": "Luca Borando",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2920,
+          "model_version": "v1",
+          "predicted_winner_id": 22800,
+          "win_probability": 0.5022,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2925,
+          "model_version": "v2",
+          "predicted_winner_id": 22800,
+          "win_probability": 0.5009,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2930,
+          "model_version": "v3",
+          "predicted_winner_id": 22801,
+          "win_probability": 0.5567,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2920,
+        "model_version": "v1",
+        "predicted_winner_id": 22800,
+        "win_probability": 0.5022,
+        "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11399,
+      "card_order": 3,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22802,
+        "name": "Aieza Bertolso",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 7,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22803,
+        "name": "Camila Reynoso",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 1,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2921,
+          "model_version": "v1",
+          "predicted_winner_id": 22802,
+          "win_probability": 0.5022,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2926,
+          "model_version": "v2",
+          "predicted_winner_id": 22802,
+          "win_probability": 0.5009,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2931,
+          "model_version": "v3",
+          "predicted_winner_id": 22803,
+          "win_probability": 0.5194,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2921,
+        "model_version": "v1",
+        "predicted_winner_id": 22802,
+        "win_probability": 0.5022,
+        "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    },
+    {
+      "fight_id": 11400,
+      "card_order": 4,
+      "weight_class": null,
+      "is_title_fight": false,
+      "winner_id": null,
+      "method": null,
+      "round": null,
+      "fighter_a": {
+        "fighter_id": 22804,
+        "name": "Ilias Bulaid",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 9,
+        "record_losses": 0,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "fighter_b": {
+        "fighter_id": 22805,
+        "name": "Erick Visconde",
+        "nickname": null,
+        "weight_class": null,
+        "record_wins": 17,
+        "record_losses": 3,
+        "record_draws": 0,
+        "current_elo_standard": null,
+        "current_elo_modified": null
+      },
+      "predictions": [
+        {
+          "prediction_id": 2922,
+          "model_version": "v1",
+          "predicted_winner_id": 22804,
+          "win_probability": 0.5022,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2927,
+          "model_version": "v2",
+          "predicted_winner_id": 22804,
+          "win_probability": 0.5009,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        },
+        {
+          "prediction_id": 2932,
+          "model_version": "v3",
+          "predicted_winner_id": 22805,
+          "win_probability": 0.5182,
+          "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+          "was_correct": null,
+          "actual_winner_id": null,
+          "graded_at": null
+        }
+      ],
+      "prediction": {
+        "prediction_id": 2922,
+        "model_version": "v1",
+        "predicted_winner_id": 22804,
+        "win_probability": 0.5022,
+        "snapshot_at": "2026-09-26T01:01:37.282690+00:00",
+        "was_correct": null,
+        "actual_winner_id": null,
+        "graded_at": null
+      }
+    }
+  ],
+  "models": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "default_model": "v1"
+}
