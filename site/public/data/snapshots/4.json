@@ -221,11 +221,11 @@
         "name": "Christian Edwards",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 8,
+        "record_wins": 9,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1485.62,
-        "current_elo_modified": 1481.92
+        "current_elo_standard": 1503.14,
+        "current_elo_modified": 1503.2
       },
       "predictions": [
         {

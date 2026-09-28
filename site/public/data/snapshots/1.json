@@ -85,10 +85,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 13,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1593.14,
-        "current_elo_modified": 1617.26
+        "current_elo_standard": 1576.34,
+        "current_elo_modified": 1592.02
       },
       "fighter_b": {
         "fighter_id": 4,
@@ -273,11 +273,11 @@
         "name": "Montel Jackson",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 15,
+        "record_wins": 16,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1584.78,
-        "current_elo_modified": 1592.01
+        "current_elo_standard": 1600.0,
+        "current_elo_modified": 1612.81
       },
       "fighter_b": {
         "fighter_id": 10,
@@ -285,10 +285,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 22,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1601.77,
-        "current_elo_modified": 1626.98
+        "current_elo_standard": 1584.94,
+        "current_elo_modified": 1601.1
       },
       "predictions": [
         {
@@ -399,11 +399,11 @@
         "name": "Rodolfo Vieira",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1511.63,
-        "current_elo_modified": 1506.24
+        "current_elo_standard": 1526.56,
+        "current_elo_modified": 1522.97
       },
       "fighter_b": {
         "fighter_id": 14,
@@ -474,10 +474,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 10,
-        "record_losses": 5,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1475.43,
-        "current_elo_modified": 1469.55
+        "current_elo_standard": 1461.29,
+        "current_elo_modified": 1453.11
       },
       "predictions": [
         {
