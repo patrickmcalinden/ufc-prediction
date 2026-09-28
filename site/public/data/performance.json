@@ -1,17 +1,18 @@
 {
   "models": [
     "v1",
-    "v2"
+    "v2",
+    "v3"
   ],
   "default_model": "v1",
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 146,
-        "correct": 90,
-        "wrong": 56,
-        "accuracy": 0.6164383561643836,
-        "log_loss": 0.6621704347723205
+        "graded": 158,
+        "correct": 96,
+        "wrong": 62,
+        "accuracy": 0.6075949367088608,
+        "log_loss": 0.663542308494133
       },
       "per_event": [
         {
@@ -19,9 +20,9 @@
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
           "event_date": "2026-09-26",
           "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_correct": 6,
+          "n_wrong": 6,
+          "n_pending": 0
         },
         {
           "event_id": 1082,
@@ -135,20 +136,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 60,
-          "actual_win_rate": 0.5666666666666667,
+          "n": 69,
+          "actual_win_rate": 0.5507246376811594,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 40,
-          "actual_win_rate": 0.55,
+          "n": 41,
+          "actual_win_rate": 0.5609756097560976,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 19,
-          "actual_win_rate": 0.6842105263157895,
+          "n": 21,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.625
         },
         {
@@ -272,6 +273,14 @@
           "n_correct_so_far": 90,
           "n_picks_so_far": 146,
           "accuracy_so_far": 0.6164383561643836
+        },
+        {
+          "event_id": 1096,
+          "event_date": "2026-09-26",
+          "event_name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+          "n_correct_so_far": 96,
+          "n_picks_so_far": 158,
+          "accuracy_so_far": 0.6075949367088608
         }
       ],
       "meta": {
@@ -348,11 +357,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 146,
-        "correct": 85,
-        "wrong": 61,
-        "accuracy": 0.5821917808219178,
-        "log_loss": 0.6839013254939876
+        "graded": 158,
+        "correct": 91,
+        "wrong": 67,
+        "accuracy": 0.5759493670886076,
+        "log_loss": 0.7067517871113744
       },
       "per_event": [
         {
@@ -360,9 +369,9 @@
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
           "event_date": "2026-09-26",
           "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_correct": 6,
+          "n_wrong": 6,
+          "n_pending": 0
         },
         {
           "event_id": 1082,
@@ -476,32 +485,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 41,
-          "actual_win_rate": 0.4634146341463415,
+          "n": 45,
+          "actual_win_rate": 0.4666666666666667,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 29,
-          "actual_win_rate": 0.6206896551724138,
+          "n": 30,
+          "actual_win_rate": 0.6333333333333333,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 19,
-          "actual_win_rate": 0.5789473684210527,
+          "n": 21,
+          "actual_win_rate": 0.6190476190476191,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 13,
-          "actual_win_rate": 0.6153846153846154,
+          "n": 14,
+          "actual_win_rate": 0.6428571428571429,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 13,
-          "actual_win_rate": 0.6153846153846154,
+          "n": 15,
+          "actual_win_rate": 0.5333333333333333,
           "bucket_center": 0.725
         },
         {
@@ -518,14 +527,14 @@
         },
         {
           "bin": 7,
-          "n": 3,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 4,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.875
         },
         {
           "bin": 8,
-          "n": 1,
-          "actual_win_rate": 1.0,
+          "n": 2,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.925
         }
       ],
@@ -625,6 +634,14 @@
           "n_correct_so_far": 85,
           "n_picks_so_far": 146,
           "accuracy_so_far": 0.5821917808219178
+        },
+        {
+          "event_id": 1096,
+          "event_date": "2026-09-26",
+          "event_name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+          "n_correct_so_far": 91,
+          "n_picks_so_far": 158,
+          "accuracy_so_far": 0.5759493670886076
         }
       ],
       "meta": {
@@ -742,6 +759,157 @@
           "diff_td_acc",
           "diff_grap_agg",
           "diff_str_def"
+        ]
+      },
+      "retired": false
+    },
+    "v3": {
+      "totals": {
+        "graded": 12,
+        "correct": 9,
+        "wrong": 3,
+        "accuracy": 0.75,
+        "log_loss": 0.5588152072158789
+      },
+      "per_event": [
+        {
+          "event_id": 1096,
+          "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+          "event_date": "2026-09-26",
+          "n_picks": 12,
+          "n_correct": 9,
+          "n_wrong": 3,
+          "n_pending": 0
+        }
+      ],
+      "calibration": [
+        {
+          "bin": 0,
+          "n": 5,
+          "actual_win_rate": 0.4,
+          "bucket_center": 0.525
+        },
+        {
+          "bin": 1,
+          "n": 3,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.575
+        },
+        {
+          "bin": 2,
+          "n": 1,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.625
+        },
+        {
+          "bin": 3,
+          "n": 2,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.675
+        },
+        {
+          "bin": 4,
+          "n": 1,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.725
+        }
+      ],
+      "timeseries": [
+        {
+          "event_id": 1096,
+          "event_date": "2026-09-26",
+          "event_name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+          "n_correct_so_far": 9,
+          "n_picks_so_far": 12,
+          "accuracy_so_far": 0.75
+        }
+      ],
+      "meta": {
+        "model_version": "v3",
+        "model_artifact": "xgb_v3.json",
+        "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
+        "feature_set": "v3",
+        "trained_at": "2026-09-25T21:01:37.269377",
+        "evaluation": {
+          "method": "walk_forward",
+          "test_years": [
+            2021,
+            2026
+          ],
+          "accuracy": 0.6134740763737969,
+          "logloss": 0.6554118812447742,
+          "brier": 0.2317591905593872,
+          "n": 3221,
+          "per_year": {
+            "2021": {
+              "accuracy": 0.5573770491803278,
+              "logloss": 0.6838119320770369,
+              "brier": 0.24518205225467682,
+              "n": 549
+            },
+            "2022": {
+              "accuracy": 0.600358422939068,
+              "logloss": 0.6589018829894765,
+              "brier": 0.2332993894815445,
+              "n": 558
+            },
+            "2023": {
+              "accuracy": 0.6007194244604317,
+              "logloss": 0.659241315217357,
+              "brier": 0.23368549346923828,
+              "n": 556
+            },
+            "2024": {
+              "accuracy": 0.6281138790035588,
+              "logloss": 0.6507064732763427,
+              "brier": 0.22952990233898163,
+              "n": 562
+            },
+            "2025": {
+              "accuracy": 0.6518650088809946,
+              "logloss": 0.6377138630711323,
+              "brier": 0.22367830574512482,
+              "n": 563
+            },
+            "2026": {
+              "accuracy": 0.648960739030023,
+              "logloss": 0.6391075148263142,
+              "brier": 0.22368232905864716,
+              "n": 433
+            }
+          }
+        },
+        "leak_check": {
+          "passed": true,
+          "flagged": []
+        },
+        "n_samples": 17560,
+        "features": [
+          "elo3_diff",
+          "a_n_prior",
+          "b_n_prior",
+          "d_n_prior",
+          "a_win_pct",
+          "b_win_pct",
+          "d_win_pct",
+          "a_fin_rate",
+          "b_fin_rate",
+          "d_fin_rate",
+          "a_koloss_prior",
+          "b_koloss_prior",
+          "d_koloss_prior",
+          "a_days_off",
+          "b_days_off",
+          "d_days_off",
+          "a_streak",
+          "b_streak",
+          "d_streak",
+          "a_last3",
+          "b_last3",
+          "d_last3",
+          "a_age",
+          "b_age",
+          "d_age"
         ]
       },
       "retired": false
