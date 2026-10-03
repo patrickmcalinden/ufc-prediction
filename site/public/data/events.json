@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1103,
+    "espn_event_id": "600061182",
+    "name": "UFC 332: Silva vs. Wang",
+    "location": "Delta Center, Salt Lake City, UT",
+    "event_date": "2026-10-03",
+    "deployed_at": "2026-10-03T01:00:26.475163+00:00"
+  },
+  {
     "event_id": 1096,
     "espn_event_id": "600061266",
     "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
