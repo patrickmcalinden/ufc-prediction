@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1103,
+          "name": "UFC 332: Silva vs. Wang",
+          "event_date": "2026-10-03",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
+        {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
           "event_date": "2026-09-26",
@@ -288,53 +297,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-09-25T21:01:31.621618",
+        "trained_at": "2026-10-02T21:00:19.560709",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5641105246817758,
-          "logloss": 0.6795754090609806,
-          "brier": 0.24319396913051605,
-          "n": 3221,
+          "accuracy": 0.5629446334673678,
+          "logloss": 0.6801342566952814,
+          "brier": 0.24341844022274017,
+          "n": 3233,
           "per_year": {
             "2021": {
-              "accuracy": 0.5409836065573771,
-              "logloss": 0.6950802532297871,
-              "brier": 0.25019803643226624,
+              "accuracy": 0.5318761384335154,
+              "logloss": 0.692739809297483,
+              "brier": 0.24914395809173584,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.546594982078853,
-              "logloss": 0.6754877741229184,
-              "brier": 0.2410702407360077,
+              "accuracy": 0.5663082437275986,
+              "logloss": 0.6757166262447879,
+              "brier": 0.24114990234375,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5575539568345323,
-              "logloss": 0.6852859385667381,
-              "brier": 0.24582472443580627,
+              "accuracy": 0.5683453237410072,
+              "logloss": 0.6883272710537102,
+              "brier": 0.24718743562698364,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5676156583629893,
-              "logloss": 0.6711115494879624,
-              "brier": 0.239312544465065,
+              "accuracy": 0.5516014234875445,
+              "logloss": 0.6729482307526705,
+              "brier": 0.24016894400119781,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5985790408525755,
-              "logloss": 0.6733406044397299,
-              "brier": 0.240511953830719,
+              "accuracy": 0.5932504440497336,
+              "logloss": 0.6741871922146998,
+              "brier": 0.24088963866233826,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5750577367205543,
-              "logloss": 0.6769439322096247,
-              "brier": 0.24219723045825958,
-              "n": 433
+              "accuracy": 0.5662921348314607,
+              "logloss": 0.6764848573959449,
+              "brier": 0.2417934387922287,
+              "n": 445
             }
           }
         },
@@ -342,7 +351,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17560,
+        "n_samples": 17584,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -364,6 +373,15 @@
         "log_loss": 0.7067517871113744
       },
       "per_event": [
+        {
+          "event_id": 1103,
+          "name": "UFC 332: Silva vs. Wang",
+          "event_date": "2026-10-03",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
         {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
@@ -649,60 +667,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-09-25T21:01:33.486730",
+        "trained_at": "2026-10-02T21:00:22.497387",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5963986339646072,
-          "logloss": 0.662948609287148,
-          "brier": 0.23517537117004395,
-          "n": 3221,
+          "accuracy": 0.5972780699041138,
+          "logloss": 0.6640041778662067,
+          "brier": 0.23563410341739655,
+          "n": 3233,
           "per_year": {
             "2021": {
-              "accuracy": 0.6229508196721312,
-              "logloss": 0.6533381408650529,
-              "brier": 0.23037783801555634,
+              "accuracy": 0.6174863387978142,
+              "logloss": 0.6490611634456044,
+              "brier": 0.22823984920978546,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6236559139784946,
-              "logloss": 0.6438758805502625,
-              "brier": 0.22647352516651154,
+              "accuracy": 0.6397849462365591,
+              "logloss": 0.6443006342963183,
+              "brier": 0.22649836540222168,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5737410071942446,
-              "logloss": 0.6833389666350287,
-              "brier": 0.24459362030029297,
+              "accuracy": 0.5665467625899281,
+              "logloss": 0.685616693386824,
+              "brier": 0.2456350326538086,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6138790035587188,
-              "logloss": 0.6529129891768986,
-              "brier": 0.23067520558834076,
+              "accuracy": 0.5960854092526691,
+              "logloss": 0.6565968224767783,
+              "brier": 0.2324030101299286,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5772646536412078,
-              "logloss": 0.6676204165849086,
-              "brier": 0.23709318041801453,
+              "accuracy": 0.5861456483126111,
+              "logloss": 0.6688129911269818,
+              "brier": 0.2377978414297104,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.558891454965358,
-              "logloss": 0.6804809005268978,
-              "brier": 0.2437257468700409,
-              "n": 433
+              "accuracy": 0.5730337078651685,
+              "logloss": 0.6834138530628083,
+              "brier": 0.24505957961082458,
+              "n": 445
             }
           },
           "clean_subset": {
-            "accuracy": 0.5675253708040593,
-            "logloss": 0.6772478759099236,
-            "brier": 0.2420521080493927,
-            "n": 2562
+            "accuracy": 0.5685969685192382,
+            "logloss": 0.6781551725372581,
+            "brier": 0.242509663105011,
+            "n": 2573
           }
         },
         "leak_check": {
@@ -710,32 +728,32 @@
           "flagged": [
             {
               "feature": "str_acc",
-              "n": 2841,
+              "n": 2842,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_vol",
-              "n": 2841,
+              "n": 2842,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "td_acc",
-              "n": 2841,
+              "n": 2842,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "grap_agg",
-              "n": 2841,
+              "n": 2842,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_def",
-              "n": 2841,
+              "n": 2842,
               "present_side_win_rate": 0.693
             }
           ]
         },
-        "n_samples": 17560,
+        "n_samples": 17584,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -772,6 +790,15 @@
         "log_loss": 0.5588152072158789
       },
       "per_event": [
+        {
+          "event_id": 1103,
+          "name": "UFC 332: Silva vs. Wang",
+          "event_date": "2026-10-03",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
         {
           "event_id": 1096,
           "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
@@ -829,53 +856,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-09-25T21:01:37.269377",
+        "trained_at": "2026-10-02T21:00:26.458725",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6134740763737969,
-          "logloss": 0.6554118812447742,
-          "brier": 0.2317591905593872,
-          "n": 3221,
+          "accuracy": 0.607485307763687,
+          "logloss": 0.6552303689713073,
+          "brier": 0.23163136839866638,
+          "n": 3233,
           "per_year": {
             "2021": {
-              "accuracy": 0.5573770491803278,
-              "logloss": 0.6838119320770369,
-              "brier": 0.24518205225467682,
+              "accuracy": 0.5428051001821493,
+              "logloss": 0.6843998439426897,
+              "brier": 0.2454160749912262,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.600358422939068,
-              "logloss": 0.6589018829894765,
-              "brier": 0.2332993894815445,
+              "accuracy": 0.5967741935483871,
+              "logloss": 0.6597171868921532,
+              "brier": 0.23377878963947296,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.6007194244604317,
-              "logloss": 0.659241315217357,
-              "brier": 0.23368549346923828,
+              "accuracy": 0.5935251798561151,
+              "logloss": 0.6591917087229108,
+              "brier": 0.23356129229068756,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6281138790035588,
-              "logloss": 0.6507064732763427,
-              "brier": 0.22952990233898163,
+              "accuracy": 0.6387900355871886,
+              "logloss": 0.6470577419722165,
+              "brier": 0.22795996069908142,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6518650088809946,
-              "logloss": 0.6377138630711323,
-              "brier": 0.22367830574512482,
+              "accuracy": 0.6429840142095915,
+              "logloss": 0.6393076227270289,
+              "brier": 0.2242114096879959,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.648960739030023,
-              "logloss": 0.6391075148263142,
-              "brier": 0.22368232905864716,
-              "n": 433
+              "accuracy": 0.6337078651685393,
+              "logloss": 0.6391344845848017,
+              "brier": 0.22354508936405182,
+              "n": 445
             }
           }
         },
@@ -883,7 +910,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17560,
+        "n_samples": 17584,
         "features": [
           "elo3_diff",
           "a_n_prior",
