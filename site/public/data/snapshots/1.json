@@ -158,11 +158,11 @@
         "name": "Alexander Hernandez",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 18,
+        "record_wins": 19,
         "record_losses": 9,
         "record_draws": 0,
-        "current_elo_standard": 1547.59,
-        "current_elo_modified": 1563.32
+        "current_elo_standard": 1564.73,
+        "current_elo_modified": 1586.56
       },
       "predictions": [
         {

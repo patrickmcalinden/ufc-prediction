@@ -284,11 +284,11 @@
         "name": "Esteban Ribovics",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 16,
+        "record_wins": 17,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1549.71,
-        "current_elo_modified": 1552.59
+        "current_elo_standard": 1567.52,
+        "current_elo_modified": 1579.73
       },
       "predictions": [
         {

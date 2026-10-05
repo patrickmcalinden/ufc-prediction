@@ -399,11 +399,11 @@
         "name": "Marcus McGhee",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 2,
         "record_draws": 0,
-        "current_elo_standard": 1561.32,
-        "current_elo_modified": 1569.17
+        "current_elo_standard": 1575.24,
+        "current_elo_modified": 1585.46
       },
       "fighter_b": {
         "fighter_id": 17107,
