@@ -33,10 +33,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 25,
-        "record_losses": 7,
+        "record_losses": 8,
         "record_draws": 1,
-        "current_elo_standard": 1596.32,
-        "current_elo_modified": 1610.72
+        "current_elo_standard": 1579.37,
+        "current_elo_modified": 1585.94
       },
       "predictions": [
         {
@@ -362,7 +362,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-09-28T01:03:46.180356+00:00"
+          "graded_at": "2026-10-05T01:03:44.203176+00:00"
         },
         {
           "prediction_id": 2681,
@@ -372,7 +372,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-09-28T01:03:46.180356+00:00"
+          "graded_at": "2026-10-05T01:03:44.203176+00:00"
         }
       ],
       "prediction": {
@@ -383,7 +383,7 @@
         "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": "2026-09-28T01:03:46.180356+00:00"
+        "graded_at": "2026-10-05T01:03:44.203176+00:00"
       }
     },
     {

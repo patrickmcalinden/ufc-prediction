@@ -8,21 +8,21 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 158,
-        "correct": 96,
-        "wrong": 62,
-        "accuracy": 0.6075949367088608,
-        "log_loss": 0.663542308494133
+        "graded": 172,
+        "correct": 105,
+        "wrong": 67,
+        "accuracy": 0.6104651162790697,
+        "log_loss": 0.6567507759811522
       },
       "per_event": [
         {
           "event_id": 1103,
           "name": "UFC 332: Silva vs. Wang",
           "event_date": "2026-10-03",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_picks": 14,
+          "n_correct": 9,
+          "n_wrong": 5,
+          "n_pending": 0
         },
         {
           "event_id": 1096,
@@ -145,32 +145,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 69,
-          "actual_win_rate": 0.5507246376811594,
+          "n": 74,
+          "actual_win_rate": 0.527027027027027,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 41,
-          "actual_win_rate": 0.5609756097560976,
+          "n": 43,
+          "actual_win_rate": 0.5813953488372093,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 21,
+          "n": 24,
           "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 13,
-          "actual_win_rate": 0.9230769230769231,
+          "n": 14,
+          "actual_win_rate": 0.9285714285714286,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 9,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 12,
+          "actual_win_rate": 0.75,
           "bucket_center": 0.725
         },
         {
@@ -290,6 +290,14 @@
           "n_correct_so_far": 96,
           "n_picks_so_far": 158,
           "accuracy_so_far": 0.6075949367088608
+        },
+        {
+          "event_id": 1103,
+          "event_date": "2026-10-03",
+          "event_name": "UFC 332: Silva vs. Wang",
+          "n_correct_so_far": 105,
+          "n_picks_so_far": 172,
+          "accuracy_so_far": 0.6104651162790697
         }
       ],
       "meta": {
@@ -366,21 +374,21 @@
     },
     "v2": {
       "totals": {
-        "graded": 158,
-        "correct": 91,
-        "wrong": 67,
-        "accuracy": 0.5759493670886076,
-        "log_loss": 0.7067517871113744
+        "graded": 172,
+        "correct": 98,
+        "wrong": 74,
+        "accuracy": 0.5697674418604651,
+        "log_loss": 0.704261914136965
       },
       "per_event": [
         {
           "event_id": 1103,
           "name": "UFC 332: Silva vs. Wang",
           "event_date": "2026-10-03",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_picks": 14,
+          "n_correct": 7,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1096,
@@ -503,44 +511,44 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 45,
-          "actual_win_rate": 0.4666666666666667,
+          "n": 50,
+          "actual_win_rate": 0.44,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 30,
-          "actual_win_rate": 0.6333333333333333,
+          "n": 33,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 21,
-          "actual_win_rate": 0.6190476190476191,
+          "n": 23,
+          "actual_win_rate": 0.5652173913043478,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 14,
-          "actual_win_rate": 0.6428571428571429,
+          "n": 15,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 15,
-          "actual_win_rate": 0.5333333333333333,
+          "n": 16,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.725
         },
         {
           "bin": 5,
-          "n": 16,
-          "actual_win_rate": 0.75,
+          "n": 17,
+          "actual_win_rate": 0.7647058823529411,
           "bucket_center": 0.775
         },
         {
           "bin": 6,
-          "n": 11,
-          "actual_win_rate": 0.5454545454545454,
+          "n": 12,
+          "actual_win_rate": 0.5833333333333334,
           "bucket_center": 0.825
         },
         {
@@ -660,6 +668,14 @@
           "n_correct_so_far": 91,
           "n_picks_so_far": 158,
           "accuracy_so_far": 0.5759493670886076
+        },
+        {
+          "event_id": 1103,
+          "event_date": "2026-10-03",
+          "event_name": "UFC 332: Silva vs. Wang",
+          "n_correct_so_far": 98,
+          "n_picks_so_far": 172,
+          "accuracy_so_far": 0.5697674418604651
         }
       ],
       "meta": {
@@ -783,21 +799,21 @@
     },
     "v3": {
       "totals": {
-        "graded": 12,
-        "correct": 9,
-        "wrong": 3,
-        "accuracy": 0.75,
-        "log_loss": 0.5588152072158789
+        "graded": 26,
+        "correct": 18,
+        "wrong": 8,
+        "accuracy": 0.6923076923076923,
+        "log_loss": 0.5721561596952258
       },
       "per_event": [
         {
           "event_id": 1103,
           "name": "UFC 332: Silva vs. Wang",
           "event_date": "2026-10-03",
-          "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_picks": 14,
+          "n_correct": 9,
+          "n_wrong": 5,
+          "n_pending": 0
         },
         {
           "event_id": 1096,
@@ -812,20 +828,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 5,
-          "actual_win_rate": 0.4,
+          "n": 7,
+          "actual_win_rate": 0.42857142857142855,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 3,
-          "actual_win_rate": 1.0,
+          "n": 5,
+          "actual_win_rate": 0.8,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 1,
-          "actual_win_rate": 1.0,
+          "n": 2,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
@@ -836,9 +852,21 @@
         },
         {
           "bin": 4,
+          "n": 7,
+          "actual_win_rate": 0.7142857142857143,
+          "bucket_center": 0.725
+        },
+        {
+          "bin": 5,
+          "n": 2,
+          "actual_win_rate": 1.0,
+          "bucket_center": 0.775
+        },
+        {
+          "bin": 6,
           "n": 1,
           "actual_win_rate": 1.0,
-          "bucket_center": 0.725
+          "bucket_center": 0.825
         }
       ],
       "timeseries": [
@@ -849,6 +877,14 @@
           "n_correct_so_far": 9,
           "n_picks_so_far": 12,
           "accuracy_so_far": 0.75
+        },
+        {
+          "event_id": 1103,
+          "event_date": "2026-10-03",
+          "event_name": "UFC 332: Silva vs. Wang",
+          "n_correct_so_far": 18,
+          "n_picks_so_far": 26,
+          "accuracy_so_far": 0.6923076923076923
         }
       ],
       "meta": {

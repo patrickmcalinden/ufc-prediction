@@ -336,11 +336,11 @@
         "name": "Anthony Wint",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 8,
+        "record_wins": 9,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": 1531.26,
-        "current_elo_modified": 1535.07
+        "current_elo_standard": 1545.83,
+        "current_elo_modified": 1551.26
       },
       "fighter_b": {
         "fighter_id": 22547,
