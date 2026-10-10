@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1111,
+    "espn_event_id": "600061541",
+    "name": "UFC Fight Night: Allen vs. Duncan",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-10-10",
+    "deployed_at": "2026-10-10T01:01:54.323495+00:00"
+  },
+  {
     "event_id": 1103,
     "espn_event_id": "600061182",
     "name": "UFC 332: Silva vs. Wang",
