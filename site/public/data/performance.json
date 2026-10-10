@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1111,
+          "name": "UFC Fight Night: Allen vs. Duncan",
+          "event_date": "2026-10-10",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
+        {
           "event_id": 1103,
           "name": "UFC 332: Silva vs. Wang",
           "event_date": "2026-10-03",
@@ -305,53 +314,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-02T21:00:19.560709",
+        "trained_at": "2026-10-09T21:01:47.917463",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5629446334673678,
-          "logloss": 0.6801342566952814,
-          "brier": 0.24341844022274017,
-          "n": 3233,
+          "accuracy": 0.5632113195939711,
+          "logloss": 0.6793816292768078,
+          "brier": 0.24313558638095856,
+          "n": 3251,
           "per_year": {
             "2021": {
               "accuracy": 0.5318761384335154,
-              "logloss": 0.692739809297483,
-              "brier": 0.24914395809173584,
+              "logloss": 0.6920064342699959,
+              "brier": 0.24889138340950012,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5663082437275986,
-              "logloss": 0.6757166262447879,
-              "brier": 0.24114990234375,
+              "accuracy": 0.5645161290322581,
+              "logloss": 0.6774797605394327,
+              "brier": 0.24196480214595795,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5683453237410072,
-              "logloss": 0.6883272710537102,
-              "brier": 0.24718743562698364,
+              "accuracy": 0.564748201438849,
+              "logloss": 0.6861228451151551,
+              "brier": 0.24609574675559998,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5516014234875445,
-              "logloss": 0.6729482307526705,
-              "brier": 0.24016894400119781,
+              "accuracy": 0.5587188612099644,
+              "logloss": 0.6735260529099216,
+              "brier": 0.24056613445281982,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5932504440497336,
-              "logloss": 0.6741871922146998,
-              "brier": 0.24088963866233826,
+              "accuracy": 0.5843694493783304,
+              "logloss": 0.6739167132507242,
+              "brier": 0.24089817702770233,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5662921348314607,
-              "logloss": 0.6764848573959449,
-              "brier": 0.2417934387922287,
-              "n": 445
+              "accuracy": 0.5766738660907127,
+              "logloss": 0.6723615222550992,
+              "brier": 0.24000641703605652,
+              "n": 463
             }
           }
         },
@@ -359,7 +368,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17584,
+        "n_samples": 17620,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -381,6 +390,15 @@
         "log_loss": 0.704261914136965
       },
       "per_event": [
+        {
+          "event_id": 1111,
+          "name": "UFC Fight Night: Allen vs. Duncan",
+          "event_date": "2026-10-10",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1103,
           "name": "UFC 332: Silva vs. Wang",
@@ -683,60 +701,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-02T21:00:22.497387",
+        "trained_at": "2026-10-09T21:01:50.301600",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5972780699041138,
-          "logloss": 0.6640041778662067,
-          "brier": 0.23563410341739655,
-          "n": 3233,
+          "accuracy": 0.5985850507536142,
+          "logloss": 0.6648436281978582,
+          "brier": 0.23607748746871948,
+          "n": 3251,
           "per_year": {
             "2021": {
-              "accuracy": 0.6174863387978142,
-              "logloss": 0.6490611634456044,
-              "brier": 0.22823984920978546,
+              "accuracy": 0.6265938069216758,
+              "logloss": 0.6528432105593979,
+              "brier": 0.23006387054920197,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6397849462365591,
-              "logloss": 0.6443006342963183,
-              "brier": 0.22649836540222168,
+              "accuracy": 0.6272401433691757,
+              "logloss": 0.6455804781016864,
+              "brier": 0.22695252299308777,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5665467625899281,
-              "logloss": 0.685616693386824,
-              "brier": 0.2456350326538086,
+              "accuracy": 0.5575539568345323,
+              "logloss": 0.6864921367177634,
+              "brier": 0.24630078673362732,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5960854092526691,
-              "logloss": 0.6565968224767783,
-              "brier": 0.2324030101299286,
+              "accuracy": 0.6120996441281139,
+              "logloss": 0.6537929829448378,
+              "brier": 0.23117820918560028,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5861456483126111,
-              "logloss": 0.6688129911269818,
-              "brier": 0.2377978414297104,
+              "accuracy": 0.5968028419182948,
+              "logloss": 0.6710656606963237,
+              "brier": 0.23880745470523834,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5730337078651685,
-              "logloss": 0.6834138530628083,
-              "brier": 0.24505957961082458,
-              "n": 445
+              "accuracy": 0.5658747300215983,
+              "logloss": 0.6821394265470431,
+              "brier": 0.24455590546131134,
+              "n": 463
             }
           },
           "clean_subset": {
-            "accuracy": 0.5685969685192382,
-            "logloss": 0.6781551725372581,
-            "brier": 0.242509663105011,
-            "n": 2573
+            "accuracy": 0.5703245749613601,
+            "logloss": 0.6794950020366128,
+            "brier": 0.24316830933094025,
+            "n": 2588
           }
         },
         "leak_check": {
@@ -744,32 +762,32 @@
           "flagged": [
             {
               "feature": "str_acc",
-              "n": 2842,
+              "n": 2845,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_vol",
-              "n": 2842,
+              "n": 2845,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "td_acc",
-              "n": 2842,
+              "n": 2845,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "grap_agg",
-              "n": 2842,
+              "n": 2845,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_def",
-              "n": 2842,
+              "n": 2845,
               "present_side_win_rate": 0.693
             }
           ]
         },
-        "n_samples": 17584,
+        "n_samples": 17620,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -806,6 +824,15 @@
         "log_loss": 0.5721561596952258
       },
       "per_event": [
+        {
+          "event_id": 1111,
+          "name": "UFC Fight Night: Allen vs. Duncan",
+          "event_date": "2026-10-10",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1103,
           "name": "UFC 332: Silva vs. Wang",
@@ -892,53 +919,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-10-02T21:00:26.458725",
+        "trained_at": "2026-10-09T21:01:54.309043",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.607485307763687,
-          "logloss": 0.6552303689713073,
-          "brier": 0.23163136839866638,
-          "n": 3233,
+          "accuracy": 0.6114864864864865,
+          "logloss": 0.6551061725626544,
+          "brier": 0.23159290850162506,
+          "n": 3256,
           "per_year": {
             "2021": {
-              "accuracy": 0.5428051001821493,
-              "logloss": 0.6843998439426897,
-              "brier": 0.2454160749912262,
+              "accuracy": 0.5628415300546448,
+              "logloss": 0.6819334931506827,
+              "brier": 0.24434107542037964,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5967741935483871,
-              "logloss": 0.6597171868921532,
-              "brier": 0.23377878963947296,
+              "accuracy": 0.6039426523297491,
+              "logloss": 0.6592178438226143,
+              "brier": 0.23344574868679047,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5935251798561151,
-              "logloss": 0.6591917087229108,
-              "brier": 0.23356129229068756,
+              "accuracy": 0.5953237410071942,
+              "logloss": 0.6605624581494116,
+              "brier": 0.23421752452850342,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6387900355871886,
-              "logloss": 0.6470577419722165,
-              "brier": 0.22795996069908142,
+              "accuracy": 0.6138790035587188,
+              "logloss": 0.6502946635371863,
+              "brier": 0.2294503152370453,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6429840142095915,
-              "logloss": 0.6393076227270289,
-              "brier": 0.2242114096879959,
+              "accuracy": 0.6571936056838366,
+              "logloss": 0.6378260485133986,
+              "brier": 0.22361622750759125,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6337078651685393,
-              "logloss": 0.6391344845848017,
-              "brier": 0.22354508936405182,
-              "n": 445
+              "accuracy": 0.6388888888888888,
+              "logloss": 0.63881679555394,
+              "brier": 0.22347991168498993,
+              "n": 468
             }
           }
         },
@@ -946,7 +973,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17584,
+        "n_samples": 17630,
         "features": [
           "elo3_diff",
           "a_n_prior",
