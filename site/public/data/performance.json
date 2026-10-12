@@ -8,21 +8,21 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 172,
-        "correct": 105,
-        "wrong": 67,
-        "accuracy": 0.6104651162790697,
-        "log_loss": 0.6567507759811522
+        "graded": 183,
+        "correct": 109,
+        "wrong": 74,
+        "accuracy": 0.5956284153005464,
+        "log_loss": 0.665749208621717
       },
       "per_event": [
         {
           "event_id": 1111,
           "name": "UFC Fight Night: Allen vs. Duncan",
           "event_date": "2026-10-10",
-          "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_picks": 11,
+          "n_correct": 4,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1103,
@@ -154,20 +154,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 74,
-          "actual_win_rate": 0.527027027027027,
+          "n": 78,
+          "actual_win_rate": 0.5256410256410257,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 43,
-          "actual_win_rate": 0.5813953488372093,
+          "n": 46,
+          "actual_win_rate": 0.5869565217391305,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 24,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 27,
+          "actual_win_rate": 0.5925925925925926,
           "bucket_center": 0.625
         },
         {
@@ -178,8 +178,8 @@
         },
         {
           "bin": 4,
-          "n": 12,
-          "actual_win_rate": 0.75,
+          "n": 13,
+          "actual_win_rate": 0.6923076923076923,
           "bucket_center": 0.725
         },
         {
@@ -307,6 +307,14 @@
           "n_correct_so_far": 105,
           "n_picks_so_far": 172,
           "accuracy_so_far": 0.6104651162790697
+        },
+        {
+          "event_id": 1111,
+          "event_date": "2026-10-10",
+          "event_name": "UFC Fight Night: Allen vs. Duncan",
+          "n_correct_so_far": 109,
+          "n_picks_so_far": 183,
+          "accuracy_so_far": 0.5956284153005464
         }
       ],
       "meta": {
@@ -383,21 +391,21 @@
     },
     "v2": {
       "totals": {
-        "graded": 172,
-        "correct": 98,
-        "wrong": 74,
-        "accuracy": 0.5697674418604651,
-        "log_loss": 0.704261914136965
+        "graded": 183,
+        "correct": 101,
+        "wrong": 82,
+        "accuracy": 0.5519125683060109,
+        "log_loss": 0.7113199677432444
       },
       "per_event": [
         {
           "event_id": 1111,
           "name": "UFC Fight Night: Allen vs. Duncan",
           "event_date": "2026-10-10",
-          "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_picks": 11,
+          "n_correct": 3,
+          "n_wrong": 8,
+          "n_pending": 0
         },
         {
           "event_id": 1103,
@@ -529,20 +537,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 50,
-          "actual_win_rate": 0.44,
+          "n": 53,
+          "actual_win_rate": 0.4528301886792453,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 33,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 38,
+          "actual_win_rate": 0.6052631578947368,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 23,
-          "actual_win_rate": 0.5652173913043478,
+          "n": 25,
+          "actual_win_rate": 0.52,
           "bucket_center": 0.625
         },
         {
@@ -553,8 +561,8 @@
         },
         {
           "bin": 4,
-          "n": 16,
-          "actual_win_rate": 0.5,
+          "n": 17,
+          "actual_win_rate": 0.47058823529411764,
           "bucket_center": 0.725
         },
         {
@@ -694,6 +702,14 @@
           "n_correct_so_far": 98,
           "n_picks_so_far": 172,
           "accuracy_so_far": 0.5697674418604651
+        },
+        {
+          "event_id": 1111,
+          "event_date": "2026-10-10",
+          "event_name": "UFC Fight Night: Allen vs. Duncan",
+          "n_correct_so_far": 101,
+          "n_picks_so_far": 183,
+          "accuracy_so_far": 0.5519125683060109
         }
       ],
       "meta": {
@@ -817,21 +833,21 @@
     },
     "v3": {
       "totals": {
-        "graded": 26,
-        "correct": 18,
-        "wrong": 8,
-        "accuracy": 0.6923076923076923,
-        "log_loss": 0.5721561596952258
+        "graded": 37,
+        "correct": 23,
+        "wrong": 14,
+        "accuracy": 0.6216216216216216,
+        "log_loss": 0.6374736231173325
       },
       "per_event": [
         {
           "event_id": 1111,
           "name": "UFC Fight Night: Allen vs. Duncan",
           "event_date": "2026-10-10",
-          "n_picks": 12,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 12
+          "n_picks": 11,
+          "n_correct": 5,
+          "n_wrong": 6,
+          "n_pending": 0
         },
         {
           "event_id": 1103,
@@ -855,32 +871,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 7,
-          "actual_win_rate": 0.42857142857142855,
+          "n": 10,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 5,
-          "actual_win_rate": 0.8,
+          "n": 8,
+          "actual_win_rate": 0.625,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 2,
+          "n": 4,
           "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 2,
+          "n": 3,
           "actual_win_rate": 1.0,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 7,
-          "actual_win_rate": 0.7142857142857143,
+          "n": 9,
+          "actual_win_rate": 0.5555555555555556,
           "bucket_center": 0.725
         },
         {
@@ -912,6 +928,14 @@
           "n_correct_so_far": 18,
           "n_picks_so_far": 26,
           "accuracy_so_far": 0.6923076923076923
+        },
+        {
+          "event_id": 1111,
+          "event_date": "2026-10-10",
+          "event_name": "UFC Fight Night: Allen vs. Duncan",
+          "n_correct_so_far": 23,
+          "n_picks_so_far": 37,
+          "accuracy_so_far": 0.6216216216216216
         }
       ],
       "meta": {
