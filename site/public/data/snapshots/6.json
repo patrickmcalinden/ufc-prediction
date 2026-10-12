@@ -84,11 +84,11 @@
         "name": "Brendan Allen",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 27,
+        "record_wins": 28,
         "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1657.03,
-        "current_elo_modified": 1691.78
+        "current_elo_standard": 1670.25,
+        "current_elo_modified": 1710.97
       },
       "fighter_b": {
         "fighter_id": 8957,
@@ -715,10 +715,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 17,
-        "record_losses": 6,
+        "record_losses": 7,
         "record_draws": 0,
-        "current_elo_standard": 1519.0,
-        "current_elo_modified": 1518.67
+        "current_elo_standard": 1504.28,
+        "current_elo_modified": 1499.59
       },
       "fighter_b": {
         "fighter_id": 10194,
