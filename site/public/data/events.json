@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1117,
+    "espn_event_id": "600060773",
+    "name": "UFC Fight Night: Buckley vs. Malott",
+    "location": "Rogers Place, Edmonton, AB, Canada",
+    "event_date": "2026-10-17",
+    "deployed_at": "2026-10-17T01:02:19.610026+00:00"
+  },
+  {
     "event_id": 1111,
     "espn_event_id": "600061541",
     "name": "UFC Fight Night: Allen vs. Duncan",
