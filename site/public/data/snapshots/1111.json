@@ -850,7 +850,7 @@
           "snapshot_at": "2026-10-10T01:01:54.323495+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-10-12T01:03:50.623786+00:00"
+          "graded_at": "2026-10-19T01:03:49.266987+00:00"
         },
         {
           "prediction_id": 3013,
@@ -860,7 +860,7 @@
           "snapshot_at": "2026-10-10T01:01:54.323495+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-10-12T01:03:50.623786+00:00"
+          "graded_at": "2026-10-19T01:03:49.266987+00:00"
         },
         {
           "prediction_id": 3025,
@@ -870,7 +870,7 @@
           "snapshot_at": "2026-10-10T01:01:54.323495+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-10-12T01:03:50.623786+00:00"
+          "graded_at": "2026-10-19T01:03:49.266987+00:00"
         }
       ],
       "prediction": {
@@ -881,7 +881,7 @@
         "snapshot_at": "2026-10-10T01:01:54.323495+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": "2026-10-12T01:03:50.623786+00:00"
+        "graded_at": "2026-10-19T01:03:49.266987+00:00"
       }
     }
   ],
