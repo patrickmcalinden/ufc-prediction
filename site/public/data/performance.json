@@ -8,11 +8,11 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 183,
-        "correct": 109,
-        "wrong": 74,
-        "accuracy": 0.5956284153005464,
-        "log_loss": 0.665749208621717
+        "graded": 196,
+        "correct": 115,
+        "wrong": 81,
+        "accuracy": 0.5867346938775511,
+        "log_loss": 0.6694313641355341
       },
       "per_event": [
         {
@@ -20,9 +20,9 @@
           "name": "UFC Fight Night: Buckley vs. Malott",
           "event_date": "2026-10-17",
           "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_correct": 6,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1111,
@@ -163,26 +163,26 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 78,
-          "actual_win_rate": 0.5256410256410257,
+          "n": 86,
+          "actual_win_rate": 0.5232558139534884,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 46,
-          "actual_win_rate": 0.5869565217391305,
+          "n": 47,
+          "actual_win_rate": 0.574468085106383,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 27,
-          "actual_win_rate": 0.5925925925925926,
+          "n": 30,
+          "actual_win_rate": 0.6,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 14,
-          "actual_win_rate": 0.9285714285714286,
+          "n": 15,
+          "actual_win_rate": 0.8666666666666667,
           "bucket_center": 0.675
         },
         {
@@ -324,6 +324,14 @@
           "n_correct_so_far": 109,
           "n_picks_so_far": 183,
           "accuracy_so_far": 0.5956284153005464
+        },
+        {
+          "event_id": 1117,
+          "event_date": "2026-10-17",
+          "event_name": "UFC Fight Night: Buckley vs. Malott",
+          "n_correct_so_far": 115,
+          "n_picks_so_far": 196,
+          "accuracy_so_far": 0.5867346938775511
         }
       ],
       "meta": {
@@ -400,11 +408,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 183,
-        "correct": 101,
-        "wrong": 82,
-        "accuracy": 0.5519125683060109,
-        "log_loss": 0.7113199677432444
+        "graded": 196,
+        "correct": 106,
+        "wrong": 90,
+        "accuracy": 0.5408163265306123,
+        "log_loss": 0.7101332531167435
       },
       "per_event": [
         {
@@ -412,9 +420,9 @@
           "name": "UFC Fight Night: Buckley vs. Malott",
           "event_date": "2026-10-17",
           "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_correct": 5,
+          "n_wrong": 8,
+          "n_pending": 0
         },
         {
           "event_id": 1111,
@@ -555,32 +563,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 53,
-          "actual_win_rate": 0.4528301886792453,
+          "n": 57,
+          "actual_win_rate": 0.43859649122807015,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 38,
-          "actual_win_rate": 0.6052631578947368,
+          "n": 43,
+          "actual_win_rate": 0.5813953488372093,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 25,
-          "actual_win_rate": 0.52,
+          "n": 27,
+          "actual_win_rate": 0.48148148148148145,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 15,
-          "actual_win_rate": 0.6666666666666666,
+          "n": 16,
+          "actual_win_rate": 0.6875,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 17,
-          "actual_win_rate": 0.47058823529411764,
+          "n": 18,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.725
         },
         {
@@ -728,6 +736,14 @@
           "n_correct_so_far": 101,
           "n_picks_so_far": 183,
           "accuracy_so_far": 0.5519125683060109
+        },
+        {
+          "event_id": 1117,
+          "event_date": "2026-10-17",
+          "event_name": "UFC Fight Night: Buckley vs. Malott",
+          "n_correct_so_far": 106,
+          "n_picks_so_far": 196,
+          "accuracy_so_far": 0.5408163265306123
         }
       ],
       "meta": {
@@ -851,11 +867,11 @@
     },
     "v3": {
       "totals": {
-        "graded": 37,
-        "correct": 23,
-        "wrong": 14,
-        "accuracy": 0.6216216216216216,
-        "log_loss": 0.6374736231173325
+        "graded": 50,
+        "correct": 29,
+        "wrong": 21,
+        "accuracy": 0.58,
+        "log_loss": 0.6565848620648664
       },
       "per_event": [
         {
@@ -863,9 +879,9 @@
           "name": "UFC Fight Night: Buckley vs. Malott",
           "event_date": "2026-10-17",
           "n_picks": 13,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 13
+          "n_correct": 6,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1111,
@@ -898,32 +914,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 10,
-          "actual_win_rate": 0.5,
+          "n": 13,
+          "actual_win_rate": 0.5384615384615384,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 8,
-          "actual_win_rate": 0.625,
+          "n": 12,
+          "actual_win_rate": 0.4166666666666667,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 4,
+          "n": 6,
           "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 3,
+          "n": 5,
           "actual_win_rate": 1.0,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 9,
-          "actual_win_rate": 0.5555555555555556,
+          "n": 11,
+          "actual_win_rate": 0.5454545454545454,
           "bucket_center": 0.725
         },
         {
@@ -963,6 +979,14 @@
           "n_correct_so_far": 23,
           "n_picks_so_far": 37,
           "accuracy_so_far": 0.6216216216216216
+        },
+        {
+          "event_id": 1117,
+          "event_date": "2026-10-17",
+          "event_name": "UFC Fight Night: Buckley vs. Malott",
+          "n_correct_so_far": 29,
+          "n_picks_so_far": 50,
+          "accuracy_so_far": 0.58
         }
       ],
       "meta": {

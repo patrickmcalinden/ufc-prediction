@@ -222,10 +222,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 21,
-        "record_losses": 8,
+        "record_losses": 9,
         "record_draws": 0,
-        "current_elo_standard": 1588.91,
-        "current_elo_modified": 1617.17
+        "current_elo_standard": 1573.78,
+        "current_elo_modified": 1593.98
       },
       "predictions": [
         {

@@ -536,11 +536,11 @@
         "name": "Chelsea Chandler",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 7,
+        "record_wins": 8,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1500.26,
-        "current_elo_modified": 1496.35
+        "current_elo_standard": 1517.11,
+        "current_elo_modified": 1516.96
       },
       "predictions": [
         {
