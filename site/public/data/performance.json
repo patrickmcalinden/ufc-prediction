@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1118,
+          "name": "UFC 333: Volkanovski vs. Evloev",
+          "event_date": "2026-10-24",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
+        {
           "event_id": 1117,
           "name": "UFC Fight Night: Buckley vs. Malott",
           "event_date": "2026-10-17",
@@ -339,53 +348,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-16T21:02:14.202980",
+        "trained_at": "2026-10-23T21:02:40.544486",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5564738292011019,
-          "logloss": 0.6806688955833703,
-          "brier": 0.24370181560516357,
-          "n": 3267,
+          "accuracy": 0.5534246575342465,
+          "logloss": 0.6819881516931876,
+          "brier": 0.2443615198135376,
+          "n": 3285,
           "per_year": {
             "2021": {
-              "accuracy": 0.5355191256830601,
-              "logloss": 0.6960480267738158,
-              "brier": 0.25070667266845703,
+              "accuracy": 0.5318761384335154,
+              "logloss": 0.6967746929079351,
+              "brier": 0.2512017488479614,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5591397849462365,
-              "logloss": 0.6757172309245717,
-              "brier": 0.24116551876068115,
+              "accuracy": 0.5555555555555556,
+              "logloss": 0.6785757290169193,
+              "brier": 0.24250967800617218,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5737410071942446,
-              "logloss": 0.6840593077116686,
-              "brier": 0.24512451887130737,
+              "accuracy": 0.564748201438849,
+              "logloss": 0.6886184536770571,
+              "brier": 0.24719473719596863,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5658362989323843,
-              "logloss": 0.6723766854787735,
-              "brier": 0.2398959994316101,
+              "accuracy": 0.5498220640569395,
+              "logloss": 0.6743794051857823,
+              "brier": 0.2408926784992218,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5523978685612788,
-              "logloss": 0.6774409730773485,
-              "brier": 0.24248942732810974,
+              "accuracy": 0.5719360568383659,
+              "logloss": 0.673639740041703,
+              "brier": 0.24068671464920044,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5511482254697286,
-              "logloss": 0.6783982466530878,
-              "brier": 0.24286682903766632,
-              "n": 479
+              "accuracy": 0.545271629778672,
+              "logloss": 0.6801292867442489,
+              "brier": 0.24380049109458923,
+              "n": 497
             }
           }
         },
@@ -393,7 +402,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17652,
+        "n_samples": 17688,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -415,6 +424,15 @@
         "log_loss": 0.7101332531167435
       },
       "per_event": [
+        {
+          "event_id": 1118,
+          "name": "UFC 333: Volkanovski vs. Evloev",
+          "event_date": "2026-10-24",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
         {
           "event_id": 1117,
           "name": "UFC Fight Night: Buckley vs. Malott",
@@ -751,60 +769,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-16T21:02:15.999326",
+        "trained_at": "2026-10-23T21:02:42.482874",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6002448729721457,
-          "logloss": 0.6619579368949087,
-          "brier": 0.23473365604877472,
-          "n": 3267,
+          "accuracy": 0.5963470319634703,
+          "logloss": 0.6641432226487658,
+          "brier": 0.23581025004386902,
+          "n": 3285,
           "per_year": {
             "2021": {
-              "accuracy": 0.6120218579234973,
-              "logloss": 0.6479666318719154,
-              "brier": 0.22792299091815948,
+              "accuracy": 0.6229508196721312,
+              "logloss": 0.6500937902826174,
+              "brier": 0.2287365347146988,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6272401433691757,
-              "logloss": 0.643353780444997,
-              "brier": 0.2261064499616623,
+              "accuracy": 0.6164874551971327,
+              "logloss": 0.6427252731054965,
+              "brier": 0.2259179651737213,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.579136690647482,
-              "logloss": 0.6790586368879034,
-              "brier": 0.2429208755493164,
+              "accuracy": 0.5845323741007195,
+              "logloss": 0.6872797346130463,
+              "brier": 0.2465616911649704,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.599644128113879,
-              "logloss": 0.6552791555906412,
-              "brier": 0.23169870674610138,
+              "accuracy": 0.6138790035587188,
+              "logloss": 0.6560566793684793,
+              "brier": 0.2321658432483673,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6039076376554174,
-              "logloss": 0.666097194463148,
-              "brier": 0.2362879514694214,
+              "accuracy": 0.5754884547069272,
+              "logloss": 0.6677738691709356,
+              "brier": 0.2373785674571991,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5762004175365344,
-              "logloss": 0.6827876438732977,
-              "brier": 0.24482032656669617,
-              "n": 479
+              "accuracy": 0.5613682092555332,
+              "logloss": 0.6828575825955654,
+              "brier": 0.2450471669435501,
+              "n": 497
             }
           },
           "clean_subset": {
-            "accuracy": 0.5739531310026892,
-            "logloss": 0.6762460267691791,
-            "brier": 0.2415645271539688,
-            "n": 2603
+            "accuracy": 0.5683206106870229,
+            "logloss": 0.6783463800085063,
+            "brier": 0.24264079332351685,
+            "n": 2620
           }
         },
         "leak_check": {
@@ -812,32 +830,32 @@
           "flagged": [
             {
               "feature": "str_acc",
-              "n": 2846,
+              "n": 2847,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_vol",
-              "n": 2846,
+              "n": 2847,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "td_acc",
-              "n": 2846,
+              "n": 2847,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "grap_agg",
-              "n": 2846,
+              "n": 2847,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_def",
-              "n": 2846,
+              "n": 2847,
               "present_side_win_rate": 0.693
             }
           ]
         },
-        "n_samples": 17652,
+        "n_samples": 17688,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -874,6 +892,15 @@
         "log_loss": 0.6565848620648664
       },
       "per_event": [
+        {
+          "event_id": 1118,
+          "name": "UFC 333: Volkanovski vs. Evloev",
+          "event_date": "2026-10-24",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
         {
           "event_id": 1117,
           "name": "UFC Fight Night: Buckley vs. Malott",
@@ -994,53 +1021,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-10-16T21:02:19.595854",
+        "trained_at": "2026-10-23T21:02:46.262684",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6072738386308069,
-          "logloss": 0.6549980432470355,
-          "brier": 0.2315635234117508,
-          "n": 3272,
+          "accuracy": 0.6100456621004566,
+          "logloss": 0.6551902386698761,
+          "brier": 0.23165497183799744,
+          "n": 3285,
           "per_year": {
             "2021": {
-              "accuracy": 0.5573770491803278,
-              "logloss": 0.6838643665811404,
-              "brier": 0.24512530863285065,
+              "accuracy": 0.5500910746812386,
+              "logloss": 0.6847343764948624,
+              "brier": 0.24559223651885986,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5949820788530465,
-              "logloss": 0.6588901078075516,
-              "brier": 0.23333007097244263,
+              "accuracy": 0.5985663082437276,
+              "logloss": 0.6592339594011835,
+              "brier": 0.23352819681167603,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5971223021582733,
-              "logloss": 0.658364119735127,
-              "brier": 0.23324663937091827,
+              "accuracy": 0.6061151079136691,
+              "logloss": 0.6582025337309049,
+              "brier": 0.23306076228618622,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6298932384341637,
-              "logloss": 0.6484019571530744,
-              "brier": 0.22857001423835754,
+              "accuracy": 0.6316725978647687,
+              "logloss": 0.6486382432459445,
+              "brier": 0.2286095917224884,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6394316163410302,
-              "logloss": 0.6383997094105774,
-              "brier": 0.22393490374088287,
+              "accuracy": 0.6518650088809946,
+              "logloss": 0.6374933097090137,
+              "brier": 0.22355778515338898,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6260330578512396,
-              "logloss": 0.6408677545531547,
-              "brier": 0.22456000745296478,
-              "n": 484
+              "accuracy": 0.6217303822937625,
+              "logloss": 0.6421009600889834,
+              "brier": 0.22519977390766144,
+              "n": 497
             }
           }
         },
@@ -1048,7 +1075,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17662,
+        "n_samples": 17688,
         "features": [
           "elo3_diff",
           "a_n_prior",
