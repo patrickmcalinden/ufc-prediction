@@ -147,11 +147,11 @@
         "name": "Alexander Volkov",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 40,
+        "record_wins": 41,
         "record_losses": 11,
         "record_draws": 0,
-        "current_elo_standard": 1643.62,
-        "current_elo_modified": 1687.1
+        "current_elo_standard": 1655.59,
+        "current_elo_modified": 1701.95
       },
       "fighter_b": {
         "fighter_id": 52,
@@ -462,11 +462,11 @@
         "name": "Grant Dawson",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 24,
+        "record_wins": 25,
         "record_losses": 3,
         "record_draws": 1,
-        "current_elo_standard": 1642.57,
-        "current_elo_modified": 1669.28
+        "current_elo_standard": 1655.57,
+        "current_elo_modified": 1687.3
       },
       "fighter_b": {
         "fighter_id": 64,

@@ -95,11 +95,11 @@
         "name": "Daniel Santos",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 14,
+        "record_wins": 15,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1533.46,
-        "current_elo_modified": 1537.47
+        "current_elo_standard": 1547.77,
+        "current_elo_modified": 1552.89
       },
       "predictions": [
         {
@@ -789,10 +789,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 9,
-        "record_losses": 4,
+        "record_losses": 5,
         "record_draws": 0,
-        "current_elo_standard": 1499.49,
-        "current_elo_modified": 1500.38
+        "current_elo_standard": 1485.82,
+        "current_elo_modified": 1482.44
       },
       "predictions": [
         {
