@@ -8,11 +8,11 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 196,
-        "correct": 115,
-        "wrong": 81,
-        "accuracy": 0.5867346938775511,
-        "log_loss": 0.6694313641355341
+        "graded": 210,
+        "correct": 122,
+        "wrong": 88,
+        "accuracy": 0.580952380952381,
+        "log_loss": 0.6687366422903654
       },
       "per_event": [
         {
@@ -20,9 +20,9 @@
           "name": "UFC 333: Volkanovski vs. Evloev",
           "event_date": "2026-10-24",
           "n_picks": 14,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 14
+          "n_correct": 7,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1117,
@@ -172,32 +172,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 86,
-          "actual_win_rate": 0.5232558139534884,
+          "n": 93,
+          "actual_win_rate": 0.5161290322580645,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 47,
-          "actual_win_rate": 0.574468085106383,
+          "n": 50,
+          "actual_win_rate": 0.56,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 30,
-          "actual_win_rate": 0.6,
+          "n": 31,
+          "actual_win_rate": 0.6129032258064516,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 15,
-          "actual_win_rate": 0.8666666666666667,
+          "n": 16,
+          "actual_win_rate": 0.8125,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 13,
-          "actual_win_rate": 0.6923076923076923,
+          "n": 15,
+          "actual_win_rate": 0.7333333333333333,
           "bucket_center": 0.725
         },
         {
@@ -341,6 +341,14 @@
           "n_correct_so_far": 115,
           "n_picks_so_far": 196,
           "accuracy_so_far": 0.5867346938775511
+        },
+        {
+          "event_id": 1118,
+          "event_date": "2026-10-24",
+          "event_name": "UFC 333: Volkanovski vs. Evloev",
+          "n_correct_so_far": 122,
+          "n_picks_so_far": 210,
+          "accuracy_so_far": 0.580952380952381
         }
       ],
       "meta": {
@@ -417,11 +425,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 196,
-        "correct": 106,
-        "wrong": 90,
-        "accuracy": 0.5408163265306123,
-        "log_loss": 0.7101332531167435
+        "graded": 210,
+        "correct": 116,
+        "wrong": 94,
+        "accuracy": 0.5523809523809524,
+        "log_loss": 0.7018627507516488
       },
       "per_event": [
         {
@@ -429,9 +437,9 @@
           "name": "UFC 333: Volkanovski vs. Evloev",
           "event_date": "2026-10-24",
           "n_picks": 14,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 14
+          "n_correct": 10,
+          "n_wrong": 4,
+          "n_pending": 0
         },
         {
           "event_id": 1117,
@@ -581,32 +589,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 57,
-          "actual_win_rate": 0.43859649122807015,
+          "n": 63,
+          "actual_win_rate": 0.4444444444444444,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 43,
-          "actual_win_rate": 0.5813953488372093,
+          "n": 44,
+          "actual_win_rate": 0.5909090909090909,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 27,
-          "actual_win_rate": 0.48148148148148145,
+          "n": 30,
+          "actual_win_rate": 0.5333333333333333,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 16,
-          "actual_win_rate": 0.6875,
+          "n": 19,
+          "actual_win_rate": 0.6842105263157895,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 18,
-          "actual_win_rate": 0.5,
+          "n": 19,
+          "actual_win_rate": 0.5263157894736842,
           "bucket_center": 0.725
         },
         {
@@ -762,6 +770,14 @@
           "n_correct_so_far": 106,
           "n_picks_so_far": 196,
           "accuracy_so_far": 0.5408163265306123
+        },
+        {
+          "event_id": 1118,
+          "event_date": "2026-10-24",
+          "event_name": "UFC 333: Volkanovski vs. Evloev",
+          "n_correct_so_far": 116,
+          "n_picks_so_far": 210,
+          "accuracy_so_far": 0.5523809523809524
         }
       ],
       "meta": {
@@ -885,11 +901,11 @@
     },
     "v3": {
       "totals": {
-        "graded": 50,
-        "correct": 29,
-        "wrong": 21,
-        "accuracy": 0.58,
-        "log_loss": 0.6565848620648664
+        "graded": 64,
+        "correct": 35,
+        "wrong": 29,
+        "accuracy": 0.546875,
+        "log_loss": 0.6768204984212844
       },
       "per_event": [
         {
@@ -897,9 +913,9 @@
           "name": "UFC 333: Volkanovski vs. Evloev",
           "event_date": "2026-10-24",
           "n_picks": 14,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 14
+          "n_correct": 6,
+          "n_wrong": 8,
+          "n_pending": 0
         },
         {
           "event_id": 1117,
@@ -941,32 +957,32 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 13,
-          "actual_win_rate": 0.5384615384615384,
+          "n": 17,
+          "actual_win_rate": 0.47058823529411764,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 12,
-          "actual_win_rate": 0.4166666666666667,
+          "n": 17,
+          "actual_win_rate": 0.4117647058823529,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 6,
+          "n": 8,
           "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 5,
+          "n": 6,
           "actual_win_rate": 1.0,
           "bucket_center": 0.675
         },
         {
           "bin": 4,
-          "n": 11,
-          "actual_win_rate": 0.5454545454545454,
+          "n": 12,
+          "actual_win_rate": 0.5833333333333334,
           "bucket_center": 0.725
         },
         {
@@ -977,8 +993,8 @@
         },
         {
           "bin": 6,
-          "n": 1,
-          "actual_win_rate": 1.0,
+          "n": 2,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.825
         }
       ],
@@ -1014,6 +1030,14 @@
           "n_correct_so_far": 29,
           "n_picks_so_far": 50,
           "accuracy_so_far": 0.58
+        },
+        {
+          "event_id": 1118,
+          "event_date": "2026-10-24",
+          "event_name": "UFC 333: Volkanovski vs. Evloev",
+          "n_correct_so_far": 35,
+          "n_picks_so_far": 64,
+          "accuracy_so_far": 0.546875
         }
       ],
       "meta": {
