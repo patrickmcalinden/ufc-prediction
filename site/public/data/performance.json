@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1123,
+          "name": "UFC Fight Night: Moicano vs. Nolan",
+          "event_date": "2026-10-31",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
+        {
           "event_id": 1118,
           "name": "UFC 333: Volkanovski vs. Evloev",
           "event_date": "2026-10-24",
@@ -356,53 +365,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-23T21:02:40.544486",
+        "trained_at": "2026-10-30T21:02:32.591248",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5534246575342465,
-          "logloss": 0.6819881516931876,
-          "brier": 0.2443615198135376,
-          "n": 3285,
+          "accuracy": 0.57138526826311,
+          "logloss": 0.680168214548591,
+          "brier": 0.24349386990070343,
+          "n": 3299,
           "per_year": {
             "2021": {
-              "accuracy": 0.5318761384335154,
-              "logloss": 0.6967746929079351,
-              "brier": 0.2512017488479614,
+              "accuracy": 0.5610200364298725,
+              "logloss": 0.6933688672500511,
+              "brier": 0.24938055872917175,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5555555555555556,
-              "logloss": 0.6785757290169193,
-              "brier": 0.24250967800617218,
+              "accuracy": 0.5824372759856631,
+              "logloss": 0.6773369461430134,
+              "brier": 0.2419741004705429,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.564748201438849,
-              "logloss": 0.6886184536770571,
-              "brier": 0.24719473719596863,
+              "accuracy": 0.5665467625899281,
+              "logloss": 0.6874789877542711,
+              "brier": 0.24675114452838898,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5498220640569395,
-              "logloss": 0.6743794051857823,
-              "brier": 0.2408926784992218,
+              "accuracy": 0.5818505338078291,
+              "logloss": 0.6733522865187579,
+              "brier": 0.24038630723953247,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5719360568383659,
-              "logloss": 0.673639740041703,
-              "brier": 0.24068671464920044,
+              "accuracy": 0.5843694493783304,
+              "logloss": 0.6719275856297079,
+              "brier": 0.23992149531841278,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.545271629778672,
-              "logloss": 0.6801292867442489,
-              "brier": 0.24380049109458923,
-              "n": 497
+              "accuracy": 0.5499021526418787,
+              "logloss": 0.6776984007891976,
+              "brier": 0.24263842403888702,
+              "n": 511
             }
           }
         },
@@ -410,7 +419,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17688,
+        "n_samples": 17716,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -432,6 +441,15 @@
         "log_loss": 0.7018627507516488
       },
       "per_event": [
+        {
+          "event_id": 1123,
+          "name": "UFC Fight Night: Moicano vs. Nolan",
+          "event_date": "2026-10-31",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1118,
           "name": "UFC 333: Volkanovski vs. Evloev",
@@ -785,60 +803,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-23T21:02:42.482874",
+        "trained_at": "2026-10-30T21:02:34.739737",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5963470319634703,
-          "logloss": 0.6641432226487658,
-          "brier": 0.23581025004386902,
-          "n": 3285,
+          "accuracy": 0.5959381630797211,
+          "logloss": 0.663070093626048,
+          "brier": 0.23523777723312378,
+          "n": 3299,
           "per_year": {
             "2021": {
-              "accuracy": 0.6229508196721312,
-              "logloss": 0.6500937902826174,
-              "brier": 0.2287365347146988,
+              "accuracy": 0.6174863387978142,
+              "logloss": 0.6523406971629084,
+              "brier": 0.22987574338912964,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6164874551971327,
-              "logloss": 0.6427252731054965,
-              "brier": 0.2259179651737213,
+              "accuracy": 0.6344086021505376,
+              "logloss": 0.6449816105873153,
+              "brier": 0.2268258035182953,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5845323741007195,
-              "logloss": 0.6872797346130463,
-              "brier": 0.2465616911649704,
+              "accuracy": 0.5665467625899281,
+              "logloss": 0.6824018987558538,
+              "brier": 0.24425898492336273,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6138790035587188,
-              "logloss": 0.6560566793684793,
-              "brier": 0.2321658432483673,
+              "accuracy": 0.604982206405694,
+              "logloss": 0.6534583954678925,
+              "brier": 0.2310057431459427,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5754884547069272,
-              "logloss": 0.6677738691709356,
-              "brier": 0.2373785674571991,
+              "accuracy": 0.5843694493783304,
+              "logloss": 0.6675738912174021,
+              "brier": 0.23698534071445465,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5613682092555332,
-              "logloss": 0.6828575825955654,
-              "brier": 0.2450471669435501,
-              "n": 497
+              "accuracy": 0.5655577299412916,
+              "logloss": 0.6789242323005212,
+              "brier": 0.24309757351875305,
+              "n": 511
             }
           },
           "clean_subset": {
-            "accuracy": 0.5683206106870229,
-            "logloss": 0.6783463800085063,
-            "brier": 0.24264079332351685,
-            "n": 2620
+            "accuracy": 0.5674135966578048,
+            "logloss": 0.6770626652512952,
+            "brier": 0.24200043082237244,
+            "n": 2633
           }
         },
         "leak_check": {
@@ -846,32 +864,32 @@
           "flagged": [
             {
               "feature": "str_acc",
-              "n": 2847,
+              "n": 2848,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_vol",
-              "n": 2847,
+              "n": 2848,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "td_acc",
-              "n": 2847,
+              "n": 2848,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "grap_agg",
-              "n": 2847,
+              "n": 2848,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_def",
-              "n": 2847,
+              "n": 2848,
               "present_side_win_rate": 0.693
             }
           ]
         },
-        "n_samples": 17688,
+        "n_samples": 17716,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -908,6 +926,15 @@
         "log_loss": 0.6768204984212844
       },
       "per_event": [
+        {
+          "event_id": 1123,
+          "name": "UFC Fight Night: Moicano vs. Nolan",
+          "event_date": "2026-10-31",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1118,
           "name": "UFC 333: Volkanovski vs. Evloev",
@@ -1045,53 +1072,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-10-23T21:02:46.262684",
+        "trained_at": "2026-10-30T21:02:38.698214",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6100456621004566,
-          "logloss": 0.6551902386698761,
-          "brier": 0.23165497183799744,
-          "n": 3285,
+          "accuracy": 0.6044255835101546,
+          "logloss": 0.6559451774954016,
+          "brier": 0.23200449347496033,
+          "n": 3299,
           "per_year": {
             "2021": {
-              "accuracy": 0.5500910746812386,
-              "logloss": 0.6847343764948624,
-              "brier": 0.24559223651885986,
+              "accuracy": 0.5391621129326047,
+              "logloss": 0.6844697383324693,
+              "brier": 0.24551600217819214,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5985663082437276,
-              "logloss": 0.6592339594011835,
-              "brier": 0.23352819681167603,
+              "accuracy": 0.6057347670250897,
+              "logloss": 0.6564851045801587,
+              "brier": 0.23218019306659698,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.6061151079136691,
-              "logloss": 0.6582025337309049,
-              "brier": 0.23306076228618622,
+              "accuracy": 0.5935251798561151,
+              "logloss": 0.6606389986912024,
+              "brier": 0.2343369424343109,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6316725978647687,
-              "logloss": 0.6486382432459445,
-              "brier": 0.2286095917224884,
+              "accuracy": 0.6156583629893239,
+              "logloss": 0.6484636147049295,
+              "brier": 0.2286030501127243,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6518650088809946,
-              "logloss": 0.6374933097090137,
-              "brier": 0.22355778515338898,
+              "accuracy": 0.6429840142095915,
+              "logloss": 0.6399839938729802,
+              "brier": 0.22466512024402618,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6217303822937625,
-              "logloss": 0.6421009600889834,
-              "brier": 0.22519977390766144,
-              "n": 497
+              "accuracy": 0.6301369863013698,
+              "logloss": 0.6454163259689014,
+              "brier": 0.22658558189868927,
+              "n": 511
             }
           }
         },
@@ -1099,7 +1126,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17688,
+        "n_samples": 17716,
         "features": [
           "elo3_diff",
           "a_n_prior",
