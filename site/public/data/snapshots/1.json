@@ -599,11 +599,11 @@
         "name": "Cody Durden",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 18,
+        "record_wins": 19,
         "record_losses": 11,
         "record_draws": 1,
-        "current_elo_standard": 1470.98,
-        "current_elo_modified": 1463.94
+        "current_elo_standard": 1486.69,
+        "current_elo_modified": 1479.66
       },
       "predictions": [
         {
@@ -652,10 +652,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 10,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1527.3,
-        "current_elo_modified": 1525.23
+        "current_elo_standard": 1509.28,
+        "current_elo_modified": 1506.21
       },
       "fighter_b": {
         "fighter_id": 18621,
@@ -778,10 +778,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 8,
-        "record_losses": 1,
+        "record_losses": 2,
         "record_draws": 1,
-        "current_elo_standard": 1546.22,
-        "current_elo_modified": 1553.13
+        "current_elo_standard": 1530.79,
+        "current_elo_modified": 1531.99
       },
       "fighter_b": {
         "fighter_id": 22,
