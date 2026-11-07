@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1124,
+    "espn_event_id": "600061268",
+    "name": "UFC Fight Night: Cortes Acosta vs. Walker",
+    "location": "Meta APEX, Las Vegas, NV",
+    "event_date": "2026-11-07",
+    "deployed_at": "2026-11-07T02:02:40.249812+00:00"
+  },
+  {
     "event_id": 1123,
     "espn_event_id": "600061420",
     "name": "UFC Fight Night: Moicano vs. Nolan",
