@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1124,
+          "name": "UFC Fight Night: Cortes Acosta vs. Walker",
+          "event_date": "2026-11-07",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
+        {
           "event_id": 1123,
           "name": "UFC Fight Night: Moicano vs. Nolan",
           "event_date": "2026-10-31",
@@ -373,53 +382,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-30T21:02:32.591248",
+        "trained_at": "2026-11-06T21:02:34.679365",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.57138526826311,
-          "logloss": 0.680168214548591,
-          "brier": 0.24349386990070343,
-          "n": 3299,
+          "accuracy": 0.5696164300815464,
+          "logloss": 0.6807388737219263,
+          "brier": 0.2437647581100464,
+          "n": 3311,
           "per_year": {
             "2021": {
-              "accuracy": 0.5610200364298725,
-              "logloss": 0.6933688672500511,
-              "brier": 0.24938055872917175,
+              "accuracy": 0.5573770491803278,
+              "logloss": 0.6942514769215229,
+              "brier": 0.24971477687358856,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5824372759856631,
-              "logloss": 0.6773369461430134,
-              "brier": 0.2419741004705429,
+              "accuracy": 0.5734767025089605,
+              "logloss": 0.6781222358076999,
+              "brier": 0.24233010411262512,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5665467625899281,
-              "logloss": 0.6874789877542711,
-              "brier": 0.24675114452838898,
+              "accuracy": 0.5737410071942446,
+              "logloss": 0.6887330913910138,
+              "brier": 0.24738803505897522,
               "n": 556
             },
             "2024": {
               "accuracy": 0.5818505338078291,
-              "logloss": 0.6733522865187579,
-              "brier": 0.24038630723953247,
+              "logloss": 0.6714264644951968,
+              "brier": 0.23947414755821228,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5843694493783304,
-              "logloss": 0.6719275856297079,
-              "brier": 0.23992149531841278,
+              "accuracy": 0.5630550621669627,
+              "logloss": 0.6761296278070429,
+              "brier": 0.2419595718383789,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5499021526418787,
-              "logloss": 0.6776984007891976,
-              "brier": 0.24263842403888702,
-              "n": 511
+              "accuracy": 0.5678776290630975,
+              "logloss": 0.6758162335900884,
+              "brier": 0.24175159633159637,
+              "n": 523
             }
           }
         },
@@ -427,7 +436,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17716,
+        "n_samples": 17740,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -449,6 +458,15 @@
         "log_loss": 0.7021286819079006
       },
       "per_event": [
+        {
+          "event_id": 1124,
+          "name": "UFC Fight Night: Cortes Acosta vs. Walker",
+          "event_date": "2026-11-07",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
         {
           "event_id": 1123,
           "name": "UFC Fight Night: Moicano vs. Nolan",
@@ -819,60 +837,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-10-30T21:02:34.739737",
+        "trained_at": "2026-11-06T21:02:36.476283",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5959381630797211,
-          "logloss": 0.663070093626048,
-          "brier": 0.23523777723312378,
-          "n": 3299,
+          "accuracy": 0.6031410450015101,
+          "logloss": 0.6630125267818301,
+          "brier": 0.23519697785377502,
+          "n": 3311,
           "per_year": {
             "2021": {
-              "accuracy": 0.6174863387978142,
-              "logloss": 0.6523406971629084,
-              "brier": 0.22987574338912964,
+              "accuracy": 0.6284153005464481,
+              "logloss": 0.6494830882957026,
+              "brier": 0.22863224148750305,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6344086021505376,
-              "logloss": 0.6449816105873153,
-              "brier": 0.2268258035182953,
+              "accuracy": 0.6362007168458781,
+              "logloss": 0.6444079603715903,
+              "brier": 0.2265377789735794,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5665467625899281,
-              "logloss": 0.6824018987558538,
-              "brier": 0.24425898492336273,
+              "accuracy": 0.5755395683453237,
+              "logloss": 0.6820304988096042,
+              "brier": 0.24401918053627014,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.604982206405694,
-              "logloss": 0.6534583954678925,
-              "brier": 0.2310057431459427,
+              "accuracy": 0.6120996441281139,
+              "logloss": 0.6550767599011206,
+              "brier": 0.231742724776268,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5843694493783304,
-              "logloss": 0.6675738912174021,
-              "brier": 0.23698534071445465,
+              "accuracy": 0.6021314387211367,
+              "logloss": 0.6682958605945618,
+              "brier": 0.2373378872871399,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5655577299412916,
-              "logloss": 0.6789242323005212,
-              "brier": 0.24309757351875305,
-              "n": 511
+              "accuracy": 0.5621414913957935,
+              "logloss": 0.6796863344084965,
+              "brier": 0.2433549463748932,
+              "n": 523
             }
           },
           "clean_subset": {
-            "accuracy": 0.5674135966578048,
-            "logloss": 0.6770626652512952,
-            "brier": 0.24200043082237244,
-            "n": 2633
+            "accuracy": 0.5775340393343419,
+            "logloss": 0.67678058344238,
+            "brier": 0.24184197187423706,
+            "n": 2644
           }
         },
         "leak_check": {
@@ -880,32 +898,32 @@
           "flagged": [
             {
               "feature": "str_acc",
-              "n": 2848,
+              "n": 2849,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_vol",
-              "n": 2848,
+              "n": 2849,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "td_acc",
-              "n": 2848,
+              "n": 2849,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "grap_agg",
-              "n": 2848,
+              "n": 2849,
               "present_side_win_rate": 0.693
             },
             {
               "feature": "str_def",
-              "n": 2848,
+              "n": 2849,
               "present_side_win_rate": 0.693
             }
           ]
         },
-        "n_samples": 17716,
+        "n_samples": 17740,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -942,6 +960,15 @@
         "log_loss": 0.6619862003985086
       },
       "per_event": [
+        {
+          "event_id": 1124,
+          "name": "UFC Fight Night: Cortes Acosta vs. Walker",
+          "event_date": "2026-11-07",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
         {
           "event_id": 1123,
           "name": "UFC Fight Night: Moicano vs. Nolan",
@@ -1096,53 +1123,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-10-30T21:02:38.698214",
+        "trained_at": "2026-11-06T21:02:40.215694",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6044255835101546,
-          "logloss": 0.6559451774954016,
-          "brier": 0.23200449347496033,
-          "n": 3299,
+          "accuracy": 0.6046511627906976,
+          "logloss": 0.6557749607726986,
+          "brier": 0.23191966116428375,
+          "n": 3311,
           "per_year": {
             "2021": {
               "accuracy": 0.5391621129326047,
-              "logloss": 0.6844697383324693,
-              "brier": 0.24551600217819214,
+              "logloss": 0.6845245673434961,
+              "brier": 0.24549245834350586,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6057347670250897,
-              "logloss": 0.6564851045801587,
-              "brier": 0.23218019306659698,
+              "accuracy": 0.5949820788530465,
+              "logloss": 0.6584664278161981,
+              "brier": 0.23316903412342072,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5935251798561151,
-              "logloss": 0.6606389986912024,
-              "brier": 0.2343369424343109,
+              "accuracy": 0.5971223021582733,
+              "logloss": 0.6588392638754881,
+              "brier": 0.2334648221731186,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6156583629893239,
-              "logloss": 0.6484636147049295,
-              "brier": 0.2286030501127243,
+              "accuracy": 0.6227758007117438,
+              "logloss": 0.6488053347124327,
+              "brier": 0.228761687874794,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6429840142095915,
-              "logloss": 0.6399839938729802,
-              "brier": 0.22466512024402618,
+              "accuracy": 0.6536412078152753,
+              "logloss": 0.6385330910198262,
+              "brier": 0.22397413849830627,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6301369863013698,
-              "logloss": 0.6454163259689014,
-              "brier": 0.22658558189868927,
-              "n": 511
+              "accuracy": 0.6195028680688337,
+              "logloss": 0.6455167913156149,
+              "brier": 0.22664305567741394,
+              "n": 523
             }
           }
         },
@@ -1150,7 +1177,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17716,
+        "n_samples": 17740,
         "features": [
           "elo3_diff",
           "a_n_prior",
