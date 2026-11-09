@@ -8,11 +8,11 @@
   "by_model": {
     "v1": {
       "totals": {
-        "graded": 222,
-        "correct": 128,
-        "wrong": 94,
-        "accuracy": 0.5765765765765766,
-        "log_loss": 0.6695360140185204
+        "graded": 236,
+        "correct": 134,
+        "wrong": 102,
+        "accuracy": 0.5677966101694916,
+        "log_loss": 0.6755718177222946
       },
       "per_event": [
         {
@@ -20,9 +20,9 @@
           "name": "UFC Fight Night: Cortes Acosta vs. Walker",
           "event_date": "2026-11-07",
           "n_picks": 14,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 14
+          "n_correct": 6,
+          "n_wrong": 8,
+          "n_pending": 0
         },
         {
           "event_id": 1123,
@@ -190,20 +190,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 98,
-          "actual_win_rate": 0.5102040816326531,
+          "n": 101,
+          "actual_win_rate": 0.504950495049505,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 53,
-          "actual_win_rate": 0.5660377358490566,
+          "n": 59,
+          "actual_win_rate": 0.576271186440678,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 34,
-          "actual_win_rate": 0.5882352941176471,
+          "n": 38,
+          "actual_win_rate": 0.5526315789473685,
           "bucket_center": 0.625
         },
         {
@@ -214,8 +214,8 @@
         },
         {
           "bin": 4,
-          "n": 15,
-          "actual_win_rate": 0.7333333333333333,
+          "n": 16,
+          "actual_win_rate": 0.6875,
           "bucket_center": 0.725
         },
         {
@@ -375,6 +375,14 @@
           "n_correct_so_far": 128,
           "n_picks_so_far": 222,
           "accuracy_so_far": 0.5765765765765766
+        },
+        {
+          "event_id": 1124,
+          "event_date": "2026-11-07",
+          "event_name": "UFC Fight Night: Cortes Acosta vs. Walker",
+          "n_correct_so_far": 134,
+          "n_picks_so_far": 236,
+          "accuracy_so_far": 0.5677966101694916
         }
       ],
       "meta": {
@@ -451,11 +459,11 @@
     },
     "v2": {
       "totals": {
-        "graded": 222,
-        "correct": 123,
-        "wrong": 99,
-        "accuracy": 0.5540540540540541,
-        "log_loss": 0.7021286819079006
+        "graded": 236,
+        "correct": 130,
+        "wrong": 106,
+        "accuracy": 0.5508474576271186,
+        "log_loss": 0.7036562426226247
       },
       "per_event": [
         {
@@ -463,9 +471,9 @@
           "name": "UFC Fight Night: Cortes Acosta vs. Walker",
           "event_date": "2026-11-07",
           "n_picks": 14,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 14
+          "n_correct": 7,
+          "n_wrong": 7,
+          "n_pending": 0
         },
         {
           "event_id": 1123,
@@ -633,26 +641,26 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 69,
-          "actual_win_rate": 0.463768115942029,
+          "n": 71,
+          "actual_win_rate": 0.4647887323943662,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 48,
-          "actual_win_rate": 0.5833333333333334,
+          "n": 55,
+          "actual_win_rate": 0.5818181818181818,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 32,
-          "actual_win_rate": 0.53125,
+          "n": 34,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
           "bin": 3,
-          "n": 19,
-          "actual_win_rate": 0.6842105263157895,
+          "n": 22,
+          "actual_win_rate": 0.6818181818181818,
           "bucket_center": 0.675
         },
         {
@@ -830,6 +838,14 @@
           "n_correct_so_far": 123,
           "n_picks_so_far": 222,
           "accuracy_so_far": 0.5540540540540541
+        },
+        {
+          "event_id": 1124,
+          "event_date": "2026-11-07",
+          "event_name": "UFC Fight Night: Cortes Acosta vs. Walker",
+          "n_correct_so_far": 130,
+          "n_picks_so_far": 236,
+          "accuracy_so_far": 0.5508474576271186
         }
       ],
       "meta": {
@@ -953,11 +969,11 @@
     },
     "v3": {
       "totals": {
-        "graded": 76,
-        "correct": 43,
-        "wrong": 33,
-        "accuracy": 0.5657894736842105,
-        "log_loss": 0.6619862003985086
+        "graded": 90,
+        "correct": 52,
+        "wrong": 38,
+        "accuracy": 0.5777777777777777,
+        "log_loss": 0.6573438334295196
       },
       "per_event": [
         {
@@ -965,9 +981,9 @@
           "name": "UFC Fight Night: Cortes Acosta vs. Walker",
           "event_date": "2026-11-07",
           "n_picks": 14,
-          "n_correct": 0,
-          "n_wrong": 0,
-          "n_pending": 14
+          "n_correct": 9,
+          "n_wrong": 5,
+          "n_pending": 0
         },
         {
           "event_id": 1123,
@@ -1027,20 +1043,20 @@
       "calibration": [
         {
           "bin": 0,
-          "n": 17,
-          "actual_win_rate": 0.47058823529411764,
+          "n": 20,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.525
         },
         {
           "bin": 1,
-          "n": 22,
-          "actual_win_rate": 0.4090909090909091,
+          "n": 25,
+          "actual_win_rate": 0.44,
           "bucket_center": 0.575
         },
         {
           "bin": 2,
-          "n": 11,
-          "actual_win_rate": 0.5454545454545454,
+          "n": 14,
+          "actual_win_rate": 0.5,
           "bucket_center": 0.625
         },
         {
@@ -1051,20 +1067,20 @@
         },
         {
           "bin": 4,
-          "n": 12,
-          "actual_win_rate": 0.5833333333333334,
+          "n": 14,
+          "actual_win_rate": 0.6428571428571429,
           "bucket_center": 0.725
         },
         {
           "bin": 5,
-          "n": 3,
-          "actual_win_rate": 1.0,
+          "n": 5,
+          "actual_win_rate": 0.8,
           "bucket_center": 0.775
         },
         {
           "bin": 6,
-          "n": 2,
-          "actual_win_rate": 0.5,
+          "n": 3,
+          "actual_win_rate": 0.6666666666666666,
           "bucket_center": 0.825
         }
       ],
@@ -1116,6 +1132,14 @@
           "n_correct_so_far": 43,
           "n_picks_so_far": 76,
           "accuracy_so_far": 0.5657894736842105
+        },
+        {
+          "event_id": 1124,
+          "event_date": "2026-11-07",
+          "event_name": "UFC Fight Night: Cortes Acosta vs. Walker",
+          "n_correct_so_far": 52,
+          "n_picks_so_far": 90,
+          "accuracy_so_far": 0.5777777777777777
         }
       ],
       "meta": {

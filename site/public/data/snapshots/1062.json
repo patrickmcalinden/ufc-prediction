@@ -714,11 +714,11 @@
         "name": "Nina Milošević",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 9,
+        "record_wins": 10,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": 1514.53,
-        "current_elo_modified": 1514.22
+        "current_elo_standard": 1527.58,
+        "current_elo_modified": 1525.41
       },
       "fighter_b": {
         "fighter_id": 13576,

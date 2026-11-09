@@ -362,7 +362,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-11-02T02:03:12.149472+00:00"
+          "graded_at": "2026-11-09T02:03:18.338564+00:00"
         },
         {
           "prediction_id": 2681,
@@ -372,7 +372,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-11-02T02:03:12.149472+00:00"
+          "graded_at": "2026-11-09T02:03:18.338564+00:00"
         }
       ],
       "prediction": {
@@ -383,7 +383,7 @@
         "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": "2026-11-02T02:03:12.149472+00:00"
+        "graded_at": "2026-11-09T02:03:18.338564+00:00"
       }
     },
     {
@@ -473,11 +473,11 @@
         "name": "José Souza",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 9,
+        "record_wins": 10,
         "record_losses": 1,
         "record_draws": 0,
-        "current_elo_standard": 1500.0,
-        "current_elo_modified": 1498.92
+        "current_elo_standard": 1517.47,
+        "current_elo_modified": 1521.2
       },
       "predictions": [
         {
