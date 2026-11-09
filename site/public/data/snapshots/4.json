@@ -599,11 +599,11 @@
         "name": "Andre Petroski",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 13,
-        "record_losses": 7,
+        "record_wins": 14,
+        "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1516.6,
-        "current_elo_modified": 1518.53
+        "current_elo_standard": 1533.18,
+        "current_elo_modified": 1538.98
       },
       "predictions": [
         {
