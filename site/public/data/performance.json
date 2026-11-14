@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1129,
+          "name": "UFC 334: Gane vs. Hokit",
+          "event_date": "2026-11-14",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
+        {
           "event_id": 1124,
           "name": "UFC Fight Night: Cortes Acosta vs. Walker",
           "event_date": "2026-11-07",
@@ -390,53 +399,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-11-06T21:02:34.679365",
+        "trained_at": "2026-11-13T21:02:29.262171",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5696164300815464,
-          "logloss": 0.6807388737219263,
-          "brier": 0.2437647581100464,
-          "n": 3311,
+          "accuracy": 0.5639097744360902,
+          "logloss": 0.6800203220349946,
+          "brier": 0.24343794584274292,
+          "n": 3325,
           "per_year": {
             "2021": {
               "accuracy": 0.5573770491803278,
-              "logloss": 0.6942514769215229,
-              "brier": 0.24971477687358856,
+              "logloss": 0.6922390904910957,
+              "brier": 0.24885247647762299,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5734767025089605,
-              "logloss": 0.6781222358076999,
-              "brier": 0.24233010411262512,
+              "accuracy": 0.5663082437275986,
+              "logloss": 0.6770532072304403,
+              "brier": 0.2417834997177124,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5737410071942446,
-              "logloss": 0.6887330913910138,
-              "brier": 0.24738803505897522,
+              "accuracy": 0.5665467625899281,
+              "logloss": 0.6848734724628173,
+              "brier": 0.2455853819847107,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5818505338078291,
-              "logloss": 0.6714264644951968,
-              "brier": 0.23947414755821228,
+              "accuracy": 0.5711743772241993,
+              "logloss": 0.6729593287892164,
+              "brier": 0.24027575552463531,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5630550621669627,
-              "logloss": 0.6761296278070429,
-              "brier": 0.2419595718383789,
+              "accuracy": 0.5737122557726465,
+              "logloss": 0.6736476380859944,
+              "brier": 0.2407267689704895,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5678776290630975,
-              "logloss": 0.6758162335900884,
-              "brier": 0.24175159633159637,
-              "n": 523
+              "accuracy": 0.547486033519553,
+              "logloss": 0.6796577406720281,
+              "brier": 0.24355001747608185,
+              "n": 537
             }
           }
         },
@@ -444,7 +453,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17740,
+        "n_samples": 17768,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -466,6 +475,15 @@
         "log_loss": 0.7036562426226247
       },
       "per_event": [
+        {
+          "event_id": 1129,
+          "name": "UFC 334: Gane vs. Hokit",
+          "event_date": "2026-11-14",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
         {
           "event_id": 1124,
           "name": "UFC Fight Night: Cortes Acosta vs. Walker",
@@ -853,60 +871,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-11-06T21:02:36.476283",
+        "trained_at": "2026-11-13T21:02:36.045964",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6031410450015101,
-          "logloss": 0.6630125267818301,
-          "brier": 0.23519697785377502,
-          "n": 3311,
+          "accuracy": 0.5957894736842105,
+          "logloss": 0.663028751836337,
+          "brier": 0.2352948784828186,
+          "n": 3325,
           "per_year": {
             "2021": {
-              "accuracy": 0.6284153005464481,
-              "logloss": 0.6494830882957026,
-              "brier": 0.22863224148750305,
+              "accuracy": 0.6138433515482696,
+              "logloss": 0.6514996580779057,
+              "brier": 0.22961270809173584,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6362007168458781,
-              "logloss": 0.6444079603715903,
-              "brier": 0.2265377789735794,
+              "accuracy": 0.6344086021505376,
+              "logloss": 0.6458465791551522,
+              "brier": 0.227322518825531,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5755395683453237,
-              "logloss": 0.6820304988096042,
-              "brier": 0.24401918053627014,
+              "accuracy": 0.5701438848920863,
+              "logloss": 0.679810040900862,
+              "brier": 0.24309106171131134,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6120996441281139,
-              "logloss": 0.6550767599011206,
-              "brier": 0.231742724776268,
+              "accuracy": 0.6014234875444839,
+              "logloss": 0.6548122480544956,
+              "brier": 0.23160457611083984,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6021314387211367,
-              "logloss": 0.6682958605945618,
-              "brier": 0.2373378872871399,
+              "accuracy": 0.5932504440497336,
+              "logloss": 0.6654524006307893,
+              "brier": 0.23624524474143982,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5621414913957935,
-              "logloss": 0.6796863344084965,
-              "brier": 0.2433549463748932,
-              "n": 523
+              "accuracy": 0.5605214152700186,
+              "logloss": 0.6813525674112392,
+              "brier": 0.2441817671060562,
+              "n": 537
             }
           },
           "clean_subset": {
-            "accuracy": 0.5775340393343419,
-            "logloss": 0.67678058344238,
-            "brier": 0.24184197187423706,
-            "n": 2644
+            "accuracy": 0.5684725357411587,
+            "logloss": 0.6775558764944015,
+            "brier": 0.24221563339233398,
+            "n": 2658
           }
         },
         "leak_check": {
@@ -939,7 +957,7 @@
             }
           ]
         },
-        "n_samples": 17740,
+        "n_samples": 17768,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -976,6 +994,15 @@
         "log_loss": 0.6573438334295196
       },
       "per_event": [
+        {
+          "event_id": 1129,
+          "name": "UFC 334: Gane vs. Hokit",
+          "event_date": "2026-11-14",
+          "n_picks": 13,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 13
+        },
         {
           "event_id": 1124,
           "name": "UFC Fight Night: Cortes Acosta vs. Walker",
@@ -1147,53 +1174,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-11-06T21:02:40.215694",
+        "trained_at": "2026-11-13T21:02:44.154680",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6046511627906976,
-          "logloss": 0.6557749607726986,
-          "brier": 0.23191966116428375,
-          "n": 3311,
+          "accuracy": 0.6099248120300752,
+          "logloss": 0.6550808223190817,
+          "brier": 0.23158401250839233,
+          "n": 3325,
           "per_year": {
             "2021": {
-              "accuracy": 0.5391621129326047,
-              "logloss": 0.6845245673434961,
-              "brier": 0.24549245834350586,
+              "accuracy": 0.546448087431694,
+              "logloss": 0.6824371301769927,
+              "brier": 0.2444656491279602,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5949820788530465,
-              "logloss": 0.6584664278161981,
-              "brier": 0.23316903412342072,
+              "accuracy": 0.6093189964157706,
+              "logloss": 0.6572033141589759,
+              "brier": 0.23255547881126404,
               "n": 558
             },
             "2023": {
               "accuracy": 0.5971223021582733,
-              "logloss": 0.6588392638754881,
-              "brier": 0.2334648221731186,
+              "logloss": 0.6590040411703082,
+              "brier": 0.2335038185119629,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6227758007117438,
-              "logloss": 0.6488053347124327,
-              "brier": 0.228761687874794,
+              "accuracy": 0.6316725978647687,
+              "logloss": 0.649686128277602,
+              "brier": 0.22916415333747864,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.6536412078152753,
-              "logloss": 0.6385330910198262,
-              "brier": 0.22397413849830627,
+              "accuracy": 0.655417406749556,
+              "logloss": 0.6384345039713252,
+              "brier": 0.22387903928756714,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6195028680688337,
-              "logloss": 0.6455167913156149,
-              "brier": 0.22664305567741394,
-              "n": 523
+              "accuracy": 0.6182495344506518,
+              "logloss": 0.6439438058184539,
+              "brier": 0.22602775692939758,
+              "n": 537
             }
           }
         },
@@ -1201,7 +1228,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17740,
+        "n_samples": 17768,
         "features": [
           "elo3_diff",
           "a_n_prior",

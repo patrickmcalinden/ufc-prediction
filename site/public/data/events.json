@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1129,
+    "espn_event_id": "600061400",
+    "name": "UFC 334: Gane vs. Hokit",
+    "location": "Madison Square Garden, New York, NY",
+    "event_date": "2026-11-14",
+    "deployed_at": "2026-11-14T02:02:44.194481+00:00"
+  },
+  {
     "event_id": 1124,
     "espn_event_id": "600061268",
     "name": "UFC Fight Night: Cortes Acosta vs. Walker",
