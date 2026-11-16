@@ -362,7 +362,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-11-09T02:03:18.338564+00:00"
+          "graded_at": "2026-11-16T02:03:35.845154+00:00"
         },
         {
           "prediction_id": 2681,
@@ -372,7 +372,7 @@
           "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
           "was_correct": null,
           "actual_winner_id": null,
-          "graded_at": "2026-11-09T02:03:18.338564+00:00"
+          "graded_at": "2026-11-16T02:03:35.845154+00:00"
         }
       ],
       "prediction": {
@@ -383,7 +383,7 @@
         "snapshot_at": "2026-05-24T04:28:28.933050+00:00",
         "was_correct": null,
         "actual_winner_id": null,
-        "graded_at": "2026-11-09T02:03:18.338564+00:00"
+        "graded_at": "2026-11-16T02:03:35.845154+00:00"
       }
     },
     {
@@ -599,11 +599,11 @@
         "name": "Luis Gurule",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1470.74,
-        "current_elo_modified": 1465.1
+        "current_elo_standard": 1489.5,
+        "current_elo_modified": 1489.2
       },
       "predictions": [
         {
