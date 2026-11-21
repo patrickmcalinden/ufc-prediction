@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1134,
+    "espn_event_id": "600061665",
+    "name": "UFC Fight Night: Procházka vs. Stirling",
+    "location": "ABHA Arena, Doha, Qatar",
+    "event_date": "2026-11-21",
+    "deployed_at": "2026-11-21T02:02:09.963600+00:00"
+  },
+  {
     "event_id": 1129,
     "espn_event_id": "600061400",
     "name": "UFC 334: Gane vs. Hokit",
