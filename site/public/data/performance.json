@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1134,
+          "name": "UFC Fight Night: Procházka vs. Stirling",
+          "event_date": "2026-11-21",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
+        {
           "event_id": 1129,
           "name": "UFC 334: Gane vs. Hokit",
           "event_date": "2026-11-14",
@@ -407,53 +416,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-11-13T21:02:29.262171",
+        "trained_at": "2026-11-20T21:02:04.508453",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5639097744360902,
-          "logloss": 0.6800203220349946,
-          "brier": 0.24343794584274292,
-          "n": 3325,
+          "accuracy": 0.5603835780641294,
+          "logloss": 0.6805570915864733,
+          "brier": 0.24367420375347137,
+          "n": 3337,
           "per_year": {
             "2021": {
-              "accuracy": 0.5573770491803278,
-              "logloss": 0.6922390904910957,
-              "brier": 0.24885247647762299,
+              "accuracy": 0.5646630236794171,
+              "logloss": 0.6918356092764754,
+              "brier": 0.24866372346878052,
               "n": 549
             },
             "2022": {
               "accuracy": 0.5663082437275986,
-              "logloss": 0.6770532072304403,
-              "brier": 0.2417834997177124,
+              "logloss": 0.6746957386846016,
+              "brier": 0.24058915674686432,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5665467625899281,
-              "logloss": 0.6848734724628173,
-              "brier": 0.2455853819847107,
+              "accuracy": 0.5773381294964028,
+              "logloss": 0.6855212148068255,
+              "brier": 0.24587184190750122,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5711743772241993,
-              "logloss": 0.6729593287892164,
-              "brier": 0.24027575552463531,
+              "accuracy": 0.5391459074733096,
+              "logloss": 0.6752970339126105,
+              "brier": 0.24141168594360352,
               "n": 562
             },
             "2025": {
               "accuracy": 0.5737122557726465,
-              "logloss": 0.6736476380859944,
-              "brier": 0.2407267689704895,
+              "logloss": 0.674163045411203,
+              "brier": 0.24097464978694916,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.547486033519553,
-              "logloss": 0.6796577406720281,
-              "brier": 0.24355001747608185,
-              "n": 537
+              "accuracy": 0.5409836065573771,
+              "logloss": 0.682150309448596,
+              "brier": 0.24467912316322327,
+              "n": 549
             }
           }
         },
@@ -461,7 +470,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17768,
+        "n_samples": 17792,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -483,6 +492,15 @@
         "log_loss": 0.7047311853864772
       },
       "per_event": [
+        {
+          "event_id": 1134,
+          "name": "UFC Fight Night: Procházka vs. Stirling",
+          "event_date": "2026-11-21",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1129,
           "name": "UFC 334: Gane vs. Hokit",
@@ -887,60 +905,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-11-13T21:02:36.045964",
+        "trained_at": "2026-11-20T21:02:06.381078",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5957894736842105,
-          "logloss": 0.663028751836337,
-          "brier": 0.2352948784828186,
-          "n": 3325,
+          "accuracy": 0.5927479772250525,
+          "logloss": 0.6646451895619543,
+          "brier": 0.23599211871623993,
+          "n": 3337,
           "per_year": {
             "2021": {
-              "accuracy": 0.6138433515482696,
-              "logloss": 0.6514996580779057,
-              "brier": 0.22961270809173584,
+              "accuracy": 0.6320582877959927,
+              "logloss": 0.6509022560673131,
+              "brier": 0.2292902171611786,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6344086021505376,
-              "logloss": 0.6458465791551522,
-              "brier": 0.227322518825531,
+              "accuracy": 0.6290322580645161,
+              "logloss": 0.6419357242348149,
+              "brier": 0.22543881833553314,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5701438848920863,
-              "logloss": 0.679810040900862,
-              "brier": 0.24309106171131134,
+              "accuracy": 0.5629496402877698,
+              "logloss": 0.6847211180293244,
+              "brier": 0.24519331753253937,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6014234875444839,
-              "logloss": 0.6548122480544956,
-              "brier": 0.23160457611083984,
+              "accuracy": 0.5889679715302492,
+              "logloss": 0.660014373881306,
+              "brier": 0.23400075733661652,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5932504440497336,
-              "logloss": 0.6654524006307893,
-              "brier": 0.23624524474143982,
+              "accuracy": 0.5825932504440497,
+              "logloss": 0.6682700123298692,
+              "brier": 0.23755985498428345,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5605214152700186,
-              "logloss": 0.6813525674112392,
-              "brier": 0.2441817671060562,
-              "n": 537
+              "accuracy": 0.5610200364298725,
+              "logloss": 0.6821611806501735,
+              "brier": 0.2445324957370758,
+              "n": 549
             }
           },
           "clean_subset": {
-            "accuracy": 0.5684725357411587,
-            "logloss": 0.6775558764944015,
-            "brier": 0.24221563339233398,
-            "n": 2658
+            "accuracy": 0.5640449438202247,
+            "logloss": 0.6785818773526031,
+            "brier": 0.24275195598602295,
+            "n": 2670
           }
         },
         "leak_check": {
@@ -973,7 +991,7 @@
             }
           ]
         },
-        "n_samples": 17768,
+        "n_samples": 17792,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -1010,6 +1028,15 @@
         "log_loss": 0.6664445117682734
       },
       "per_event": [
+        {
+          "event_id": 1134,
+          "name": "UFC Fight Night: Procházka vs. Stirling",
+          "event_date": "2026-11-21",
+          "n_picks": 12,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 12
+        },
         {
           "event_id": 1129,
           "name": "UFC 334: Gane vs. Hokit",
@@ -1198,53 +1225,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-11-13T21:02:44.154680",
+        "trained_at": "2026-11-20T21:02:09.949816",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6099248120300752,
-          "logloss": 0.6550808223190817,
-          "brier": 0.23158401250839233,
-          "n": 3325,
+          "accuracy": 0.6092298471681151,
+          "logloss": 0.656354837001186,
+          "brier": 0.232151061296463,
+          "n": 3337,
           "per_year": {
             "2021": {
-              "accuracy": 0.546448087431694,
-              "logloss": 0.6824371301769927,
-              "brier": 0.2444656491279602,
+              "accuracy": 0.5519125683060109,
+              "logloss": 0.6856284483898033,
+              "brier": 0.24595609307289124,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6093189964157706,
-              "logloss": 0.6572033141589759,
-              "brier": 0.23255547881126404,
+              "accuracy": 0.6057347670250897,
+              "logloss": 0.6589569555037833,
+              "brier": 0.23325484991073608,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5971223021582733,
-              "logloss": 0.6590040411703082,
-              "brier": 0.2335038185119629,
+              "accuracy": 0.6061151079136691,
+              "logloss": 0.6607434790658827,
+              "brier": 0.23424996435642242,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.6316725978647687,
-              "logloss": 0.649686128277602,
-              "brier": 0.22916415333747864,
+              "accuracy": 0.6263345195729537,
+              "logloss": 0.6489212348564031,
+              "brier": 0.22881080210208893,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.655417406749556,
-              "logloss": 0.6384345039713252,
-              "brier": 0.22387903928756714,
+              "accuracy": 0.650088809946714,
+              "logloss": 0.6400164577065625,
+              "brier": 0.2246820032596588,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6182495344506518,
-              "logloss": 0.6439438058184539,
-              "brier": 0.22602775692939758,
-              "n": 537
+              "accuracy": 0.6138433515482696,
+              "logloss": 0.6443564985375599,
+              "brier": 0.2261773943901062,
+              "n": 549
             }
           }
         },
@@ -1252,7 +1279,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17768,
+        "n_samples": 17792,
         "features": [
           "elo3_diff",
           "a_n_prior",
