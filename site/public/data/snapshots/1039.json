@@ -32,11 +32,11 @@
         "name": "Kyoji Horiguchi",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 36,
+        "record_wins": 37,
         "record_losses": 6,
         "record_draws": 0,
-        "current_elo_standard": 1597.21,
-        "current_elo_modified": 1606.29
+        "current_elo_standard": 1612.92,
+        "current_elo_modified": 1630.43
       },
       "predictions": [
         {
@@ -95,11 +95,11 @@
         "name": "Navajo Stirling",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 11,
+        "record_wins": 12,
         "record_losses": 0,
         "record_draws": 0,
-        "current_elo_standard": 1601.53,
-        "current_elo_modified": 1620.23
+        "current_elo_standard": 1615.95,
+        "current_elo_modified": 1642.87
       },
       "predictions": [
         {
