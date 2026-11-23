@@ -274,10 +274,10 @@
         "nickname": null,
         "weight_class": null,
         "record_wins": 15,
-        "record_losses": 3,
+        "record_losses": 4,
         "record_draws": 0,
-        "current_elo_standard": 1537.03,
-        "current_elo_modified": 1541.02
+        "current_elo_standard": 1520.28,
+        "current_elo_modified": 1520.7
       },
       "fighter_b": {
         "fighter_id": 30,
@@ -777,11 +777,11 @@
         "name": "Dom Mar Fan",
         "nickname": null,
         "weight_class": null,
-        "record_wins": 9,
+        "record_wins": 10,
         "record_losses": 3,
         "record_draws": 0,
-        "current_elo_standard": 1499.17,
-        "current_elo_modified": 1499.07
+        "current_elo_standard": 1516.06,
+        "current_elo_modified": 1518.7
       },
       "fighter_b": {
         "fighter_id": 46,
