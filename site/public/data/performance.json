@@ -16,6 +16,15 @@
       },
       "per_event": [
         {
+          "event_id": 1139,
+          "name": "UFC Fight Night: Adesanya vs Magomedov",
+          "event_date": "2026-12-05",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
+        {
           "event_id": 1134,
           "name": "UFC Fight Night: Procházka vs. Stirling",
           "event_date": "2026-11-21",
@@ -424,53 +433,53 @@
         "model_artifact": "xgb_v1.json",
         "description": "Baseline: pre-fight Elo ratings (standard + modified) and title-fight flag only.",
         "feature_set": "legacy",
-        "trained_at": "2026-11-20T21:02:04.508453",
+        "trained_at": "2026-11-27T21:01:37.152705",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5603835780641294,
-          "logloss": 0.6805570915864733,
-          "brier": 0.24367420375347137,
-          "n": 3337,
+          "accuracy": 0.5598686174977605,
+          "logloss": 0.681227738115733,
+          "brier": 0.24403108656406403,
+          "n": 3349,
           "per_year": {
             "2021": {
-              "accuracy": 0.5646630236794171,
-              "logloss": 0.6918356092764754,
-              "brier": 0.24866372346878052,
+              "accuracy": 0.5136612021857924,
+              "logloss": 0.6946412446154955,
+              "brier": 0.250124454498291,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.5663082437275986,
-              "logloss": 0.6746957386846016,
-              "brier": 0.24058915674686432,
+              "accuracy": 0.5627240143369175,
+              "logloss": 0.679011337333656,
+              "brier": 0.24271570146083832,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5773381294964028,
-              "logloss": 0.6855212148068255,
-              "brier": 0.24587184190750122,
+              "accuracy": 0.5665467625899281,
+              "logloss": 0.6838106415736808,
+              "brier": 0.24510698020458221,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5391459074733096,
-              "logloss": 0.6752970339126105,
-              "brier": 0.24141168594360352,
+              "accuracy": 0.5871886120996441,
+              "logloss": 0.6725636652126168,
+              "brier": 0.24015197157859802,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5737122557726465,
-              "logloss": 0.674163045411203,
-              "brier": 0.24097464978694916,
+              "accuracy": 0.5861456483126111,
+              "logloss": 0.6731974639707728,
+              "brier": 0.24042116105556488,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5409836065573771,
-              "logloss": 0.682150309448596,
-              "brier": 0.24467912316322327,
-              "n": 549
+              "accuracy": 0.5418894830659536,
+              "logloss": 0.6844842364411774,
+              "brier": 0.24581903219223022,
+              "n": 561
             }
           }
         },
@@ -478,7 +487,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17792,
+        "n_samples": 17816,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -500,6 +509,15 @@
         "log_loss": 0.7038297615162064
       },
       "per_event": [
+        {
+          "event_id": 1139,
+          "name": "UFC Fight Night: Adesanya vs Magomedov",
+          "event_date": "2026-12-05",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
         {
           "event_id": 1134,
           "name": "UFC Fight Night: Procházka vs. Stirling",
@@ -921,60 +939,60 @@
         "model_artifact": "xgb_v2.json",
         "description": "Elo + historical striking accuracy/volume/defense, takedown accuracy, and grappling aggression.",
         "feature_set": "legacy",
-        "trained_at": "2026-11-20T21:02:06.381078",
+        "trained_at": "2026-11-27T21:01:39.486348",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.5927479772250525,
-          "logloss": 0.6646451895619543,
-          "brier": 0.23599211871623993,
-          "n": 3337,
+          "accuracy": 0.5965959988056136,
+          "logloss": 0.662947476600635,
+          "brier": 0.235233873128891,
+          "n": 3349,
           "per_year": {
             "2021": {
-              "accuracy": 0.6320582877959927,
-              "logloss": 0.6509022560673131,
-              "brier": 0.2292902171611786,
+              "accuracy": 0.6102003642987249,
+              "logloss": 0.6509638306330703,
+              "brier": 0.22936676442623138,
               "n": 549
             },
             "2022": {
-              "accuracy": 0.6290322580645161,
-              "logloss": 0.6419357242348149,
-              "brier": 0.22543881833553314,
+              "accuracy": 0.6344086021505376,
+              "logloss": 0.6447991014121205,
+              "brier": 0.22681260108947754,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.5629496402877698,
-              "logloss": 0.6847211180293244,
-              "brier": 0.24519331753253937,
+              "accuracy": 0.5737410071942446,
+              "logloss": 0.6812821829501491,
+              "brier": 0.24367251992225647,
               "n": 556
             },
             "2024": {
-              "accuracy": 0.5889679715302492,
-              "logloss": 0.660014373881306,
-              "brier": 0.23400075733661652,
+              "accuracy": 0.6103202846975089,
+              "logloss": 0.6553533291299347,
+              "brier": 0.23186354339122772,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.5825932504440497,
-              "logloss": 0.6682700123298692,
-              "brier": 0.23755985498428345,
+              "accuracy": 0.5914742451154529,
+              "logloss": 0.6636573134908897,
+              "brier": 0.23528361320495605,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.5610200364298725,
-              "logloss": 0.6821611806501735,
-              "brier": 0.2445324957370758,
-              "n": 549
+              "accuracy": 0.5597147950089126,
+              "logloss": 0.6814501343018368,
+              "brier": 0.24431459605693817,
+              "n": 561
             }
           },
           "clean_subset": {
-            "accuracy": 0.5640449438202247,
-            "logloss": 0.6785818773526031,
-            "brier": 0.24275195598602295,
-            "n": 2670
+            "accuracy": 0.569351230425056,
+            "logloss": 0.6770505872436887,
+            "brier": 0.24201591312885284,
+            "n": 2682
           }
         },
         "leak_check": {
@@ -1007,7 +1025,7 @@
             }
           ]
         },
-        "n_samples": 17792,
+        "n_samples": 17816,
         "features": [
           "elo_std_pre_a",
           "elo_mod_pre_a",
@@ -1044,6 +1062,15 @@
         "log_loss": 0.6590663586686227
       },
       "per_event": [
+        {
+          "event_id": 1139,
+          "name": "UFC Fight Night: Adesanya vs Magomedov",
+          "event_date": "2026-12-05",
+          "n_picks": 14,
+          "n_correct": 0,
+          "n_wrong": 0,
+          "n_pending": 14
+        },
         {
           "event_id": 1134,
           "name": "UFC Fight Night: Procházka vs. Stirling",
@@ -1249,53 +1276,53 @@
         "model_artifact": "xgb_v3.json",
         "description": "Tuned Elo + fight history (experience, win rate, finish rate, KO losses, layoff, streak, recent form, age). No fighter_stats.",
         "feature_set": "v3",
-        "trained_at": "2026-11-20T21:02:09.949816",
+        "trained_at": "2026-11-27T21:01:43.591786",
         "evaluation": {
           "method": "walk_forward",
           "test_years": [
             2021,
             2026
           ],
-          "accuracy": 0.6092298471681151,
-          "logloss": 0.656354837001186,
-          "brier": 0.232151061296463,
-          "n": 3337,
+          "accuracy": 0.6046581068975814,
+          "logloss": 0.6560032198961538,
+          "brier": 0.2320241779088974,
+          "n": 3349,
           "per_year": {
             "2021": {
-              "accuracy": 0.5519125683060109,
-              "logloss": 0.6856284483898033,
-              "brier": 0.24595609307289124,
+              "accuracy": 0.5336976320582878,
+              "logloss": 0.6850142222610814,
+              "brier": 0.24568837881088257,
               "n": 549
             },
             "2022": {
               "accuracy": 0.6057347670250897,
-              "logloss": 0.6589569555037833,
-              "brier": 0.23325484991073608,
+              "logloss": 0.6600247863338526,
+              "brier": 0.23390521109104156,
               "n": 558
             },
             "2023": {
-              "accuracy": 0.6061151079136691,
-              "logloss": 0.6607434790658827,
-              "brier": 0.23424996435642242,
+              "accuracy": 0.5953237410071942,
+              "logloss": 0.6582045108043076,
+              "brier": 0.23315490782260895,
               "n": 556
             },
             "2024": {
               "accuracy": 0.6263345195729537,
-              "logloss": 0.6489212348564031,
-              "brier": 0.22881080210208893,
+              "logloss": 0.6479650283889064,
+              "brier": 0.22829903662204742,
               "n": 562
             },
             "2025": {
-              "accuracy": 0.650088809946714,
-              "logloss": 0.6400164577065625,
-              "brier": 0.2246820032596588,
+              "accuracy": 0.6447602131438721,
+              "logloss": 0.6414999687524211,
+              "brier": 0.22540894150733948,
               "n": 563
             },
             "2026": {
-              "accuracy": 0.6138433515482696,
-              "logloss": 0.6443564985375599,
-              "brier": 0.2261773943901062,
-              "n": 549
+              "accuracy": 0.6203208556149733,
+              "logloss": 0.6440385174103789,
+              "brier": 0.22603106498718262,
+              "n": 561
             }
           }
         },
@@ -1303,7 +1330,7 @@
           "passed": true,
           "flagged": []
         },
-        "n_samples": 17792,
+        "n_samples": 17816,
         "features": [
           "elo3_diff",
           "a_n_prior",

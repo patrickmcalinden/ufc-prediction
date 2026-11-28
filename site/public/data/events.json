@@ -1,5 +1,13 @@
 [
   {
+    "event_id": 1139,
+    "espn_event_id": "600062700",
+    "name": "UFC Fight Night: Adesanya vs Magomedov",
+    "location": "ANB Arena, Riyadh, Saudi Arabia",
+    "event_date": "2026-12-05",
+    "deployed_at": "2026-11-28T02:01:43.607953+00:00"
+  },
+  {
     "event_id": 1134,
     "espn_event_id": "600061665",
     "name": "UFC Fight Night: Procházka vs. Stirling",
